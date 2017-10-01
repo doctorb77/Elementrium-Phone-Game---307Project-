@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 5f58d2c93c81e4f9cb44df862b57bb75
+timeCreated: 1506871400
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Hobo Std
+  fontNames:
+  - Hobo Std
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
