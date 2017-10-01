@@ -114,7 +114,6 @@
     <None Include="Assets\Prefabs\readme.txt" />
     <None Include="Assets\Scenes\readme.txt" />
     <None Include="Assets\Scripts\readme.txt" />
-    <None Include="Assets\Sprites\readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
