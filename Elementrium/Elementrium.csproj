@@ -104,10 +104,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Backpack.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\LeftMenu.cs" />
     <Compile Include="Assets\Scripts\RightMenu.cs" />
     <Compile Include="Assets\Scripts\TopMenu.cs" />
+    <Compile Include="Assets\Scripts\Trium.cs" />
     <Compile Include="Assets\Scripts\Wormhole.cs" />
   </ItemGroup>
   <ItemGroup>
