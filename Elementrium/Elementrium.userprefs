@@ -1,13 +1,16 @@
 ﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Backpack.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/TopMenu1.cs">
     <Files>
-      <File FileName="Assets/Scripts/Wormhole.cs" Line="7" Column="5" />
-      <File FileName="Assets/Scripts/LeftMenu.cs" Line="33" Column="55" />
-      <File FileName="Assets/Scripts/ChangeScene.cs" Line="22" Column="61" />
-      <File FileName="Assets/Scripts/RightMenu.cs" Line="23" Column="9" />
-      <File FileName="Assets/Scripts/TopMenu.cs" Line="50" Column="45" />
+      <File FileName="Assets/Scripts/Wormhole.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LeftMenu.cs" Line="46" Column="60" />
+      <File FileName="Assets/Scripts/ChangeScene.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/RightMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/TopMenu.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Trium.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Backpack.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/LeftMenu1.cs" Line="34" Column="6" />
+      <File FileName="Assets/Scripts/RightMenu1.cs" Line="19" Column="5" />
+      <File FileName="Assets/Scripts/TopMenu1.cs" Line="6" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
