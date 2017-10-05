@@ -8,7 +8,7 @@ public class RightMenu1 : MonoBehaviour
 
     public GameObject Menu;
     public Animator anim;
-    public bool isOn;
+    public static bool isOn;
 
     // Use this for initialization
     void Start()
@@ -17,19 +17,19 @@ public class RightMenu1 : MonoBehaviour
         isOn = false;
     }
 
-	public void Play()
-	{
-		if (!isOn)
-		{
-			anim.Play("RightMenuSlideIn");
-			isOn = true;
+    public void Play()
+    {
+        if (!isOn)
+        {
+            anim.Play("RightMenuSlideIn");
+            isOn = true;
 
-		}
-		else
-		{
-			anim.Play("RightSideRetract");
-			isOn = false;
-		}
+        }
+        else
+        {
+            anim.Play("RightSideRetract");
+            isOn = false;
+        }
+    }
 
-	}
 }

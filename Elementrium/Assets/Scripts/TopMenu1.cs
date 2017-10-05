@@ -23,7 +23,7 @@ public class TopMenu1 : MonoBehaviour {
 			anim.Play("TopMenuDropDown");
 			menuIsOn = true;
 		}
-        else
+        else if (menuIsOn && !settingsIsOn)
 		{
 			anim.Play("TopMenuRetract");
 			menuIsOn = false;
@@ -35,7 +35,7 @@ public class TopMenu1 : MonoBehaviour {
 			anim.Play("TopSettingsDropDown");
 			settingsIsOn = true;
 		}
-        else
+        else if (settingsIsOn && !menuIsOn)
 		{
 			anim.Play("TopSettingsRetract");
 			settingsIsOn = false;
