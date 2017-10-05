@@ -103,6 +103,7 @@
 'Assets/Scripts/ButtonListButton.cs'
 'Assets/Scripts/ButtonListControl.cs'
 'Assets/Scripts/ChangeScene.cs'
+'Assets/Scripts/CosmicRanch.cs'
 'Assets/Scripts/Glossary.cs'
 'Assets/Scripts/LeftMenu.cs'
 'Assets/Scripts/LeftMenu1.cs'

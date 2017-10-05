@@ -53,6 +53,7 @@
 /Users/vinsonluo/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.HoloLens.xml
 /Users/vinsonluo/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Mono.Security.dll.mdb
 /Users/vinsonluo/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/vinsonluo/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_obj/Debug/Elementrium.csprojResolveAssemblyReference.cache
 /Users/vinsonluo/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_obj/Debug/Elementrium.csproj.CoreCompileInputs.cache
 /Users/vinsonluo/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_obj/Debug/Assembly-CSharp.dll
 /Users/vinsonluo/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_obj/Debug/Assembly-CSharp.pdb
