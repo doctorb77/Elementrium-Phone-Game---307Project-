@@ -8,7 +8,7 @@ public class ButtonListControl : MonoBehaviour
 
     [SerializeField]
     private GameObject buttonTemplate;
-    private string buttonName;
+    public string buttonName;
 
     void Start()
     {
@@ -22,5 +22,7 @@ public class ButtonListControl : MonoBehaviour
             button.transform.SetParent(buttonTemplate.transform.parent, false);
         }
     }
+
+
 
 }

@@ -501,8 +501,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu: {fileID: 60621100}
   anim: {fileID: 60621103}
-  inGroup: 0
-  inReaction: 0
 --- !u!95 &60621103
 Animator:
   serializedVersion: 3
@@ -2301,6 +2299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonTemplate: {fileID: 934321827}
+  buttonName: 
 --- !u!114 &747987160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7775,6 +7774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonTemplate: {fileID: 994302547}
+  buttonName: 
 --- !u!1 &1436598941
 GameObject:
   m_ObjectHideFlags: 0
@@ -8639,7 +8639,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 16a520def5fd64cdb83c03e5bab11fea, type: 3}
-  m_Color: {r: 0.20963484, g: 0, b: 0.5735294, a: 1}
+  m_Color: {r: 0.047, g: 0.153, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8918,7 +8918,7 @@ Transform:
   m_GameObject: {fileID: 1720556904}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 35, y: 35, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 0}
   m_Children: []
   m_Father: {fileID: 1558435223}
   m_RootOrder: 0
@@ -8955,7 +8955,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 3d1a097fbafef4411893c6813b366905, type: 3}
   m_Color: {r: 0, g: 0.008793523, b: 0.45588237, a: 1}
   m_FlipX: 0
   m_FlipY: 0
