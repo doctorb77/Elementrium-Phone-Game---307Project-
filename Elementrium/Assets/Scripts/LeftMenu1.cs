@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using StateHandling;
 
 public class LeftMenu1 : MonoBehaviour
 {
@@ -36,9 +37,11 @@ public class LeftMenu1 : MonoBehaviour
     public void ToGlossary()
     {
         SceneManager.LoadScene("Glossary");
+        StateHandler.setCurrentState("Glossary", true, true);
     }
     public void ToAchievements()
     {
         SceneManager.LoadScene("Achievements");
+        StateHandler.setCurrentState("Achievements", true, true);
     }
 }

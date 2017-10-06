@@ -11,12 +11,12 @@ namespace StateHandling
 {
     public class StateHandler : MonoBehaviour
     {
-        public State currentstate;
+        public static State currentstate;
         public static List<State> states;
 
         void Start()
         {
-            
+
         }
 
         public StateHandler()
@@ -29,7 +29,7 @@ namespace StateHandling
             states.Add(sSB);
             State sS = new State("Settings");
             states.Add(sS);
-            State sA = new State("Achievement");
+            State sA = new State("Achievements");
             states.Add(sA);
             State sMM = new State("MainMenu");
             states.Add(sMM);
@@ -45,14 +45,17 @@ namespace StateHandling
             states.Add(sGr);
             State sR = new State("Reaction");
             states.Add(sR);
-            State sMGS = new State("Main Game Scene");
+            State sMGS = new State("MainGameScene");
             states.Add(sMGS);
+            State sRS = new State("RewardScene");
+            states.Add(sRS);
+                //locks everything until display goes away
         }
         public static State GetCurrentState()
         {
-           // State[] st = new State[12];
+            // State[] st = new State[12];
             //int counter = 0;
-            foreach(State s in states)
+            foreach (State s in states)
             {
                 if (s.isActive == true)
                 {
@@ -63,6 +66,27 @@ namespace StateHandling
             }
             return null;
         }
+        public static void setCurrentState(String name, Boolean visible, Boolean active)
+        {
+            if (currentstate != null)
+            {
+                currentstate.isActive = false;
+                currentstate.isVisible = false;
+                currentstate = null;
+            }
+            foreach (State s in states)
+            {
+                if (s.name == name)
+                {
+                    s.isVisible = visible;
+                    s.isActive = active;
 
+                }
+                if (s.isActive == true)
+                {
+                    currentstate = s;
+                }
+            }
+        }
     }
 }

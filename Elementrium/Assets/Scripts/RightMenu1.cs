@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using StateHandling;
 
 public class RightMenu1 : MonoBehaviour
 {
@@ -23,12 +24,14 @@ public class RightMenu1 : MonoBehaviour
         {
             anim.Play("RightMenuSlideIn");
             isOn = true;
+            StateHandler.setCurrentState("ActionBar", true, true);
 
         }
         else
         {
             anim.Play("RightSideRetract");
             isOn = false;
+            StateHandler.setCurrentState("MainGameScene", true, true);
         }
     }
 
