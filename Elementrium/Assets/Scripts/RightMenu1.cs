@@ -31,9 +31,11 @@ public class RightMenu1 : MonoBehaviour
         }
         else
         {
-            anim.Play("RightSideRetract");
-            isOn = false;
-            StateHandler.setCurrentState("MainGameScene", true, true);
+			if (!ScrollList.inGroup && !ScrollList.inReaction) {
+				anim.Play ("RightSideRetract");
+				isOn = false;
+				StateHandler.setCurrentState ("MainGameScene", true, true);
+			}
         }
     }
     public void InteractFusion() 
@@ -43,6 +45,7 @@ public class RightMenu1 : MonoBehaviour
             anim.Play("RightSideRetract");
             isOn = false;
             inFusion = true;
+			StateHandler.setCurrentState ("Fusion", true, true);
         }
     }
 }

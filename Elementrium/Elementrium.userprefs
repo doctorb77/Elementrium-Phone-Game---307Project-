@@ -1,21 +1,22 @@
 ﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AtomSelect.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CosmicRanch.cs">
     <Files>
-      <File FileName="Assets/Scripts/StateHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StateHandler.cs" Line="7" Column="7" />
       <File FileName="Assets/Scripts/Backpack.cs" Line="17" Column="39" />
-      <File FileName="Assets/Scripts/Fusion.cs" Line="22" Column="13" />
-      <File FileName="Assets/Scripts/Group.cs" Line="8" Column="12" />
-      <File FileName="Assets/Scripts/Reaction.cs" Line="14" Column="62" />
-      <File FileName="Assets/Scripts/Trium.cs" Line="19" Column="1" />
-      <File FileName="Assets/Scripts/RightMenu1.cs" Line="45" Column="29" />
-      <File FileName="Assets/Scripts/Selection.cs" Line="9" Column="9" />
-      <File FileName="Assets/Scripts/ScrollList.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/AtomSelect.cs" Line="39" Column="13" />
+      <File FileName="Assets/Scripts/Wormhole.cs" Line="190" Column="17" />
+      <File FileName="Assets/Scripts/StartGame.cs" Line="70" Column="14" />
+      <File FileName="Assets/Scripts/CosmicRanch.cs" Line="42" Column="77" />
+      <File FileName="Assets/Scripts/Glossary.cs" Line="93" Column="47" />
+      <File FileName="Assets/Scripts/ButtonListControl.cs" Line="77" Column="24" />
+      <File FileName="Assets/Scripts/Buddy.cs" Line="72" Column="29" />
+      <File FileName="Assets/Scripts/BuddyBehavior.cs" Line="17" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/vinsonluo/Documents/GitHub/307Project/Elementrium/Assets/Scripts/CosmicRanch.cs" relfile="Assets/Scripts/CosmicRanch.cs" line="43" column="36" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

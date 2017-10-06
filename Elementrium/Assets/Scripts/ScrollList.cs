@@ -7,8 +7,8 @@ public class ScrollList : MonoBehaviour
 
     public GameObject Menu;
     public Animator anim;
-    public bool inGroup;
-    public bool inReaction;
+    public static bool inGroup;
+    public static bool inReaction;
     public ButtonListControl buttonListControl;
 
     // Use this for initialization

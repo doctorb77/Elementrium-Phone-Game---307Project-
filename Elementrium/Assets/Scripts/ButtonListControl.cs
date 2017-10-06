@@ -1,7 +1,12 @@
 ﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TriumObject;
+using BackpackObject;
+using Initialization;
+
 
 public class ButtonListControl : MonoBehaviour
 {
@@ -41,4 +46,35 @@ public class ButtonListControl : MonoBehaviour
             buttons.Add(button);
         }
     }
+
+    public void PopulateAtomList (SortedDictionary<int, int> sd) 
+    {
+        // <atomic Number, Database row ID>
+        foreach (KeyValuePair<int, int> entry in sd)
+        {
+            // Key is the Database row ID of the pair
+            Trium t = Initialize.player.getTrium(entry.Value);
+            GameObject button = Instantiate(buttonTemplate) as GameObject;
+            button.SetActive(true);
+            button.GetComponent<ButtonListButton>().SetText(t.getName());
+			button.transform.SetParent(buttonTemplate.transform.parent, false);
+			buttons.Add(button);
+		}
+        
+    }
+
+	public void PopulateCompoundList(SortedDictionary<string, int> sd)
+	{
+		// <Name, Database row ID>
+		foreach (KeyValuePair<string, int> entry in sd)
+		{
+			// Key is the Database row ID of the pair
+			Trium t = Initialize.player.getTrium(entry.Value);
+			GameObject button = Instantiate(buttonTemplate) as GameObject;
+			button.SetActive(true);
+			button.GetComponent<ButtonListButton>().SetText(t.getName());
+			button.transform.SetParent(buttonTemplate.transform.parent, false);
+			buttons.Add(button);
+		}
+	}
 }

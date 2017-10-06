@@ -54,7 +54,7 @@ public class AtomSelect : MonoBehaviour {
 
 		//StateHandler sh = new StateHandler();
 
-		Buddy b = new Buddy();
+		//Buddy b = new Buddy();
 		//find in cosmic ranch arraylist = EventSystem.current.currentSelectedGameObject.name;
 		//b.buddy.name = //currentbuddy
 

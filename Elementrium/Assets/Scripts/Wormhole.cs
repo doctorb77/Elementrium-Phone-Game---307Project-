@@ -7,6 +7,8 @@ using BackpackObject;
 using TriumObject;
 using Assets.Scripts;
 using System;
+using Ranch;
+using Initialization;
 
 namespace WormholeObject {
     
@@ -15,6 +17,7 @@ namespace WormholeObject {
 
         public float speed = 5f;
         public GameObject ws;
+        public CosmicRanch cr = Initialize.ranch;
 		private int rangeStart;         // The beginning of the range
 		private int rangeEnd;           // The end of the range
 										// private int wormholeLevel;      // The level of the wormhole
@@ -143,10 +146,10 @@ namespace WormholeObject {
 				break;
 			}
 
-            print(rowID);
-            print(name);
-            print(formula);
-            print(AtomicNumber);
+            //print(rowID);
+            //print(name);
+            //print(formula);
+            //print(AtomicNumber);
 			if (rowID == -1 || name == "none" || formula == "none" || AtomicNumber == -1)
 			{
 				return;
@@ -172,10 +175,22 @@ namespace WormholeObject {
             actual.transform.SetParent(ws.transform, true);
             //buddy.transform.SetParent(buttonTemplate.transform.parent, false);
 
-            float x = (float)(UnityEngine.Random.value - 0.5) * 900;
-            float y = (float)(UnityEngine.Random.value - 0.5) * 900;
+            float x = (float)(UnityEngine.Random.value - 0.5) * 4;
+            float y = (float)(UnityEngine.Random.value - 0.5) * 4;
 
-            actual.transform.localPosition = new Vector3(x, y, 0);
+            actual.transform.localPosition = new Vector3(x, y, -1);
+
+            Buddy bud = new Buddy(0, x, y, AtomicNumber, name, actual, false, false);
+            //cr.GetComponent<CosmicRanch>().AddBuddyToList(bud);
+
+            Initialize.ranch.AddBuddyToList(bud);
+            foreach (Buddy b in Initialize.buddyList)
+            {   
+                print(b == null);
+
+            }
+
+            print(Initialize.buddyList.Count);
 
             /**********      END DATABASE SECTION      **********/
 

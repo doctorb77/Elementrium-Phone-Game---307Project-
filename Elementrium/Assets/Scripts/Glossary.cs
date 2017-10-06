@@ -6,28 +6,27 @@ using UnityEngine.SceneManagement;
 using StateHandling;
 using TriumObject;
 using BackpackObject;
+using Initialization;
 
 namespace GlossaryObject
 {
 
-    public class Glossary : MonoBehaviour
+    public class Glossary: MonoBehaviour
     {
 
-		private Backpack bp;            // The user's backpack
+		//private Backpack bp;            // The user's backpack
 
-		public Glossary(Backpack bp)
+		//public Glossary(Backpack bp)
+		//{
+		//	this.bp = bp;
+		//}
+
+
+
+		public SortedDictionary<int, int> getSortedAtomicGlossary()
 		{
-			this.bp = bp;
-		}
 
-
-		public SortedDictionary<int, int> getSortedAtomicGlossary(Backpack backpack)
-		{
-
-			// Make new ilst of int, int (atomicNumber, tableID)
-			// Go in order of atomic number
-			// add to hashtable
-			// return atomic hashtable sorted by atomic number
+            Backpack backpack = Initialize.player;
 
 
 			SortedDictionary<int, int> sd = new SortedDictionary<int, int>();
@@ -51,13 +50,11 @@ namespace GlossaryObject
 			return sd;
 		}
 
-		public SortedDictionary<string, int> getSortedCompoundGlossary(Backpack backpack)
+		public SortedDictionary<string, int> getSortedCompoundGlossary()
 		{
 
-			// make new ArrayList of Strings
-			// go in order of compound name
-			// add to hashtable
-			// return sorted by 
+
+            Backpack backpack = Initialize.player;
 
 			SortedDictionary<string, int> sd = new SortedDictionary<string, int>();
 
@@ -93,6 +90,7 @@ namespace GlossaryObject
         {
             onTab = 1;
             buttonListControl.PopulateList("Atom");
+            print(Initialize.buddyList.Count);
         }
 
         public void GlossaryTabs()
@@ -101,7 +99,7 @@ namespace GlossaryObject
             {
                 if (onTab == 2)
                 {
-                    buttonListControl.PopulateList("Atom");
+                    buttonListControl.PopulateAtomList(getSortedAtomicGlossary());
                     onTab = 1;
                 }
 
@@ -110,7 +108,7 @@ namespace GlossaryObject
             {
                 if (onTab == 1)
                 {
-                    buttonListControl.PopulateList("Molecule");
+                    buttonListControl.PopulateCompoundList(getSortedCompoundGlossary());
                     onTab = 2;
                 }
             }

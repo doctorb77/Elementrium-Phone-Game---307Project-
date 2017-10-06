@@ -5,33 +5,35 @@ using System.Text;
 using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts {
+namespace Assets.Scripts
+{
 
-    public class Buddy:MonoBehaviour
+    public class Buddy
     {
         public float velocity;
         public float xpos;
         public float ypos;
-        public int id;
+        public int ID;
         public String triumname;
         public GameObject buddy;
-        public ArrayList faceXYoff;
-        public Boolean selected;
+        public bool faceXYoff;
+        public bool selected;
 
-        public void Start()
-        {
-            selected = false;
-            buddy = gameObject;
-        }
+        //public void Start()
+        //{
+        //    selected = false;
+        //    buddy = gameObject;
+        //}
 
         public void Update()
         {
-            
+
 
             if (selected)
             {
                 buddy.GetComponent<SpriteRenderer>().color = Color.green;
-            } else
+            }
+            else
             {
                 buddy.GetComponent<SpriteRenderer>().color = Color.white;
             }
@@ -42,11 +44,34 @@ namespace Assets.Scripts {
             selected = !selected;
         }
 
-        public Buddy()
+        public Buddy(float v, float x, float y, int id, String name, GameObject b, bool f, bool s)
         {
-            //buddy = gameObject;
+            velocity = v;
+            xpos = x;
+            ypos = y;
+            ID = id;
+            triumname = name;
+            buddy = b;
+            faceXYoff = f;
+            selected = s;
         }
 
+        public string getName() {
+            return triumname;
+        }
+        public int getID () {
+            return ID;
+        }
+        public GameObject getObject () {
+            return buddy;
+        }
+        public bool getFace() {
+            return faceXYoff;
+        }
+        public bool getSelect() {
+            return selected;
+        }
+        /*
         public Buddy(GameObject trium)
         {
             //buddy = trium;
@@ -54,9 +79,9 @@ namespace Assets.Scripts {
 
         public Buddy(String trium)
         {
-            buddy = (GameObject) Instantiate(Resources.Load("Prefab/Trium/" + trium));
+            buddy = (GameObject)Instantiate(Resources.Load("Prefab/Trium/" + trium));
         }
-
+        */
         public float getVelocity()
         {
             return this.velocity;
@@ -82,4 +107,5 @@ namespace Assets.Scripts {
             this.ypos = ypos2;
         }
     }
+
 }
