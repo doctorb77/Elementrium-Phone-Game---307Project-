@@ -24,38 +24,42 @@ public class AtomSelect : MonoBehaviour {
 	
     public void InteractAtom()
     {
+        /*
         if (EventSystem.current.currentSelectedGameObject.name.Contains("AtomButton"))
         {
-            State current = StateHandler.GetCurrentState();
-
-            if (current.name == "Fusion")
-            {
-                //confirm button work, click, call FusionHandler.fuse()
-               // StateHandler.setCurrentState("Fusion", true, true);
-            }
-            if (current.name == "Group")
-            {
-                //grouping function
-            }
-            if (current.name == "Reaction")
-            {
-                //reaction function
-            }
-            if (current.name == "Main Game Scene")
-            {
-                //zoomin only time
-                StateHandler.setCurrentState("ZoomIn", true, true);
-            }
-
-            //StateHandler sh = new StateHandler();
-            
-            Buddy b = new Buddy();
-            //find in cosmic ranch arraylist = EventSystem.current.currentSelectedGameObject.name;
-            //b.buddy.name = //currentbuddy
-
             
         }
-    }
+        */
+        State current = StateHandler.GetCurrentState();
+
+		if (current.name == "Fusion")
+		{
+			//confirm button work, click, call FusionHandler.fuse()
+			//StateHandler.setCurrentState("Fusion", true, true);
+
+		}
+		if (current.name == "Group")
+		{
+			//grouping function
+		}
+		if (current.name == "Reaction")
+		{
+			//reaction function
+		}
+		if (current.name == "Main Game Scene")
+		{
+			//zoomin only time
+			StateHandler.setCurrentState("ZoomIn", true, true);
+		}
+
+		//StateHandler sh = new StateHandler();
+
+		Buddy b = new Buddy();
+		//find in cosmic ranch arraylist = EventSystem.current.currentSelectedGameObject.name;
+		//b.buddy.name = //currentbuddy
+
+
+	}
 
 	// Update is called once per frame
 	void Update () {

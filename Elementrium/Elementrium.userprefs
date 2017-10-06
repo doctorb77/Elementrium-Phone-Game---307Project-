@@ -1,15 +1,16 @@
 ﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Glossary.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/AtomSelect.cs">
     <Files>
-      <File FileName="Assets/Scripts/AtomSelect.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Buddy.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/State.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StateHandler.cs" Line="66" Column="9" />
-      <File FileName="Assets/Scripts/LeftMenu1.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/RightMenu1.cs" Line="26" Column="1" />
-      <File FileName="Assets/Scripts/TopMenu1.cs" Line="45" Column="10" />
-      <File FileName="Assets/Scripts/ScrollList.cs" Line="28" Column="42" />
-      <File FileName="Assets/Scripts/Glossary.cs" Line="16" Column="9" />
+      <File FileName="Assets/Scripts/StateHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Backpack.cs" Line="17" Column="39" />
+      <File FileName="Assets/Scripts/Fusion.cs" Line="22" Column="13" />
+      <File FileName="Assets/Scripts/Group.cs" Line="8" Column="12" />
+      <File FileName="Assets/Scripts/Reaction.cs" Line="14" Column="62" />
+      <File FileName="Assets/Scripts/Trium.cs" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/RightMenu1.cs" Line="45" Column="29" />
+      <File FileName="Assets/Scripts/Selection.cs" Line="9" Column="9" />
+      <File FileName="Assets/Scripts/ScrollList.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AtomSelect.cs" Line="39" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
