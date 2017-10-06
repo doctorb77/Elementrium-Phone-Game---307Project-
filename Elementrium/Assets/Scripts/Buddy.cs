@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class Buddy
+    public class Buddy:MonoBehaviour
     {
         public float velocity;
         public float xpos;
@@ -16,10 +16,45 @@ namespace Assets.Scripts
         public String triumname;
         public GameObject buddy;
         public ArrayList faceXYoff;
+        public Boolean selected;
+
+        public void Start()
+        {
+            selected = false;
+            buddy = gameObject;
+        }
+
+        public void Update()
+        {
+            
+
+            if (selected)
+            {
+                buddy.GetComponent<SpriteRenderer>().color = Color.green;
+            } else
+            {
+                buddy.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
+
+        private void OnMouseDown()
+        {
+            selected = !selected;
+        }
 
         public Buddy()
         {
+            //buddy = gameObject;
+        }
 
+        public Buddy(GameObject trium)
+        {
+            //buddy = trium;
+        }
+
+        public Buddy(String trium)
+        {
+            buddy = (GameObject) Instantiate(Resources.Load("Prefab/Trium/" + trium));
         }
 
         public float getVelocity()
@@ -46,6 +81,5 @@ namespace Assets.Scripts
         {
             this.ypos = ypos2;
         }
-
     }
 }
