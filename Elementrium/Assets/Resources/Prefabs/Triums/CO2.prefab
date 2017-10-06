@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4760333033911884}
   - component: {fileID: 212796164852009956}
+  - component: {fileID: 58719083031830110}
+  - component: {fileID: 114373397211502896}
   m_Layer: 0
   m_Name: CO2
   m_TagString: Untagged
@@ -130,6 +132,39 @@ Transform:
   m_Father: {fileID: 4760333033911884}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58719083031830110
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021021947413734}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
+--- !u!114 &114373397211502896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021021947413734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501b73b5e33bd497f965e3dd6409a1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 0
+  xpos: 0
+  ypos: 0
+  id: 0
+  triumname: 
+  buddy: {fileID: 0}
+  selected: 0
 --- !u!212 &212090731289069486
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -5,6 +5,7 @@ using System.Data;
 using Mono.Data.Sqlite;
 using BackpackObject;
 using TriumObject;
+using Assets.Scripts;
 using System;
 
 namespace WormholeObject {
@@ -13,7 +14,7 @@ namespace WormholeObject {
     {
 
         public float speed = 5f;
-
+        public GameObject ws;
 		private int rangeStart;         // The beginning of the range
 		private int rangeEnd;           // The end of the range
 										// private int wormholeLevel;      // The level of the wormhole
@@ -33,7 +34,8 @@ namespace WormholeObject {
 
 		public int getStart()
 		{
-			return this.rangeStart;
+         
+            return this.rangeStart;
 		}
 
 		public int getEnd()
@@ -97,16 +99,18 @@ namespace WormholeObject {
 
 			System.Random rnd = new System.Random();
 
-			int atom = rnd.Next(rangeStart, rangeEnd + 1);
+			int atom = rnd.Next(1, 9);
+
+            //atom = 2;
 
 			/******** BEGIN DATABASE SECTION ********/
 
 			// TODO: SIMPLIFY IN SPRINT 2
 
-			string query = "SELECT t.ID, t.Name, e.AtomicNumber " +
-				"FROM Trium t" +
-				"INNER JOIN Element e ON e.ID = ISNULL(t.ElementID, -1)" +
-				"WHERE ISNULL(e.AtomicNumber, -1) = " + atom;
+			string query = "SELECT Trium.ID, Trium.Name, Trium.Formula, Element.AtomicNumber " +
+				"FROM Trium " +
+				"INNER JOIN Element ON Element.ID = IFNULL(Trium.ElementID, -1)" +
+				"WHERE IFNULL(Element.AtomicNumber, -1) = " + atom;
 
 			// Create new connection to database
 			string connection = "URI = file:" + Application.dataPath + "/Elementrium.db";
@@ -123,7 +127,8 @@ namespace WormholeObject {
 			IDataReader dbReader = dbCmd.ExecuteReader();
 
 			int rowID = -1;
-			string name = "none";
+			String name = "none";
+            String formula = "none";
 			int AtomicNumber = -1;
 
 			// Read dataset result
@@ -132,24 +137,49 @@ namespace WormholeObject {
 
 				rowID = dbReader.GetInt32(0);
 				name = dbReader.GetString(1);
-				AtomicNumber = dbReader.GetInt32(2);
+                formula = dbReader.GetString(2);
+				AtomicNumber = dbReader.GetInt32(3);
 
 				break;
 			}
 
-
-			if (rowID == -1 || name == "none" || AtomicNumber == -1)
+            print(rowID);
+            print(name);
+            print(formula);
+            print(AtomicNumber);
+			if (rowID == -1 || name == "none" || formula == "none" || AtomicNumber == -1)
 			{
 				return;
 			}
 
 			// Add newly generated atom to Backpack
-			bp.addToBackpack(rowID, name, AtomicNumber);
+			//bp.addToBackpack(rowID, name, AtomicNumber);
 
-			/********** TODO: CREATE BUDDY OBJECT HERE **********/
-			/**********      END DATABASE SECTION      **********/
+            /********** TODO: CREATE BUDDY OBJECT HERE **********/
 
-			return;
+            // Create le buddy
+
+            // Call the "add buddy" thingy in Initialize.ranch.<dank_method_name_here>
+
+            // winrar
+
+            print(formula);
+
+            //GameObject buddy = (GameObject)Instantiate(Resources.Load("Prefabs/Triums/"+formula));
+            formula = formula.Replace(" ", "");
+            GameObject buddy =  Resources.Load("Prefabs/Triums/"+formula) as GameObject;
+            GameObject actual = Instantiate(buddy);
+            actual.transform.SetParent(ws.transform, true);
+            //buddy.transform.SetParent(buttonTemplate.transform.parent, false);
+
+            float x = (float)(UnityEngine.Random.value - 0.5) * 900;
+            float y = (float)(UnityEngine.Random.value - 0.5) * 900;
+
+            actual.transform.localPosition = new Vector3(x, y, 0);
+
+            /**********      END DATABASE SECTION      **********/
+
+            return;
 
 
 
@@ -211,8 +241,14 @@ namespace WormholeObject {
 
 		}
 
+        // When Clicked
+        public void OnMouseDown()
+        {
+            //GetComponent<SpriteRenderer>().color = Color.green;
+            generateAtoms();
+        }
 
-		public void onTouchMethod()
+        public void onTouchMethod()
 		{
 			// STUFF RELATED TO TAPPING THE WORMHOLE
 			// Waiting for Vinson to coordinate this

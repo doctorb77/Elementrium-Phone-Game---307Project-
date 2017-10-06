@@ -853,6 +853,7 @@ MonoBehaviour:
   color:
     serializedVersion: 2
     rgba: 0
+  buddies: []
 --- !u!1 &139290421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,6 +2964,34 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 754880382}
+--- !u!1 &764401580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 764401581}
+  m_Layer: 0
+  m_Name: BuddyContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &764401581
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 764401580}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1558435223}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &770862678
 GameObject:
   m_ObjectHideFlags: 0
@@ -9051,6 +9080,7 @@ Transform:
   - {fileID: 1720556905}
   - {fileID: 1647680168}
   - {fileID: 1975173926}
+  - {fileID: 764401581}
   m_Father: {fileID: 133764493}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11570,6 +11600,7 @@ GameObject:
   - component: {fileID: 1975173926}
   - component: {fileID: 1975173928}
   - component: {fileID: 1975173927}
+  - component: {fileID: 1975173929}
   m_Layer: 0
   m_Name: Wormhole
   m_TagString: Untagged
@@ -11603,6 +11634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.25
+  ws: {fileID: 764401580}
 --- !u!212 &1975173928
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11645,6 +11677,21 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!58 &1975173929
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1975173925}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0000009536743}
+  serializedVersion: 2
+  m_Radius: 2.4849997
 --- !u!1 &1978459855
 GameObject:
   m_ObjectHideFlags: 0

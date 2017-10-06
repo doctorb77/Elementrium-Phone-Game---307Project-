@@ -36,6 +36,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4591992619303294}
   - component: {fileID: 212090368535435300}
+  - component: {fileID: 58043933213715188}
+  - component: {fileID: 114302315458710548}
   m_Layer: 0
   m_Name: CO
   m_TagString: Untagged
@@ -100,6 +102,39 @@ Transform:
   m_Father: {fileID: 4591992619303294}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58043933213715188
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376397560654174}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2
+--- !u!114 &114302315458710548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1376397560654174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 501b73b5e33bd497f965e3dd6409a1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: 0
+  xpos: 0
+  ypos: 0
+  id: 0
+  triumname: 
+  buddy: {fileID: 0}
+  selected: 0
 --- !u!212 &212090368535435300
 SpriteRenderer:
   m_ObjectHideFlags: 1
