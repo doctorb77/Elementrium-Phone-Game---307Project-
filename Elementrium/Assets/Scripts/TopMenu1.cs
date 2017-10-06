@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using StateHandling;
 
 public class TopMenu1 : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class TopMenu1 : MonoBehaviour
             {
                 anim.Play("TopSettingsDropDown");
                 settingsIsOn = true;
+                StateHandler.setCurrentState("Settings", true, true);
             }
             else if (settingsIsOn && !menuIsOn)
             {

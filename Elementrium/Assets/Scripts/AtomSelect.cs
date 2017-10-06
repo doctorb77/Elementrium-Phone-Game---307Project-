@@ -31,6 +31,7 @@ public class AtomSelect : MonoBehaviour {
             if (current.name == "Fusion")
             {
                 //confirm button work, click, call FusionHandler.fuse()
+               // StateHandler.setCurrentState("Fusion", true, true);
             }
             if (current.name == "Group")
             {
@@ -43,6 +44,7 @@ public class AtomSelect : MonoBehaviour {
             if (current.name == "Main Game Scene")
             {
                 //zoomin only time
+                StateHandler.setCurrentState("ZoomIn", true, true);
             }
 
             //StateHandler sh = new StateHandler();

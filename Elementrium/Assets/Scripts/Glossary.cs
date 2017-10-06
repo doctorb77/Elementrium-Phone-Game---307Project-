@@ -13,7 +13,7 @@ public class Glossary : MonoBehaviour {
 	public void ExitGlossary()
 	{
 		SceneManager.LoadScene("MainGameScene");
-
+        StateHandler.setCurrentState("MainGameScene",true,true);
 	}
 	void Start()
 	{
