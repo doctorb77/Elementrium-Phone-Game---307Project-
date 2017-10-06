@@ -5,15 +5,27 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: 
+    guid: fed9317fcaf664442b20431fd3b87193
+  - enabled: 0
+    path: Assets/Scenes/MainGameSpace_Backup.unity
+    guid: 362c4a6f5f39e40dda3e933f8b34d297
+  - enabled: 0
+    path: 
+    guid: 26edc16cbb1aa49969d7e4702f0df136
+  - enabled: 0
+    path: 
+    guid: f44f9ddeac6724953bfab8c78ccb4b60
   - enabled: 1
     path: Assets/Scenes/StartingMenu.unity
-    guid: fed9317fcaf664442b20431fd3b87193
-  - enabled: 1
-    path: Assets/Scenes/MainGameSpace.unity
-    guid: 362c4a6f5f39e40dda3e933f8b34d297
-  - enabled: 1
-    path: Assets/Scenes/Glossary.unity
-    guid: 26edc16cbb1aa49969d7e4702f0df136
+    guid: 8896e35e4a31e414a8c61c13aa13ed84
   - enabled: 1
     path: Assets/Scenes/Achievements.unity
-    guid: f44f9ddeac6724953bfab8c78ccb4b60
+    guid: 306c40e855da54275afcf9b9074ebf09
+  - enabled: 1
+    path: Assets/Scenes/Glossary.unity
+    guid: 9b95dce86404e42a1a34a17073ce5554
+  - enabled: 1
+    path: Assets/Scenes/MainGameScene.unity
+    guid: 637d5310d845d475d9d44b26cfd3b631
