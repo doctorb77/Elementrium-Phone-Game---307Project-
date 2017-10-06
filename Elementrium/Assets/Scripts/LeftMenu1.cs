@@ -26,16 +26,19 @@ public class LeftMenu1 : MonoBehaviour
             isOn = true;
 
         }
-        else {
+        else
+        {
             anim.Play("LeftMenuRetract");
             isOn = false;
         }
-          
+
     }
-    public void ToGlossary () {
+    public void ToGlossary()
+    {
         SceneManager.LoadScene("Glossary");
     }
-    public void ToAchievements () {
+    public void ToAchievements()
+    {
         SceneManager.LoadScene("Achievements");
     }
 }

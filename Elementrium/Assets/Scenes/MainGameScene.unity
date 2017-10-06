@@ -580,6 +580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Menu: {fileID: 60621100}
   anim: {fileID: 60621103}
+  buttonListControl: {fileID: 747987159}
 --- !u!95 &60621103
 Animator:
   serializedVersion: 3
@@ -812,7 +813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &133764493
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2333,10 +2334,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 1727656328396804, guid: d54f18ceee1df4e979177f55ed70231c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d54f18ceee1df4e979177f55ed70231c, type: 2}
   m_IsPrefabParent: 0
@@ -2775,7 +2772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonTemplate: {fileID: 934321827}
-  buttonName: 
+  intArray: 0100000002000000030000000400000005000000060000000700000008000000090000000a000000
+  buttonText: 
 --- !u!114 &747987160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8511,7 +8509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonTemplate: {fileID: 994302547}
-  buttonName: 
+  intArray: 
+  buttonText: 
 --- !u!1 &1411811375
 GameObject:
   m_ObjectHideFlags: 0

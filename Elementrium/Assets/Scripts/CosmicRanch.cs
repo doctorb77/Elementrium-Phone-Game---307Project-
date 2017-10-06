@@ -3,35 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CosmicRanch : MonoBehaviour {
+public class CosmicRanch : MonoBehaviour
+{
 
     public SpriteRenderer background;
     public GameObject Wormhole;
-	public int colorChoice;
-	public Color32 color;
+    public int colorChoice;
+    public Color32 color;
 
-	// Use this for initialization
-	
-    void Start () {
+    // Use this for initialization
+
+    void Start()
+    {
         if (colorChoice == 0)
         {
             background.material.SetColor("_Color", Color.black);
-        } else {
+        }
+        else
+        {
             background.material.SetColor("_Color", color);
         }
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        //background.material.SetColor("_Color", TopMenu1.color);
-	}
-    public void ChangeColor () 
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+    public void ChangeColor()
     {
         switch (EventSystem.current.currentSelectedGameObject.name)
         {
             case "Black":
                 colorChoice = 1;
-                color = new Color32(0, 0, 0, 255) ;
+                color = new Color32(0, 0, 0, 255);
                 break;
             case "Red":
                 colorChoice = 2;
@@ -39,7 +44,7 @@ public class CosmicRanch : MonoBehaviour {
                 break;
             case "Purple":
                 colorChoice = 3;
-                color = new Color32(38 , 0, 58, 255);
+                color = new Color32(38, 0, 58, 255);
                 break;
             case "Blue":
                 colorChoice = 4;

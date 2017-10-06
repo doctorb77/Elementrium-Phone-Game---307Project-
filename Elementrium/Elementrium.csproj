@@ -105,7 +105,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Achievements.cs" />
-    <Compile Include="Assets\Scripts\Backpack.cs" />
     <Compile Include="Assets\Scripts\ButtonListButton.cs" />
     <Compile Include="Assets\Scripts\ButtonListControl.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
@@ -119,7 +118,6 @@
     <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\TopMenu.cs" />
     <Compile Include="Assets\Scripts\TopMenu1.cs" />
-    <Compile Include="Assets\Scripts\Trium.cs" />
     <Compile Include="Assets\Scripts\Wormhole.cs" />
   </ItemGroup>
   <ItemGroup>
