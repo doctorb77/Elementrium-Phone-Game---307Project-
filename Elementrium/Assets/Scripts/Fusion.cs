@@ -19,8 +19,6 @@ namespace Fusion {
          */
         public void fuse(Backpack bp, int key) {
 
-
-
             /* TODO: Support selecting multiple atoms at a time
             if (keyOne != keyTwo) {
                 return;
@@ -45,15 +43,19 @@ namespace Fusion {
             // Destroy old Trium's
             Trium old = (Trium) bp.getBP()[key];
             old.setCount(old.getCount() - 2);
-            // TODO: CODE TO REMOVE BUDDIES!
+
+			// TODO: CODE TO REMOVE BUDDIES!
+			    // Remove them from BuddyList
+			    // Remove them from CosmicRanch
 
 
-            // Add new Trium to Ranch
-            bp.addToBackpack(fusionID, atomName, atomicNumber);
+
+			// Add new Trium to Ranch
+			bp.addToBackpack(fusionID, atomName, atomicNumber);
 
             // TODO: CREATE BUDDY OBJECT AND PLACE IN COSMIC RANCH!
-
-            return;
+            // Add to global buddy list
+            // Transpose on CosmicRanch
 
         }
 
@@ -100,7 +102,7 @@ namespace Fusion {
             // Set up string to Query from database
 			string query = "SELECT t.ID, t.Name, e.AtomicNumber " +
 						   "FROM Trium t " +
-						   "INNER JOIN Element e ON ISNULL(t.ElementID, -1) = e.ID " +
+						   "INNER JOIN Element e ON IFNULL(t.ElementID, -1) = e.ID " +
 						   "WHERE e.AtomicNumber = " + (oldElementID + 1);
 
             // Create new connection to database
