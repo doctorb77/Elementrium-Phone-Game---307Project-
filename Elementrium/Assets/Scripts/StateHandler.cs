@@ -11,7 +11,7 @@ namespace StateHandling
 {
     public class StateHandler : MonoBehaviour
     {
-        public int currentstate;
+        public State currentstate;
         public static List<State> states;
 
         void Start()
@@ -63,5 +63,6 @@ namespace StateHandling
             }
             return null;
         }
+
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: 44
+    x: 57
     y: 45
     width: 1274
     height: 782
@@ -67,10 +67,10 @@ MonoBehaviour:
     y: 30
     width: 1274
     height: 732
-  m_MinSize: {x: 677, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 679, y: 492}
+  m_MaxSize: {x: 14004, y: 14042}
   vertical: 0
-  controlID: 22
+  controlID: 106
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -89,8 +89,8 @@ MonoBehaviour:
     y: 0
     width: 298
     height: 732
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 44
+    x: 57
     y: 555
     width: 974
     height: 250
@@ -389,19 +389,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/vinsonluo/Documents/GitHub/307Project/Elementrium
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 8e260000
-    m_LastClickedID: 9870
-    m_ExpandedIDs: 000000000c26000000ca9a3bffffff7f
+    m_SelectedIDs: 50260000
+    m_LastClickedID: 9808
+    m_ExpandedIDs: 000000000826000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -429,7 +429,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000c260000
+    m_ExpandedIDs: 0000000008260000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 1022
+    x: 1035
     y: 94
     width: 296
     height: 711
@@ -539,15 +539,15 @@ MonoBehaviour:
   m_DepthBufferBits: 0
   m_Pos:
     serializedVersion: 2
-    x: 757
+    x: 770
     y: 94
     width: 261
     height: 440
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 1288f5ff
-    m_LastClickedID: -686062
-    m_ExpandedIDs: 1288f5ff16fbf5ffa609f6ff8a1df6ffde82f6ffecc6f6ff4ad0f7ff9895fbffce9bfbffda03fcffd856fcff98b2fcff74b8fdff76b8fdff78b8fdff7cb8fdff1ebbfdff60c2fdff00f3fdff5af9fdffee5ffeff4c73feff988efeff1afcffff0000000024270000dc270000fc2700003028000058280000de290000066c0000266c0000306c0000a2710000f671000096780000b6780000c0780000dc7800005a8300006483000080830000c488000018890000788b0000c89d00001c9e0000309e00008a9e0000d69e00002ac200004ac2000054c2000070c200007cc20000ccdc0000f2dc00001cdd0000
+    m_SelectedIDs: 9c060000
+    m_LastClickedID: 0
+    m_ExpandedIDs: 5299fdfff4affdff28dafdffa2fdfdff4616ffff7262ffff1afcffff00000000122700004c270000562700007c27000088270000ec52000086530000ce540000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -566,7 +566,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 
   m_ExpandedScenes:
-  - Glossary
+  - MainGameScene
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -592,19 +592,19 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 44
+    x: 57
     y: 94
     width: 709
     height: 440
   m_SceneLighting: 1
-  lastFramingTime: 19032.697075009346
+  lastFramingTime: 859.3395240306854
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 324.4572, y: 1368.8923, z: -27}
+    m_Target: {x: 578.4676, y: 900.2516, z: 0}
     speed: 2
-    m_Value: {x: 324.4572, y: 1368.8923, z: -27}
+    m_Value: {x: 578.4676, y: 900.2516, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -631,9 +631,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1169.9379
+    m_Target: 1898.0698
     speed: 2
-    m_Value: 1169.9379
+    m_Value: 1898.0698
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -666,8 +666,8 @@ MonoBehaviour:
   m_DepthBufferBits: 32
   m_Pos:
     serializedVersion: 2
-    x: 44
-    y: 94
+    x: 105
+    y: 103
     width: 709
     height: 440
   m_MaximizeOnPlay: 0

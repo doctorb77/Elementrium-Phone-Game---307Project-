@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using StateHandling;
 
 public class Glossary : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class Glossary : MonoBehaviour {
 	public void ExitGlossary()
 	{
 		SceneManager.LoadScene("MainGameScene");
+
 	}
 	void Start()
 	{
