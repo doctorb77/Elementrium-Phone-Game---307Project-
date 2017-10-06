@@ -10,6 +10,7 @@ public class CosmicRanch : MonoBehaviour
     public GameObject Wormhole;
     public int colorChoice;
     public Color32 color;
+    public List<GameObject> buddies = new List<GameObject>();
 
     // Use this for initialization
 
@@ -30,6 +31,7 @@ public class CosmicRanch : MonoBehaviour
     {
         
     }
+
     public void ChangeColor()
     {
         switch (EventSystem.current.currentSelectedGameObject.name)
