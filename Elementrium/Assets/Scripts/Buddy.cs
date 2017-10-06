@@ -5,8 +5,8 @@ using System.Text;
 using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts
-{
+namespace Assets.Scripts {
+
     public class Buddy:MonoBehaviour
     {
         public float velocity;
