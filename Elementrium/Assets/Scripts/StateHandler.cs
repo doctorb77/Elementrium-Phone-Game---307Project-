@@ -11,12 +11,40 @@ namespace StateHandling
 {
     public class StateHandler : MonoBehaviour
     {
-        public static State currentstate;
-        public static List<State> states;
+        public static State currentstate = null;
+		public static List<State> states = new List<State>();
 
         void Start()
         {
-
+			State sAB = new State("ActionBar");
+			states.Add(sAB);
+			State sQ = new State("Quiz");
+			states.Add(sQ);
+			State sSB = new State("StatsBar");
+			states.Add(sSB);
+			State sS = new State("Settings");
+			states.Add(sS);
+			State sA = new State("Achievements");
+			states.Add(sA);
+			State sMM = new State("MainMenu");
+			states.Add(sMM);
+			State sGl = new State("Glossary");
+			states.Add(sGl);
+			State sM = new State("Menu");
+			states.Add(sM);
+			State sZI = new State("ZoomIn");
+			states.Add(sZI);
+			State sF = new State("Fusion");
+			states.Add(sF);
+			State sGr = new State("Group");
+			states.Add(sGr);
+			State sR = new State("Reaction");
+			states.Add(sR);
+			State sMGS = new State("MainGameScene");
+			states.Add(sMGS);
+			State sRS = new State("RewardScene");
+			states.Add(sRS);
+			//locks everything until display goes away
         }
 
         public StateHandler()
@@ -76,6 +104,8 @@ namespace StateHandling
             }
             foreach (State s in states)
             {
+                //Console.WriteLine(s.name);
+                print(s.name);
                 if (s.name == name)
                 {
                     s.isVisible = visible;
