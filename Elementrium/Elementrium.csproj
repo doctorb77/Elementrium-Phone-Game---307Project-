@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Achievements.cs" />
     <Compile Include="Assets\Scripts\AtomSelect.cs" />
+    <Compile Include="Assets\Scripts\BackgroundRotate.cs" />
     <Compile Include="Assets\Scripts\Backpack.cs" />
     <Compile Include="Assets\Scripts\Buddy.cs" />
     <Compile Include="Assets\Scripts\ButtonListButton.cs" />

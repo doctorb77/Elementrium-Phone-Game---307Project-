@@ -175,7 +175,7 @@ namespace WormholeObject {
             float x = (float)(UnityEngine.Random.value - 0.5) * 900;
             float y = (float)(UnityEngine.Random.value - 0.5) * 900;
 
-            actual.transform.localPosition = new Vector3(x, y, 0);
+            actual.transform.localPosition = new Vector3(0, -400, 0);
 
             /**********      END DATABASE SECTION      **********/
 

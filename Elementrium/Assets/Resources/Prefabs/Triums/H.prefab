@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 212252454670840712}
   - component: {fileID: 58757388252452394}
   - component: {fileID: 114327680252507902}
+  - component: {fileID: 50663298914227720}
   m_Layer: 0
   m_Name: H
   m_TagString: Untagged
@@ -72,6 +73,26 @@ Transform:
   m_Father: {fileID: 4421581444966490}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50663298914227720
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1339626919662516}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &58757388252452394
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -80,7 +101,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1339626919662516}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6289266fcc8a7f647b8aa43b5269d2d0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

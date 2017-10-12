@@ -22,6 +22,14 @@ namespace Assets.Scripts {
         {
             selected = false;
             buddy = gameObject;
+            System.Random rnd = new System.Random();
+            GetComponent<Rigidbody2D>().velocity = new Vector2(25, 25);
+            GetComponent<Rigidbody2D>().angularVelocity = 10;
+        }
+
+        public void FixedUpdate()
+        {
+            
         }
 
         public void Update()
@@ -30,7 +38,7 @@ namespace Assets.Scripts {
 
             if (selected)
             {
-                buddy.GetComponent<SpriteRenderer>().color = Color.green;
+                buddy.GetComponent<SpriteRenderer>().color = new Color32(40,255,20,255);
             } else
             {
                 buddy.GetComponent<SpriteRenderer>().color = Color.white;
