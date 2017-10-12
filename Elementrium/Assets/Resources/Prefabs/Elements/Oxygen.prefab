@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4656825698103022}
   - component: {fileID: 212702206115563358}
+  - component: {fileID: 114194613814722192}
   m_Layer: 0
   m_Name: Oxygen
   m_TagString: Untagged
@@ -34,12 +35,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305276881658242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -239.7, y: 382.6, z: -2}
+  m_LocalPosition: {x: 812.3595, y: 572.1481, z: -2}
   m_LocalScale: {x: 22.322828, y: 22.322828, z: 4.464566}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114194613814722192
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305276881658242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe46982d110854883b7323c48385fe4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buddy: {fileID: 1305276881658242}
 --- !u!212 &212702206115563358
 SpriteRenderer:
   m_ObjectHideFlags: 1

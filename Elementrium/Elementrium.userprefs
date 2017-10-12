@@ -1,22 +1,13 @@
 ﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CosmicRanch.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Wormhole.cs">
     <Files>
-      <File FileName="Assets/Scripts/StateHandler.cs" Line="7" Column="7" />
-      <File FileName="Assets/Scripts/Backpack.cs" Line="17" Column="39" />
-      <File FileName="Assets/Scripts/Wormhole.cs" Line="190" Column="17" />
-      <File FileName="Assets/Scripts/StartGame.cs" Line="70" Column="14" />
-      <File FileName="Assets/Scripts/CosmicRanch.cs" Line="42" Column="77" />
-      <File FileName="Assets/Scripts/Glossary.cs" Line="93" Column="47" />
-      <File FileName="Assets/Scripts/ButtonListControl.cs" Line="77" Column="24" />
-      <File FileName="Assets/Scripts/Buddy.cs" Line="72" Column="29" />
-      <File FileName="Assets/Scripts/BuddyBehavior.cs" Line="17" Column="9" />
+      <File FileName="Assets/Scripts/CosmicRanch.cs" Line="48" Column="1" />
+      <File FileName="Assets/Scripts/Wormhole.cs" Line="186" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/vinsonluo/Documents/GitHub/307Project/Elementrium/Assets/Scripts/CosmicRanch.cs" relfile="Assets/Scripts/CosmicRanch.cs" line="43" column="36" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

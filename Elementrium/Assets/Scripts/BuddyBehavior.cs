@@ -17,25 +17,33 @@ namespace BudBehavior
         public static bool faceXYoff;
         public static bool selected;
 
-        //public void Start()
-        //{
-        //    selected = false;
-        //    buddy = gameObject;
-        //}
+		public void Start()
+		{
+			selected = false;
+			buddy = gameObject;
+			System.Random rnd = new System.Random();
+			GetComponent<Rigidbody2D>().velocity = new Vector2(25, 25);
+			GetComponent<Rigidbody2D>().angularVelocity = 10;
+		}
 
-        public void Update()
-        {
+		public void FixedUpdate()
+		{
+
+		}
+
+		public void Update()
+		{
 
 
-            if (selected)
-            {
-                buddy.GetComponent<SpriteRenderer>().color = Color.green;
-            }
-            else
-            {
-                buddy.GetComponent<SpriteRenderer>().color = Color.white;
-            }
-        }
+			if (selected)
+			{
+				buddy.GetComponent<SpriteRenderer>().color = new Color32(40, 255, 20, 255);
+			}
+			else
+			{
+				buddy.GetComponent<SpriteRenderer>().color = Color.white;
+			}
+		}
 
         private void OnMouseDown()
         {

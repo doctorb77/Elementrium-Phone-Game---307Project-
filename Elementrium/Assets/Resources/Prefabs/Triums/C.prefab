@@ -37,7 +37,8 @@ GameObject:
   - component: {fileID: 4717669512759690}
   - component: {fileID: 212158206772776472}
   - component: {fileID: 58765842573624362}
-  - component: {fileID: 114541804357797946}
+  - component: {fileID: 114585508519700210}
+  - component: {fileID: 50161398647665858}
   m_Layer: 0
   m_Name: C
   m_TagString: Untagged
@@ -65,13 +66,33 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788800416087826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -279, y: 514.4, z: -2}
+  m_LocalPosition: {x: 66.23166, y: 766.69055, z: -2}
   m_LocalScale: {x: 17.65614, y: 17.65614, z: 14.656141}
   m_Children:
   - {fileID: 4304277617173196}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50161398647665858
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788800416087826}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!58 &58765842573624362
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -80,14 +101,14 @@ CircleCollider2D:
   m_GameObject: {fileID: 1788800416087826}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 6289266fcc8a7f647b8aa43b5269d2d0, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2
---- !u!114 &114541804357797946
+--- !u!114 &114585508519700210
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -95,16 +116,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1788800416087826}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 501b73b5e33bd497f965e3dd6409a1af, type: 3}
+  m_Script: {fileID: 11500000, guid: fe46982d110854883b7323c48385fe4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
-  xpos: 0
-  ypos: 0
-  id: 0
-  triumname: 
-  buddy: {fileID: 0}
-  selected: 0
+  buddy: {fileID: 1788800416087826}
 --- !u!212 &212158206772776472
 SpriteRenderer:
   m_ObjectHideFlags: 1

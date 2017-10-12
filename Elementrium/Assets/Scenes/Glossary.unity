@@ -402,7 +402,7 @@ MonoBehaviour:
   anim: {fileID: 60621103}
   inGroup: 0
   inReaction: 0
-  buttonListControl: {fileID: 747987159}
+  buttonListControl: {fileID: 0}
 --- !u!95 &60621103
 Animator:
   serializedVersion: 3

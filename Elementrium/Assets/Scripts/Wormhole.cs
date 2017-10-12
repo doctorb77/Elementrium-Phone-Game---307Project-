@@ -146,10 +146,10 @@ namespace WormholeObject {
 				break;
 			}
 
-            //print(rowID);
-            //print(name);
-            //print(formula);
-            //print(AtomicNumber);
+            print(rowID);
+            print(name);
+            print(formula);
+            print(AtomicNumber);
 			if (rowID == -1 || name == "none" || formula == "none" || AtomicNumber == -1)
 			{
 				return;
@@ -175,22 +175,22 @@ namespace WormholeObject {
             actual.transform.SetParent(ws.transform, true);
             //buddy.transform.SetParent(buttonTemplate.transform.parent, false);
 
-            float x = (float)(UnityEngine.Random.value - 0.5) * 4;
-            float y = (float)(UnityEngine.Random.value - 0.5) * 4;
+            float x = (float)(UnityEngine.Random.value - 0.5) * 900;
+            float y = (float)(UnityEngine.Random.value - 0.5) * 900;
 
-            actual.transform.localPosition = new Vector3(x, y, -1);
+			actual.transform.localPosition = new Vector3(x, y, -1);
 
-            Buddy bud = new Buddy(0, x, y, AtomicNumber, name, actual, false, false);
-            //cr.GetComponent<CosmicRanch>().AddBuddyToList(bud);
+			Buddy bud = new Buddy(0, x, y, AtomicNumber, name, actual, false, false);
+			//cr.GetComponent<CosmicRanch>().AddBuddyToList(bud);
 
-            Initialize.ranch.AddBuddyToList(bud);
-            foreach (Buddy b in Initialize.buddyList)
-            {   
-                print(b == null);
+			Initialize.ranch.AddBuddyToList(bud);
+			foreach (Buddy b in Initialize.buddyList)
+			{
+				print(b == null);
 
-            }
+			}
 
-            print(Initialize.buddyList.Count);
+			print(Initialize.buddyList.Count);
 
             /**********      END DATABASE SECTION      **********/
 

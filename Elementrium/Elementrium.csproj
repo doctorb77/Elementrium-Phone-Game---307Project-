@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Achievements.cs" />
     <Compile Include="Assets\Scripts\AtomSelect.cs" />
+    <Compile Include="Assets\Scripts\BackgroundRotate.cs" />
     <Compile Include="Assets\Scripts\Backpack.cs" />
     <Compile Include="Assets\Scripts\Buddy.cs" />
     <Compile Include="Assets\Scripts\BuddyBehavior.cs" />
@@ -128,6 +129,7 @@
     <Compile Include="Assets\Scripts\RightMenu.cs" />
     <Compile Include="Assets\Scripts\RightMenu1.cs" />
     <Compile Include="Assets\Scripts\ScrollList.cs" />
+    <Compile Include="Assets\Scripts\Selection.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\State.cs" />
     <Compile Include="Assets\Scripts\StateHandler.cs" />

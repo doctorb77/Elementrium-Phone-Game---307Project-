@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4935369969334582}
   - component: {fileID: 212520920956828302}
+  - component: {fileID: 114359068292302264}
   m_Layer: 0
   m_Name: Lithium
   m_TagString: Untagged
@@ -34,12 +35,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1547935943404160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -241.4, y: 595.5, z: -2}
+  m_LocalPosition: {x: 688.7678, y: 526.37335, z: -2}
   m_LocalScale: {x: 18.529165, y: 18.529165, z: 3.7058334}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114359068292302264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1547935943404160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe46982d110854883b7323c48385fe4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buddy: {fileID: 1547935943404160}
 --- !u!212 &212520920956828302
 SpriteRenderer:
   m_ObjectHideFlags: 1
