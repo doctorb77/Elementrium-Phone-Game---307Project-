@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 50781150742769474}
   m_Layer: 0
   m_Name: CO
-  m_TagString: Untagged
+  m_TagString: Buddy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -146,15 +146,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1376397560654174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 501b73b5e33bd497f965e3dd6409a1af, type: 3}
+  m_Script: {fileID: 11500000, guid: fe46982d110854883b7323c48385fe4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocity: 0
   xpos: 0
   ypos: 0
-  id: 0
-  triumname: 
+  ID: 0
   buddy: {fileID: 0}
+  cr: {fileID: 0}
   selected: 0
 --- !u!212 &212090368535435300
 SpriteRenderer:

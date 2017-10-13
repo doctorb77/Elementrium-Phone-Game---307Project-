@@ -3,22 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts;
 using System;
+using Ranch;
 
 namespace BudBehavior
 {
     public class BuddyBehavior : MonoBehaviour
     {
         public static float velocity;
-        public static float xpos;
-        public static float ypos;
-        public static int ID;
+        public float xpos;
+        public float ypos;
+        public int ID;
+        public static int IDc;
         public static String triumname;
         public GameObject buddy;
         public static bool faceXYoff;
-        public static bool selected;
+        public GameObject cr;
+        public bool selected;
 
 		public void Start()
 		{
+            cr = GameObject.FindGameObjectWithTag("CosmicRanch");
+            if (IDc == 0)
+                IDc = 1;
+            else
+                IDc++;
+
+            ID = IDc;
+
 			selected = false;
 			buddy = gameObject;
 			System.Random rnd = new System.Random();
@@ -33,7 +44,8 @@ namespace BudBehavior
 
 		public void Update()
 		{
-
+            xpos = GetComponent<Transform>().position.x;
+            ypos = GetComponent<Transform>().position.y;
 
 			if (selected)
 			{
@@ -48,6 +60,7 @@ namespace BudBehavior
         private void OnMouseDown()
         {
             selected = !selected;
+            cr.GetComponent<CosmicRanch>().getSelected();
         }
 
         public BuddyBehavior(Buddy buddy)

@@ -178,19 +178,20 @@ namespace WormholeObject {
             float x = (float)(UnityEngine.Random.value - 0.5) * 900;
             float y = (float)(UnityEngine.Random.value - 0.5) * 900;
 
-			actual.transform.localPosition = new Vector3(x, y, -1);
+			actual.transform.localPosition = new Vector3(0, -400, -1);
 
 			Buddy bud = new Buddy(0, x, y, AtomicNumber, name, actual, false, false);
-			//cr.GetComponent<CosmicRanch>().AddBuddyToList(bud);
+			//cr.GetComponent<CosmicRanch>().AddBuddyToList(actual);
 
-			Initialize.ranch.AddBuddyToList(bud);
+			cr.AddBuddyToList();
+            /*
 			foreach (Buddy b in Initialize.buddyList)
 			{
 				print(b == null);
 
 			}
-
-			print(Initialize.buddyList.Count);
+            */
+			//print(Initialize.buddyList.Count);
 
             /**********      END DATABASE SECTION      **********/
 

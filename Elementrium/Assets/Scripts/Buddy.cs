@@ -21,8 +21,8 @@ namespace Assets.Scripts
 
         //public void Start()
         //{
-        //    selected = false;
-        //    buddy = gameObject;
+            //selected = false;
+            //buddy = gameObject;
         //}
 
         public void Update()
@@ -41,7 +41,7 @@ namespace Assets.Scripts
 
         private void OnMouseDown()
         {
-            selected = !selected;
+            //selected = !selected;
         }
 
         public Buddy(float v, float x, float y, int id, String name, GameObject b, bool f, bool s)

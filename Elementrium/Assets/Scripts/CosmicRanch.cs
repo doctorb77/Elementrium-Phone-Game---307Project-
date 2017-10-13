@@ -17,7 +17,8 @@ namespace Ranch {
         public int colorChoice;
         public Color32 color;
         public Color32 rimColor;
-        // public List<GameObject> buddies = new List<GameObject>();
+        public List<GameObject> buddies = new List<GameObject>();
+        public GameObject[] buddos;
 
         // Use this for initialization
 
@@ -32,7 +33,7 @@ namespace Ranch {
             {
 
             }
-            Debug.Log("RESTARTIN' YALL");
+            //Debug.Log("RESTARTIN' YALL");
             if (colorChoice == 0)
             {
                 background.material.SetColor("_Color", Color.black);
@@ -103,23 +104,57 @@ namespace Ranch {
             space.color = color; // SetColor("_Color", color);
             rim.color = rimColor; // SetColor("_Color", color);
         }
-		public void AddBuddyToList(Buddy buddy)
+		public void AddBuddyToList()
 		{
-
+            /*
 			Initialize.buddyList.Add(buddy);
-			//printList();
+			printList();
+            */
+            //buddies.Add(buddy);
+            
+            buddos = GameObject.FindGameObjectsWithTag("Buddy");
+            buddies = new List<GameObject>(buddos);
 		}
-		public void RemoveBuddyFromList(Buddy buddy)
+		public void RemoveBuddyFromList(GameObject buddy)
 		{
+            /*
 			Initialize.buddyList.Remove(buddy);
-			//printList();
+			printList();
+            */
+            buddies.Remove(buddy);
 		}
+
+        public List<GameObject> getSelected()
+        {
+            List<GameObject> selected = new List<GameObject>();
+
+            foreach (GameObject buddy in buddies)
+            {
+                if (buddy.GetComponent<BuddyBehavior>().selected == true)
+                    selected.Add(buddy);
+            }
+
+            printList(selected);
+            return selected;
+        }
+
+        public void printList(List<GameObject> l) {
+
+            string s = "";
+
+            foreach (GameObject buddy in l)
+            {
+                s += buddy.GetComponent<BuddyBehavior>().ID + " ";
+            }
+
+            Debug.Log(s);
+        }
 
 		public void printList()
 		{
-			foreach (var item in Initialize.buddyList)
+			foreach (var item in buddies)
 			{
-				print(item.buddy.name);
+				print(item.name);
 			}
 		}
     }
