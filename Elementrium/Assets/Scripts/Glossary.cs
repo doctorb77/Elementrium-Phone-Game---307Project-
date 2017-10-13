@@ -14,13 +14,14 @@ namespace GlossaryObject
     public class Glossary: MonoBehaviour
     {
 
-		//private Backpack bp;            // The user's backpack
+        //private Backpack bp;            // The user's backpack
 
-		//public Glossary(Backpack bp)
-		//{
-		//	this.bp = bp;
-		//}
-
+        //public Glossary(Backpack bp)
+        //{
+        //	this.bp = bp;
+        //}
+        public static bool displayOpen = false;
+        public Animator GlossaryAnim;
 
 
 		public SortedDictionary<int, int> getSortedAtomicGlossary()
@@ -112,6 +113,11 @@ namespace GlossaryObject
                     onTab = 2;
                 }
             }
+        }
+        public void CloseTab() 
+        {
+            GlossaryAnim.Play("GlossaryInfoRetract");
+            displayOpen = false;
         }
     }
 
