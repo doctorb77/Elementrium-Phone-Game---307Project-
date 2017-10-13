@@ -19,6 +19,7 @@ public class ButtonListButton : MonoBehaviour
     }
     public void OnClick()
     {
+        print("Button click");
         if (SceneManager.GetActiveScene().name == "MainGameScene")
         {
             Debug.Log("BUTTON CLICKED");
