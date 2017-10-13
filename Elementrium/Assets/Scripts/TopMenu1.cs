@@ -12,15 +12,14 @@ public class TopMenu1 : MonoBehaviour
     public Animator anim;
     public bool menuIsOn;
     public bool settingsIsOn;
-    public bool musicIsOn;
+	public bool musicIsOn;
 
-    // Use this for initialization
-    void Start()
+	// Use this for initialization
+	void Start()
     {
         anim = Menu.GetComponent<Animator>();
         menuIsOn = false;
         settingsIsOn = false;
-        musicIsOn = false;
     }
 
     public void InteractMenu()
@@ -78,15 +77,18 @@ public class TopMenu1 : MonoBehaviour
                 settingsIsOn = false;
             }
         }
-        else if (EventSystem.current.currentSelectedGameObject.name == "Node") 
-        {
-            if (settingsIsOn && !musicIsOn) {
-                anim.Play("SwitchTurnOn");
-                musicIsOn = true;
-            } else if (settingsIsOn && musicIsOn) {
-                anim.Play("SwitchTurnOff");
-                musicIsOn = false;
-            }
-        }
+		else if (EventSystem.current.currentSelectedGameObject.name == "Node")
+		{
+			if (settingsIsOn && !musicIsOn)
+			{
+				anim.Play("SwitchTurnOn");
+				musicIsOn = true;
+			}
+			else if (settingsIsOn && musicIsOn)
+			{
+				anim.Play("SwitchTurnOff");
+				musicIsOn = false;
+			}
+		}
     }
 }
