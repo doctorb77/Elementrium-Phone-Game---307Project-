@@ -19,6 +19,8 @@ namespace BudBehavior
         public static bool faceXYoff;
         public GameObject cr;
         public bool selected;
+        public bool stayStill;
+        public static bool selectable = false;
 
 		public void Start()
 		{
@@ -33,7 +35,15 @@ namespace BudBehavior
 			selected = false;
 			buddy = gameObject;
 			System.Random rnd = new System.Random();
-			GetComponent<Rigidbody2D>().velocity = new Vector2(25, 25);
+            float xdir = rnd.Next(0, 66);
+            xdir -= 33;
+            float xvel = Math.Abs(xdir);
+
+            float yvel = (float) Math.Sqrt(1250 - (xvel * xvel));
+
+            if (!stayStill) // Use stayStill to prevent a buddy from moving around
+			    GetComponent<Rigidbody2D>().velocity = new Vector2(xdir, yvel);
+
 			GetComponent<Rigidbody2D>().angularVelocity = 10;
 		}
 
@@ -57,10 +67,14 @@ namespace BudBehavior
 			}
 		}
 
+
         private void OnMouseDown()
         {
-            selected = !selected;
-            cr.GetComponent<CosmicRanch>().getSelected();
+            if (selectable) // A fusion/grouping/reaction is taking place, select the triums
+            {
+                selected = !selected;
+                cr.GetComponent<CosmicRanch>().getSelected();
+            }
         }
 
         public BuddyBehavior(Buddy buddy)

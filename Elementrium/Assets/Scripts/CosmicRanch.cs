@@ -46,7 +46,7 @@ namespace Ranch {
             // Go through Global buddy list
             // Create new buddy objects and populate the scene
             // make a extra method
-            print(Initialize.buddyList.Count);
+            //print(Initialize.buddyList.Count);
 
             for (int i = 0; i < Initialize.buddyList.Count; i++)
             {
@@ -137,6 +137,19 @@ namespace Ranch {
             printList(selected);
             return selected;
         }
+        
+        // Deselects all of the buddies in the cosmic ranch
+        public void deselectAll()
+        {
+            foreach (GameObject buddy in buddies)
+                buddy.GetComponent<BuddyBehavior>().selected = false;
+        }
+
+        public void makeBuddiesSelectable(bool selectable)
+        {
+                BuddyBehavior.selectable = selectable;
+        }
+
 
         public void printList(List<GameObject> l) {
 

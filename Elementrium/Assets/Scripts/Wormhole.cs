@@ -18,10 +18,12 @@ namespace WormholeObject {
         public float speed = 5f;
         public GameObject ws;
         public CosmicRanch cr = Initialize.ranch;
+        public ParticleSystem ps;
 		private int rangeStart;         // The beginning of the range
 		private int rangeEnd;           // The end of the range
 										// private int wormholeLevel;      // The level of the wormhole
 		private Backpack bp;            // the backpack of the user
+        private Boolean accel = false; 
 
 		private int rangeMax = 92;
 		private int rangeMin = 1;
@@ -88,6 +90,13 @@ namespace WormholeObject {
 			rangeEnd--;
 		}
 
+        private bool isActive()
+        {
+            if (RightMenu1.isOn)
+                return false;
+            return true;
+        }
+
 		/**
          * Algorithm to generate atoms and add them to the backpack.
          * 
@@ -97,6 +106,8 @@ namespace WormholeObject {
          */
 		private void generateAtoms()
 		{
+            if (!isActive())
+                return;
 
 			validateRange();
 
@@ -178,7 +189,7 @@ namespace WormholeObject {
             float x = (float)(UnityEngine.Random.value - 0.5) * 900;
             float y = (float)(UnityEngine.Random.value - 0.5) * 900;
 
-			actual.transform.localPosition = new Vector3(0, -400, -1);
+			actual.transform.localPosition = new Vector3(0, -430, -1);
 
 			Buddy bud = new Buddy(0, x, y, AtomicNumber, name, actual, false, false);
 			//cr.GetComponent<CosmicRanch>().AddBuddyToList(actual);
@@ -261,6 +272,7 @@ namespace WormholeObject {
         public void OnMouseDown()
         {
             //GetComponent<SpriteRenderer>().color = Color.green;
+            accel = true;
             generateAtoms();
         }
 
@@ -280,6 +292,18 @@ namespace WormholeObject {
         // Update is called once per frame
         void Update()
         {
+            
+            if (accel == true)
+            {
+                speed += 0.5f;
+                if (speed >= 10)
+                    accel = false;
+            }
+            if (accel == false && speed > 0.5f)
+                speed -= 0.08f;
+
+            if (speed < 0.5f)
+                speed = 0.5f;
             transform.Rotate(0, 0, speed * -1);
         }
     }

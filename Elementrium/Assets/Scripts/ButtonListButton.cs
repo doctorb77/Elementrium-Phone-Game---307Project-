@@ -15,6 +15,14 @@ public class ButtonListButton : MonoBehaviour
     }
     public void OnClick()
     {
+        Debug.Log("BUTTON CLICKED");
+        GameObject rightMenu = GameObject.Find("RightActivation");
+        rightMenu.GetComponent<RightMenu1>().Play();
+    }
 
+    public void OnMouseDown()
+    {
+        Debug.Log("BUTTON DOWN");
+        OnClick();
     }
 }

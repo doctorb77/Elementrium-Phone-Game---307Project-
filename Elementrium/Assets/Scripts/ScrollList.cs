@@ -19,6 +19,11 @@ public class ScrollList : MonoBehaviour
         inReaction = false;
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void InteractGroup()
     {
         if (RightMenu1.isOn && !inGroup)
@@ -40,14 +45,19 @@ public class ScrollList : MonoBehaviour
     }
     public void ExitScroll()
     {
+        
         if (RightMenu1.isOn && inGroup)
         {
             anim.Play("ScrollListLeave");
+            anim.Play("RightSideRetract");
+            //GameObject.Find("RightActivation").GetComponent<RightMenu1>().Play();
             inGroup = false;
         }
         else if (RightMenu1.isOn && inReaction)
         {
             anim.Play("ScrollListLeave");
+            anim.Play("RightSideRetract");
+            //GameObject.Find("RightActivation").GetComponent<RightMenu1>().Play();
             inReaction = false;
         }
     }
