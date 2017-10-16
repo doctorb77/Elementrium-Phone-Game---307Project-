@@ -137,6 +137,7 @@
     <Compile Include="Assets\Scripts\TopMenu1.cs" />
     <Compile Include="Assets\Scripts\Trium.cs" />
     <Compile Include="Assets\Scripts\Wormhole.cs" />
+    <Compile Include="Assets\Scripts\SQLiteExample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Prefabs\readme.txt" />
