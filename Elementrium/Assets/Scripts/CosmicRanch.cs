@@ -29,7 +29,7 @@ namespace Ranch {
 
         void Start()
         {
-            bp = Wormhole.GetComponent<Wormhole>().bp;
+            //bp = Wormhole.GetComponent<Wormhole>().bp;
             // load all buddies into system
             AddBuddyToList();
 
