@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using StateHandling;
 using GlossaryObject;
+using Ranch;
 using UnityEngine.SceneManagement;
 
 public class ButtonListButton : MonoBehaviour
@@ -11,6 +12,7 @@ public class ButtonListButton : MonoBehaviour
 
     [SerializeField]
     private Text myText;
+    public string field; // Group, Reaction, None
 	public Animator GlossaryAnim;
 
 	public void SetText(string textString)
@@ -19,7 +21,7 @@ public class ButtonListButton : MonoBehaviour
     }
     public void OnClick()
     {
-        print("Button click");
+        Debug.Log("TESTWETF");
         if (SceneManager.GetActiveScene().name == "MainGameScene")
         {
             Debug.Log("BUTTON CLICKED");
@@ -40,7 +42,9 @@ public class ButtonListButton : MonoBehaviour
 
     public void OnMouseDown()
     {
-        Debug.Log("BUTTON DOWN");
+        if (field.Equals("Reaction"))
+            CosmicRanch.inReaction = true;
+        Debug.Log("BUTTON DOWN : Field : "+field);
         OnClick();
     }
 }

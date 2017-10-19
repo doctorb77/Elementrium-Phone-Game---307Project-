@@ -39,7 +39,14 @@ public class ButtonListControl : MonoBehaviour
             GameObject button = Instantiate(buttonTemplate) as GameObject;
             button.SetActive(true);
 
-            button.GetComponent<ButtonListButton>().SetText(buttonText + " #" + i);
+            if (i == 1)
+            {
+                // TEMP // - Will n
+                button.GetComponent<ButtonListButton>().SetText("H2O");
+                button.GetComponent<ButtonListButton>().field = "Reaction";
+            }
+            else
+                button.GetComponent<ButtonListButton>().SetText(buttonText + " #" + i);
 
             button.transform.SetParent(buttonTemplate.transform.parent, false);
             buttons.Add(button);

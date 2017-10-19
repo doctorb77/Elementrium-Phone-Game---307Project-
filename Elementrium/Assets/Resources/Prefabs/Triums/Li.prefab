@@ -122,9 +122,11 @@ MonoBehaviour:
   xpos: 0
   ypos: 0
   ID: 0
+  triumformula: Li
   buddy: {fileID: 1175992460048886}
   cr: {fileID: 0}
   selected: 0
+  stayStill: 0
 --- !u!212 &212290944677636446
 SpriteRenderer:
   m_ObjectHideFlags: 1
