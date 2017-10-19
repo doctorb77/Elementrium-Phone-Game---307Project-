@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using BackpackObject;
 using TriumObject;
+using Ranch;
+using BudBehavior;
 
 namespace Reaction
 {
 
-
     public class ReactionHandler
     {
+        public static GameObject ws = GameObject.Find("BuddyContainer");
 
         public void reaction(Backpack bp, int key, int numSelected)
         {
@@ -26,6 +28,95 @@ namespace Reaction
             {
                 return;
             }
+        }
+
+        public static bool reactCurrent(List<GameObject> selected, List<string> reactant2, List<int> reactantCount2, List<string> product2, List<int> productCount2)
+        {
+            //Debug.Log("HERE in React");
+            // Check if requirements are met
+            bool req = false;
+
+            if (selected.Count == 0)
+                return false;
+
+            List<string> reactant = new List<string>(reactant2.ToArray());
+            List<int> reactantCount = new List<int>(reactantCount2.ToArray());
+            List<string> product = new List<string>(product2.ToArray());
+            List<int> productCount = new List<int>(productCount2.ToArray());
+
+            for (int i = 0; i < 2; i++)
+            {
+                if (selected.Count == 2)
+                {
+                    Debug.Log("Selected \"" + selected[i].GetComponent<BuddyBehavior>().triumformula + "\"   Reactant : \"" + reactant[i] + "\"");
+                    Debug.Log(reactant[i].Equals(selected[i].GetComponent<BuddyBehavior>().triumformula));
+                }
+            }
+
+            foreach (GameObject buddy in selected)
+            {
+                if (reactant.Contains(buddy.GetComponent<BuddyBehavior>().triumformula))
+                {
+                    int index = reactant.IndexOf(buddy.GetComponent<BuddyBehavior>().triumformula);
+
+                    if (reactantCount[index] > 0)
+                    {
+                        reactantCount[index]--;
+                    }
+                    else
+                    {
+                        req = false;
+                        return false;
+                    }
+                }
+                else // Something selected that shouldn't be
+                    return false;
+            }
+
+            req = true;
+
+            foreach (int total in reactantCount)
+            {
+                if (total != 0)
+                {
+                    req = false;
+                    return false;
+                }
+            }
+
+            if (req)
+            {
+                GameObject cr = GameObject.FindGameObjectWithTag("CosmicRanch");//.GetComponent<CosmicRanch>().AddBuddyToList();
+
+                foreach (GameObject buddy in selected)
+                {
+                    Debug.Log("Removing " + buddy.GetComponent<BuddyBehavior>().triumformula);
+                    cr.GetComponent<CosmicRanch>().RemoveBuddyFromList(buddy);
+                }
+
+                foreach (string nTrium in product)
+                {
+                    for (int i = 0; i < productCount[product.IndexOf(nTrium)]; i++)
+                    {
+                        Debug.Log("nTrium : " + nTrium + " Path : \'\"Prefabs/Triums/" + nTrium+"\"\'");
+                        GameObject buddy = Resources.Load("Prefabs/Triums/"+nTrium) as GameObject;
+                        GameObject actual = GameObject.Instantiate(buddy);
+
+                        actual.transform.SetParent(ws.transform, true);
+                        //buddy.transform.SetParent(buttonTemplate.transform.parent, false);
+
+                        float x = (float)(UnityEngine.Random.value - 0.5) * 900;
+                        float y = (float)(UnityEngine.Random.value - 0.5) * 900;
+
+                        actual.transform.localPosition = new Vector3(0, 0, -1);
+                        cr.GetComponent<CosmicRanch>().AddBuddyToList();
+                    }
+                }
+
+                return true;
+            }
+
+            return false;
         }
 
             /**

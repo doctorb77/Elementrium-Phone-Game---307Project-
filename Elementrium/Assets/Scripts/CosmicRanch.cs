@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Assets.Scripts;
 using Initialization;
+using Reaction;
+using WormholeObject;
 using BudBehavior;
+using BackpackObject;
 
 namespace Ranch {
     public class CosmicRanch : MonoBehaviour
     {
-
+        public Backpack bp;
         public SpriteRenderer background;
         public SpriteRenderer space;
         public SpriteRenderer rim;
@@ -18,12 +21,18 @@ namespace Ranch {
         public Color32 color;
         public Color32 rimColor;
         public List<GameObject> buddies = new List<GameObject>();
+        public List<GameObject> selUpdate;
         public GameObject[] buddos;
+        public static bool inReaction, inFusion, inGrouping;
 
         // Use this for initialization
 
         void Start()
         {
+            //bp = Wormhole.GetComponent<Wormhole>().bp;
+            // load all buddies into system
+            AddBuddyToList();
+
             if (colorChoice == 0)
             {
                 color = new Color32(120, 45, 212, 255);  // SetColor("_Color", Color.blue);
@@ -67,6 +76,20 @@ namespace Ranch {
         // Update is called once per frame
         void Update()
         {
+            if (inReaction)
+            {
+                //List<string> reactants = new List<string> { "H2", "O" };
+                //List<string> 
+                bool done = ReactionHandler.reactCurrent(getSelected(), new List<string>() { "H2", "O" }, new List<int>() { 1, 1 }, new List<string>() { "H2O" }, new List<int>() { 1 });
+                if (done)
+                {
+                    deselectAll();
+                    makeBuddiesSelectable(false);
+                    inReaction = false;
+                }
+
+                //Debug.Log("DONE : "+done);
+            }
             //space.color = color;
             //rim.color = rimColor;
         }
@@ -111,18 +134,24 @@ namespace Ranch {
 			printList();
             */
             //buddies.Add(buddy);
-            
-            buddos = GameObject.FindGameObjectsWithTag("Buddy");
-            buddies = new List<GameObject>(buddos);
-		}
+            buddies.Clear();
+            buddies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Buddy"));
+        }
 		public void RemoveBuddyFromList(GameObject buddy)
 		{
             /*
 			Initialize.buddyList.Remove(buddy);
 			printList();
             */
-            buddies.Remove(buddy);
-		}
+            bool removed = buddies.Remove(buddy);
+            //Debug.Log("Removed : " + removed);
+
+            GameObject.Destroy(buddy);
+        }
+        public void setReaction(bool inR)
+        {
+            inReaction = inR;
+        }
 
         public List<GameObject> getSelected()
         {
@@ -134,7 +163,7 @@ namespace Ranch {
                     selected.Add(buddy);
             }
 
-            printList(selected);
+            selUpdate = selected;
             return selected;
         }
         

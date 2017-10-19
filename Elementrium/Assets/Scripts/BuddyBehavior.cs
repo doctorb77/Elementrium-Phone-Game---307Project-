@@ -14,7 +14,7 @@ namespace BudBehavior
         public float ypos;
         public int ID;
         public static int IDc;
-        public static String triumname;
+        public String triumformula;
         public GameObject buddy;
         public static bool faceXYoff;
         public GameObject cr;
@@ -84,7 +84,7 @@ namespace BudBehavior
             xpos = buddy.getxpos();
             ypos = buddy.getypos();
             ID = buddy.getID();
-            triumname = buddy.getName();
+            triumformula = buddy.getName();
             faceXYoff = buddy.getFace();
             selected = buddy.getSelect();
         }

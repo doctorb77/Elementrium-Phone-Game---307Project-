@@ -8,6 +8,7 @@ public class RightMenu : MonoBehaviour
 
     public GameObject Menu;
     public Animator anim;
+    public static string activeField; // Group, Reaction, Other, None
     public bool isOn;
 
     // Use this for initialization
