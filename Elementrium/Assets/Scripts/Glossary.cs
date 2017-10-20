@@ -90,7 +90,7 @@ namespace GlossaryObject
         void Start()
         {
             onTab = 1;
-            buttonListControl.PopulateList("Atom");
+            buttonListControl.PopulateGlossaryList("Atom");
             print(Initialize.buddyList.Count);
         }
 
@@ -100,7 +100,7 @@ namespace GlossaryObject
             {
                 if (onTab == 2)
                 {
-                    buttonListControl.PopulateAtomList(getSortedAtomicGlossary());
+                    buttonListControl.GlossaryPopulateAtomList(getSortedAtomicGlossary());
                     onTab = 1;
                 }
 
@@ -109,7 +109,7 @@ namespace GlossaryObject
             {
                 if (onTab == 1)
                 {
-                    buttonListControl.PopulateCompoundList(getSortedCompoundGlossary());
+                    buttonListControl.GlossaryPopulateCompoundList(getSortedCompoundGlossary());
                     onTab = 2;
                 }
             }
