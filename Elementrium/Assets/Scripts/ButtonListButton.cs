@@ -6,6 +6,7 @@ using StateHandling;
 using GlossaryObject;
 using Ranch;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class ButtonListButton : MonoBehaviour
 {
@@ -13,9 +14,13 @@ public class ButtonListButton : MonoBehaviour
     [SerializeField]
     private Text myText;
     public string field; // Group, Reaction, None
-	public Animator GlossaryAnim;
+    public Animator GlossaryAnim;
+    public Animator RightMenuAnim;
+    public Animator ScrolllistAnim;
+    public Animator SelectorAnim;
+    public CosmicRanch ranch;
 
-	public void SetText(string textString)
+    public void SetText(string textString)
     {
         myText.text = textString;
     }
@@ -27,19 +32,28 @@ public class ButtonListButton : MonoBehaviour
             Debug.Log("BUTTON CLICKED");
             GameObject rightMenu = GameObject.Find("RightActivation");
             rightMenu.GetComponent<RightMenu1>().Play();
-		}
-		else if (SceneManager.GetActiveScene().name == "Glossary")
-		{
-			print("in glossary state");
-			if (!Glossary.displayOpen)
-			{
-				print("opening tab");
-				GlossaryAnim.Play("GlossaryInfoDisplayPopUp");
-			}
-		}
+        }
+        else if (SceneManager.GetActiveScene().name == "Glossary")
+        {
+            if (!Glossary.displayOpen)
+            {
+                GlossaryAnim.Play("GlossaryInfoDisplayPopUp");
+            }
+        }
+
 
     }
-
+    public void StartSelector()
+    {
+        if (RightMenu1.inGroup || RightMenu1.inReaction)
+        {
+            RightMenuAnim.Play("RightSideRetract");
+            RightMenu1.isOn = false;
+            ScrolllistAnim.Play("ScrollListLeave");
+            SelectorAnim.Play("SelectorAppear");
+        }
+    }
+    /*
     public void OnMouseDown()
     {
         if (field.Equals("Reaction"))
@@ -47,4 +61,6 @@ public class ButtonListButton : MonoBehaviour
         Debug.Log("BUTTON DOWN : Field : "+field);
         OnClick();
     }
+    */
+
 }

@@ -76,10 +76,27 @@ namespace Ranch {
         // Update is called once per frame
         void Update()
         {
+            if (inFusion)
+            {
+                inFusion = false;
+				deselectAll();
+				makeBuddiesSelectable(false);
+            }
+            if (inGrouping) 
+            {
+                inGrouping = false;
+                deselectAll();
+                makeBuddiesSelectable(false);
+            }
             if (inReaction)
             {
                 //List<string> reactants = new List<string> { "H2", "O" };
                 //List<string> 
+                ReactionHandler.reactCurrent(getSelected(), new List<string>() { "H2", "O" }, new List<int>() { 1, 1 }, new List<string>() { "H2O" }, new List<int>() { 1 });
+                inReaction = false;
+                deselectAll();
+                makeBuddiesSelectable(false);
+                /*
                 bool done = ReactionHandler.reactCurrent(getSelected(), new List<string>() { "H2", "O" }, new List<int>() { 1, 1 }, new List<string>() { "H2O" }, new List<int>() { 1 });
                 if (done)
                 {
@@ -87,6 +104,7 @@ namespace Ranch {
                     makeBuddiesSelectable(false);
                     inReaction = false;
                 }
+                */
 
                 //Debug.Log("DONE : "+done);
             }
@@ -147,6 +165,14 @@ namespace Ranch {
             //Debug.Log("Removed : " + removed);
 
             GameObject.Destroy(buddy);
+        }
+        public void setFusion(bool inF) 
+        {
+            inFusion = inF;
+        }
+        public void setGroup(bool inG) 
+        {
+            inGrouping = inG;
         }
         public void setReaction(bool inR)
         {

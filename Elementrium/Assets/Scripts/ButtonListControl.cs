@@ -20,20 +20,94 @@ public class ButtonListControl : MonoBehaviour
 
     public string buttonText;
 
-    public void PopulateList(string buttonText)
+	public void PopulateGlossaryList(string buttonText)
+	{
+		if (buttons.Count > 0)
+		{
+
+			foreach (GameObject button in buttons)
+			{
+				//buttons.Remove(button.gameObject);
+				Destroy(button.gameObject);
+			}
+
+			buttons.Clear();
+		}
+
+		foreach (int i in intArray)
+		{
+			GameObject button = Instantiate(buttonTemplate) as GameObject;
+			button.SetActive(true);
+
+			button.GetComponent<ButtonListButton>().SetText(buttonText + " #" + i);
+
+			button.transform.SetParent(buttonTemplate.transform.parent, false);
+			buttons.Add(button);
+		}
+	}
+
+	public void PopulateAchievementList(string buttonText)
+	{
+		if (buttons.Count > 0)
+		{
+
+			foreach (GameObject button in buttons)
+			{
+				//buttons.Remove(button.gameObject);
+				Destroy(button.gameObject);
+			}
+
+			buttons.Clear();
+		}
+
+		foreach (int i in intArray)
+		{
+			GameObject button = Instantiate(buttonTemplate) as GameObject;
+			button.SetActive(true);
+
+			button.GetComponent<ButtonListButton>().SetText(buttonText + " #" + i);
+
+			button.transform.SetParent(buttonTemplate.transform.parent, false);
+			buttons.Add(button);
+		}
+	}
+
+    public void PopulateGroupList(string buttonText)
+	{
+		if (buttons.Count > 0)
+		{
+
+			foreach (GameObject button in buttons)
+			{
+				//buttons.Remove(button.gameObject);
+				Destroy(button.gameObject);
+			}
+
+			buttons.Clear();
+		}
+
+		foreach (int i in intArray)
+		{
+			GameObject button = Instantiate(buttonTemplate) as GameObject;
+			button.SetActive(true);
+
+			button.GetComponent<ButtonListButton>().SetText(buttonText + " #" + i);
+
+			button.transform.SetParent(buttonTemplate.transform.parent, false);
+			buttons.Add(button);
+		}
+	}
+
+    public void PopulateReactionList(string buttonText)
     {
         if (buttons.Count > 0)
         {
-
             foreach (GameObject button in buttons)
             {
-                //buttons.Remove(button.gameObject);
                 Destroy(button.gameObject);
             }
-
             buttons.Clear();
         }
-
         foreach (int i in intArray)
         {
             GameObject button = Instantiate(buttonTemplate) as GameObject;
@@ -53,7 +127,7 @@ public class ButtonListControl : MonoBehaviour
         }
     }
 
-    public void PopulateAtomList (SortedDictionary<int, int> sd) 
+    public void GlossaryPopulateAtomList (SortedDictionary<int, int> sd) 
     {
         // <atomic Number, Database row ID>
         foreach (KeyValuePair<int, int> entry in sd)
@@ -69,7 +143,7 @@ public class ButtonListControl : MonoBehaviour
         
     }
 
-	public void PopulateCompoundList(SortedDictionary<string, int> sd)
+	public void GlossaryPopulateCompoundList(SortedDictionary<string, int> sd)
 	{
 		// <Name, Database row ID>
 		foreach (KeyValuePair<string, int> entry in sd)

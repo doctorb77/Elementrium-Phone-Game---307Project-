@@ -16,6 +16,6 @@ public class Achievements : MonoBehaviour
     }
     void Start()
     {
-        buttonListControl.PopulateList("Achievement");
+        buttonListControl.PopulateAchievementList("Achievement");
     }
 }
