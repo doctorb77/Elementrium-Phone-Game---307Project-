@@ -167,15 +167,8 @@ namespace WormholeObject {
 			}
 
 			// Add newly generated atom to Backpack
-			//bp.addToBackpack(rowID, name, AtomicNumber);
+			bp.addToBackpack(rowID, name, AtomicNumber);
 
-            /********** TODO: CREATE BUDDY OBJECT HERE **********/
-
-            // Create le buddy
-
-            // Call the "add buddy" thingy in Initialize.ranch.<dank_method_name_here>
-
-            // winrar
 
             print(formula);
 
