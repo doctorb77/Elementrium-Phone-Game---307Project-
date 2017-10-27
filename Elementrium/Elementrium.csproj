@@ -129,6 +129,8 @@
     <Compile Include="Assets\Scripts\RightMenu1.cs" />
     <Compile Include="Assets\Scripts\ScrollList.cs" />
     <Compile Include="Assets\Scripts\Selection.cs" />
+    <Compile Include="Assets\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\SQLiteExample.cs" />
     <Compile Include="Assets\Scripts\StartGame.cs" />
     <Compile Include="Assets\Scripts\State.cs" />
     <Compile Include="Assets\Scripts\StateHandler.cs" />
@@ -136,6 +138,7 @@
     <Compile Include="Assets\Scripts\TopMenu.cs" />
     <Compile Include="Assets\Scripts\TopMenu1.cs" />
     <Compile Include="Assets\Scripts\Trium.cs" />
+    <Compile Include="Assets\Scripts\TriumInfoDisplay.cs" />
     <Compile Include="Assets\Scripts\TriumSelect.cs" />
     <Compile Include="Assets\Scripts\Wormhole.cs" />
   </ItemGroup>

@@ -9,18 +9,35 @@ using Initialization;
 public class TopMenu1 : MonoBehaviour
 {
 
+    public static TopMenu1 Instance { get { return instance; } }
+    private static TopMenu1 instance;
     public GameObject Menu;
     public Animator anim;
     public bool menuIsOn;
     public bool settingsIsOn;
 	public bool musicIsOn;
+    public bool soundFxIsOn;
+    public bool faceIsOn;
 
-	// Use this for initialization
-	void Start()
+    // Use this for initialization
+    void Awake()
     {
+        if (Instance != null) {
+            Destroy(gameObject);
+        } else {
+            instance = this;
+        }
+    }
+
+    void Start()
+    {
+        Debug.Log("TopMenu is initialized");
         anim = Menu.GetComponent<Animator>();
         menuIsOn = false;
         settingsIsOn = false;
+        musicIsOn = true;
+        soundFxIsOn = true;
+        faceIsOn = true;
     }
 
     public void InteractMenu()
@@ -84,18 +101,5 @@ public class TopMenu1 : MonoBehaviour
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
             }
         }
-		else if (EventSystem.current.currentSelectedGameObject.name == "Node")
-		{
-			if (settingsIsOn && !musicIsOn)
-			{
-				anim.Play("SwitchTurnOn");
-				musicIsOn = true;
-			}
-			else if (settingsIsOn && musicIsOn)
-			{
-				anim.Play("SwitchTurnOff");
-				musicIsOn = false;
-			}
-		}
     }
 }

@@ -37,56 +37,56 @@ public class TriumSelect : MonoBehaviour {
         */
         State current = Initialize.sh.GetCurrentState();
 
-        if (RightMenu1.inFusion)
+        if (RightMenu1.Instance.inFusion)
 		{
             if (EventSystem.current.currentSelectedGameObject.name == "ConfirmButton")
 			{
                 ranch.setFusion(true);
                 SelectorAnim.Play("SelectorDisappear");
-                RightMenu1.inFusion = false;
+                RightMenu1.Instance.inFusion = false;
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 			else if (EventSystem.current.currentSelectedGameObject.name == "CancelButton")
 			{
 				SelectorAnim.Play("SelectorDisappear");
 				ranch.deselectAll();
-                RightMenu1.inFusion = false;
+                RightMenu1.Instance.inFusion = false;
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 		}
 		
-        if (RightMenu1.inGroup)
+        if (RightMenu1.Instance.inGroup)
 		{
             if (EventSystem.current.currentSelectedGameObject.name == "ConfirmButton")
 			{
                 ranch.setGroup(true);
                 SelectorAnim.Play("SelectorDisappear");
-                RightMenu1.inGroup = false;
+                RightMenu1.Instance.inGroup = false;
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 			else if (EventSystem.current.currentSelectedGameObject.name == "CancelButton")
 			{
 				SelectorAnim.Play("SelectorDisappear");
 				ranch.deselectAll();
-				RightMenu1.inGroup = false;
+				RightMenu1.Instance.inGroup = false;
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 		}
 		
-        if (RightMenu1.inReaction)
+        if (RightMenu1.Instance.inReaction)
 		{
 			if (EventSystem.current.currentSelectedGameObject.name == "ConfirmButton")
 			{
 				ranch.setReaction(true);
                 SelectorAnim.Play("SelectorDisappear");
-                RightMenu1.inReaction = false;
+                RightMenu1.Instance.inReaction = false;
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 			else if (EventSystem.current.currentSelectedGameObject.name == "CancelButton")
 			{
 				SelectorAnim.Play("SelectorDisappear");
                 ranch.deselectAll();
-                RightMenu1.inReaction = false;
+                RightMenu1.Instance.inReaction = false;
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 		}

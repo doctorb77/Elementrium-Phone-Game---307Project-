@@ -9,6 +9,9 @@ using Initialization;
 public class RightMenu1 : MonoBehaviour
 {
 
+    public static RightMenu1 Instance { get { return instance; } }
+    private static RightMenu1 instance;
+
     public GameObject Menu;
     public Animator anim;
 
@@ -19,10 +22,22 @@ public class RightMenu1 : MonoBehaviour
 
 	public ButtonListControl buttonListControl;
     public Text instructions;
-    public static bool isOn;
-    public static bool inFusion;
-    public static bool inGroup;
-    public static bool inReaction;
+    public bool isOn;
+    public bool inFusion;
+    public bool inGroup;
+    public bool inReaction;
+
+	void Awake()
+	{
+		if (Instance != null)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			instance = this;
+		}
+	}
 
     // Use this for initialization
     void Start()

@@ -47,16 +47,16 @@ public class ButtonListButton : MonoBehaviour
     }
     public void StartSelector()
     {
-        if (RightMenu1.inGroup || RightMenu1.inReaction)
+        if (RightMenu1.Instance.inGroup || RightMenu1.Instance.inReaction)
         {
             RightMenuAnim.Play("RightSideRetract");
-            RightMenu1.isOn = false;
+            RightMenu1.Instance.isOn = false;
             ScrolllistAnim.Play("ScrollListLeave");
             SelectorAnim.Play("SelectorAppear");
-			if (RightMenu1.inGroup) {
+			if (RightMenu1.Instance.inGroup) {
 				Initialize.sh.setCurrentState ("Group", true, true);
 			}
-			if (RightMenu1.inReaction) {
+			if (RightMenu1.Instance.inReaction) {
 				Initialize.sh.setCurrentState ("Reaction", true, true);
 			}
         }

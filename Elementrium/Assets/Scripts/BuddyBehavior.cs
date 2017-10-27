@@ -22,6 +22,10 @@ namespace BudBehavior
         public bool stayStill;
         public static bool selectable = false;
 
+        public Animator infoDisplayAnim;
+		public Animator deleteAnim;
+		public bool infoOn;
+
 		public void Start()
 		{
             cr = GameObject.FindGameObjectWithTag("CosmicRanch");
@@ -33,6 +37,7 @@ namespace BudBehavior
             ID = IDc;
 
 			selected = false;
+            infoOn = false;
 			buddy = gameObject;
 			System.Random rnd = new System.Random();
             float xdir = rnd.Next(0, 66);
@@ -70,10 +75,24 @@ namespace BudBehavior
 
         private void OnMouseDown()
         {
+            SoundManager.Instance.PlaySoundSix();
             if (selectable) // A fusion/grouping/reaction is taking place, select the triums
             {
                 selected = !selected;
                 cr.GetComponent<CosmicRanch>().getSelected();
+            } 
+            else 
+            {
+                if (!infoOn)
+                {
+                    infoDisplayAnim.Play("TriumInfoPanelEnter");
+                    infoOn = true;
+                } else {
+                    deleteAnim.Play("DeleteOptionExit");
+                    TriumInfoDisplay.deleteOn = false;
+                    infoDisplayAnim.Play("TriumInfoPanelExit");
+                    infoOn = false;
+				}
             }
         }
 

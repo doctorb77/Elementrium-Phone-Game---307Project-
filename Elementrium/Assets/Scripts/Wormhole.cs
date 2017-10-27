@@ -92,7 +92,7 @@ namespace WormholeObject {
 
         private bool isActive()
         {
-            if (RightMenu1.isOn)
+            if (RightMenu1.Instance.isOn)
                 return false;
             return true;
         }

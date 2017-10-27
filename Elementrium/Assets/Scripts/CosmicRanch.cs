@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 using Assets.Scripts;
 using Initialization;
 using Reaction;
+using Fusion;
+using Group;
 using WormholeObject;
 using BudBehavior;
 using BackpackObject;
@@ -78,7 +80,9 @@ namespace Ranch {
         {
             if (inFusion)
             {
-                inFusion = false;
+				FusionHandler f = new FusionHandler();
+				bool done = f.fuse(getSelected());
+				inFusion = false;
 				deselectAll();
 				makeBuddiesSelectable(false);
             }
@@ -154,6 +158,14 @@ namespace Ranch {
             //buddies.Add(buddy);
             buddies.Clear();
             buddies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Buddy"));
+			Debug.Log("Updating the list!");
+
+			foreach (GameObject bud in GameObject.FindGameObjectsWithTag("Buddy"))
+			{
+				Debug.Log("Adding a buddy! " + bud.GetComponent<BuddyBehavior>().triumformula);
+				//buddies.Add(bud);
+			}
+
         }
 		public void RemoveBuddyFromList(GameObject buddy)
 		{
@@ -164,7 +176,7 @@ namespace Ranch {
             bool removed = buddies.Remove(buddy);
             //Debug.Log("Removed : " + removed);
 
-            GameObject.Destroy(buddy);
+            buddy.SetActive(false);
         }
         public void setFusion(bool inF) 
         {
