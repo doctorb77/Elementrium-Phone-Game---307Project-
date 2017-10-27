@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using StateHandling;
 using UnityEngine.UI;
+using Initialization;
 
 public class RightMenu1 : MonoBehaviour
 {
@@ -40,7 +41,7 @@ public class RightMenu1 : MonoBehaviour
         {
             anim.Play("RightMenuSlideIn");
             isOn = true;
-            StateHandler.setCurrentState("ActionBar", true, true);
+            Initialize.sh.setCurrentState("ActionBar", true, true);
 
         }
         else
@@ -48,7 +49,7 @@ public class RightMenu1 : MonoBehaviour
 			if (!inGroup && !inReaction) {
 				anim.Play ("RightSideRetract");
 				isOn = false;
-				StateHandler.setCurrentState ("MainGameScene", true, true);
+                Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
         }
     }
@@ -61,7 +62,7 @@ public class RightMenu1 : MonoBehaviour
             animSelector.Play("SelectorAppear");
             isOn = false;
             inFusion = true;
-			StateHandler.setCurrentState ("Fusion", true, true);
+            Initialize.sh.setCurrentState ("Fusion", true, true);
         }
     }
 	public void InteractGroup()
@@ -72,7 +73,7 @@ public class RightMenu1 : MonoBehaviour
 			inGroup = true;
 			buttonListControl.PopulateGroupList("Molecule");
             animScroll.Play("ScrollListEnter");
-            StateHandler.setCurrentState("Group", true, true);
+            Initialize.sh.setCurrentState("Group", true, false);
 		}
 	}
 	public void InteractReaction()
@@ -83,7 +84,7 @@ public class RightMenu1 : MonoBehaviour
 			inReaction = true;
 			buttonListControl.PopulateReactionList("Compound");
             animScroll.Play("ScrollListEnter");
-            StateHandler.setCurrentState("Reaction", true, true);
+            Initialize.sh.setCurrentState("Reaction", true, false);
 		}
 	}
 }

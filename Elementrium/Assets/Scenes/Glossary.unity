@@ -520,6 +520,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GlossaryAnim: {fileID: 198310540}
+  name: {fileID: 2094235131}
+  info: {fileID: 632445501}
+  fact1: {fileID: 1557062943}
+  fact2: {fileID: 552961837}
+  fact3: {fileID: 1646752769}
   buttonListControl: {fileID: 747987159}
   onTab: 0
 --- !u!1 &137448797

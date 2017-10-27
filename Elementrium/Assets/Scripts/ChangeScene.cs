@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Initialization;
 
 public class ChangeScene : MonoBehaviour {
 
@@ -22,6 +23,7 @@ public class ChangeScene : MonoBehaviour {
 					if (SceneManager.GetActiveScene().name == "StartingMenu")
 					{
 						SceneManager.LoadScene("MainGameSpace");
+						Initialize.sh.setCurrentState ("MainGameScene", true, true);
 					}
                 }
                 else if (hit.transform.gameObject.name == "ExitButton")
@@ -30,6 +32,7 @@ public class ChangeScene : MonoBehaviour {
                        || SceneManager.GetActiveScene().name == "Achievements")
                     {
                         SceneManager.LoadScene("MainGameSpace");
+						Initialize.sh.setCurrentState ("MainGameScene", true, true);
                     }
 				}
 			}

@@ -59,11 +59,11 @@ namespace StateHandling
             states.Add(sS);
             State sA = new State("Achievements");
             states.Add(sA);
-            State sMM = new State("MainMenu");
+            State sMM = new State("MainMenu");//start menu
             states.Add(sMM);
             State sGl = new State("Glossary");
             states.Add(sGl);
-            State sM = new State("Menu");
+            State sM = new State("Menu");//top left corner
             states.Add(sM);
             State sZI = new State("ZoomIn");
             states.Add(sZI);
@@ -79,44 +79,38 @@ namespace StateHandling
             states.Add(sRS);
                 //locks everything until display goes away
         }
-        public static State GetCurrentState()
+        public State GetCurrentState()
         {
             // State[] st = new State[12];
             //int counter = 0;
-            foreach (State s in states)
-            {
-                if (s.isActive == true)
-                {
-                    //st[counter] = s;
-                    // counter++;
-                    return s;
-                }
-            }
-            return null;
+            return currentstate;
         }
-        public static void setCurrentState(String name, Boolean visible, Boolean active)
+        public void setCurrentState(String name, Boolean visible, Boolean active)
         {
-            if (currentstate != null)
+            /*if (currentstate != null)
             {
                 currentstate.isActive = false;
                 currentstate.isVisible = false;
                 currentstate = null;
-            }
-            foreach (State s in states)
+            }*/
+			for(int i = 0; i < states.Count; i++)
             {
                 //Console.WriteLine(s.name);
-                print(s.name);
-                if (s.name == name)
-                {
-                    s.isVisible = visible;
-                    s.isActive = active;
+                
+				if (states [i].name == name) {
+					states [i].isVisible = visible;
+					states [i].isActive = active;
 
-                }
-                if (s.isActive == true)
+				} else {
+					states [i].isVisible = false;
+					states [i].isActive = false;
+				}
+				if (states[i].isActive == true)
                 {
-                    currentstate = s;
+					currentstate = states[i];
                 }
             }
+			Debug.Log(currentstate.name);
         }
     }
 }

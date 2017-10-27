@@ -7,6 +7,7 @@ using StateHandling;
 using TriumObject;
 using BackpackObject;
 using Initialization;
+using UnityEngine.UI;
 
 namespace GlossaryObject
 {
@@ -22,6 +23,11 @@ namespace GlossaryObject
 		//}
 		public static bool displayOpen = false;
 		public Animator GlossaryAnim;
+		public Text name;
+		public Text info;
+		public Text fact1;
+		public Text fact2;
+		public Text fact3;
 
 
 		public SortedDictionary<int, int> getSortedAtomicGlossary()
@@ -85,7 +91,7 @@ namespace GlossaryObject
         public void ExitGlossary()
         {
             SceneManager.LoadScene("MainGameScene");
-            StateHandler.setCurrentState("MainGameScene", true, true);
+            Initialize.sh.setCurrentState("MainGameScene", true, true);
         }
         void Start()
         {

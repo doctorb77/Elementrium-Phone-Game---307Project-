@@ -7,6 +7,7 @@ using GlossaryObject;
 using Ranch;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using Initialization;
 
 public class ButtonListButton : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class ButtonListButton : MonoBehaviour
             if (!Glossary.displayOpen)
             {
                 GlossaryAnim.Play("GlossaryInfoDisplayPopUp");
+
             }
         }
 
@@ -51,6 +53,12 @@ public class ButtonListButton : MonoBehaviour
             RightMenu1.isOn = false;
             ScrolllistAnim.Play("ScrollListLeave");
             SelectorAnim.Play("SelectorAppear");
+			if (RightMenu1.inGroup) {
+				Initialize.sh.setCurrentState ("Group", true, true);
+			}
+			if (RightMenu1.inReaction) {
+				Initialize.sh.setCurrentState ("Reaction", true, true);
+			}
         }
     }
     /*

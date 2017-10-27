@@ -8,6 +8,7 @@ using States;
 //using Fusion;
 using UnityEngine.UI;
 using Ranch;
+using Initialization;
 
 public class TriumSelect : MonoBehaviour {
 
@@ -34,7 +35,7 @@ public class TriumSelect : MonoBehaviour {
             
         }
         */
-        State current = StateHandler.GetCurrentState();
+        State current = Initialize.sh.GetCurrentState();
 
         if (RightMenu1.inFusion)
 		{
@@ -43,12 +44,14 @@ public class TriumSelect : MonoBehaviour {
                 ranch.setFusion(true);
                 SelectorAnim.Play("SelectorDisappear");
                 RightMenu1.inFusion = false;
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 			else if (EventSystem.current.currentSelectedGameObject.name == "CancelButton")
 			{
 				SelectorAnim.Play("SelectorDisappear");
 				ranch.deselectAll();
                 RightMenu1.inFusion = false;
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 		}
 		
@@ -59,12 +62,14 @@ public class TriumSelect : MonoBehaviour {
                 ranch.setGroup(true);
                 SelectorAnim.Play("SelectorDisappear");
                 RightMenu1.inGroup = false;
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 			else if (EventSystem.current.currentSelectedGameObject.name == "CancelButton")
 			{
 				SelectorAnim.Play("SelectorDisappear");
 				ranch.deselectAll();
 				RightMenu1.inGroup = false;
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 		}
 		
@@ -75,32 +80,34 @@ public class TriumSelect : MonoBehaviour {
 				ranch.setReaction(true);
                 SelectorAnim.Play("SelectorDisappear");
                 RightMenu1.inReaction = false;
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 			else if (EventSystem.current.currentSelectedGameObject.name == "CancelButton")
 			{
 				SelectorAnim.Play("SelectorDisappear");
                 ranch.deselectAll();
                 RightMenu1.inReaction = false;
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 		}
         /*
 		if (current.name == "Main Game Scene")
 		{
 			//zoomin only time
-			StateHandler.setCurrentState("ZoomIn", true, true);
+			Initialize.sh.setCurrentState("ZoomIn", true, true);
 		}
         */
-		//StateHandler sh = new StateHandler();
+        //StateHandler sh = new StateHandler();
 
-		//Buddy b = new Buddy();
-		//find in cosmic ranch arraylist = EventSystem.current.currentSelectedGameObject.name;
-		//b.buddy.name = //currentbuddy
+        //Buddy b = new Buddy();
+        //find in cosmic ranch arraylist = EventSystem.current.currentSelectedGameObject.name;
+        //b.buddy.name = //currentbuddy
 
 
-	}
+    }
 
-	// Update is called once per frame
-	void Update () {
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

@@ -16,11 +16,11 @@ namespace Initialization
 
     public class StartGame : MonoBehaviour
     {
-
+       
         public void EnterGame()
         {
             SceneManager.LoadScene("MainGameScene");
-            StateHandler.setCurrentState("MainGameScene", true, true);
+            
 
             Initialize.onStart();
         }
@@ -30,7 +30,7 @@ namespace Initialization
 
     public static class Initialize
     {
-
+        public static StateHandler sh;
         public static Backpack player;
         // public static Wormhole wormhole;
         public static GameObject wormhole;
@@ -70,7 +70,11 @@ namespace Initialization
             }
 
 
-
+            if (sh == null)
+            {
+                sh = new StateHandler();
+                sh.setCurrentState("MainGameScene", true, true);
+            }
             // Initialize ANY other global variables
 
         }
