@@ -31,11 +31,13 @@ public class TopMenu1 : MonoBehaviour
             {
                 anim.Play("TopMenuDropDown");
                 menuIsOn = true;
+				Initialize.sh.setCurrentState ("Menu", true, true);
             }
             else if (menuIsOn && !settingsIsOn)
             {
                 anim.Play("TopMenuRetract");
                 menuIsOn = false;
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
             }
         }
         else if (EventSystem.current.currentSelectedGameObject.name == "ExitMenuButton")
@@ -44,6 +46,7 @@ public class TopMenu1 : MonoBehaviour
             {
                 anim.Play("TopMenuRetract");
                 menuIsOn = false;
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
             }
         }
         else if (EventSystem.current.currentSelectedGameObject.name == "ToStartButton")
@@ -51,6 +54,7 @@ public class TopMenu1 : MonoBehaviour
             if (menuIsOn)
             {
                 SceneManager.LoadScene("StartingMenu");
+				Initialize.sh.setCurrentState ("MainMenu", true, true);
             }
         }
     }
@@ -68,6 +72,7 @@ public class TopMenu1 : MonoBehaviour
             {
                 anim.Play("TopSettingsRetract");
                 settingsIsOn = false;
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
             }
         }
         else if (EventSystem.current.currentSelectedGameObject.name == "ExitSettingsButton")
@@ -76,6 +81,7 @@ public class TopMenu1 : MonoBehaviour
             {
                 anim.Play("TopSettingsRetract");
                 settingsIsOn = false;
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
             }
         }
 		else if (EventSystem.current.currentSelectedGameObject.name == "Node")
