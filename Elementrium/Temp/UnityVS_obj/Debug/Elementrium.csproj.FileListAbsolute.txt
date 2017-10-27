@@ -1,24 +1,65 @@
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\Mono.Data.Sqlite.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\nunit.framework.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\System.Data.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEditor.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.Analytics.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.HoloLens.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.Networking.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.TestRunner.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.Timeline.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEditor.xml
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.xml
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.Networking.xml
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.TestRunner.xml
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\nunit.framework.xml
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.Timeline.xml
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.Analytics.xml
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_bin\Debug\UnityEngine.HoloLens.xml
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_obj\Debug\Assembly-CSharp.dll
-W:\My Documents\GitHub\307Project\Elementrium\Temp\UnityVS_obj\Debug\Assembly-CSharp.pdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Assembly-CSharp.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Assembly-CSharp.pdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Boo.Lang.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Mono.Data.Sqlite.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/mscorlib.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/nunit.framework.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.Core.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.Data.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.Runtime.Serialization.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.XML.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.Xml.Linq.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEditor.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEditor.iOS.Extensions.Common.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEditor.iOS.Extensions.Xcode.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.Analytics.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.HoloLens.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.Networking.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.TestRunner.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.Timeline.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.UI.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityScript.Lang.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Mono.Security.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Mono.Cecil.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Unity.SerializationLogic.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Unity.DataContract.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/ExCSS.Unity.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Unity.Legacy.NRefactory.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Unity.UNetWeaver.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Unity.CecilTools.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Mono.Cecil.Pdb.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Mono.Cecil.Mdb.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/mscorlib.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.XML.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.Core.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.Runtime.Serialization.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/System.Xml.Linq.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEditor.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEditor.xml
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.xml
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.UI.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.UI.xml
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.Networking.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.Networking.xml
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.TestRunner.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.TestRunner.xml
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/nunit.framework.pdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/nunit.framework.xml
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.Timeline.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.Timeline.xml
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.Analytics.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.Analytics.xml
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.HoloLens.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEngine.HoloLens.xml
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEditor.iOS.Extensions.Xcode.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/UnityEditor.iOS.Extensions.Common.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Mono.Security.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_bin/Debug/Unity.UNetWeaver.dll.mdb
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_obj/Debug/Elementrium.csprojResolveAssemblyReference.cache
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_obj/Debug/Elementrium.csproj.CoreCompileInputs.cache
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_obj/Debug/Assembly-CSharp.dll
+/Users/jgrider/Documents/GitHub/307Project/Elementrium/Temp/UnityVS_obj/Debug/Assembly-CSharp.pdb

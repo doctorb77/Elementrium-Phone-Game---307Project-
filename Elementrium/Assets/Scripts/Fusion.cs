@@ -30,7 +30,7 @@ namespace Fusion
          * Algorithm used to "fuse" atoms within a User's backpack. 
          * 
          */
-		public void fuse(List<GameObject> selected)
+		public bool fuse(List<GameObject> selected)
 		{
 
 			/* TODO: Support selecting multiple atoms at a time
@@ -42,16 +42,17 @@ namespace Fusion
 			// Make sure the list isn't empty
 			if (selected.Count != 2)
 			{
-				return;
+                return false;
             } else if (selected[0].GetComponent<BuddyBehavior>().triumformula != selected[1].GetComponent<BuddyBehavior>().triumformula) {
-                return;
+                // Make sure they selected the same two atoms
+                return false;
             }
 
             // Obtain the database ID of the selected atoms
             int key = obtainAtomID(selected[0]);
 
             if (key == -1) {
-                return;
+                return false;
             }
 
 			int fusionID = -1;  // The database ID of the trium
@@ -63,13 +64,13 @@ namespace Fusion
 			// If we are, obtain relavant information and store in "out" variables
 			if (!canFuse(key, out fusionID, out atomName, out formula, out atomicNumber))
 			{
-				return;
+				return false;
 			}
 
 			// Make sure "out" variables are now valid
 			if (fusionID == -1 || atomName == "none" || formula == "none" || atomicNumber == -1)
 			{
-				return;
+				return false;
 			}
 
 			/****** Update backpack and remove the selected buddies ******/
@@ -107,8 +108,9 @@ namespace Fusion
 			Buddy bud = new Buddy(0, x, y, atomicNumber, atomName, actual, false, false);
 			cr.AddBuddyToList();
 
-			//cr.GetComponent<CosmicRanch>().AddBuddyToList(actual); 
+            //cr.GetComponent<CosmicRanch>().AddBuddyToList(actual); 
 
+            return true;
 
 		}
 
@@ -210,7 +212,7 @@ namespace Fusion
         {
             string name = buddy.GetComponent<BuddyBehavior>().triumformula;
 
-			string query = "SELECT t.ID" +
+            string query = "SELECT t.ID" +
 						   "FROM Trium t " +
 						   "WHERE t.name = " + name;
 
@@ -234,6 +236,7 @@ namespace Fusion
 			{
 
                 id = dbReader.GetInt32(0);
+
 				break;
 
 			}

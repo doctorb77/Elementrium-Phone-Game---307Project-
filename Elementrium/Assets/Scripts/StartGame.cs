@@ -37,6 +37,7 @@ namespace Initialization
         public static Glossary glossary;
         public static CosmicRanch ranch;
         public static List<Buddy> buddyList;
+        //public static List<GameObject> buddies = new List<GameObject>();
 
         // Other global variables go here
 

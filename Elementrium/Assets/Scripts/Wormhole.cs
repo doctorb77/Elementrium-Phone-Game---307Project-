@@ -28,9 +28,9 @@ namespace WormholeObject {
 		private int rangeMax = 92;
 		private int rangeMin = 1;
 
-		public Wormhole(Backpack bp)
+		public Wormhole()
 		{
-			this.bp = bp;
+			this.bp = Initialize.player;
 			rangeStart = 1;
 			rangeEnd = 1;
 			//    wormholeLevel = 0;

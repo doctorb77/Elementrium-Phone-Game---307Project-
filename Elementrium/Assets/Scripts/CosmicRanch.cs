@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 using Assets.Scripts;
 using Initialization;
 using Reaction;
+using Fusion;
+using Group;
 using WormholeObject;
 using BudBehavior;
 using BackpackObject;
@@ -76,6 +78,23 @@ namespace Ranch {
         // Update is called once per frame
         void Update()
         {
+            if (inFusion) 
+            {
+                FusionHandler f = new FusionHandler();
+                bool done = f.fuse(getSelected());
+
+                if (done) {
+                    deselectAll();
+                    makeBuddiesSelectable(false);
+                    inFusion = false;
+                }
+            }
+
+            if (inGrouping) 
+            {
+                
+            }
+
             if (inReaction)
             {
                 //List<string> reactants = new List<string> { "H2", "O" };
@@ -135,18 +154,39 @@ namespace Ranch {
             */
             //buddies.Add(buddy);
             buddies.Clear();
-            buddies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Buddy"));
+            buddies = new List<GameObject>();
+            Debug.Log("Updating the list!");
+            foreach (GameObject bud in GameObject.FindGameObjectsWithTag("Buddy"))
+            {
+				/*
+                if (bud.activeSelf) {
+					Debug.Log("Adding a buddy! " + bud.GetComponent<BuddyBehavior>().triumformula);
+					buddies.Add(bud);
+                } else {
+					Debug.Log("Buddy is Deactive! " + bud.GetComponent<BuddyBehavior>().triumformula);
+                }
+                */
+
+				Debug.Log("Adding a buddy! " + bud.GetComponent<BuddyBehavior>().triumformula);
+				buddies.Add(bud);
+
+            }
         }
+
 		public void RemoveBuddyFromList(GameObject buddy)
 		{
             /*
 			Initialize.buddyList.Remove(buddy);
 			printList();
             */
+
             bool removed = buddies.Remove(buddy);
+            //Debug.Log("Tag: " + buddy.tag);
             //Debug.Log("Removed : " + removed);
 
-            GameObject.Destroy(buddy);
+            //Debug.Log("Before: "  + GameObject.FindGameObjectsWithTag("Buddy").Length);
+            buddy.SetActive(false);
+            //Debug.Log("After: " + GameObject.FindGameObjectsWithTag("Buddy").Length);
         }
         public void setReaction(bool inR)
         {

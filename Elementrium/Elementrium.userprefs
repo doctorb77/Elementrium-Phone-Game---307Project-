@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Wormhole.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CosmicRanch.cs">
     <Files>
-      <File FileName="Assets/Scripts/Wormhole.cs" Line="170" Column="6" />
-      <File FileName="Assets/Scripts/Fusion.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/BuddyBehavior.cs" Line="24" Column="9" />
+      <File FileName="Assets/Scripts/Wormhole.cs" Line="208" Column="9" />
+      <File FileName="Assets/Scripts/Fusion.cs" Line="35" Column="13" />
+      <File FileName="Assets/Scripts/CosmicRanch.cs" Line="147" Column="18" />
+      <File FileName="Assets/Scripts/StartGame.cs" Line="40" Column="11" />
+      <File FileName="Assets/Scripts/Reaction.cs" Line="94" Column="68" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
