@@ -28,9 +28,9 @@ namespace WormholeObject {
 		private int rangeMax = 92;
 		private int rangeMin = 1;
 
-		public Wormhole(Backpack bp)
+		public Wormhole()
 		{
-			this.bp = bp;
+			this.bp = Initialize.player;
 			rangeStart = 1;
 			rangeEnd = 1;
 			//    wormholeLevel = 0;
@@ -167,7 +167,7 @@ namespace WormholeObject {
 			}
 
 			// Add newly generated atom to Backpack
-			//bp.addToBackpack(rowID, name, AtomicNumber);
+			bp.addToBackpack(rowID, name, AtomicNumber);
 
             /********** TODO: CREATE BUDDY OBJECT HERE **********/
 
