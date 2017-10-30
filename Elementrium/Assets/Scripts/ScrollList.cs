@@ -28,7 +28,7 @@ public class ScrollList : MonoBehaviour
             RightMenu1.Instance.inGroup = false;
             anim.Play("ScrollListLeave");
             anim.Play("RightSideRetract");
-			Initialize.sh.setCurrentState ("ActionBar", true, true);
+			Initialize.sh.setCurrentState ("ActionBar", true, true);//active and visible
             //GameObject.Find("RightActivation").GetComponent<RightMenu1>().Play();
         }
         else if (RightMenu1.Instance.isOn && RightMenu1.Instance.inReaction)
@@ -36,7 +36,7 @@ public class ScrollList : MonoBehaviour
             RightMenu1.Instance.inReaction = false;
             anim.Play("ScrollListLeave");
             anim.Play("RightSideRetract");
-			Initialize.sh.setCurrentState ("ActionBar", true, true);
+			Initialize.sh.setCurrentState ("ActionBar", true, true);//active and visible
             //GameObject.Find("RightActivation").GetComponent<RightMenu1>().Play();
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Initialization;
-
+//10-28-2017 statehandler
 public class ChangeScene : MonoBehaviour {
 
 	// Use this for initialization
@@ -20,7 +20,7 @@ public class ChangeScene : MonoBehaviour {
 			if (Physics.Raycast(ray, out hit))
 			{
                 if (hit.transform.gameObject.name == "PlayButton") {
-					if (SceneManager.GetActiveScene().name == "StartingMenu")
+					if (Initialize.sh.getCurrentState().name == "MainMenu")
 					{
 						SceneManager.LoadScene("MainGameSpace");
 						Initialize.sh.setCurrentState ("MainGameScene", true, true);
@@ -28,8 +28,8 @@ public class ChangeScene : MonoBehaviour {
                 }
                 else if (hit.transform.gameObject.name == "ExitButton")
 				{
-                    if (SceneManager.GetActiveScene().name == "Glossary"
-                       || SceneManager.GetActiveScene().name == "Achievements")
+					if (Initialize.sh.getCurrentState().name == "Glossary"
+						|| Initialize.sh.getCurrentState().name == "Achievements")
                     {
                         SceneManager.LoadScene("MainGameSpace");
 						Initialize.sh.setCurrentState ("MainGameScene", true, true);

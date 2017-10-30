@@ -9,11 +9,20 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using Initialization;
 
+//editted to add Statehandler on 10/28/2017
 public class ButtonListButton : MonoBehaviour
 {
 
     [SerializeField]
     private Text myText;
+
+	private string myId;
+
+	private string myMass;
+	private string myFormula;
+	private string myFact1;
+	private string myFact2;
+	private string myFact3;
     public string field; // Group, Reaction, None
     public Animator GlossaryAnim;
     public Animator RightMenuAnim;
@@ -21,24 +30,55 @@ public class ButtonListButton : MonoBehaviour
     public Animator SelectorAnim;
     public CosmicRanch ranch;
 
+
     public void SetText(string textString)
     {
         myText.text = textString;
     }
+	public void SetId(int id)
+	{
+		myId = ""+id;
+	}
+	public void SetMass(decimal mass)
+	{
+		myMass = "" + mass;
+	}
+	public void SetFormula(string formula)
+	{
+		myFormula = formula;
+	}
+	public void SetFact1(string textString)
+	{
+		myFact1 = textString;
+	}
+	public void SetFact2(string textString)
+	{
+		myFact2 = textString;
+	}
+	public void SetFact3(string textString)
+	{
+		myFact3 = textString;
+	}
     public void OnClick()
     {
-        Debug.Log("TESTWETF");
-        if (SceneManager.GetActiveScene().name == "MainGameScene")
+        //Debug.Log("TESTWETF");
+		if (Initialize.sh.getCurrentState().name == "MainGameScene")
         {
-            Debug.Log("BUTTON CLICKED");
+            //Debug.Log("BUTTON CLICKED");
             GameObject rightMenu = GameObject.Find("RightActivation");
             rightMenu.GetComponent<RightMenu1>().Play();
         }
-        else if (SceneManager.GetActiveScene().name == "Glossary")
+		else if (Initialize.sh.getCurrentState().name == "Glossary")
         {
             if (!Glossary.displayOpen)
             {
+				Camera.main.GetComponent<Glossary> ().setnames (myText.text);
+				Camera.main.GetComponent<Glossary> ().setinfo (myId, myMass, myFormula);
+				//Camera.main.GetComponent<Glossary> ().setnames (myText.text);
                 GlossaryAnim.Play("GlossaryInfoDisplayPopUp");
+				//Debug.Log ("Played popup");
+				//Glossary.popupInfo (EventSystem.current.currentSelectedGameObject.name);
+
 
             }
         }

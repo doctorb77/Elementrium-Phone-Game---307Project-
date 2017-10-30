@@ -79,7 +79,7 @@ namespace StateHandling
             states.Add(sRS);
                 //locks everything until display goes away
         }
-        public State GetCurrentState()
+        public State getCurrentState()
         {
             // State[] st = new State[12];
             //int counter = 0;

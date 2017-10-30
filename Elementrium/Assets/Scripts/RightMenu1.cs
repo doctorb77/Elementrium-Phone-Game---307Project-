@@ -88,7 +88,7 @@ public class RightMenu1 : MonoBehaviour
 			inGroup = true;
 			buttonListControl.PopulateGroupList("Molecule");
             animScroll.Play("ScrollListEnter");
-            Initialize.sh.setCurrentState("Group", true, false);
+            Initialize.sh.setCurrentState("Group", true, false);//visible, not active
 		}
 	}
 	public void InteractReaction()
@@ -99,7 +99,7 @@ public class RightMenu1 : MonoBehaviour
 			inReaction = true;
 			buttonListControl.PopulateReactionList("Compound");
             animScroll.Play("ScrollListEnter");
-            Initialize.sh.setCurrentState("Reaction", true, false);
+            Initialize.sh.setCurrentState("Reaction", true, false);//visible not active
 		}
 	}
 }

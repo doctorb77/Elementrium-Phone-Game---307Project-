@@ -35,7 +35,7 @@ public class TriumSelect : MonoBehaviour {
             
         }
         */
-        State current = Initialize.sh.GetCurrentState();
+        State current = Initialize.sh.getCurrentState();
 
         if (RightMenu1.Instance.inFusion)
 		{
