@@ -116,7 +116,7 @@ namespace GlossaryObject
         }
         void Start()
         {
-            //onTab = 1;
+            onTab = 1;
             //buttonListControl.PopulateGlossaryList("Atom");
             //print(Initialize.buddyList.Count);
 			PopulateGlossaryAtoms();
@@ -126,17 +126,21 @@ namespace GlossaryObject
         {
             if (EventSystem.current.currentSelectedGameObject.name == "Tab_Atom")
             {
+                Debug.Log("In Atoms");
                 if (onTab == 2)
                 {
-                    buttonListControl.GlossaryPopulateAtomList(getSortedAtomicGlossary());
+                    Debug.Log("Changing into Atoms");
+                    PopulateGlossaryAtoms();
                     onTab = 1;
                 }
 
             }
             else if (EventSystem.current.currentSelectedGameObject.name == "Tab_Molecule")
             {
+                Debug.Log("In Molecules");
                 if (onTab == 1)
                 {
+                    Debug.Log("Changing into Molecules");
                     buttonListControl.GlossaryPopulateCompoundList(getSortedCompoundGlossary());
                     onTab = 2;
                 }
@@ -148,6 +152,7 @@ namespace GlossaryObject
 			displayOpen = false;
 		}
 		public void PopulateGlossaryAtoms() {
+            buttonListControl.RefreshButtons();
 			
 			string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
 		
@@ -191,9 +196,10 @@ namespace GlossaryObject
 		}
 		//public static void popupInfo(string objname) {
 		//	Debug.Log (objname);
-			//this.names.text = element.ToString();
-		    //this.info.text = "Atomic Number: " +id;
+		//this.names.text = element.ToString();
+		//this.info.text = "Atomic Number: " +id;
 		//}
+		
     }
 
 }

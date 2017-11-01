@@ -1,12 +1,14 @@
-﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|" StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ButtonListButton.cs">
+﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SoundManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Glossary.cs" Line="41" Column="48" />
-      <File FileName="Assets\Scripts\ButtonListControl.cs" Line="169" Column="61" />
-      <File FileName="Assets\Scripts\ButtonListButton.cs" Line="76" Column="51" />
+      <File FileName="Assets/Scripts/ButtonListButton.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ButtonListControl.cs" Line="153" Column="50" />
+      <File FileName="Assets/Scripts/Glossary.cs" Line="131" Column="39" />
+      <File FileName="Assets/Scripts/ScrollList.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SoundManager.cs" Line="48" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

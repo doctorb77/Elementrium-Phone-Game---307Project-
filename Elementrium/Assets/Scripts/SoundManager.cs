@@ -61,7 +61,6 @@ public class SoundManager : MonoBehaviour {
     public void PlaySoundOne () {
         if (TopMenu1.Instance.soundFxIsOn)
         {
-            Debug.Log("Play sound");
             soundsrc.clip = soundFX1;
             soundsrc.Play();
         }
@@ -70,7 +69,6 @@ public class SoundManager : MonoBehaviour {
 	{
         if (TopMenu1.Instance.soundFxIsOn)
         {
-            Debug.Log("Play sound");
             soundsrc.clip = soundFX2;
             soundsrc.Play();
         }
@@ -79,7 +77,6 @@ public class SoundManager : MonoBehaviour {
 	{
         if (TopMenu1.Instance.soundFxIsOn)
         {
-            Debug.Log("Play sound");
             soundsrc.clip = soundFX3;
             soundsrc.Play();
         }
@@ -88,7 +85,6 @@ public class SoundManager : MonoBehaviour {
 	{
         if (TopMenu1.Instance.soundFxIsOn)
         {
-            Debug.Log("Play sound");
             soundsrc.clip = soundFX4;
             soundsrc.Play();
         }
@@ -97,7 +93,6 @@ public class SoundManager : MonoBehaviour {
 	{
         if (TopMenu1.Instance.soundFxIsOn)
         {
-            Debug.Log("Play sound");
             soundsrc.clip = soundFX5;
             soundsrc.Play();
         }
@@ -106,7 +101,6 @@ public class SoundManager : MonoBehaviour {
 	{
         if (TopMenu1.Instance.soundFxIsOn)
         {
-            Debug.Log("Play sound");
             soundsrc.clip = soundFX6;
             soundsrc.Play();
         }
@@ -115,7 +109,6 @@ public class SoundManager : MonoBehaviour {
 	{
         if (TopMenu1.Instance.soundFxIsOn)
         {
-            Debug.Log("Play sound");
             soundsrc.clip = soundFX7;
             soundsrc.Play();
         }
@@ -124,7 +117,6 @@ public class SoundManager : MonoBehaviour {
 	{
         if (TopMenu1.Instance.soundFxIsOn)
         {
-            Debug.Log("Play sound");
             soundsrc.clip = soundFX8;
             soundsrc.Play();
         }

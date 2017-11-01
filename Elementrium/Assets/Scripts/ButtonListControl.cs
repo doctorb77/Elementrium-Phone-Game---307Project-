@@ -75,18 +75,7 @@ public class ButtonListControl : MonoBehaviour
 
     public void PopulateGroupList(string buttonText)
 	{
-		if (buttons.Count > 0)
-		{
-
-			foreach (GameObject button in buttons)
-			{
-				//buttons.Remove(button.gameObject);
-				Destroy(button.gameObject);
-			}
-
-			buttons.Clear();
-		}
-
+        RefreshButtons();
 		foreach (int i in intArray)
 		{
 			GameObject button = Instantiate(buttonTemplate) as GameObject;
@@ -101,14 +90,7 @@ public class ButtonListControl : MonoBehaviour
 
     public void PopulateReactionList(string buttonText)
     {
-        if (buttons.Count > 0)
-        {
-            foreach (GameObject button in buttons)
-            {
-                Destroy(button.gameObject);
-            }
-            buttons.Clear();
-        }
+        RefreshButtons();
         foreach (int i in intArray)
         {
             GameObject button = Instantiate(buttonTemplate) as GameObject;
@@ -146,10 +128,22 @@ public class ButtonListControl : MonoBehaviour
 
 	public void GlossaryPopulateCompoundList(SortedDictionary<string, int> sd)
 	{
-		// <Name, Database row ID>
+        // <Name, Database row ID>
+        RefreshButtons();
+		foreach (int i in intArray)
+		{
+			GameObject button = Instantiate(buttonTemplate) as GameObject;
+			button.SetActive(true);
+
+			button.GetComponent<ButtonListButton>().SetText("Molecule #" + i);
+
+			button.transform.SetParent(buttonTemplate.transform.parent, false);
+			buttons.Add(button);
+		}
+        /*
 		foreach (KeyValuePair<string, int> entry in sd)
 		{
-			// Key is the Database row ID of the pair
+            // Key is the Database row ID of the pair
 			Trium t = Initialize.player.getTrium(entry.Value);
 			GameObject button = Instantiate(buttonTemplate) as GameObject;
 			button.SetActive(true);
@@ -157,6 +151,7 @@ public class ButtonListControl : MonoBehaviour
 			button.transform.SetParent(buttonTemplate.transform.parent, false);
 			buttons.Add(button);
 		}
+        */
 	}
 	public void PopulateList(string buttonText, int id, decimal mass, string formula)//,string factOne, string factTwo, string factThree
 	{
@@ -182,5 +177,16 @@ public class ButtonListControl : MonoBehaviour
 
 		button.transform.SetParent(buttonTemplate.transform.parent, false);
 		buttons.Add(button);
+	}
+	public void RefreshButtons()
+	{
+		if (buttons.Count > 0)
+		{
+			foreach (GameObject button in buttons)
+			{
+				Destroy(button.gameObject);
+			}
+			buttons.Clear();
+		}
 	}
 }
