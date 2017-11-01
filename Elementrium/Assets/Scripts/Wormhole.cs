@@ -157,10 +157,6 @@ namespace WormholeObject {
 				break;
 			}
 
-            print(rowID);
-            print(name);
-            print(formula);
-            print(AtomicNumber);
 			if (rowID == -1 || name == "none" || formula == "none" || AtomicNumber == -1)
 			{
 				return;
@@ -177,12 +173,13 @@ namespace WormholeObject {
 
             // winrar
 
-            print(formula);
+            Debug.Log(formula);
 
             //GameObject buddy = (GameObject)Instantiate(Resources.Load("Prefabs/Triums/"+formula));
             formula = formula.Replace(" ", "");
             GameObject buddy =  Resources.Load("Prefabs/Triums/"+formula) as GameObject;
             GameObject actual = Instantiate(buddy);
+            Debug.Log(actual);
             actual.transform.SetParent(ws.transform, true);
             //buddy.transform.SetParent(buttonTemplate.transform.parent, false);
 

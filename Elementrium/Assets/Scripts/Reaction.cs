@@ -47,9 +47,9 @@ namespace Reaction
             for (int i = 0; i < 2; i++)
             {
                 if (selected.Count == 2)
-                {
+                { /*
                     Debug.Log("Selected \"" + selected[i].GetComponent<BuddyBehavior>().triumformula + "\"   Reactant : \"" + reactant[i] + "\"");
-                    Debug.Log(reactant[i].Equals(selected[i].GetComponent<BuddyBehavior>().triumformula));
+                    Debug.Log(reactant[i].Equals(selected[i].GetComponent<BuddyBehavior>().triumformula)); */
                 }
             }
 

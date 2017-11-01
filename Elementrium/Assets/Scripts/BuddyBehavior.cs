@@ -16,6 +16,7 @@ namespace BudBehavior
         public static int IDc;
         public String triumformula;
         public GameObject buddy;
+        public int TriumID;
         public static bool faceXYoff;
         public GameObject cr;
         public bool selected;

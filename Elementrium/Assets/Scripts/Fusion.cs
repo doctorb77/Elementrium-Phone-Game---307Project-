@@ -14,13 +14,12 @@ using BudBehavior;
 namespace Fusion
 {
 
-
-
-
 	public class FusionHandler
 	{
-
-		public static GameObject ws = GameObject.Find("BuddyContainer");
+        // Put this here because I am too lazy to figure out the database thing right now. Handles up to Fl
+        public List<string> eList = new List<string> { "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar" };
+        public List<string> eName = new List<string> { "Hydrogen", "Helium", "Lithium", "Berylium", "Boron", "Carbon", "Nitrogen", "Oxygen", "Flourine" };
+        public static GameObject ws = GameObject.Find("BuddyContainer");
 		public CosmicRanch cr = Initialize.ranch;
 		public Backpack bp = Initialize.player;
 
@@ -33,52 +32,47 @@ namespace Fusion
 		public bool fuse(List<GameObject> selected)
 		{
 
-			/* TODO: Support selecting multiple atoms at a time
+            /* TODO: Support selecting multiple atoms at a time
             if (keyOne != keyTwo) {
                 return;
             }
             */
 
+            int maxFuse = bp.maxElement;
+
 			// Make sure the list isn't empty
 			if (selected.Count != 2)
 			{
                 return false;
-            } else if (selected[0].GetComponent<BuddyBehavior>().triumformula != selected[1].GetComponent<BuddyBehavior>().triumformula) {
-                // Make sure they selected the same two atoms
+            }
+
+            int Trium1ID = selected[0].GetComponent<BuddyBehavior>().TriumID;
+            int Trium2ID = selected[1].GetComponent<BuddyBehavior>().TriumID;
+
+            if (Trium1ID <= 0 || Trium2ID <= 0 || Trium1ID > 92 || Trium2ID > 92) // One of the Triums is not an Element
+            {
                 return false;
             }
 
-            // Obtain the database ID of the selected atoms
-            int key = obtainAtomID(selected[0]);
+            int comb = Trium1ID + Trium2ID;
 
-            if (key == -1) {
-                return false;
-            }
+            Debug.Log("ATOM ID FOR FUSION : " + comb);
 
-			int fusionID = -1;  // The database ID of the trium
-			string atomName = "none";  // The name of the trium
-			string formula = "none";  // The Formula of the trium
+			int fusionID = comb;  // The database ID of the trium
+			string atomName = eName[comb-1];  // The name of the trium
+			string formula = eList[comb-1];  // The Formula of the trium
 			int atomicNumber = -1;  // The Atomic Number of the trium
 
-			// Make sure we are able to fuse, 
-			// If we are, obtain relavant information and store in "out" variables
-			if (!canFuse(key, out fusionID, out atomName, out formula, out atomicNumber))
-			{
-				return false;
-			}
-
-			// Make sure "out" variables are now valid
-			if (fusionID == -1 || atomName == "none" || formula == "none" || atomicNumber == -1)
-			{
-				return false;
-			}
-
 			/****** Update backpack and remove the selected buddies ******/
-			// Destroy old Triums (x2)
-			Trium old = (Trium)bp.getBP()[key];
-			old.setCount(old.getCount() - 2);
+			// Destroy old Triums
+			Trium old = (Trium)bp.getBP()[Trium1ID];
+			old.setCount(old.getCount() - 1);
+            Trium old2 = (Trium)bp.getBP()[Trium2ID];
+            old.setCount(old2.getCount() - 1);
 
-			foreach (GameObject b in selected)
+            GameObject cr = GameObject.FindGameObjectWithTag("CosmicRanch");//.GetComponent<CosmicRanch>().AddBuddyToList()
+
+            foreach (GameObject b in selected)
 			{
 				Debug.Log("Removing " + b.GetComponent<BuddyBehavior>().triumformula);
 				cr.GetComponent<CosmicRanch>().RemoveBuddyFromList(b);
@@ -88,13 +82,15 @@ namespace Fusion
 			/****** Update backpack and add new GameObject buddy ******/
 
 			// Add new Trium to backpack
-			bp.addToBackpack(fusionID, atomName, atomicNumber);
+			bp.addToBackpack(comb, atomName, atomicNumber);
 
 			// Get rid of any spaces in formula
 			formula = formula.Replace(" ", "");
 
 			// Create a buddy game object from existing Prefabs
-			GameObject buddy = Resources.Load("Prefabs/Triums/" + formula) as GameObject;
+
+            // USE DATABASE QUERY HERE IN PLACE OF ELIST IF YOU WANT
+			GameObject buddy = Resources.Load("Prefabs/Triums/" + eList[comb-1]) as GameObject;
 
 			// Instantiate an actual game object and transform it on the screen
 			GameObject actual = GameObject.Instantiate(buddy);
@@ -106,7 +102,7 @@ namespace Fusion
 
 			// Create a new buddy object and add it to the cosmic ranch
 			Buddy bud = new Buddy(0, x, y, atomicNumber, atomName, actual, false, false);
-			cr.AddBuddyToList();
+			cr.GetComponent<CosmicRanch>().AddBuddyToList();
 
             //cr.GetComponent<CosmicRanch>().AddBuddyToList(actual); 
 
@@ -160,10 +156,10 @@ namespace Fusion
 
 
 			// Set up string to Query from database
-			string query = "SELECT t.ID, t.Name, t.Formula, e.AtomicNumber " +
-						   "FROM Trium t " +
-						   "INNER JOIN Element e ON IFNULL(t.ElementID, -1) = e.ID " +
-						   "WHERE e.AtomicNumber = " + (oldElementID + 1);
+			string query = "SELECT Trium.ID, Trium.Name, Trium.Formula, Element.AtomicNumber " +
+						   "FROM Trium" +
+						   "INNER JOIN Element e ON IFNULL(Trium.ElementID, -1) = Element.ID " +
+						   "WHERE Element.AtomicNumber = " + (oldElementID + 1);
 
 			// Create new connection to database
 			string connection = "URI = file:" + Application.dataPath + "/Elementrium.db";
@@ -210,11 +206,12 @@ namespace Fusion
          */
 		public int obtainAtomID(GameObject buddy)
         {
+
             string name = buddy.GetComponent<BuddyBehavior>().triumformula;
 
             string query = "SELECT t.ID" +
 						   "FROM Trium t " +
-						   "WHERE t.name = " + name;
+						   "WHERE t.formula = " + name;
 
 			// Create new connection to database
 			string connection = "URI = file:" + Application.dataPath + "/Elementrium.db";
