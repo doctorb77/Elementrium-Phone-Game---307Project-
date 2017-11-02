@@ -38,7 +38,7 @@ namespace Fusion
             }
             */
 
-            int maxFuse = bp.maxElement;
+            int maxFuse = Backpack.maxElement;
             Debug.Log("PRINTING NUMBER OF ATOMS TO FUSE");
             Debug.Log(selected.Count);
 
@@ -61,6 +61,10 @@ namespace Fusion
             }
             Debug.Log("PASSED THIS LEVEL 2");
 			int comb = Trium1ID + Trium2ID;
+
+            // LEVEL NOT HIGH ENOUGH FOR THIS FUSION
+            if (comb > maxFuse)
+                return false;
 
 			Debug.Log("ATOM ID FOR FUSION : " + comb);
 

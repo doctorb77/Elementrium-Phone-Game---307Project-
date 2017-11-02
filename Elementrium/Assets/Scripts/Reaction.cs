@@ -86,6 +86,9 @@ namespace Reaction
 
             if (req)
             {
+                // TESTING FOR EXP BAR : REMOVE LATER
+                Backpack.gainExp(170);
+
                 GameObject cr = GameObject.FindGameObjectWithTag("CosmicRanch");//.GetComponent<CosmicRanch>().AddBuddyToList();
 
                 foreach (GameObject buddy in selected)

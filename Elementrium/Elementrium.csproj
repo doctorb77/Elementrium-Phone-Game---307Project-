@@ -98,11 +98,13 @@
     <Compile Include="Assets\Scripts\ButtonListControl.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\CosmicRanch.cs" />
+    <Compile Include="Assets\Scripts\ExpBar.cs" />
     <Compile Include="Assets\Scripts\Fusion.cs" />
     <Compile Include="Assets\Scripts\Glossary.cs" />
     <Compile Include="Assets\Scripts\Group.cs" />
     <Compile Include="Assets\Scripts\LeftMenu.cs" />
     <Compile Include="Assets\Scripts\LeftMenu1.cs" />
+    <Compile Include="Assets\Scripts\Level_UI.cs" />
     <Compile Include="Assets\Scripts\Reaction.cs" />
     <Compile Include="Assets\Scripts\RightMenu.cs" />
     <Compile Include="Assets\Scripts\RightMenu1.cs" />

@@ -7,13 +7,13 @@ namespace BackpackObject
 
     public class Backpack 
     {
-        private static int level;
-        private static int exp;
+        public static int level = 1;
+        public static int exp;
         private Hashtable bp;
                                        //1,   2,  3,   4
         public static int[] expLevels = {0,200,500,1000};
-        public static int[] elementCap = { 3, 8, 8 }; // Li, O, O
-        public int maxElement = 8; // Default to oxygen for testing.
+        public static int[] elementCap = {0,2,3, 8, 8 }; // Li, O, O
+        public static int maxElement = 2; // Default to oxygen for testing.
         // private int[] levelSteps;
         private int[] levelRange;
 
@@ -47,6 +47,7 @@ namespace BackpackObject
             if (exp > expLevels[level])
             {
                 level++;
+                maxElement = elementCap[level];
                 gainExp(0); // In some weird case where 2 levels are gained at once :/
             }
 
