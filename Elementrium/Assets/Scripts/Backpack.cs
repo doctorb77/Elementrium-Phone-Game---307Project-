@@ -7,9 +7,12 @@ namespace BackpackObject
 
     public class Backpack 
     {
-        private int level;
-        private int exp;
+        private static int level;
+        private static int exp;
         private Hashtable bp;
+                                       //1,   2,  3,   4
+        public static int[] expLevels = {0,200,500,1000};
+        public static int[] elementCap = { 3, 8, 8 }; // Li, O, O
         public int maxElement = 8; // Default to oxygen for testing.
         // private int[] levelSteps;
         private int[] levelRange;
@@ -20,13 +23,33 @@ namespace BackpackObject
 
         public Backpack() {
             this.bp = new Hashtable();
-            this.level = 1;
-            this.exp = 0;
+            level = 1;
+            exp = 0;
             levelRange = new int[1];
 
 
-            //this.ach = new AchievementList();
-            
+            //this.ach = new AchievementList();   
+        }
+
+        public static double getLevelPercentage()
+        {
+            // Used mainly for expBar
+            double totalExpNeeded = expLevels[level] - expLevels[level - 1];
+            double expGained = exp - expLevels[level - 1];
+            double percentage = expGained / totalExpNeeded;
+            return percentage;
+        }
+
+        public static void gainExp(int add)
+        {
+            exp += add;
+
+            if (exp > expLevels[level])
+            {
+                level++;
+                gainExp(0); // In some weird case where 2 levels are gained at once :/
+            }
+
         }
 
         // Return the backpack hashtable
@@ -56,28 +79,6 @@ namespace BackpackObject
                 t.setCount(amount);
                 bp.Add(tableID, t);
             }
-        }
-
-        // Returns the level of the user.
-        public int getLevel() {
-            return this.level;
-        }
-
-        // Increases the level of the user by 1.
-        public void increaseLevel() {
-            // TODO: Finalize leveling logic
-            level = (level == levelRange.Length - 1) ? level : level++;
-        }
-
-        // Returns the amount of Exp the player has accrued in this level.
-        public int getExp() {
-            return this.exp;
-        }
-
-        // Increases the player's Exp by the given amount
-        // Also checks to see if this pushes them past a level-up threshold
-        public void increaseExp(int amount) {
-            // TODO: IMPLEMENT EXP LOGIC
         }
 
         // Gets a specific trium from the backpack if it exists
