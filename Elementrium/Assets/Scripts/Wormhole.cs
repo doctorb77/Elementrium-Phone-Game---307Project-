@@ -113,7 +113,9 @@ namespace WormholeObject {
 
 			System.Random rnd = new System.Random();
 
-			int atom = rnd.Next(1, 9);
+            int maxElement = Backpack.maxElement;
+
+			int atom = rnd.Next(1, maxElement + 1);
 
             //atom = 2;
 
