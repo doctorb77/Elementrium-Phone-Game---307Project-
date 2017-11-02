@@ -115,7 +115,10 @@ namespace WormholeObject {
 
             int maxElement = Backpack.maxElement;
 
-			int atom = rnd.Next(1, maxElement + 1);
+            int atom = 0;
+
+            while (Backpack.unlockedElement[atom] == false)
+                atom = rnd.Next(1, maxElement + 1);
 
             //atom = 2;
 

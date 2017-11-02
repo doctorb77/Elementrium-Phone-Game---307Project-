@@ -88,7 +88,7 @@ namespace Fusion
 				cr.GetComponent<CosmicRanch>().RemoveBuddyFromList(b);
 			}
 
-
+            Backpack.unlockedElement[comb] = true;
 			/****** Update backpack and add new GameObject buddy ******/
 
 			// Add new Trium to backpack

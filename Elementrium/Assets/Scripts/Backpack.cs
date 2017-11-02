@@ -13,6 +13,7 @@ namespace BackpackObject
                                        //1,   2,  3,   4
         public static int[] expLevels = {0,200,500,1000};
         public static int[] elementCap = {0,2,3, 8, 8 }; // Li, O, O
+        public static bool[] unlockedElement = new bool[93];
         public static int maxElement = 2; // Default to oxygen for testing.
         // private int[] levelSteps;
         private int[] levelRange;
@@ -27,7 +28,14 @@ namespace BackpackObject
             exp = 0;
             levelRange = new int[1];
 
+            for (int i = 0; i < 93; i++)
+            {
+                unlockedElement[i] = false;
+            }
 
+            // Set 0 (none) and hydrogen(1) to true
+            unlockedElement[0] = false;
+            unlockedElement[1] = true;
             //this.ach = new AchievementList();   
         }
 
