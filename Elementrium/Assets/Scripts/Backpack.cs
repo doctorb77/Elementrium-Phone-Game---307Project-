@@ -10,6 +10,7 @@ namespace BackpackObject
         private int level;
         private int exp;
         private Hashtable bp;
+        public int maxElement = 8; // Default to oxygen for testing.
         // private int[] levelSteps;
         private int[] levelRange;
 

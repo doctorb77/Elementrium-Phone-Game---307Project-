@@ -31,7 +31,6 @@ public class TopMenu1 : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("TopMenu is initialized");
         anim = Menu.GetComponent<Animator>();
         menuIsOn = false;
         settingsIsOn = false;

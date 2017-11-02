@@ -126,10 +126,8 @@ namespace GlossaryObject
         {
             if (EventSystem.current.currentSelectedGameObject.name == "Tab_Atom")
             {
-                Debug.Log("In Atoms");
                 if (onTab == 2)
                 {
-                    Debug.Log("Changing into Atoms");
                     PopulateGlossaryAtoms();
                     onTab = 1;
                 }
@@ -137,10 +135,8 @@ namespace GlossaryObject
             }
             else if (EventSystem.current.currentSelectedGameObject.name == "Tab_Molecule")
             {
-                Debug.Log("In Molecules");
                 if (onTab == 1)
                 {
-                    Debug.Log("Changing into Molecules");
                     buttonListControl.GlossaryPopulateCompoundList(getSortedCompoundGlossary());
                     onTab = 2;
                 }

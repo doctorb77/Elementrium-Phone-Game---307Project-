@@ -124,9 +124,13 @@ MonoBehaviour:
   ID: 0
   triumformula: N
   buddy: {fileID: 1383309525580544}
+  TriumID: 7
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
+  deleteAnim: {fileID: 0}
+  infoOn: 0
 --- !u!212 &212562405760126278
 SpriteRenderer:
   m_ObjectHideFlags: 1

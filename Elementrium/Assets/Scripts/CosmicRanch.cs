@@ -80,7 +80,10 @@ namespace Ranch {
         {
             if (inFusion)
             {
-				FusionHandler f = new FusionHandler();
+               
+				Debug.Log("IN FUSION : ");
+                FusionHandler f = new FusionHandler();
+                Debug.Log(getSelected().Count);
 				bool done = f.fuse(getSelected());
 				inFusion = false;
 				deselectAll();
@@ -88,6 +91,9 @@ namespace Ranch {
             }
             if (inGrouping) 
             {
+                Debug.Log("IN GROUPING : ");
+                // Grouping will just use the ReactionHandler method reactCurrent since it takes the same parameters
+                ReactionHandler.reactCurrent(getSelected(), new List<string>() { "H" }, new List<int>() { 2 }, new List<string>() { "H2" }, new List<int>() { 1 });
                 inGrouping = false;
                 deselectAll();
                 makeBuddiesSelectable(false);
@@ -96,6 +102,7 @@ namespace Ranch {
             {
                 //List<string> reactants = new List<string> { "H2", "O" };
                 //List<string> 
+                Debug.Log("IN REACTION :");
                 ReactionHandler.reactCurrent(getSelected(), new List<string>() { "H2", "O" }, new List<int>() { 1, 1 }, new List<string>() { "H2O" }, new List<int>() { 1 });
                 inReaction = false;
                 deselectAll();

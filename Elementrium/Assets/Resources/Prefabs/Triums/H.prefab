@@ -124,6 +124,7 @@ MonoBehaviour:
   ID: 0
   triumformula: H
   buddy: {fileID: 1339626919662516}
+  TriumID: 1
   cr: {fileID: 0}
   selected: 0
   stayStill: 0

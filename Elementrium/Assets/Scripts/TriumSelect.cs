@@ -29,12 +29,6 @@ public class TriumSelect : MonoBehaviour {
 	
     public void InteractTrium()
     {
-        /*
-        if (EventSystem.current.currentSelectedGameObject.name.Contains("AtomButton"))
-        {
-            
-        }
-        */
         State current = Initialize.sh.getCurrentState();
 
         if (RightMenu1.Instance.inFusion)
@@ -50,6 +44,7 @@ public class TriumSelect : MonoBehaviour {
 			{
 				SelectorAnim.Play("SelectorDisappear");
 				ranch.deselectAll();
+                ranch.makeBuddiesSelectable(false);
                 RightMenu1.Instance.inFusion = false;
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
@@ -68,6 +63,7 @@ public class TriumSelect : MonoBehaviour {
 			{
 				SelectorAnim.Play("SelectorDisappear");
 				ranch.deselectAll();
+                ranch.makeBuddiesSelectable(false);
 				RightMenu1.Instance.inGroup = false;
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
@@ -86,6 +82,7 @@ public class TriumSelect : MonoBehaviour {
 			{
 				SelectorAnim.Play("SelectorDisappear");
                 ranch.deselectAll();
+                ranch.makeBuddiesSelectable(false);
                 RightMenu1.Instance.inReaction = false;
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
