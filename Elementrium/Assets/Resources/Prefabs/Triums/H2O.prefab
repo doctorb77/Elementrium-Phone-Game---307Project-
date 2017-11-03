@@ -182,11 +182,15 @@ MonoBehaviour:
   xpos: 0
   ypos: 0
   ID: 0
-  triumformula: H20
+  triumformula: H2O
   buddy: {fileID: 1580978546913748}
+  TriumID: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
+  deleteAnim: {fileID: 0}
+  infoOn: 0
 --- !u!212 &212212453741653570
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -178,13 +178,13 @@ namespace WormholeObject {
 
             // winrar
 
-            Debug.Log(formula);
+            //Debug.Log(formula);
 
             //GameObject buddy = (GameObject)Instantiate(Resources.Load("Prefabs/Triums/"+formula));
             formula = formula.Replace(" ", "");
             GameObject buddy =  Resources.Load("Prefabs/Triums/"+formula) as GameObject;
             GameObject actual = Instantiate(buddy);
-            Debug.Log(actual);
+            //Debug.Log(actual);
             actual.transform.SetParent(ws.transform, true);
             //buddy.transform.SetParent(buttonTemplate.transform.parent, false);
 

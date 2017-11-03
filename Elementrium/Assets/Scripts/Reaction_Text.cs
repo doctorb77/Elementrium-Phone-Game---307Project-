@@ -49,7 +49,7 @@ namespace Reaction_Text
 
             List<GameObject> sel = cr.GetComponent<CosmicRanch>().getSelected();
 
-            Debug.Log(StateHandler.currentstate.name);
+            //Debug.Log(StateHandler.currentstate.name);
 
             if (StateHandler.currentstate.name == "Fusion")
             {
@@ -127,7 +127,7 @@ namespace Reaction_Text
             if (notIn.Count != 0)
             {
                 string sString = "Formula does not contain ";
-                Debug.Log("TOTAL JUNK : " + notIn.Count);
+                //Debug.Log("TOTAL JUNK : " + notIn.Count);
                 if (notIn.Count == 1)
                 {
                     sString += yellowS;
