@@ -158,6 +158,7 @@ public class ButtonListControl : MonoBehaviour
 		GameObject button = Instantiate(buttonTemplate) as GameObject;
 		button.SetActive(true);
 
+		button.GetComponent<ButtonListButton>().SetTab(1);
 		button.GetComponent<ButtonListButton>().SetText(buttonText);
 		button.GetComponent<ButtonListButton>().SetId(id);
 		button.GetComponent<ButtonListButton>().SetMass(mass);
@@ -166,14 +167,22 @@ public class ButtonListControl : MonoBehaviour
 		//button.GetComponent<ButtonListButton>().SetText(buttonText);
 		//button.GetComponent<ButtonListButton>().SetText(buttonText);
 
-		//Camera.main.GetComponent<Glossary> ().setnames (buttonText);
-		//button.GetComponent<ButtonListButton>().settingname(buttonText);
-		//button.GetComponentInParent<Glossary> ().setnames (buttonText);
-		//button.GetComponent<Glossary> ().setnames (buttonText);//null ref exception
-		//button.GetComponent<Glossary> ().setinfo (id, mass);
-		//button.GetComponent<Glossary> ().setfact1 (factOne);
-		//button.GetComponent<Glossary> ().setfact2 (factTwo);
-		//button.GetComponent<Glossary> ().setfact3 (factThree);
+		button.transform.SetParent(buttonTemplate.transform.parent, false);
+		buttons.Add(button);
+	}
+	public void PopulateSecondList(string buttonText, string commonname, decimal mass, string formula)//,string factOne, string factTwo, string factThree
+	{
+		GameObject button = Instantiate(buttonTemplate) as GameObject;
+		button.SetActive(true);
+
+		button.GetComponent<ButtonListButton>().SetTab(2);
+		button.GetComponent<ButtonListButton>().SetText(buttonText);
+		button.GetComponent<ButtonListButton>().SetCommon(commonname);
+		button.GetComponent<ButtonListButton>().SetMass(mass);
+		button.GetComponent<ButtonListButton>().SetFormula(formula);
+		//button.GetComponent<ButtonListButton>().SetText(buttonText);
+		//button.GetComponent<ButtonListButton>().SetText(buttonText);
+		//button.GetComponent<ButtonListButton>().SetText(buttonText);
 
 		button.transform.SetParent(buttonTemplate.transform.parent, false);
 		buttons.Add(button);

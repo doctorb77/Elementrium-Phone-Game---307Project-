@@ -26,6 +26,7 @@ namespace GlossaryObject
 		//}
 		public static bool displayOpen = false;
 		public Animator GlossaryAnim;
+		public Backpack bp = Initialize.player;
 		//[SerializeField]
 		public Text names;
 		public Text info;
@@ -39,6 +40,13 @@ namespace GlossaryObject
 		}
 		public void setinfo(string id, string mass, string formula) {
 			this.info.text = "Symbol: " + formula + "\n Atomic Number: " + id + "\n Atomic Mass: " + mass;
+		}
+		public void setinfo2(string commonname, string mass, string formula) {
+			this.info.text = "Symbol: " + formula + "\n";
+			if (commonname != ""){
+				this.info.text = this.info.text+"Common Name: " + commonname + "\n";
+			}
+			this.info.text = this.info.text+"Atomic Mass: " + mass;
 		}
 		public void setfact1(string newfact1) {
 			this.fact1.text = newfact1.ToString ();
@@ -137,8 +145,9 @@ namespace GlossaryObject
             {
                 if (onTab == 1)
                 {
-                    buttonListControl.GlossaryPopulateCompoundList(getSortedCompoundGlossary());
-                    onTab = 2;
+                    //buttonListControl.GlossaryPopulateCompoundList(getSortedCompoundGlossary());
+					PopulateGlossaryMolecules();
+					onTab = 2;
                 }
             }
         }
@@ -161,15 +170,15 @@ namespace GlossaryObject
 			//string sqlQuery = "SELECT Trium.ID, Trium.Name, Trium.ElementID, Element.AtomicNumber, Trium.Formula, " +
 				//"Trium.Mass, Trium.FactOne, Trium.FactTwo, Trium.FactThree FROM Trium"
 				//+ "INNER JOIN Element ON Trium.ElementID=Element.ID";                 
-			string sqlQuery = "SELECT ID, Name, Formula, Mass, FactOne, FactTwo, FactThree " + 
-				"FROM Trium";
+			string sqlQuery = "SELECT Trium.ID, Trium.Name, Trium.Formula, Trium.Mass, Trium.FactOne, Trium.FactTwo, Trium.FactThree, Element.AtomicNumber " + 
+				"FROM Trium INNER JOIN Element ON Element.ID = IFNULL(Trium.ElementID, -1) WHERE IFNULL(Element.AtomicNumber, -1) <= 92";
 			dbcmd.CommandText = sqlQuery;
 
 			IDataReader reader = dbcmd.ExecuteReader();
-
 			// reader.Read() will return True or False. If true, we will execute what is in the while() loop
 			while (reader.Read())
 			{
+				
 				int id = reader.GetInt32(0);            /* the ID column of the Trium */
 				string element = reader.GetString(1);      /* the Name column of the Trium */
 				string formula = reader.GetString(2);    /* the Formula column of the Trium */
@@ -177,7 +186,10 @@ namespace GlossaryObject
 			//	string first = reader.GetString (4);
 				//string second = reader.GetString (5);
 				//string third = reader.GetString (6);
-				buttonListControl.PopulateList (element, id, mass, formula); //,first, second, third
+				int atomicnum = reader.GetInt32(7);
+				if (bp.getTrium(id) != null) {
+					buttonListControl.PopulateList (element, atomicnum, mass, formula); //,first, second, third
+				}
 				/*this.names.text = element.ToString();
 				this.info.text = "Atomic Number: " +id;*/
 			}
@@ -190,11 +202,55 @@ namespace GlossaryObject
 			dbconn.Close();
 			dbconn = null;
 		}
-		//public static void popupInfo(string objname) {
-		//	Debug.Log (objname);
-		//this.names.text = element.ToString();
-		//this.info.text = "Atomic Number: " +id;
-		//}
+		public void PopulateGlossaryMolecules() {
+			buttonListControl.RefreshButtons();
+
+			string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
+
+			IDbConnection dbconn;
+			dbconn = (IDbConnection)new SqliteConnection(connectionPath);
+
+			dbconn.Open();
+
+			IDbCommand dbcmd = dbconn.CreateCommand();
+			//string sqlQuery = "SELECT Trium.ID, Trium.Name, Trium.ElementID, Element.AtomicNumber, Trium.Formula, " +
+			//"Trium.Mass, Trium.FactOne, Trium.FactTwo, Trium.FactThree FROM Trium"
+			//+ "INNER JOIN Element ON Trium.ElementID=Element.ID";                 
+			string sqlQuery = "SELECT Trium.ID, Trium.Name, Trium.Formula, Trium.Mass, Trium.FactOne, Trium.FactTwo, Trium.FactThree, Molecule.CommonName " + 
+				"FROM Trium INNER JOIN Molecule on Molecule.ID = IFNULL(Trium.MoleculeID, -1) WHERE Trium.ID > 92 ORDER BY Trium.Name ASC";
+			dbcmd.CommandText = sqlQuery;
+
+			IDataReader reader = dbcmd.ExecuteReader();
+			// reader.Read() will return True or False. If true, we will execute what is in the while() loop
+			while (reader.Read())
+			{
+
+				int id = reader.GetInt32(0);            /* the ID column of the Trium */
+				string molecule = reader.GetString(1);      /* the Name column of the Trium */
+				string formula = reader.GetString(2);    /* the Formula column of the Trium */
+				decimal mass = reader.GetDecimal (3);
+				string commonname = reader.GetString(7);
+				if (commonname == null) {
+					commonname = "";
+				}
+				//	string first = reader.GetString (4);
+				//string second = reader.GetString (5);
+				//string third = reader.GetString (6);
+				if (bp.getTrium(id) != null) {
+					buttonListControl.PopulateSecondList (molecule, commonname, mass, formula); //,first, second, third
+				}
+				/*this.names.text = element.ToString();
+				this.info.text = "Atomic Number: " +id;*/
+			}
+
+
+			reader.Close();
+			reader = null;
+			dbcmd.Dispose();
+			dbcmd = null;
+			dbconn.Close();
+			dbconn = null;
+		}
 		
     }
 

@@ -17,8 +17,9 @@ public class ButtonListButton : MonoBehaviour
     private Text myText;
 
 	private string myId;
-
+	private int tab;
 	private string myMass;
+	private string myCommonName;
 	private string myFormula;
 	private string myFact1;
 	private string myFact2;
@@ -30,7 +31,10 @@ public class ButtonListButton : MonoBehaviour
     public Animator SelectorAnim;
     public CosmicRanch ranch;
 
-
+	public void SetTab(int num)
+	{
+		tab = num;
+	}
     public void SetText(string textString)
     {
         myText.text = textString;
@@ -59,6 +63,9 @@ public class ButtonListButton : MonoBehaviour
 	{
 		myFact3 = textString;
 	}
+	public void SetCommon(string commonname) {
+		myCommonName = commonname;
+	}
     public void OnClick()
     {
         //Debug.Log("TESTWETF");
@@ -73,7 +80,11 @@ public class ButtonListButton : MonoBehaviour
             if (!Glossary.displayOpen)
             {
 				Camera.main.GetComponent<Glossary> ().setnames (myText.text);
-				Camera.main.GetComponent<Glossary> ().setinfo (myId, myMass, myFormula);
+				if (tab == 1) {//atom
+					Camera.main.GetComponent<Glossary> ().setinfo (myId, myMass, myFormula);
+				} else if (tab == 2) {//molecule
+					Camera.main.GetComponent<Glossary> ().setinfo2 (myCommonName, myMass, myFormula);
+				}
 				//Camera.main.GetComponent<Glossary> ().setnames (myText.text);
                 GlossaryAnim.Play("GlossaryInfoDisplayPopUp");
 				//Debug.Log ("Played popup");

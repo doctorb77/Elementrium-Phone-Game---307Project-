@@ -45,7 +45,7 @@ public class SoundManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!TopMenu1.Instance.musicIsOn)
+		if (!TopMenu1.Instance.musicIsOn)//null ref
 		{
             musicsrc.Pause();
             musicIsPlaying = false;

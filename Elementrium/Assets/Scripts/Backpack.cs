@@ -92,6 +92,7 @@ namespace BackpackObject
 
         // Gets a specific trium from the backpack if it exists
         public Trium getTrium(int tableID) {
+			//Debug.Log (bp.Contains (tableID));
             return (bp.Contains(tableID)) ? (Trium)bp[tableID] : null;
         }
 
