@@ -110,6 +110,7 @@
 'Assets/Scripts/ChangeScene.cs'
 'Assets/Scripts/CosmicRanch.cs'
 'Assets/Scripts/ExpBar.cs'
+'Assets/Scripts/FixRotation.cs'
 'Assets/Scripts/Fusion.cs'
 'Assets/Scripts/Glossary.cs'
 'Assets/Scripts/Group.cs'
