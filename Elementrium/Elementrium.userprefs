@@ -1,18 +1,11 @@
-﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|" StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Glossary.cs">
+﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Reaction.cs">
     <Files>
-      <File FileName="Assets\Scripts\TriumSelect.cs" Line="101" Column="40" />
-      <File FileName="Assets\Scripts\CosmicRanch.cs" Line="188" Column="21" />
-      <File FileName="Assets\Scripts\StateHandler.cs" Line="119" Column="48" />
-      <File FileName="Assets\Scripts\Glossary.cs" Line="220" Column="89" />
-      <File FileName="Assets\Scripts\ButtonListControl.cs" Line="161" Column="51" />
-      <File FileName="Assets\Scripts\ButtonListButton.cs" Line="86" Column="66" />
-      <File FileName="Assets\Scripts\Backpack.cs" Line="95" Column="6" />
-      <File FileName="Assets\Scripts\Trium.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Wormhole.cs" Line="132" Column="46" />
+      <File FileName="Assets/Scripts/Reaction.cs" Line="117" Column="21" />
+      <File FileName="Assets/Scripts/Glossary.cs" Line="234" Column="22" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

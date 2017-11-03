@@ -5,6 +5,9 @@ using BackpackObject;
 using TriumObject;
 using Ranch;
 using BudBehavior;
+using Initialization;
+using System.Data;
+using Mono.Data.Sqlite;
 
 namespace Reaction
 {
@@ -12,16 +15,18 @@ namespace Reaction
     public class ReactionHandler
     {
         public static GameObject ws = GameObject.Find("BuddyContainer");
+        public static CosmicRanch cr = Initialize.ranch;
+        public static Backpack bp = Initialize.player;
 
         public void reaction(Backpack bp, int key, int numSelected)
         {
 
             int fusionID = -1;
 
-            if (!canReact(bp, key, out fusionID))
-            {
-                return;
-            }
+            //if (!canReact(bp, key, out fusionID))
+            //{
+            //    return;
+            //}
 
             // Make sure groupID is not -1
             if (fusionID == -1)
@@ -89,18 +94,46 @@ namespace Reaction
                 // TESTING FOR EXP BAR : REMOVE LATER
                 Backpack.gainExp(170);
 
-                GameObject cr = GameObject.FindGameObjectWithTag("CosmicRanch");//.GetComponent<CosmicRanch>().AddBuddyToList();
+                Debug.Log("*******BEGIN PRINTING BACKPACK BEFORE*******");
+                foreach (Trium t in bp.getBP().Values) {
+                    Debug.Log("Name: " + t.getName() + ", Count: " + t.getCount());
+                }
+
+                //GameObject cr = GameObject.FindGameObjectWithTag("CosmicRanch");//.GetComponent<CosmicRanch>().AddBuddyToList();
 
                 foreach (GameObject buddy in selected)
                 {
-                    Debug.Log("Removing " + buddy.GetComponent<BuddyBehavior>().triumformula);
-                    cr.GetComponent<CosmicRanch>().RemoveBuddyFromList(buddy);
+                    string formula = buddy.GetComponent<BuddyBehavior>().triumformula;
+                    Debug.Log("Removing " + formula);
+
+                    // TODO: CALL GETKEY TO OBTAIN THE ID OF THE TRIUM
+                    string dummyString;
+                    int dummyInt;
+                    int key = getInfo(formula, out dummyString, out dummyInt);
+
+                    // TODO: Error check for null
+                    Trium old = bp.getTrium(key);
+                    old.setCount(old.getCount() - 1);
+
+                    cr.RemoveBuddyFromList(buddy);
                 }
 
                 foreach (string nTrium in product)
                 {
                     for (int i = 0; i < productCount[product.IndexOf(nTrium)]; i++)
                     {
+                        // TODO: OBTAIN THE ID OF THE TRIUM TO ADD IT TO THE BACKPACK
+                        string triumName = "none";
+                        int atomID = -2;
+                        int key = getInfo(nTrium, out triumName, out atomID);
+
+                        if (triumName == "none" || atomID == -2 || key == -1) {
+                            Debug.Log("ReactCurrent: PRODUCT TRIUM NOT IN DATABASE!");
+                            return false;
+                        }
+
+                        bp.addToBackpack(key, triumName, atomID);
+
                         Debug.Log("nTrium : " + nTrium + " Path : \'\"Prefabs/Triums/" + nTrium+"\"\'");
                         GameObject buddy = Resources.Load("Prefabs/Triums/"+nTrium) as GameObject;
                         GameObject actual = GameObject.Instantiate(buddy);
@@ -112,9 +145,15 @@ namespace Reaction
                         float y = (float)(UnityEngine.Random.value - 0.5) * 900;
 
                         actual.transform.localPosition = new Vector3(0, 0, -1);
-                        cr.GetComponent<CosmicRanch>().AddBuddyToList();
+                        cr.AddBuddyToList();
                     }
                 }
+
+				Debug.Log("*******BEGIN PRINTING BACKPACK AFTER*******");
+				foreach (Trium t in bp.getBP().Values)
+				{
+					Debug.Log("Name: " + t.getName() + ", Count: " + t.getCount());
+				}
 
                 return true;
             }
@@ -122,75 +161,54 @@ namespace Reaction
             return false;
         }
 
-            /**
+        /**
          * 
-         * Utility function to verify that a Trium (atom) can be in reaction
+         * Utility function to obtain the database ID of the Trium
          * 
          */
-            public bool canReact(Backpack bp, int key, out int fusionID)
-            {
+         public static int getInfo(string formula, out string name, out int atomID)
+         {
+            name = "none";
+            atomID = -1;
 
-                // Check to make sure the given key is a valid key
-                if (!bp.getBP().ContainsKey(key))
-                {
-                    fusionID = -1;
-                    return false;
-                }
+			string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
 
-                // Obtain the corresponding Trium
-                Trium value = (Trium)bp.getBP()[key];
+			IDbConnection dbconn;
+			dbconn = (IDbConnection)new SqliteConnection(connectionPath);
 
-                // Check that the Trium is an atom
-                if (value.getAtomicNumber() == -1)
-                {
-                    fusionID = -1;
-                    return false;
-                }
+			dbconn.Open();
 
-                // Check to see they have at least two of the given Trium (atom)
-                if (value.getCount() < 2)
-                {
-                    fusionID = -1;
-                    return false;
-                }
+			IDbCommand dbcmd = dbconn.CreateCommand();
 
-                // TODO: Check to see that they have the level capability to react
+            string sqlQuery = "SELECT ID, Name, IFNULL(ElementID, -1) " +
+                              "FROM Trium " +
+                              "WHERE Formula = '" + formula + "'";
+            
+			dbcmd.CommandText = sqlQuery;
 
+			IDataReader reader = dbcmd.ExecuteReader();
 
-                // TODO: Check database for reaction
-                // If there is no reaction
-                // return false
-                // IF there is a reaction
-                // IF there is only one reaction
-                // IF they have already unlocked it
-                // return false
-                // If they haven't unlocked it
-                // return true
-                // If there is more than one reaction
-                // Find the first one they have not unlocked
-                // If they have unlocked all
-                // return false
-                // If they haven't unlocked all
-                // return true
-                string query = "SELECT ID FROM TRIUM WHERE AtomicNumber = " + (key + 1);
-                // TODO: Check database for groupings
+            int key = -1;
+
+			// reader.Read() will return True or False. If true, we will execute what is in the while() loop
+			while (reader.Read())
+			{
+
+                key = reader.GetInt32(0);
+                name = reader.GetString(1);
+                atomID = reader.GetInt32(2);
+			}
 
 
-                // SET groupID = ID
-                // TODO: currently assumes that DOUBLE GROUPINGS (I.e., H2) are ID 100 + ATOMIC NUMBER
-                fusionID = key + 100;
+			reader.Close();
+			reader = null;
+			dbcmd.Dispose();
+			dbcmd = null;
+			dbconn.Close();
+			dbconn = null;
 
-                // Check to see if they have already grouped this Trum (atom)
-                if (bp.getBP().ContainsKey(fusionID))
-                {
-                    fusionID = -1;
-                    return false;
-                }
-
-
-                return true;
-
-            }
+			return key;
+         }
 
     }
 }
