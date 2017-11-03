@@ -237,7 +237,7 @@ namespace GlossaryObject
 				//string second = reader.GetString (5);
 				//string third = reader.GetString (6);
 				if (bp.getTrium(id) != null) {
-					buttonListControl.PopulateSecondList (molecule, commonname, mass, formula); //,first, second, third
+                    buttonListControl.PopulateSecondList (formula, commonname, mass, formula); //,first, second, third
 				}
 				/*this.names.text = element.ToString();
 				this.info.text = "Atomic Number: " +id;*/
