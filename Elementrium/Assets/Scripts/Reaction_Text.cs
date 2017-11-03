@@ -49,6 +49,8 @@ namespace Reaction_Text
 
             List<GameObject> sel = cr.GetComponent<CosmicRanch>().getSelected();
 
+            Debug.Log(StateHandler.currentstate.name);
+
             if (StateHandler.currentstate.name == "Fusion")
             {
                 text.GetComponent<Text>().text = "Select Two Elements to Fuse";
@@ -63,7 +65,7 @@ namespace Reaction_Text
                 return;
             }
 
-            if (StateHandler.currentstate.name != "Grouping" && StateHandler.currentstate.name != "Reaction")
+            if (StateHandler.currentstate.name != "Group" && StateHandler.currentstate.name != "Reaction")
             {
                 return;
             }
