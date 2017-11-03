@@ -717,9 +717,16 @@ MonoBehaviour:
   testSoundFXToggle: 0
   testFusion: 0
   testGroup: 0
+  testReaction: 0
   rerunFusion: 0
   infusion: 0
+  rerunGroup: 0
   ingroup: 0
+  groupSuccess: 0
+  rerunReaction: 0
+  inreaction: 0
+  reactionSuccess: 0
+  actionProduct: 
 --- !u!1 &126464892
 GameObject:
   m_ObjectHideFlags: 0
