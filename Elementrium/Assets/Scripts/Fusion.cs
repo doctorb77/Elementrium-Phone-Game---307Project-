@@ -39,15 +39,12 @@ namespace Fusion
             */
 
             int maxFuse = Backpack.maxElement;
-            Debug.Log("PRINTING NUMBER OF ATOMS TO FUSE");
-            Debug.Log(selected.Count);
 
 			// Make sure the list isn't empty
 			if (selected.Count != 2)
 			{
 				return false;
             }
-            Debug.Log("PASSED THIS LEVEL");
             int Trium1ID = selected[0].GetComponent<BuddyBehavior>().TriumID;
             int Trium2ID = selected[1].GetComponent<BuddyBehavior>().TriumID;
 
@@ -56,17 +53,15 @@ namespace Fusion
 
             if (Trium1ID <= 0 || Trium2ID <= 0 || Trium1ID > 92 || Trium2ID > 92) // One of the Triums is not an Element
             {
-                Debug.Log("OOPS GOT CAUGHT HERE");
                 return false;
             }
-            Debug.Log("PASSED THIS LEVEL 2");
 			int comb = Trium1ID + Trium2ID;
 
             // LEVEL NOT HIGH ENOUGH FOR THIS FUSION
             if (comb > maxFuse)
                 return false;
 
-			Debug.Log("ATOM ID FOR FUSION : " + comb);
+			//Debug.Log("ATOM ID FOR FUSION : " + comb);
 
 			int fusionID = comb;  // The database ID of the trium
 			string atomName = eName[comb-1];  // The name of the trium
@@ -84,7 +79,7 @@ namespace Fusion
 
             foreach (GameObject b in selected)
 			{
-				Debug.Log("Removing " + b.GetComponent<BuddyBehavior>().triumformula);
+				//Debug.Log("Removing " + b.GetComponent<BuddyBehavior>().triumformula);
 				cr.GetComponent<CosmicRanch>().RemoveBuddyFromList(b);
 			}
 

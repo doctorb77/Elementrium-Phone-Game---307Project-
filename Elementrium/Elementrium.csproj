@@ -138,6 +138,7 @@
     <Compile Include="Assets\Scripts\State.cs" />
     <Compile Include="Assets\Scripts\StateHandler.cs" />
     <Compile Include="Assets\Scripts\SwitchControls.cs" />
+    <Compile Include="Assets\Scripts\Test.cs" />
     <Compile Include="Assets\Scripts\TopMenu.cs" />
     <Compile Include="Assets\Scripts\TopMenu1.cs" />
     <Compile Include="Assets\Scripts\Trium.cs" />

@@ -14,6 +14,10 @@ using BackpackObject;
 namespace Ranch {
     public class CosmicRanch : MonoBehaviour
     {
+
+		public static CosmicRanch Instance { get { return instance; } }
+		private static CosmicRanch instance;
+
         public Backpack bp;
         public SpriteRenderer background;
         public SpriteRenderer space;
@@ -25,9 +29,20 @@ namespace Ranch {
         public List<GameObject> buddies = new List<GameObject>();
         public List<GameObject> selUpdate;
         public GameObject[] buddos;
-        public static bool inReaction, inFusion, inGrouping;
+        public bool inReaction, inFusion, inGrouping;
 
-        // Use this for initialization
+		// Use this for initialization
+		void Awake()
+		{
+			if (Instance != null)
+			{
+				Destroy(gameObject);
+			}
+			else
+			{
+				instance = this;
+			}
+		}
 
         void Start()
         {
@@ -81,7 +96,6 @@ namespace Ranch {
             if (inFusion)
             {
                
-				Debug.Log("IN FUSION : ");
                 FusionHandler f = new FusionHandler();
                 Debug.Log(getSelected().Count);
 				bool done = f.fuse(getSelected());
@@ -91,7 +105,6 @@ namespace Ranch {
             }
             if (inGrouping) 
             {
-                Debug.Log("IN GROUPING : ");
                 // Grouping will just use the ReactionHandler method reactCurrent since it takes the same parameters
                 ReactionHandler.reactCurrent(getSelected(), new List<string>() { "H" }, new List<int>() { 2 }, new List<string>() { "H2" }, new List<int>() { 1 });
                 inGrouping = false;
@@ -102,7 +115,6 @@ namespace Ranch {
             {
                 //List<string> reactants = new List<string> { "H2", "O" };
                 //List<string> 
-                Debug.Log("IN REACTION :");
                 ReactionHandler.reactCurrent(getSelected(), new List<string>() { "H2", "O" }, new List<int>() { 1, 1 }, new List<string>() { "H2O" }, new List<int>() { 1 });
                 inReaction = false;
                 deselectAll();
@@ -165,14 +177,14 @@ namespace Ranch {
             //buddies.Add(buddy);
             buddies.Clear();
             buddies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Buddy"));
-			Debug.Log("Updating the list!");
-
+			//Debug.Log("Updating the list!");
+            /*
 			foreach (GameObject bud in GameObject.FindGameObjectsWithTag("Buddy"))
 			{
 				Debug.Log("Adding a buddy! " + bud.GetComponent<BuddyBehavior>().triumformula);
 				//buddies.Add(bud);
 			}
-
+            */
         }
 		public void RemoveBuddyFromList(GameObject buddy)
 		{

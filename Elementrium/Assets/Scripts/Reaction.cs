@@ -93,18 +93,18 @@ namespace Reaction
             {
                 // TESTING FOR EXP BAR : REMOVE LATER
                 Backpack.gainExp(170);
-
+                /*
                 Debug.Log("*******BEGIN PRINTING BACKPACK BEFORE*******");
                 foreach (Trium t in bp.getBP().Values) {
                     Debug.Log("Name: " + t.getName() + ", Count: " + t.getCount());
                 }
-
+                */
                 //GameObject cr = GameObject.FindGameObjectWithTag("CosmicRanch");//.GetComponent<CosmicRanch>().AddBuddyToList();
 
                 foreach (GameObject buddy in selected)
                 {
                     string formula = buddy.GetComponent<BuddyBehavior>().triumformula;
-                    Debug.Log("Removing " + formula);
+                    //Debug.Log("Removing " + formula);
 
                     // TODO: CALL GETKEY TO OBTAIN THE ID OF THE TRIUM
                     string dummyString;
@@ -128,13 +128,13 @@ namespace Reaction
                         int key = getInfo(nTrium, out triumName, out atomID);
 
                         if (triumName == "none" || atomID == -2 || key == -1) {
-                            Debug.Log("ReactCurrent: PRODUCT TRIUM NOT IN DATABASE!");
+                            //Debug.Log("ReactCurrent: PRODUCT TRIUM NOT IN DATABASE!");
                             return false;
                         }
 
                         bp.addToBackpack(key, triumName, atomID);
 
-                        Debug.Log("nTrium : " + nTrium + " Path : \'\"Prefabs/Triums/" + nTrium+"\"\'");
+                        //Debug.Log("nTrium : " + nTrium + " Path : \'\"Prefabs/Triums/" + nTrium+"\"\'");
                         GameObject buddy = Resources.Load("Prefabs/Triums/"+nTrium) as GameObject;
                         GameObject actual = GameObject.Instantiate(buddy);
 
@@ -148,13 +148,14 @@ namespace Reaction
                         cr.AddBuddyToList();
                     }
                 }
-
+                /*
 				Debug.Log("*******BEGIN PRINTING BACKPACK AFTER*******");
 				foreach (Trium t in bp.getBP().Values)
 				{
 					Debug.Log("Name: " + t.getName() + ", Count: " + t.getCount());
 				}
-
+                */
+                CosmicRanch.Instance.AddBuddyToList();
                 return true;
             }
 

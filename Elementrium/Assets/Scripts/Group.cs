@@ -61,7 +61,7 @@ namespace Group {
 
 			foreach (GameObject b in selected)
 			{
-				Debug.Log("Removing " + b.GetComponent<BuddyBehavior>().triumformula);
+				//Debug.Log("Removing " + b.GetComponent<BuddyBehavior>().triumformula);
 				cr.GetComponent<CosmicRanch>().RemoveBuddyFromList(b);
 			}
 
