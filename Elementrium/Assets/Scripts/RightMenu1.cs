@@ -72,7 +72,7 @@ public class RightMenu1 : MonoBehaviour
     {
         if (isOn)
         {
-			instructions.text = "Pick two atoms to fuse!";
+			//instructions.text = "Pick two atoms to fuse!";
 			anim.Play("RightSideRetract");
             animSelector.Play("SelectorAppear");
             isOn = false;
@@ -84,7 +84,7 @@ public class RightMenu1 : MonoBehaviour
 	{
 		if (isOn && !inGroup)
 		{
-			instructions.text = "Pick atoms to group into a molecule!";
+			//instructions.text = "Pick atoms to group into a molecule!";
 			inGroup = true;
 			buttonListControl.PopulateGroupList("Molecule");
             animScroll.Play("ScrollListEnter");
@@ -95,7 +95,7 @@ public class RightMenu1 : MonoBehaviour
 	{
 		if (isOn && !inReaction)
 		{
-			instructions.text = "Pick Triums to make a compound!";
+			//instructions.text = "Pick Triums to make a compound!";
 			inReaction = true;
 			buttonListControl.PopulateReactionList("Compound");
             animScroll.Play("ScrollListEnter");
