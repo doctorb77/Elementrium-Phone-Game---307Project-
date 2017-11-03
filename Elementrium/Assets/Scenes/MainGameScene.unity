@@ -717,9 +717,16 @@ MonoBehaviour:
   testSoundFXToggle: 0
   testFusion: 0
   testGroup: 0
+  testReaction: 0
   rerunFusion: 0
   infusion: 0
+  rerunGroup: 0
   ingroup: 0
+  groupSuccess: 0
+  rerunReaction: 0
+  inreaction: 0
+  reactionSuccess: 0
+  actionProduct: 
 --- !u!1 &126464892
 GameObject:
   m_ObjectHideFlags: 0
@@ -2442,6 +2449,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1903909620}
     m_Modifications:
+    - target: {fileID: 114429532605550056, guid: d54f18ceee1df4e979177f55ed70231c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 224948440046430926, guid: d54f18ceee1df4e979177f55ed70231c,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -2562,6 +2574,31 @@ Prefab:
       propertyPath: ranch
       value: 
       objectReference: {fileID: 133764494}
+    - target: {fileID: 114429532605550056, guid: d54f18ceee1df4e979177f55ed70231c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114429532605550056, guid: d54f18ceee1df4e979177f55ed70231c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114429532605550056, guid: d54f18ceee1df4e979177f55ed70231c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 934321829}
+    - target: {fileID: 114429532605550056, guid: d54f18ceee1df4e979177f55ed70231c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 114429532605550056, guid: d54f18ceee1df4e979177f55ed70231c,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d54f18ceee1df4e979177f55ed70231c, type: 2}
   m_IsPrefabParent: 0
@@ -4420,6 +4457,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224948440046430926, guid: d54f18ceee1df4e979177f55ed70231c,
     type: 2}
   m_PrefabInternal: {fileID: 595821675}
+--- !u!114 &934321829 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114885314179542816, guid: d54f18ceee1df4e979177f55ed70231c,
+    type: 2}
+  m_PrefabInternal: {fileID: 595821675}
+  m_Script: {fileID: 11500000, guid: 5c8cd79b6645447b488a70108f8e2b7f, type: 3}
 --- !u!1 &980402643
 GameObject:
   m_ObjectHideFlags: 0

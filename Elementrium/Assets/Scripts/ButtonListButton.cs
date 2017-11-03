@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using StateHandling;
 using GlossaryObject;
 using Ranch;
+using Reaction_Text;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using Initialization;
@@ -29,7 +30,20 @@ public class ButtonListButton : MonoBehaviour
     public Animator RightMenuAnim;
     public Animator ScrolllistAnim;
     public Animator SelectorAnim;
-    public CosmicRanch ranch;
+    public CosmicRanch cr = Initialize.ranch;
+
+    public List<string> reactants;
+    public List<string> products;
+    public List<int> reactantCount;
+    public List<int> productCount;
+
+    public void updateReactionInfo(List<string> r, List<string> p, List<int> rc, List<int> pc)
+    {
+        reactants = r;
+        products = p;
+        reactantCount = rc;
+        productCount = pc;
+    }
 
 	public void SetTab(int num)
 	{
@@ -68,8 +82,11 @@ public class ButtonListButton : MonoBehaviour
 	}
     public void OnClick()
     {
+        Debug.Log("ACTUALLY CALL ALL OF THIS");
+        Reaction_Text.Reaction_Text.setFormula(reactants, products, reactantCount, productCount);
+        CosmicRanch.setFormula(reactants, products, reactantCount, productCount);
         //Debug.Log("TESTWETF");
-		if (Initialize.sh.getCurrentState().name == "MainGameScene")
+        if (Initialize.sh.getCurrentState().name == "MainGameScene")
         {
             //Debug.Log("BUTTON CLICKED");
             GameObject rightMenu = GameObject.Find("RightActivation");
@@ -112,14 +129,13 @@ public class ButtonListButton : MonoBehaviour
 			}
         }
     }
-    /*
+    
     public void OnMouseDown()
     {
-        if (field.Equals("Reaction"))
-            CosmicRanch.inReaction = true;
-        Debug.Log("BUTTON DOWN : Field : "+field);
-        OnClick();
+        Debug.Log("ACTUALLY CALL ALL OF THIS");
+        Reaction_Text.Reaction_Text.setFormula(reactants, products, reactantCount, productCount);
+        CosmicRanch.setFormula(reactants, products, reactantCount, productCount);
     }
-    */
+    
 
 }

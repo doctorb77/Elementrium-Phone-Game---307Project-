@@ -31,8 +31,13 @@ namespace Ranch {
         public GameObject[] buddos;
         public bool inReaction, inFusion, inGrouping;
 
-		// Use this for initialization
-		void Awake()
+        public static List<string> reactants;
+        public static List<string> products;
+        public static List<int> reactantCount;
+        public static List<int> productCount;
+
+        // Use this for initialization
+        void Awake()
 		{
 			if (Instance != null)
 			{
@@ -43,6 +48,14 @@ namespace Ranch {
 				instance = this;
 			}
 		}
+
+        public static void setFormula(List<string> r, List<string> p, List<int> rC, List<int> pC)
+        {
+            reactants = r;
+            products = p;
+            reactantCount = rC;
+            productCount = pC;
+        }
 
         void Start()
         {
@@ -106,7 +119,7 @@ namespace Ranch {
             if (inGrouping) 
             {
                 // Grouping will just use the ReactionHandler method reactCurrent since it takes the same parameters
-                ReactionHandler.reactCurrent(getSelected(), new List<string>() { "H" }, new List<int>() { 2 }, new List<string>() { "H2" }, new List<int>() { 1 });
+                ReactionHandler.reactCurrent(getSelected(),reactants, reactantCount, products, productCount);
                 inGrouping = false;
                 deselectAll();
                 makeBuddiesSelectable(false);
@@ -115,7 +128,7 @@ namespace Ranch {
             {
                 //List<string> reactants = new List<string> { "H2", "O" };
                 //List<string> 
-                ReactionHandler.reactCurrent(getSelected(), new List<string>() { "H2", "O" }, new List<int>() { 1, 1 }, new List<string>() { "H2O" }, new List<int>() { 1 });
+                ReactionHandler.reactCurrent(getSelected(), reactants, reactantCount, products, productCount);
                 inReaction = false;
                 deselectAll();
                 makeBuddiesSelectable(false);
