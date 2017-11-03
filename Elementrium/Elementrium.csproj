@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\LeftMenu1.cs" />
     <Compile Include="Assets\Scripts\Level_UI.cs" />
     <Compile Include="Assets\Scripts\Reaction.cs" />
+    <Compile Include="Assets\Scripts\Reaction_Text.cs" />
     <Compile Include="Assets\Scripts\RightMenu.cs" />
     <Compile Include="Assets\Scripts\RightMenu1.cs" />
     <Compile Include="Assets\Scripts\ScrollList.cs" />
