@@ -216,7 +216,7 @@ namespace GlossaryObject
 			//string sqlQuery = "SELECT Trium.ID, Trium.Name, Trium.ElementID, Element.AtomicNumber, Trium.Formula, " +
 			//"Trium.Mass, Trium.FactOne, Trium.FactTwo, Trium.FactThree FROM Trium"
 			//+ "INNER JOIN Element ON Trium.ElementID=Element.ID";                 
-			string sqlQuery = "SELECT Trium.ID, Trium.Name, Trium.Formula, Trium.Mass, Trium.FactOne, Trium.FactTwo, Trium.FactThree, Molecule.CommonName " + 
+            string sqlQuery = "SELECT Trium.ID, Trium.Name, Trium.Formula, Trium.Mass, Trium.FactOne, Trium.FactTwo, Trium.FactThree, IFNULL(Molecule.CommonName, 'X') " + 
 				"FROM Trium INNER JOIN Molecule on Molecule.ID = IFNULL(Trium.MoleculeID, -1) WHERE Trium.ID > 92 ORDER BY Trium.Name ASC";
 			dbcmd.CommandText = sqlQuery;
 
@@ -230,7 +230,7 @@ namespace GlossaryObject
 				string formula = reader.GetString(2);    /* the Formula column of the Trium */
 				decimal mass = reader.GetDecimal (3);
 				string commonname = reader.GetString(7);
-				if (commonname == null) {
+				if (commonname == "X") {
 					commonname = "";
 				}
 				//	string first = reader.GetString (4);
