@@ -16,8 +16,9 @@ namespace BudBehavior
         public static int IDc;
         public String triumformula;
         public GameObject buddy;
+        public GameObject face;
         public int TriumID;
-        public static bool faceXYoff;
+        public bool faceXYoff;
         public GameObject cr;
         public bool selected;
         public bool stayStill;
@@ -52,6 +53,8 @@ namespace BudBehavior
 
 			GetComponent<Rigidbody2D>().angularVelocity = 10;
             faceAnim = buddy.GetComponentInChildren<Animator>();
+
+            faceXYoff = false; //face is on
 		}
 
 		public void Update()
@@ -68,7 +71,20 @@ namespace BudBehavior
 				buddy.GetComponent<SpriteRenderer>().color = Color.white;
 			}
 
-
+            if (TopMenu1.Instance.faceIsOn) 
+            {
+                if (faceXYoff) {
+                    faceXYoff = false;
+                    face.SetActive(true);
+                }
+            } 
+            else if  (!TopMenu1.Instance.faceIsOn) 
+            {
+                if (!faceXYoff) {
+                    faceXYoff = true;
+                    face.SetActive(false);
+                }
+            }
 
             int n = UnityEngine.Random.Range(1, 150);
             Debug.Log("Random Number: " + n);

@@ -473,12 +473,12 @@ MonoBehaviour:
   ID: 0
   triumformula: C3H8
   buddy: {fileID: 1546299555734992}
+  face: {fileID: 1698937434771246}
   TriumID: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
-  infoDisplayAnim: {fileID: 0}
-  deleteAnim: {fileID: 0}
+  faceAnim: {fileID: 0}
   infoOn: 0
 --- !u!114 &114415293291275446
 MonoBehaviour:

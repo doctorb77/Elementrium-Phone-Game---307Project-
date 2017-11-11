@@ -275,12 +275,12 @@ MonoBehaviour:
   ID: 0
   triumformula: NH3
   buddy: {fileID: 1126269404388856}
+  face: {fileID: 1040227962049758}
   TriumID: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
-  infoDisplayAnim: {fileID: 0}
-  deleteAnim: {fileID: 0}
+  faceAnim: {fileID: 0}
   infoOn: 0
 --- !u!212 &212135988094284498
 SpriteRenderer:

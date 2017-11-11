@@ -215,12 +215,12 @@ MonoBehaviour:
   ID: 0
   triumformula: BeO
   buddy: {fileID: 1973511489130414}
+  face: {fileID: 1387281657524296}
   TriumID: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
-  infoDisplayAnim: {fileID: 0}
-  deleteAnim: {fileID: 0}
+  faceAnim: {fileID: 0}
   infoOn: 0
 --- !u!212 &212394189420876782
 SpriteRenderer:
