@@ -23,8 +23,8 @@ namespace BudBehavior
         public bool stayStill;
         public static bool selectable = false;
 
-        public Animator infoDisplayAnim;
-		public Animator deleteAnim;
+        public Animator faceAnim;
+
 		public bool infoOn;
 
 		public void Start()
@@ -51,11 +51,7 @@ namespace BudBehavior
 			    GetComponent<Rigidbody2D>().velocity = new Vector2(xdir, yvel);
 
 			GetComponent<Rigidbody2D>().angularVelocity = 10;
-		}
-
-		public void FixedUpdate()
-		{
-
+            faceAnim = buddy.GetComponentInChildren<Animator>();
 		}
 
 		public void Update()
@@ -71,8 +67,20 @@ namespace BudBehavior
 			{
 				buddy.GetComponent<SpriteRenderer>().color = Color.white;
 			}
+
+
+
+            int n = UnityEngine.Random.Range(1, 150);
+            Debug.Log("Random Number: " + n);
+            if (n == 1) {
+                faceAnim.SetTrigger("blink");
+            }
 		}
 
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            faceAnim.SetTrigger("bump");
+        }
 
         private void OnMouseDown()
         {
@@ -84,6 +92,7 @@ namespace BudBehavior
             } 
             else 
             {
+                /*
                 if (!infoOn)
                 {
                     infoDisplayAnim.Play("TriumInfoPanelEnter");
@@ -94,6 +103,7 @@ namespace BudBehavior
                     infoDisplayAnim.Play("TriumInfoPanelExit");
                     infoOn = false;
 				}
+				*/
             }
         }
 
