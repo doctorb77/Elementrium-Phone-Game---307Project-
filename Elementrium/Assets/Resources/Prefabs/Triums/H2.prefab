@@ -203,12 +203,12 @@ MonoBehaviour:
   ID: 0
   triumformula: H2
   buddy: {fileID: 1311741891087136}
+  face: {fileID: 1141722072288054}
   TriumID: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
-  infoDisplayAnim: {fileID: 0}
-  deleteAnim: {fileID: 0}
+  faceAnim: {fileID: 0}
   infoOn: 0
 --- !u!114 &114441063699544636
 MonoBehaviour:

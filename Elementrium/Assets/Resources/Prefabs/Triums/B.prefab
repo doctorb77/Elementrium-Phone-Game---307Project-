@@ -173,12 +173,12 @@ MonoBehaviour:
   ID: 0
   triumformula: B
   buddy: {fileID: 1063325706817404}
+  face: {fileID: 1325256484715860}
   TriumID: 5
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
-  infoDisplayAnim: {fileID: 0}
-  deleteAnim: {fileID: 0}
+  faceAnim: {fileID: 0}
   infoOn: 0
 --- !u!114 &114096139199557204
 MonoBehaviour:

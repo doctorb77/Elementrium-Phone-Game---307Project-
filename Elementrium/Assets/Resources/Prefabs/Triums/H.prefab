@@ -185,12 +185,12 @@ MonoBehaviour:
   ID: 0
   triumformula: H
   buddy: {fileID: 1339626919662516}
+  face: {fileID: 1231420524365700}
   TriumID: 1
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
-  infoDisplayAnim: {fileID: 0}
-  deleteAnim: {fileID: 0}
+  faceAnim: {fileID: 0}
   infoOn: 0
 --- !u!212 &212094089239461492
 SpriteRenderer:
