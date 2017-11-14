@@ -19,7 +19,6 @@ namespace Ranch {
 		private static CosmicRanch instance;
 
         public Backpack bp;
-        public SpriteRenderer background;
         public SpriteRenderer space;
         public SpriteRenderer rim;
         public GameObject Wormhole;
@@ -58,15 +57,6 @@ namespace Ranch {
             else
             {
 
-            }
-            //Debug.Log("RESTARTIN' YALL");
-            if (colorChoice == 0)
-            {
-                background.material.SetColor("_Color", Color.black);
-            }
-            else
-            {
-                background.material.SetColor("_Color", color);
             }
 
             // Go through Global buddy list
