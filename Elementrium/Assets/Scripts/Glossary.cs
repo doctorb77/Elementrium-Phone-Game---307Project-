@@ -17,13 +17,7 @@ namespace GlossaryObject
 
     public class Glossary: MonoBehaviour
     {
-
-		//private Backpack bp;            // The user's backpack
-
-		//public Glossary(Backpack bp)
-		//{
-		//	this.bp = bp;
-		//}
+        public GameObject glossary;
 		public static bool displayOpen = false;
 		public Animator GlossaryAnim;
 		public Backpack bp = Initialize.player;
@@ -33,7 +27,6 @@ namespace GlossaryObject
 		public Text fact1;
 		public Text fact2;
 		public Text fact3;
-
 
 		public void setnames(string name) {
 			this.names.text = name.ToString ();
@@ -119,7 +112,8 @@ namespace GlossaryObject
 
         public void ExitGlossary()
         {
-            SceneManager.LoadScene("MainGameScene");
+            //SceneManager.LoadScene("MainGameScene");
+            glossary.SetActive(false);
             Initialize.sh.setCurrentState("MainGameScene", true, true);
         }
         void Start()
@@ -146,7 +140,7 @@ namespace GlossaryObject
                 if (onTab == 1)
                 {
                     //buttonListControl.GlossaryPopulateCompoundList(getSortedCompoundGlossary());
-					PopulateGlossaryMolecules();
+                    PopulateGlossaryMolecules();
 					onTab = 2;
                 }
             }

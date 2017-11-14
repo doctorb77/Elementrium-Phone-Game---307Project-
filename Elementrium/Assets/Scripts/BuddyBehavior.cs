@@ -87,7 +87,6 @@ namespace BudBehavior
             }
 
             int n = UnityEngine.Random.Range(1, 150);
-            Debug.Log("Random Number: " + n);
             if (n == 1) {
                 faceAnim.SetTrigger("blink");
             }

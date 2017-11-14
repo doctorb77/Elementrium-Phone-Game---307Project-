@@ -85,7 +85,7 @@ public class ButtonListButton : MonoBehaviour
 				} else if (tab == 2) {//molecule
 					Camera.main.GetComponent<Glossary> ().setinfo2 (myCommonName, myMass, myFormula);
 				}
-				//Camera.main.GetComponent<Glossary> ().setnames (myText.text);
+                //Camera.main.GetComponent<Glossary> ().setnames (myText.text);
                 GlossaryAnim.Play("GlossaryInfoDisplayPopUp");
 				//Debug.Log ("Played popup");
 				//Glossary.popupInfo (EventSystem.current.currentSelectedGameObject.name);
