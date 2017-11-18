@@ -202,14 +202,16 @@ MonoBehaviour:
   ypos: 0
   ID: 0
   triumformula: H2
+  triumName: Diatomic Hydrogen
   buddy: {fileID: 1311741891087136}
   face: {fileID: 1141722072288054}
   TriumID: 0
+  faceXYoff: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
   faceAnim: {fileID: 0}
-  infoOn: 0
 --- !u!114 &114441063699544636
 MonoBehaviour:
   m_ObjectHideFlags: 1

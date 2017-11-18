@@ -201,15 +201,17 @@ MonoBehaviour:
   xpos: 0
   ypos: 0
   ID: 0
-  triumformula: BeO
+  triumformula: O2
+  triumName: Molecular Oxygen
   buddy: {fileID: 1483149796809238}
   face: {fileID: 1412586452522780}
   TriumID: 0
+  faceXYoff: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
   faceAnim: {fileID: 0}
-  infoOn: 0
 --- !u!114 &114151266420436148
 MonoBehaviour:
   m_ObjectHideFlags: 1

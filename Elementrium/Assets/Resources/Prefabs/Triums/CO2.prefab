@@ -232,14 +232,16 @@ MonoBehaviour:
   ypos: 0
   ID: 0
   triumformula: CO2
+  triumName: Carbon Dioxide
   buddy: {fileID: 1021021947413734}
   face: {fileID: 1244858249396162}
   TriumID: 0
+  faceXYoff: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
   faceAnim: {fileID: 0}
-  infoOn: 0
 --- !u!114 &114392815895980826
 MonoBehaviour:
   m_ObjectHideFlags: 1

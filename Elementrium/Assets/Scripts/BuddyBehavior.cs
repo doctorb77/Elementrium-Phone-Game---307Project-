@@ -15,6 +15,7 @@ namespace BudBehavior
         public int ID;
         public static int IDc;
         public String triumformula;
+        public String triumName;
         public GameObject buddy;
         public GameObject face;
         public int TriumID;
@@ -23,14 +24,13 @@ namespace BudBehavior
         public bool selected;
         public bool stayStill;
         public static bool selectable = false;
-
+        public GameObject infoDisplayAnim;
         public Animator faceAnim;
-
-		public bool infoOn;
 
 		public void Start()
 		{
             cr = GameObject.FindGameObjectWithTag("CosmicRanch");
+            infoDisplayAnim = GameObject.FindGameObjectWithTag("ZoomInfo");
             if (IDc == 0)
                 IDc = 1;
             else
@@ -39,7 +39,6 @@ namespace BudBehavior
             ID = IDc;
 
 			selected = false;
-            infoOn = false;
 			buddy = gameObject;
 			System.Random rnd = new System.Random();
             float xdir = rnd.Next(0, 66);
@@ -107,18 +106,7 @@ namespace BudBehavior
             } 
             else 
             {
-                /*
-                if (!infoOn)
-                {
-                    infoDisplayAnim.Play("TriumInfoPanelEnter");
-                    infoOn = true;
-                } else {
-                    deleteAnim.Play("DeleteOptionExit");
-                    TriumInfoDisplay.deleteOn = false;
-                    infoDisplayAnim.Play("TriumInfoPanelExit");
-                    infoOn = false;
-				}
-				*/
+                //ZoomInfo.Instance.OpenZoomin((GameObject)this);
             }
         }
 

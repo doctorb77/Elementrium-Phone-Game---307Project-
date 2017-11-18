@@ -42,7 +42,10 @@ namespace Reaction
             bool req = false;
 
             if (selected.Count == 0)
+            {
+                Initialize.sh.setCurrentState("MainGameScene", true, true);
                 return false;
+            }
 
             List<string> reactant = new List<string>(reactant2.ToArray());
             List<int> reactantCount = new List<int>(reactantCount2.ToArray());
@@ -71,11 +74,16 @@ namespace Reaction
                     else
                     {
                         req = false;
+                        Initialize.sh.setCurrentState("MainGameScene", true, true);
                         return false;
                     }
                 }
-                else // Something selected that shouldn't be
+                else
+                {
+                    // Something selected that shouldn't be
+                    Initialize.sh.setCurrentState("MainGameScene", true, true);
                     return false;
+                }
             }
 
             req = true;
@@ -85,6 +93,7 @@ namespace Reaction
                 if (total != 0)
                 {
                     req = false;
+                    Initialize.sh.setCurrentState("MainGameScene", true, true);
                     return false;
                 }
             }
@@ -129,6 +138,7 @@ namespace Reaction
 
                         if (triumName == "none" || atomID == -2 || key == -1) {
                             //Debug.Log("ReactCurrent: PRODUCT TRIUM NOT IN DATABASE!");
+                            Initialize.sh.setCurrentState("MainGameScene", true, true);
                             return false;
                         }
 
@@ -156,9 +166,10 @@ namespace Reaction
 				}
                 */
                 CosmicRanch.Instance.AddBuddyToList();
+                Initialize.sh.setCurrentState("MainGameScene", true, true);
                 return true;
             }
-
+            Initialize.sh.setCurrentState("MainGameScene", true, true);
             return false;
         }
 

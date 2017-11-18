@@ -25,9 +25,10 @@ namespace Ranch {
         public int colorChoice;
         public Color32 color;
         public Color32 rimColor;
+        public int numBuddies;
         public List<GameObject> buddies = new List<GameObject>();
         public List<GameObject> selUpdate;
-        public GameObject[] buddos;
+        //public GameObject[] buddos;
         public bool inReaction, inFusion, inGrouping;
 
 		// Use this for initialization
@@ -83,6 +84,8 @@ namespace Ranch {
         // Update is called once per frame
         void Update()
         {
+			buddies.Clear();
+			buddies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Buddy"));
             if (inFusion)
             {
                
@@ -184,8 +187,10 @@ namespace Ranch {
             */
             bool removed = buddies.Remove(buddy);
             //Debug.Log("Removed : " + removed);
-
-            buddy.SetActive(false);
+            buddies.Remove(buddy);
+            Destroy(buddy);
+            buddies.Clear();
+            //buddy.SetActive(false);
         }
         public void setFusion(bool inF) 
         {

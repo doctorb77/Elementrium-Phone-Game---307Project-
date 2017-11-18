@@ -201,15 +201,17 @@ MonoBehaviour:
   xpos: 0
   ypos: 0
   ID: 0
-  triumformula: BeO
+  triumformula: OH
+  triumName: Hydroxide
   buddy: {fileID: 1716946323777316}
   face: {fileID: 1381784893411388}
   TriumID: 0
+  faceXYoff: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
   faceAnim: {fileID: 0}
-  infoOn: 0
 --- !u!114 &114666187024792580
 MonoBehaviour:
   m_ObjectHideFlags: 1

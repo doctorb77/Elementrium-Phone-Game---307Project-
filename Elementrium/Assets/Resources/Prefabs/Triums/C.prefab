@@ -184,14 +184,16 @@ MonoBehaviour:
   ypos: 0
   ID: 0
   triumformula: C
+  triumName: Carbon
   buddy: {fileID: 1788800416087826}
   face: {fileID: 1220831570313502}
   TriumID: 6
+  faceXYoff: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
   faceAnim: {fileID: 0}
-  infoOn: 0
 --- !u!212 &212158206772776472
 SpriteRenderer:
   m_ObjectHideFlags: 1
