@@ -106,7 +106,8 @@ namespace BudBehavior
             } 
             else 
             {
-                //ZoomInfo.Instance.OpenZoomin((GameObject)this);
+                this.gameObject.tag = "ZoomedBuddy";
+                ZoomInfo.Instance.OpenZoomin();
             }
         }
 

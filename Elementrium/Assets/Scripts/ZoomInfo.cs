@@ -44,18 +44,20 @@ public class ZoomInfo : MonoBehaviour {
 	void Update () {
 		
 	}
-    public void OpenZoomin(GameObject buddy) {
+    public void OpenZoomin() {
         if (!infoOn)
         {
             infoOn = true;
-            targetBuddy = buddy;
-            nameDisplay.text = buddy.GetComponent<BuddyBehavior>().triumName;
+            targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
+            nameDisplay.text = targetBuddy.GetComponent<BuddyBehavior>().triumName;
             ZoomInfoDisplay.Play("ZoomInfoPopIn");
         }
     }
     public void CloseZoomin() {
         if (infoOn) {
             infoOn = false;
+            targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
+            targetBuddy.gameObject.tag = "Buddy";
             ZoomInfoDisplay.Play("ZoomInfoPopOut");
         }
     }
@@ -69,11 +71,16 @@ public class ZoomInfo : MonoBehaviour {
         if (deleteOn) {
             deleteOn = false;
             DeleteAnim.Play("DeletePopOut");
+			infoOn = false;
+			ZoomInfoDisplay.Play("ZoomInfoPopOut");
         }
     }
     public void ConfirmDelete() {
-        if (!deleteOn) {
+        if (deleteOn) {
+            targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
+            targetBuddy.gameObject.tag = "Buddy";
             if (targetBuddy != null) {
+                Debug.Log("Found deleted");
                 CosmicRanch.Instance.RemoveBuddyFromList(targetBuddy);
             }
         }

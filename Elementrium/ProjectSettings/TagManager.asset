@@ -9,6 +9,7 @@ TagManager:
   - CosmicRanch
   - WorkSpace
   - ZoomInfo
+  - ZoomedBuddy
   layers:
   - Default
   - TransparentFX
