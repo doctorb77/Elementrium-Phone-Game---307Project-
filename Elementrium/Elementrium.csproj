@@ -117,6 +117,7 @@
     <Compile Include="Assets\Scripts\BuddyBehavior.cs" />
     <Compile Include="Assets\Scripts\ButtonListButton.cs" />
     <Compile Include="Assets\Scripts\ButtonListControl.cs" />
+    <Compile Include="Assets\Scripts\CameraZooming.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\CosmicRanch.cs" />
     <Compile Include="Assets\Scripts\ExpBar.cs" />

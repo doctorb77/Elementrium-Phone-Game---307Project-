@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using BudBehavior;
 using Ranch;
+using Initialization;
 
 public class ZoomInfo : MonoBehaviour {
 
@@ -45,12 +46,15 @@ public class ZoomInfo : MonoBehaviour {
 		
 	}
     public void OpenZoomin() {
-        if (!infoOn)
+        if (Initialize.sh.getCurrentState().name == "MainGameScene")
         {
-            infoOn = true;
-            targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
-            nameDisplay.text = targetBuddy.GetComponent<BuddyBehavior>().triumName;
-            ZoomInfoDisplay.Play("ZoomInfoPopIn");
+            if (!infoOn)
+            {
+                infoOn = true;
+                targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
+                nameDisplay.text = targetBuddy.GetComponent<BuddyBehavior>().triumName;
+                ZoomInfoDisplay.Play("ZoomInfoPopIn");
+            }
         }
     }
     public void CloseZoomin() {

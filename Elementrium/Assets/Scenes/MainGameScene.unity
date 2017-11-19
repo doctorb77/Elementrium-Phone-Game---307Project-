@@ -472,6 +472,7 @@ GameObject:
   - component: {fileID: 76197857}
   - component: {fileID: 76197858}
   - component: {fileID: 76197859}
+  - component: {fileID: 76197860}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -604,7 +605,7 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 76197851}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 5779aecb1bce64761bdee484c3f77d52, type: 2}
   m_CullingMode: 0
@@ -614,6 +615,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &76197860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 76197851}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c93fe4c6246e45b1b93cea0b097e4cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ZoomAnim: {fileID: 76197859}
+  zoomed: 0
 --- !u!1 &126464892
 GameObject:
   m_ObjectHideFlags: 0
@@ -10468,7 +10482,6 @@ GameObject:
   - component: {fileID: 1456231151}
   - component: {fileID: 1456231150}
   - component: {fileID: 1456231154}
-  - component: {fileID: 1456231153}
   - component: {fileID: 1456231152}
   - component: {fileID: 1456231155}
   m_Layer: 0
@@ -10542,17 +10555,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c42acb84587bf24d94ffe8c33031322, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1456231153
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1456231149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44268e20cb6c32543b7ffd213ddb8ead, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!50 &1456231154
