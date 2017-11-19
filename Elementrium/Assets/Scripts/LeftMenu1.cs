@@ -43,6 +43,9 @@ public class LeftMenu1 : MonoBehaviour
     {
         if (!isOn)
         {
+			if (ZoomInfo.Instance.infoOn) {
+				ZoomInfo.Instance.CloseZoomin();
+			}
             anim.Play("LeftMenuDropDown");
             isOn = true;
 

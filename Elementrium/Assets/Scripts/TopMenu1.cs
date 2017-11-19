@@ -32,6 +32,7 @@ public class TopMenu1 : MonoBehaviour
     void Start()
     {
         anim = Menu.GetComponent<Animator>();
+
         menuIsOn = false;
         settingsIsOn = false;
         musicIsOn = true;
@@ -41,6 +42,9 @@ public class TopMenu1 : MonoBehaviour
 
     public void InteractMenu()
     {
+		if (ZoomInfo.Instance.infoOn) {
+			ZoomInfo.Instance.CloseZoomin();
+		}
         if (EventSystem.current.currentSelectedGameObject.name == "ReturnStartButton")
         {
             if (!menuIsOn && !settingsIsOn)

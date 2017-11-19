@@ -53,6 +53,7 @@ public class ZoomInfo : MonoBehaviour {
                 infoOn = true;
                 targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
                 nameDisplay.text = targetBuddy.GetComponent<BuddyBehavior>().triumName;
+				Initialize.sh.setCurrentState ("ZoomIn", true, true);
                 ZoomInfoDisplay.Play("ZoomInfoPopIn");
             }
         }
@@ -62,6 +63,9 @@ public class ZoomInfo : MonoBehaviour {
             infoOn = false;
             targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
             targetBuddy.gameObject.tag = "Buddy";
+			if (Initialize.sh.getCurrentState ().name == "ZoomIn") {
+				Initialize.sh.setCurrentState ("MainGameScene", true, true);
+			}
             ZoomInfoDisplay.Play("ZoomInfoPopOut");
         }
     }
