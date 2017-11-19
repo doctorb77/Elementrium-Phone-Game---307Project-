@@ -54,6 +54,9 @@ public class RightMenu1 : MonoBehaviour
     {
         if (!isOn)
         {
+            if (ZoomInfo.Instance.infoOn) {
+                ZoomInfo.Instance.CloseZoomin();
+            }
             anim.Play("RightMenuSlideIn");
             isOn = true;
             Initialize.sh.setCurrentState("ActionBar", true, true);

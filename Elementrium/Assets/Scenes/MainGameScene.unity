@@ -4170,7 +4170,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1210407436}
-        m_MethodName: CloseDelete
+        m_MethodName: CancelDelete
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6718,7 +6718,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1383092226}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -500, z: -7}
+  m_LocalPosition: {x: 0, y: -500, z: -10}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 133764493}
@@ -6835,7 +6835,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1470599111
+  randomSeed: -254025063
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -13664,7 +13664,8 @@ MonoBehaviour:
   speed: 0.25
   ws: {fileID: 764401580}
   cr: {fileID: 133764494}
-  ps: {fileID: 0}
+  ps: {fileID: 1383092229}
+  psOn: 0
 --- !u!212 &1975173928
 SpriteRenderer:
   m_ObjectHideFlags: 0

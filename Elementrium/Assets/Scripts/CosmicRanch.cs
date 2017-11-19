@@ -86,6 +86,7 @@ namespace Ranch {
         {
 			buddies.Clear();
 			buddies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Buddy"));
+            numBuddies = buddies.Count;
             if (inFusion)
             {
                

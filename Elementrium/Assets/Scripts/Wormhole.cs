@@ -19,6 +19,7 @@ namespace WormholeObject {
         public GameObject ws;
         public CosmicRanch cr = Initialize.ranch;
         public ParticleSystem ps;
+        public bool psOn;
 		private int rangeStart;         // The beginning of the range
 		private int rangeEnd;           // The end of the range
 										// private int wormholeLevel;      // The level of the wormhole
@@ -274,8 +275,11 @@ namespace WormholeObject {
         public void OnMouseDown()
         {
             //GetComponent<SpriteRenderer>().color = Color.green;
-            accel = true;
-            generateAtoms();
+            if (CosmicRanch.Instance.numBuddies < 20)
+            {
+                accel = true;
+                generateAtoms();
+            }
         }
 
         public void onTouchMethod()
@@ -288,13 +292,26 @@ namespace WormholeObject {
         // Use this for initialization
         void Start()
         {
-
+            psOn = true;
+            ps.Play();
         }
 
         // Update is called once per frame
         void Update()
         {
-            
+            if (CosmicRanch.Instance.numBuddies >= 20) {
+                if (psOn)
+                {
+                    psOn = false;
+                    ps.Stop();
+                }
+            } else if (CosmicRanch.Instance.numBuddies < 20) {
+                if (!psOn)
+                {
+                    psOn = true;
+                    ps.Play();
+                }
+            }
             if (accel == true)
             {
                 speed += 0.5f;

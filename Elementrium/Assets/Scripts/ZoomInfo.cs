@@ -67,24 +67,23 @@ public class ZoomInfo : MonoBehaviour {
             DeleteAnim.Play("DeletePopIn");
         }
     }
-    public void CloseDelete() {
+    public void CancelDelete() {
         if (deleteOn) {
-            deleteOn = false;
-            DeleteAnim.Play("DeletePopOut");
-			infoOn = false;
-			ZoomInfoDisplay.Play("ZoomInfoPopOut");
+			deleteOn = false;
+			DeleteAnim.Play("DeletePopOut");
         }
     }
     public void ConfirmDelete() {
         if (deleteOn) {
+            deleteOn = false;
             targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
             targetBuddy.gameObject.tag = "Buddy";
             if (targetBuddy != null) {
-                Debug.Log("Found deleted");
                 CosmicRanch.Instance.RemoveBuddyFromList(targetBuddy);
             }
+			DeleteAnim.Play("DeletePopOut");
+			infoOn = false;
+			ZoomInfoDisplay.Play("ZoomInfoPopOut");
         }
-        CloseDelete();
     }
-
 }
