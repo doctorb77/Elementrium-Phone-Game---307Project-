@@ -43,7 +43,8 @@ namespace Fusion
 			// Make sure the list isn't empty
 			if (selected.Count != 2)
 			{
-				return false;
+				Initialize.sh.setCurrentState("MainGameScene", true, true);
+                return false;
             }
             int Trium1ID = selected[0].GetComponent<BuddyBehavior>().TriumID;
             int Trium2ID = selected[1].GetComponent<BuddyBehavior>().TriumID;
@@ -53,13 +54,17 @@ namespace Fusion
 
             if (Trium1ID <= 0 || Trium2ID <= 0 || Trium1ID > 92 || Trium2ID > 92) // One of the Triums is not an Element
             {
+                Initialize.sh.setCurrentState("MainGameScene", true, true);
                 return false;
             }
 			int comb = Trium1ID + Trium2ID;
 
             // LEVEL NOT HIGH ENOUGH FOR THIS FUSION
             if (comb > maxFuse)
+            {
+                Initialize.sh.setCurrentState("MainGameScene", true, true);
                 return false;
+            }
 
 			//Debug.Log("ATOM ID FOR FUSION : " + comb);
 
@@ -110,7 +115,7 @@ namespace Fusion
 			cr.GetComponent<CosmicRanch>().AddBuddyToList();
 
             //cr.GetComponent<CosmicRanch>().AddBuddyToList(actual); 
-
+            Initialize.sh.setCurrentState("MainGameScene", true, true);
             return true;
 
 		}

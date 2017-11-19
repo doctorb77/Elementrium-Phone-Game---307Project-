@@ -172,14 +172,16 @@ MonoBehaviour:
   ypos: 0
   ID: 0
   triumformula: O
+  triumName: Oxygen
   buddy: {fileID: 1046232623943856}
   face: {fileID: 1806481692897012}
   TriumID: 8
+  faceXYoff: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
   faceAnim: {fileID: 0}
-  infoOn: 0
 --- !u!114 &114513615681140812
 MonoBehaviour:
   m_ObjectHideFlags: 1

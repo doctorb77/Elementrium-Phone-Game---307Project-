@@ -146,6 +146,7 @@
     <Compile Include="Assets\Scripts\TriumInfoDisplay.cs" />
     <Compile Include="Assets\Scripts\TriumSelect.cs" />
     <Compile Include="Assets\Scripts\Wormhole.cs" />
+    <Compile Include="Assets\Scripts\ZoomInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Prefabs\readme.txt" />

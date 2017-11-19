@@ -172,14 +172,16 @@ MonoBehaviour:
   ypos: 0
   ID: 0
   triumformula: N
+  triumName: Nitrogen
   buddy: {fileID: 1383309525580544}
   face: {fileID: 1405486916867590}
   TriumID: 7
+  faceXYoff: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
   faceAnim: {fileID: 0}
-  infoOn: 0
 --- !u!114 &114521332600115246
 MonoBehaviour:
   m_ObjectHideFlags: 1

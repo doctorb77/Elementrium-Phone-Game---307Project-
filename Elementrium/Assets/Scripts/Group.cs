@@ -24,11 +24,13 @@ namespace Group {
 			// Make sure the list isn't empty
 			if (selected.Count != 2)
 			{
-				return;
+				Initialize.sh.setCurrentState("MainGameScene", true, true);
+                return;
 			}
 			else if (selected[0].GetComponent<BuddyBehavior>().triumformula != selected[1].GetComponent<BuddyBehavior>().triumformula)
 			{
-				return;
+				Initialize.sh.setCurrentState("MainGameScene", true, true);
+                return;
 			}
 
 			// Obtain the database ID of the selected atoms
@@ -36,7 +38,8 @@ namespace Group {
 
 			if (key == -1)
 			{
-				return;
+				Initialize.sh.setCurrentState("MainGameScene", true, true);
+                return;
 			}
 
             int groupID = -1;
@@ -44,11 +47,13 @@ namespace Group {
             string formula = "none";
 
             if (!canGroup(key, out groupID, out name, out formula)) {
+                Initialize.sh.setCurrentState("MainGameScene", true, true);
                 return;
             }
 
             // Make sure "out" variables are valid
             if (groupID == -1 || name == "none" || formula == "none") {
+                Initialize.sh.setCurrentState("MainGameScene", true, true);
                 return;
             }
 
@@ -90,7 +95,7 @@ namespace Group {
 			cr.AddBuddyToList();
 
 			//cr.GetComponent<CosmicRanch>().AddBuddyToList(actual); 
-
+            Initialize.sh.setCurrentState("MainGameScene", true, true);
 
 		}
 

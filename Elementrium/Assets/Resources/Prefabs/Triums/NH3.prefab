@@ -274,14 +274,16 @@ MonoBehaviour:
   ypos: 0
   ID: 0
   triumformula: NH3
+  triumName: Ammonia
   buddy: {fileID: 1126269404388856}
   face: {fileID: 1040227962049758}
   TriumID: 0
+  faceXYoff: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
   faceAnim: {fileID: 0}
-  infoOn: 0
 --- !u!212 &212135988094284498
 SpriteRenderer:
   m_ObjectHideFlags: 1

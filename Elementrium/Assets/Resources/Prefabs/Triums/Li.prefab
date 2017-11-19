@@ -184,14 +184,16 @@ MonoBehaviour:
   ypos: 0
   ID: 0
   triumformula: Li
+  triumName: Lithium
   buddy: {fileID: 1175992460048886}
   face: {fileID: 1981845372515654}
   TriumID: 3
+  faceXYoff: 0
   cr: {fileID: 0}
   selected: 0
   stayStill: 0
+  infoDisplayAnim: {fileID: 0}
   faceAnim: {fileID: 0}
-  infoOn: 0
 --- !u!212 &212290944677636446
 SpriteRenderer:
   m_ObjectHideFlags: 1
