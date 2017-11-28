@@ -1,19 +1,19 @@
-﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Fusion.cs">
+﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|" StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Glossary.cs">
     <Files>
-      <File FileName="Assets/Scripts/ButtonListButton.cs" Line="112" Column="78" />
-      <File FileName="Assets/Scripts/ButtonListControl.cs" Line="430" Column="58" />
-      <File FileName="Assets/Scripts/StateHandler.cs" Line="79" Column="22" />
-      <File FileName="Assets/Scripts/CameraZooming.cs" Line="10" Column="1" />
-      <File FileName="Assets/Scripts/ZoomInfo.cs" Line="54" Column="1" />
-      <File FileName="Assets/Scripts/Test.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Glossary.cs" Line="204" Column="40" />
-      <File FileName="Assets/Scripts/CosmicRanch.cs" Line="104" Column="19" />
-      <File FileName="Assets/Scripts/Wormhole.cs" Line="302" Column="1" />
-      <File FileName="Assets/Scripts/Fusion.cs" Line="53" Column="33" />
+      <File FileName="Assets\Scripts\ButtonListButton.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ButtonListControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\StateHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\CameraZooming.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\ZoomInfo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Test.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Glossary.cs" Line="216" Column="8" />
+      <File FileName="Assets\Scripts\CosmicRanch.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Wormhole.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Fusion.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

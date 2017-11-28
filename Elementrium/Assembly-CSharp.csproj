@@ -65,6 +65,7 @@
      <Compile Include="Assets\Scripts\FixRotation.cs" />
      <Compile Include="Assets\Scripts\Fusion.cs" />
      <Compile Include="Assets\Scripts\Glossary.cs" />
+     <Compile Include="Assets\Scripts\GlossaryUIDispenser.cs" />
      <Compile Include="Assets\Scripts\Group.cs" />
      <Compile Include="Assets\Scripts\LeftMenu.cs" />
      <Compile Include="Assets\Scripts\LeftMenu1.cs" />

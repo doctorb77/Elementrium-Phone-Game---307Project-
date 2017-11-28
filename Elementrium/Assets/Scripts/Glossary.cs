@@ -180,7 +180,7 @@ namespace GlossaryObject
 			while (reader.Read())
 			{
 				
-				Initialize.sh.setCurrentState("Glossary", true, true);
+
 				int id = reader.GetInt32(0);            /* the ID column of the Trium */
 				string element = reader.GetString(1);      /* the Name column of the Trium */
 				string formula = reader.GetString(2);    /* the Formula column of the Trium */
