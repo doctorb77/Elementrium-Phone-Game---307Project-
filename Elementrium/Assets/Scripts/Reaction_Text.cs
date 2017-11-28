@@ -186,7 +186,7 @@ namespace Reaction_Text
             {
                 nString += col2;
                 if (productCount[i] > 1)
-                    nString += productCount;
+                    nString += productCount[i];
                 nString += products[i];
                 nString += colE;
 

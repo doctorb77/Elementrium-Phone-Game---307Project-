@@ -31,6 +31,19 @@ public class ButtonListButton : MonoBehaviour
     public Animator SelectorAnim;
     public CosmicRanch ranch;
 
+    public List<string> reactants;
+    public List<string> products;
+    public List<int> reactantCount;
+    public List<int> productCount;
+
+    public void updateReactionInfo(List<string> r, List<string> p, List<int> rc, List<int> pc)
+    {
+        reactants = r;
+        products = p;
+        reactantCount = rc;
+        productCount = pc;
+    }
+
 	public void SetTab(int num)
 	{
 		tab = num;
@@ -68,6 +81,8 @@ public class ButtonListButton : MonoBehaviour
 	}
     public void OnClick()
     {
+        Reaction_Text.Reaction_Text.setFormula(reactants, products, reactantCount, productCount);
+        CosmicRanch.setFormula(reactants, products, reactantCount, productCount);
         //Debug.Log("TESTWETF");
 		if (Initialize.sh.getCurrentState().name == "MainGameScene")
         {
@@ -114,6 +129,12 @@ public class ButtonListButton : MonoBehaviour
 				Initialize.sh.setCurrentState ("Reaction", true, true);
 			}
         }
+    }
+
+    public void OnMouseDown()
+    {
+        Reaction_Text.Reaction_Text.setFormula(reactants, products, reactantCount, productCount);
+        CosmicRanch.setFormula(reactants, products, reactantCount, productCount);
     }
     /*
     public void OnMouseDown()
