@@ -54,7 +54,8 @@ public class ZoomInfo : MonoBehaviour {
                 targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
                 nameDisplay.text = targetBuddy.GetComponent<BuddyBehavior>().triumName;
 				Initialize.sh.setCurrentState ("ZoomIn", true, true);
-                ZoomInfoDisplay.Play("ZoomInfoPopIn");
+                if (targetBuddy != null)
+                    ZoomInfoDisplay.Play("ZoomInfoPopIn");
             }
         }
     }
@@ -72,7 +73,9 @@ public class ZoomInfo : MonoBehaviour {
     public void OpenDelete() {
         if (!deleteOn) {
             deleteOn = true;
-            DeleteAnim.Play("DeletePopIn");
+            targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
+            if (targetBuddy != null)
+                DeleteAnim.Play("DeletePopIn");
         }
     }
     public void CancelDelete() {
