@@ -84,6 +84,7 @@ public class ZoomInfo : MonoBehaviour {
     public void ConfirmDelete() {
         if (deleteOn) {
             deleteOn = false;
+			Initialize.sh.setCurrentState ("MainGameScene", true, true);
             targetBuddy = GameObject.FindWithTag("ZoomedBuddy");
             targetBuddy.gameObject.tag = "Buddy";
             if (targetBuddy != null) {

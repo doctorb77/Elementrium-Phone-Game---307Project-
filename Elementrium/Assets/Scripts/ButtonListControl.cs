@@ -153,7 +153,7 @@ public class ButtonListControl : MonoBehaviour
 		}
         */
 	}
-	public void PopulateList(string buttonText, int id, decimal mass, string formula)//,string factOne, string factTwo, string factThree
+	public void PopulateList(string buttonText, int id, decimal mass, string formula, string factOne, string factTwo, string factThree)
 	{
 		GameObject button = Instantiate(buttonTemplate) as GameObject;
 		button.SetActive(true);
@@ -163,14 +163,14 @@ public class ButtonListControl : MonoBehaviour
 		button.GetComponent<ButtonListButton>().SetId(id);
 		button.GetComponent<ButtonListButton>().SetMass(mass);
 		button.GetComponent<ButtonListButton>().SetFormula(formula);
-		//button.GetComponent<ButtonListButton>().SetText(buttonText);
-		//button.GetComponent<ButtonListButton>().SetText(buttonText);
-		//button.GetComponent<ButtonListButton>().SetText(buttonText);
+		button.GetComponent<ButtonListButton>().SetFact1(factOne);
+		button.GetComponent<ButtonListButton>().SetFact2(factTwo);
+		button.GetComponent<ButtonListButton>().SetFact3(factThree);
 
 		button.transform.SetParent(buttonTemplate.transform.parent, false);
 		buttons.Add(button);
 	}
-	public void PopulateSecondList(string buttonText, string commonname, decimal mass, string formula)//,string factOne, string factTwo, string factThree
+	public void PopulateSecondList(string buttonText, string commonname, decimal mass, string formula, string factOne, string factTwo, string factThree)
 	{
 		GameObject button = Instantiate(buttonTemplate) as GameObject;
 		button.SetActive(true);
@@ -180,9 +180,9 @@ public class ButtonListControl : MonoBehaviour
 		button.GetComponent<ButtonListButton>().SetCommon(commonname);
 		button.GetComponent<ButtonListButton>().SetMass(mass);
 		button.GetComponent<ButtonListButton>().SetFormula(formula);
-		//button.GetComponent<ButtonListButton>().SetText(buttonText);
-		//button.GetComponent<ButtonListButton>().SetText(buttonText);
-		//button.GetComponent<ButtonListButton>().SetText(buttonText);
+		button.GetComponent<ButtonListButton>().SetFact1(factOne);
+		button.GetComponent<ButtonListButton>().SetFact2(factTwo);
+		button.GetComponent<ButtonListButton>().SetFact3(factThree);
 
 		button.transform.SetParent(buttonTemplate.transform.parent, false);
 		buttons.Add(button);
