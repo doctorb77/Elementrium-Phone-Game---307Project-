@@ -10,13 +10,15 @@ using Initialization;
 using UnityEngine.UI;
 using Mono.Data.Sqlite;
 using System.Data;
-
+using Assets.Scripts;
+using System;
 
 namespace GlossaryObject
 {
 
     public class Glossary: MonoBehaviour
     {
+		
         public GameObject glossary;
 		public static bool displayOpen = false;
 		public Animator GlossaryAnim;
@@ -27,6 +29,7 @@ namespace GlossaryObject
 		public Text fact1;
 		public Text fact2;
 		public Text fact3;
+		public Image myimg;
 
 		public void setnames(string name) {
 			this.names.text = name.ToString ();
@@ -49,6 +52,10 @@ namespace GlossaryObject
 		}
 		public void setfact3(string newfact3) {
 			this.fact3.text = newfact3.ToString ();
+		}
+		public void setimg (Sprite spr2) {
+			this.myimg = GetComponent<Image> ();
+			this.myimg.sprite = spr2;
 		}
 
 
@@ -173,6 +180,7 @@ namespace GlossaryObject
 			while (reader.Read())
 			{
 				
+				Initialize.sh.setCurrentState("Glossary", true, true);
 				int id = reader.GetInt32(0);            /* the ID column of the Trium */
 				string element = reader.GetString(1);      /* the Name column of the Trium */
 				string formula = reader.GetString(2);    /* the Formula column of the Trium */
@@ -190,9 +198,22 @@ namespace GlossaryObject
 					third = "";
 				}
 				int atomicnum = reader.GetInt32(7);
-				if (bp.getTrium(id) != null) {
-					buttonListControl.PopulateList (element, atomicnum, mass, formula, first, second, third);
+				//Sprite spr;
+			    //Debug.Log ("Image: "+myimg.sprite.name);
+				//if (GlossaryUIDispenser.Instance.sprH.name.Contains (formula)) {
+				//Debug.Log ("#" +(atomicnum - 1));
+
+				if ((atomicnum - 1) < GlossaryUIDispenser.sprites.Count) {
+					if (GlossaryUIDispenser.sprites[atomicnum - 1] != null) {
+						Sprite spr = GlossaryUIDispenser.sprites[atomicnum - 1];
+						if (bp.getTrium(id) != null) {
+							buttonListControl.PopulateList (element, atomicnum, mass, formula, first, second, third, spr);
+						}
+					}
 				}
+				/*if (bp.getTrium(id) != null) {
+					buttonListControl.PopulateList (element, atomicnum, mass, formula, first, second, third, spr);
+				}*/
 				/*this.names.text = element.ToString();
 				this.info.text = "Atomic Number: " +id;*/
 			}
@@ -227,6 +248,7 @@ namespace GlossaryObject
 			// reader.Read() will return True or False. If true, we will execute what is in the while() loop
 			while (reader.Read())
 			{
+				
 
 				int id = reader.GetInt32(0);            /* the ID column of the Trium */
 				string molecule = reader.GetString(1);      /* the Name column of the Trium */
@@ -248,8 +270,12 @@ namespace GlossaryObject
 				if (third == "X") {
 					third = "";
 				}
+				Sprite spr = null;
+				if (GlossaryUIDispenser.Instance.sprH.name.Contains (formula)) {
+					spr = GlossaryUIDispenser.Instance.sprH;
+				}
 				if (bp.getTrium(id) != null) {
-					buttonListControl.PopulateSecondList (formula, commonname, mass, formula, first, second, third);
+					buttonListControl.PopulateSecondList (formula, commonname, mass, formula, first, second, third, spr);
 				}
 				/*this.names.text = element.ToString();
 				this.info.text = "Atomic Number: " +id;*/

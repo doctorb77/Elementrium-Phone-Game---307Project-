@@ -101,7 +101,7 @@ namespace Ranch {
             {
 
                 FusionHandler f = new FusionHandler();
-                Debug.Log(getSelected().Count);
+                //Debug.Log(getSelected().Count);
                 bool done = f.fuse(getSelected());
                 inFusion = false;
                 deselectAll();

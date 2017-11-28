@@ -110,7 +110,7 @@ namespace StateHandling
                     currentstate = states[i];
                 }
             }
-            Debug.Log(currentstate.name);
+            //Debug.Log(currentstate.name);
 
             GameObject cr = GameObject.FindGameObjectWithTag("CosmicRanch");
 

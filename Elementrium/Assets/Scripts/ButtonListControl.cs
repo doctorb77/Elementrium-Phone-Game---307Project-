@@ -404,11 +404,12 @@ public class ButtonListControl : MonoBehaviour
 		}
         */
 	}
-	public void PopulateList(string buttonText, int id, decimal mass, string formula, string factOne, string factTwo, string factThree)
+    public void PopulateList(string buttonText, int id, decimal mass, string formula, string factOne, string factTwo, string factThree, Sprite spr)
 	{
 		GameObject button = Instantiate(buttonTemplate) as GameObject;
 		button.SetActive(true);
 
+        button.GetComponent<ButtonListButton>().SetSprite(spr);
 		button.GetComponent<ButtonListButton>().SetTab(1);
 		button.GetComponent<ButtonListButton>().SetText(buttonText);
 		button.GetComponent<ButtonListButton>().SetId(id);
@@ -421,12 +422,13 @@ public class ButtonListControl : MonoBehaviour
 		button.transform.SetParent(buttonTemplate.transform.parent, false);
 		buttons.Add(button);
 	}
-	public void PopulateSecondList(string buttonText, string commonname, decimal mass, string formula, string factOne, string factTwo, string factThree)
+	public void PopulateSecondList(string buttonText, string commonname, decimal mass, string formula, string factOne, string factTwo, string factThree, Sprite spr)
 	{
 		GameObject button = Instantiate(buttonTemplate) as GameObject;
 		button.SetActive(true);
 
-		button.GetComponent<ButtonListButton>().SetTab(2);
+		button.GetComponent<ButtonListButton>().SetSprite(spr);
+        button.GetComponent<ButtonListButton>().SetTab(2);
 		button.GetComponent<ButtonListButton>().SetText(buttonText);
 		button.GetComponent<ButtonListButton>().SetCommon(commonname);
 		button.GetComponent<ButtonListButton>().SetMass(mass);

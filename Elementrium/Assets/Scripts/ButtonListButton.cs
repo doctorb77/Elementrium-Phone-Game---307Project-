@@ -15,6 +15,7 @@ public class ButtonListButton : MonoBehaviour
 
     [SerializeField]
     private Text myText;
+    public Image myImage;
 
 	private string myId;
 	private int tab;
@@ -30,6 +31,7 @@ public class ButtonListButton : MonoBehaviour
     public Animator ScrolllistAnim;
     public Animator SelectorAnim;
     public CosmicRanch ranch;
+    public Sprite mysprite;
 
     public List<string> reactants;
     public List<string> products;
@@ -43,7 +45,11 @@ public class ButtonListButton : MonoBehaviour
         reactantCount = rc;
         productCount = pc;
     }
-
+	public void SetSprite(Sprite spr)
+	{
+		this.myImage.sprite = spr;
+		mysprite = spr;
+	}
 	public void SetTab(int num)
 	{
 		tab = num;
@@ -103,7 +109,7 @@ public class ButtonListButton : MonoBehaviour
 				Camera.main.GetComponent<Glossary> ().setfact1 (myFact1);
 				Camera.main.GetComponent<Glossary> ().setfact2 (myFact2);
 				Camera.main.GetComponent<Glossary> ().setfact3 (myFact3);
-               
+                Camera.main.GetComponent<Glossary>().myimg.sprite = mysprite;
                 GlossaryAnim.Play("GlossaryInfoDisplayPopUp");
 				//Debug.Log ("Played popup");
 				//Glossary.popupInfo (EventSystem.current.currentSelectedGameObject.name);

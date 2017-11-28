@@ -8,6 +8,7 @@ using Ranch;
 using Group;
 using Reaction;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Test : MonoBehaviour {
 
@@ -16,18 +17,32 @@ public class Test : MonoBehaviour {
 	public bool testMusicToggle;
 	public bool testSoundFXInitialization;
 	public bool testSoundFXToggle;
+    public bool testFaceInitialization;
+    public bool testFaceToggle;
+    public bool testZoomInfo;
+    public bool testDelete;
 	public bool testFusion;
 	public bool testGroup;
     public bool testReaction;
 
-	//for testing action
+    //for testing zoominfo
+    public GameObject targetbuddy;
+    public bool buddySelected;
+    public Text infoDisplayText;
+
+    //for testing delete
+    public int buddyCount;
+
+    //for testing fusion
 	public bool rerunFusion;
     public bool infusion;
 
+    //for testing group
 	public bool rerunGroup;
 	public bool ingroup;
     public bool groupSuccess;
 
+    //for testing reaction
 	public bool rerunReaction;
 	public bool inreaction;
 	public bool reactionSuccess;
@@ -44,9 +59,15 @@ public class Test : MonoBehaviour {
         testMusicToggle = false;
         testMusicInitialization = false;
         testSoundFXToggle = false;
+        testFaceInitialization = false;
+        testFaceToggle = false;
+        testZoomInfo = false;
+        testDelete = false;
         testFusion = false;
         testGroup = false;
         testReaction = false;
+
+        buddySelected = false;
 
         infusion = false;
         ingroup = false;
@@ -79,6 +100,10 @@ public class Test : MonoBehaviour {
             StartCoroutine(TestMusicToggle());
             StartCoroutine(TestSoundFXInitialized());
             StartCoroutine(TestSoundFXToggle());
+            StartCoroutine(TestFaceInitialized());
+            StartCoroutine(TestFaceToggle());
+            StartCoroutine(TestZoomInfo());
+            StartCoroutine(TestDelete());
             StartCoroutine(TestFusion());
             StartCoroutine(TestGroup());
             StartCoroutine(TestReaction());
@@ -101,6 +126,25 @@ public class Test : MonoBehaviour {
             StopCoroutine(TestReaction());
 			StartCoroutine(TestReaction());
 		}
+        buddyCount = CosmicRanch.Instance.numBuddies;
+        if (!buddySelected)
+        {
+            if (testFaceToggle)
+            {
+                if (!testZoomInfo)
+                {
+                    if (targetbuddy == null)
+                    {
+                        targetbuddy = GameObject.FindWithTag("ZoomedBuddy");
+                        if (targetbuddy != null)
+                        {
+                            buddyCount++;
+                            buddySelected = true;
+                        }
+                    }
+                }
+            }
+        }
 	}
 
     IEnumerator TestMusicInitialized () {
@@ -201,10 +245,95 @@ public class Test : MonoBehaviour {
         testSoundFXToggle = true;
 		yield break;
 	}
+	IEnumerator TestFaceInitialized()
+	{
+        yield return new WaitUntil(() => testSoundFXToggle == true);
+		Debug.Log("Testing Facial Animation Initialization:");
+		Debug.Log("Checking face animation initialization status, expected boolean value: TRUE");
+        if (TopMenu1.Instance.faceIsOn)
+		{
+			Debug.Log("TEST PASSED");
+		}
+		else
+		{
+			Debug.Log("TEST FAILED");
+		}
+        testFaceInitialization = true;
+		yield break;
+	}
+
+	IEnumerator TestFaceToggle()
+	{
+        yield return new WaitUntil(() => testFaceInitialization == true);
+		Debug.Log("Testing Face Animation Toggle:");
+		Debug.Log("Checking face animation toggle status. Turn off face animation, expected boolean value: FALSE");
+		Debug.Log("Awaiting input...");
+        bool currentFaceStatus = TopMenu1.Instance.faceIsOn;
+        yield return new WaitUntil(() => currentFaceStatus != TopMenu1.Instance.faceIsOn);
+
+        if (!TopMenu1.Instance.faceIsOn)
+		{
+			Debug.Log("TEST PASSED");
+		}
+		else
+		{
+			Debug.Log("TEST FAILED");
+		}
+		Debug.Log("Checking face animation toggle status. Turn on face animation, expected boolean value: TRUE");
+		Debug.Log("Awaiting input...");
+        currentFaceStatus = TopMenu1.Instance.faceIsOn;
+        yield return new WaitUntil(() => currentFaceStatus != TopMenu1.Instance.faceIsOn);
+
+        if (TopMenu1.Instance.faceIsOn)
+		{
+			Debug.Log("TEST PASSED");
+		}
+		else
+		{
+			Debug.Log("TEST FAILED");
+		}
+        testFaceToggle = true;
+		yield break;
+	}
+
+    IEnumerator TestZoomInfo ()
+    {
+        yield return new WaitUntil(() => testFaceToggle == true);
+        Debug.Log("Testing Zoom-in Informational Display:");
+        Debug.Log("Checking zoom-in informational display status. Select a Trium.");
+        Debug.Log("Awaiting action...");
+        yield return new WaitUntil(() => buddySelected == true);
+        Debug.Log("Checking correctness of displayed information:");
+        if (infoDisplayText.text == targetbuddy.GetComponent<BuddyBehavior>().triumName) {
+			Debug.Log("TEST PASSED");
+		}
+		else
+		{
+			Debug.Log("TEST FAILED");
+		}
+        testZoomInfo = true;
+        yield break;
+    }
+
+    IEnumerator TestDelete ()
+    {
+        yield return new WaitUntil(() => testZoomInfo == true);
+        int originalBuddyNum = buddyCount;
+        Debug.Log("Testing Zoom-in Informational Display Delete Function:");
+		Debug.Log("Checking zoom-in informational display status. Select a Trium.");
+		Debug.Log("Awaiting action...");
+		yield return new WaitUntil(() => buddySelected == true);
+		Debug.Log("Confirm delete functionality. Delete the Trium.");
+        Debug.Log("Awaiting action...");
+        yield return new WaitUntil(() => buddyCount == originalBuddyNum - 1);
+        Debug.Log("TEST PASSED");
+        testDelete = true;
+        yield break;
+    }
 
 	IEnumerator TestFusion()
 	{
-        yield return new WaitUntil(() => testSoundFXToggle == true);
+        yield return new WaitUntil(() => testDelete == true);
 		Debug.Log("Testing Fusion:");
 		Debug.Log("Checking Fusion. Select two atoms and run Fusion");
 		Debug.Log("Awaiting Action...");

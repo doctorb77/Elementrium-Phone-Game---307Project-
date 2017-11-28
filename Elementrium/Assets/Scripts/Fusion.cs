@@ -49,8 +49,8 @@ namespace Fusion
             int Trium1ID = selected[0].GetComponent<BuddyBehavior>().TriumID;
             int Trium2ID = selected[1].GetComponent<BuddyBehavior>().TriumID;
 
-            Debug.Log(Trium1ID);
-            Debug.Log(Trium2ID);
+            //Debug.Log(Trium1ID);
+            //Debug.Log(Trium2ID);
 
             if (Trium1ID <= 0 || Trium2ID <= 0 || Trium1ID > 92 || Trium2ID > 92) // One of the Triums is not an Element
             {
