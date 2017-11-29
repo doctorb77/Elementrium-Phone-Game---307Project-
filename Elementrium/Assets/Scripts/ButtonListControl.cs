@@ -326,7 +326,7 @@ public class ButtonListControl : MonoBehaviour
         string[] reactId = reactSep[0].Split(',');
         string[] reactFo = reactSep[1].Split(',');
         string[] prodId = prodSep[0].Split(',');
-        string[] prodFo = prodSep[1].Split(',');
+        string[] prodFo = prodSep[1].Split(',');//error
 
         for (int i = 0; i < reactId.Length; i++)
         {

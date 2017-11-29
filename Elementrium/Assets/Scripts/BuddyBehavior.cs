@@ -4,6 +4,7 @@ using UnityEngine;
 using Assets.Scripts;
 using System;
 using Ranch;
+using Initialization;
 
 namespace BudBehavior
 {
@@ -99,8 +100,11 @@ namespace BudBehavior
         private void OnMouseDown()
         {
             SoundManager.Instance.PlaySoundSix();
-            if (selectable) // A fusion/grouping/reaction is taking place, select the triums
+			//Debug.Log ("selectable: "+selectable);
+			if (Initialize.sh.getCurrentState().name == "Fusion" || Initialize.sh.getCurrentState().name == "Group" || Initialize.sh.getCurrentState().name == "Reaction")
+            //if (selectable) // A fusion/grouping/reaction is taking place, select the triums
             {
+				//Debug.Log ("selectable: "+selectable);
                 selected = !selected;
                 cr.GetComponent<CosmicRanch>().getSelected();
             } 

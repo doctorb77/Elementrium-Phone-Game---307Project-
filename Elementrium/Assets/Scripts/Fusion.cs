@@ -88,6 +88,9 @@ namespace Fusion
 				cr.GetComponent<CosmicRanch>().RemoveBuddyFromList(b);
 			}
 
+			// See if we've unlocked this Trium before.
+			bool quizThem = (bp.getTrium (comb) == null);
+
             Backpack.unlockedElement[comb] = true;
 			/****** Update backpack and add new GameObject buddy ******/
 
@@ -116,6 +119,15 @@ namespace Fusion
 
             //cr.GetComponent<CosmicRanch>().AddBuddyToList(actual); 
             Initialize.sh.setCurrentState("MainGameScene", true, true);
+
+			// This is a new Trium, let's do a quiz! :)
+			Debug.Log ("comb: " + comb);
+			if (quizThem) {
+				//Debug.Log ("buttonA:" + Initialize.quizzer.buttonA.name);
+				Debug.Log ("I MADE IT MOM");
+				Initialize.quizID = comb;
+			}
+
             return true;
 
 		}

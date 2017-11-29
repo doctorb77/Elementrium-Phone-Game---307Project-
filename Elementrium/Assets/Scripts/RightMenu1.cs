@@ -64,10 +64,13 @@ public class RightMenu1 : MonoBehaviour
         }
         else
         {
+			//Debug.Log ("Before THAT IF THO");
 			if (!inGroup && !inReaction) {
 				anim.Play ("RightSideRetract");
 				isOn = false;
+				//Debug.Log("In if and state is: " + Initialize.sh.getCurrentState().name);
                 Initialize.sh.setCurrentState ("MainGameScene", true, true);
+				//Debug.Log("Main Game Scene? " + Initialize.sh.getCurrentState().name);
 			}
         }
     }

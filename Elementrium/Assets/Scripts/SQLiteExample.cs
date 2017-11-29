@@ -9,7 +9,7 @@ namespace Assets.Scripts
 
     public class SQLiteExample
     {
-        public void example()
+        public void exampleWithComments()
         {
 
             // This is our path to the database
@@ -64,6 +64,46 @@ namespace Assets.Scripts
             dbconn = null;
         }
 
+		public void exampleWithoutComments()
+		{
+
+			string connectionPath = "URI=file:" + Application.dataPath + "/Assets/Elementrium.db";
+
+			IDbConnection dbconn;
+			dbconn = (IDbConnection)new SqliteConnection(connectionPath);
+			dbconn.Open();
+			IDbCommand dbcmd = dbconn.CreateCommand();
+			string sqlQuery = "SELECT ID, Name, Formula " +  /* What we want to get */
+							  "FROM Trium";                  /* What table is it in? */
+            dbcmd.CommandText = sqlQuery;
+
+			IDataReader reader = dbcmd.ExecuteReader();
+
+			// reader.Read() will return True or False. If true, we will execute what is in the while() loop
+			while (reader.Read())
+			{
+				// Because our Query asks for ID, Name, Formula, we must access them in that order
+				// In each iteration of the loop, the reader will have one row of data from the database
+				int id = reader.GetInt32(0);            /* the ID column of the Trium */
+				string name = reader.GetString(1);      /* the Name column of the Trium */
+				string formula = reader.GetString(2);   /* the Formula column of the Trium */
+
+				// Notice how these are local variables. If you want to access them
+				// outside of the while loop, you would want to save them in 
+				// variables declared outside of the while loop. 
+
+			}
+
+			// These are cleanup operations to avoid memory leakage
+			// Do this after you are done executing queries against the database.
+			reader.Close();
+			reader = null;
+			dbcmd.Dispose();
+			dbcmd = null;
+			dbconn.Close();
+			dbconn = null;
+		}
+
 
         /**
          * makeQuery
@@ -99,10 +139,9 @@ namespace Assets.Scripts
 			
 			return dbcmd.ExecuteReader();
 
-            /** TODO: Sprint 2/3 **/
-            // Possibly create global query objects?
-            /** TODO: Sprint 2/3 **/
-
         }
+
+
+
     }
 }

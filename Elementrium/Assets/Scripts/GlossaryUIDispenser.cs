@@ -217,12 +217,12 @@ public class GlossaryUIDispenser : MonoBehaviour {
 		sprites.Add (sprAc);
 		sprites.Add (sprTh);
 		sprites.Add (sprPa);
-		sprites.Add (sprU);
-		sprites.Add (sprLiH);
-		sprites.Add (sprOH);
-		sprites.Add (sprBeO);
-		sprites.Add (sprO2);
-		sprites.Add (sprH2O);
+		sprites.Add (sprU);//91
+		sprites.Add (sprLiH);//94
+		sprites.Add (sprOH);//95
+		sprites.Add (sprBeO);//96
+		sprites.Add (sprO2);//97
+		sprites.Add (sprH2O);//98
 		sprites.Add (sprC2);
 		sprites.Add (sprNO);
 		sprites.Add (sprH2);

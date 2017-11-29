@@ -270,13 +270,15 @@ namespace GlossaryObject
 				if (third == "X") {
 					third = "";
 				}
-				Sprite spr = null;
-				if (GlossaryUIDispenser.Instance.sprH.name.Contains (formula)) {
-					spr = GlossaryUIDispenser.Instance.sprH;
+				if ((id) < GlossaryUIDispenser.sprites.Count) {
+					if (GlossaryUIDispenser.sprites[id] != null) {
+						Sprite spr = GlossaryUIDispenser.sprites[id];
+						if (bp.getTrium(id) != null) {
+							buttonListControl.PopulateSecondList (formula, commonname, mass, formula, first, second, third, spr);
+						}
+					}
 				}
-				if (bp.getTrium(id) != null) {
-					buttonListControl.PopulateSecondList (formula, commonname, mass, formula, first, second, third, spr);
-				}
+						
 				/*this.names.text = element.ToString();
 				this.info.text = "Atomic Number: " +id;*/
 			}

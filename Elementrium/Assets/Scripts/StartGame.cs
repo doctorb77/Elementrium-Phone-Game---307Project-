@@ -37,6 +37,8 @@ namespace Initialization
         public static Glossary glossary;
         public static CosmicRanch ranch;
         public static List<Buddy> buddyList;
+		//public static Quiz quizzer;
+		public static int quizID;
 
         // Other global variables go here
 
@@ -75,6 +77,19 @@ namespace Initialization
                 sh = new StateHandler();
                 sh.setCurrentState("MainGameScene", true, true);
             }
+
+			/*
+			if (quizzer == null) 
+			{
+				//Debug.Log ("buttonA:" + Initialize.quizzer.buttonA.name);
+				quizzer = new Quiz();
+				//Debug.Log ("buttonA:" + Initialize.quizzer.buttonA.name);
+			}
+			*/
+
+			quizID = -1;
+
+
             // Initialize ANY other global variables
 
         }

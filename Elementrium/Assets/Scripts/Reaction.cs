@@ -8,6 +8,7 @@ using BudBehavior;
 using Initialization;
 using System.Data;
 using Mono.Data.Sqlite;
+using Assets.Scripts;
 
 namespace Reaction
 {
@@ -40,6 +41,10 @@ namespace Reaction
             //Debug.Log("HERE in React");
             // Check if requirements are met
             bool req = false;
+
+			// Quizzing variables
+			bool quizThem = false;
+			int quizTriumID = -1;
 
             if (selected.Count == 0)
             {
@@ -142,6 +147,12 @@ namespace Reaction
                             return false;
                         }
 
+						if (quizTriumID == -1 && bp.getTrium(key) == null) {
+							quizTriumID = key;
+							quizThem = true;
+						}
+
+
                         bp.addToBackpack(key, triumName, atomID);
 
                         //Debug.Log("nTrium : " + nTrium + " Path : \'\"Prefabs/Triums/" + nTrium+"\"\'");
@@ -167,9 +178,18 @@ namespace Reaction
                 */
                 CosmicRanch.Instance.AddBuddyToList();
                 Initialize.sh.setCurrentState("MainGameScene", true, true);
+
+				Debug.Log ("quizTriumID: " + quizTriumID);
+				if (quizThem && quizTriumID != -1) {
+					Initialize.quizID = quizTriumID;
+				}
+
                 return true;
             }
             Initialize.sh.setCurrentState("MainGameScene", true, true);
+
+
+
             return false;
         }
 

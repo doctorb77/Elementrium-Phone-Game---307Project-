@@ -95,7 +95,10 @@ namespace WormholeObject {
         {
             if (RightMenu1.Instance.isOn)
                 return false;
-            return true;
+			if (Initialize.sh.getCurrentState ().name == "MainGameScene") {
+				return true;
+			}
+			return false;
         }
 
 		/**
@@ -107,6 +110,7 @@ namespace WormholeObject {
          */
 		private void generateAtoms()
 		{
+			//Debug.Log ("buttonA:" + Initialize.quizzer.buttonA.name);
             if (!isActive())
                 return;
 
