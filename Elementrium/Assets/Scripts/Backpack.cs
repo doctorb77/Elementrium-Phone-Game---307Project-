@@ -11,7 +11,7 @@ namespace BackpackObject
         public static int exp;
         private Hashtable bp;
                                        //1,   2,  3,   4
-        public static int[] expLevels = {0,200,500,1000};
+        public static int[] expLevels = {0,200,500,1000000};
         public static int[] elementCap = {0,2,3, 8, 8 }; // Li, O, O
         public static bool[] unlockedElement = new bool[93];
         public static int maxElement = 2; // Default to oxygen for testing.

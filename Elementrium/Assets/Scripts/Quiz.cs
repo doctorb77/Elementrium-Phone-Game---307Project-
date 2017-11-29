@@ -36,6 +36,7 @@ namespace Assets.Scripts {
 			//Debug.Log ("buttonA in start:" + Initialize.quizzer.buttonA.name);
 			QuizAnim = QuizSystem.GetComponent<Animator>();
 			quizOn = false;
+            RefreshQuiz();
 			//quizUser ();
 		}
 		//how will quizzes be chosen to pop up
@@ -97,6 +98,7 @@ namespace Assets.Scripts {
 			
 			Debug.Log ("WE BE QUIZZIN!");
 			Debug.Log ("THE ID IS: " + Initialize.quizID);
+			okay.gameObject.SetActive(false);
 
 			if (Initialize.quizID == -1) {
 				return;
@@ -215,7 +217,6 @@ namespace Assets.Scripts {
 				question.text = questionString;
 				buttonA.gameObject.SetActive (true);
 				buttonB.gameObject.SetActive (true);
-				okay.gameObject.SetActive (false);
 				if (choiceC == defaultValue) {
 					// This is a true/false question
 					//boxes C and D are invisible
@@ -249,58 +250,78 @@ namespace Assets.Scripts {
 			okay.gameObject.SetActive (true);
 			Debug.Log ("okay is: " +okay.IsActive());
 			if (picked == "A") {
-				if (rightanswer == answer1.text) {//got it right
-					//make green
+				if (rightanswer == answer1.text) {
+                    //got it right make green
+                    buttonA.GetComponent<Image>().color = Color.green;
 				} else {
 					//make red then
+                    buttonA.GetComponent<Image>().color = Color.red;
 					if (rightanswer == answer2.text) {
 						//make green
+                        buttonB.GetComponent<Image>().color = Color.green;
 					} else if (rightanswer == answer3.text) {
 						//make green
+                        buttonC.GetComponent<Image>().color = Color.green;
 					} else if (rightanswer == answer4.text) {
 						//make green
+                        buttonD.GetComponent<Image>().color = Color.green;
 					}
 				}
 			}
 			else if (picked == "B") {
 				if (rightanswer == answer2.text) {//got it right
 					//make green
+                    buttonB.GetComponent<Image>().color = Color.green;
 				} else {
 					//make red then
+                    buttonB.GetComponent<Image>().color = Color.red;
 					if (rightanswer == answer1.text) {
 						//make green
+                        buttonA.GetComponent<Image>().color = Color.green;
 					} else if (rightanswer == answer3.text) {
 						//make green
+                        buttonC.GetComponent<Image>().color = Color.green;
 					} else if (rightanswer == answer4.text) {
 						//make green
+                        buttonD.GetComponent<Image>().color = Color.green;
 					}
 				}
 			}
 			else if (picked == "C") {
 				if (rightanswer == answer3.text) {//got it right
 					//make green
+                    buttonC.GetComponent<Image>().color = Color.green;
 				} else {
 					//make red then
+                    buttonC.GetComponent<Image>().color = Color.red;
 					if (rightanswer == answer1.text) {
 						//make green
+                        buttonA.GetComponent<Image>().color = Color.green;
 					} else if (rightanswer == answer2.text) {
 						//make green
+                        buttonB.GetComponent<Image>().color = Color.green;
 					} else if (rightanswer == answer4.text) {
 						//make green
+                        buttonD.GetComponent<Image>().color = Color.green;
 					}
 				}
 			}
 			else if (picked == "D") {
 				if (rightanswer == answer4.text) {//got it right
 					//make green
+                    buttonD.GetComponent<Image>().color = Color.green;
 				} else {
 					//make red then
+                    buttonD.GetComponent<Image>().color = Color.green;
 					if (rightanswer == answer1.text) {
 						//make green
+                        buttonA.GetComponent<Image>().color = Color.green;
 					} else if (rightanswer == answer2.text) {
 						//make green
+                        buttonB.GetComponent<Image>().color = Color.green;
 					} else if (rightanswer == answer3.text) {
 						//make green
+                        buttonC.GetComponent<Image>().color = Color.green;
 					}
 				}
 			}
@@ -313,9 +334,18 @@ namespace Assets.Scripts {
 			if (quizOn) {
 				QuizAnim.Play ("QuizExit");
 				quizOn = false;
+                RefreshQuiz();
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
 			}
 		}
+
+        public void RefreshQuiz() {
+			okay.gameObject.SetActive(false);
+			buttonA.GetComponent<Image>().color = Color.white;
+			buttonB.GetComponent<Image>().color = Color.white;
+			buttonC.GetComponent<Image>().color = Color.white;
+			buttonD.GetComponent<Image>().color = Color.white;
+        }
 
 	}
 
