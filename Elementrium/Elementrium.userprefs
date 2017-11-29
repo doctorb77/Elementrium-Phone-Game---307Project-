@@ -1,15 +1,11 @@
 ﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|" StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Glossary.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CosmicRanch.cs">
     <Files>
-      <File FileName="Assets\Scripts\ButtonListButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ButtonListControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\StateHandler.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CameraZooming.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\ZoomInfo.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Test.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Glossary.cs" Line="216" Column="8" />
-      <File FileName="Assets\Scripts\CosmicRanch.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Wormhole.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Quiz.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GlossaryUIDispenser.cs" Line="228" Column="21" />
+      <File FileName="Assets\Scripts\Wormhole.cs" Line="281" Column="1" />
+      <File FileName="Assets\Scripts\CosmicRanch.cs" Line="108" Column="51" />
+      <File FileName="Assets\Scripts\Test.cs" Line="129" Column="43" />
       <File FileName="Assets\Scripts\Fusion.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>

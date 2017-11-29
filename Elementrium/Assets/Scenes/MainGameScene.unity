@@ -566,9 +566,17 @@ MonoBehaviour:
   testMusicToggle: 0
   testSoundFXInitialization: 0
   testSoundFXToggle: 0
+  testFaceInitialization: 0
+  testFaceToggle: 0
+  testZoomInfo: 0
+  testDelete: 0
   testFusion: 0
   testGroup: 0
   testReaction: 0
+  targetbuddy: {fileID: 0}
+  buddySelected: 0
+  infoDisplayText: {fileID: 0}
+  buddyCount: 0
   rerunFusion: 0
   infusion: 0
   rerunGroup: 0
@@ -4688,12 +4696,48 @@ Prefab:
     - target: {fileID: 224512668098959198, guid: e059a006058bb42488f41c4680614df2,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 350
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1416199898701284, guid: e059a006058bb42488f41c4680614df2, type: 2}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114532783780968548, guid: e059a006058bb42488f41c4680614df2,
+        type: 2}
+      propertyPath: sprLi
+      value: 
+      objectReference: {fileID: 21300000, guid: 72d2f7da7f29de34697b986b1a22a2d1,
+        type: 3}
+    - target: {fileID: 114532783780968548, guid: e059a006058bb42488f41c4680614df2,
+        type: 2}
+      propertyPath: sprBe
+      value: 
+      objectReference: {fileID: 21300000, guid: 62acb9bfe290b924f8f05f289d3c002e,
+        type: 3}
+    - target: {fileID: 114532783780968548, guid: e059a006058bb42488f41c4680614df2,
+        type: 2}
+      propertyPath: sprB
+      value: 
+      objectReference: {fileID: 21300000, guid: 4c2b547bde311c341b846034c2bc5269,
+        type: 3}
+    - target: {fileID: 114532783780968548, guid: e059a006058bb42488f41c4680614df2,
+        type: 2}
+      propertyPath: sprC
+      value: 
+      objectReference: {fileID: 21300000, guid: c00d43834800bab418d04a081f35b819,
+        type: 3}
+    - target: {fileID: 114532783780968548, guid: e059a006058bb42488f41c4680614df2,
+        type: 2}
+      propertyPath: sprN
+      value: 
+      objectReference: {fileID: 21300000, guid: c7f680036c30fe64e940af578639416a,
+        type: 3}
+    - target: {fileID: 114532783780968548, guid: e059a006058bb42488f41c4680614df2,
+        type: 2}
+      propertyPath: sprO
+      value: 
+      objectReference: {fileID: 21300000, guid: 862658981534f7f41a54d308856dec3e,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e059a006058bb42488f41c4680614df2, type: 2}
   m_IsPrefabParent: 0

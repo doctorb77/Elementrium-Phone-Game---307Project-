@@ -816,7 +816,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ELEMENTIRUM
+  m_Text: 'ELEMENTRIUM '
 --- !u!222 &2014233926
 CanvasRenderer:
   m_ObjectHideFlags: 0

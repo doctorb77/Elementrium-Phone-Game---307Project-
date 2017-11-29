@@ -97,7 +97,10 @@ namespace Ranch {
         // Update is called once per frame
         void Update()
         {
-            if (inFusion)
+			buddies.Clear();
+			buddies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Buddy"));
+			numBuddies = buddies.Count;
+			if (inFusion)
             {
 
                 FusionHandler f = new FusionHandler();
@@ -201,6 +204,7 @@ namespace Ranch {
             buddies.Remove(buddy);
             Destroy(buddy);
             buddies.Clear();
+			buddies = new List<GameObject>(GameObject.FindGameObjectsWithTag("Buddy"));
             //buddy.SetActive(false);
         }
         public void setFusion(bool inF) 
