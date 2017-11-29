@@ -108,7 +108,7 @@ namespace BudBehavior
                 selected = !selected;
                 cr.GetComponent<CosmicRanch>().getSelected();
             } 
-            else 
+            else if (Initialize.sh.getCurrentState().name == "MainGameScene")
             {
                 this.gameObject.tag = "ZoomedBuddy";
                 ZoomInfo.Instance.OpenZoomin();
