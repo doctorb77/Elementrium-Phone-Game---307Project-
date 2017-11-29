@@ -1,16 +1,21 @@
 ﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|" StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\ButtonListControl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Quiz.cs">
     <Files>
-      <File FileName="Assets\Scripts\Quiz.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GlossaryUIDispenser.cs" Line="228" Column="17" />
-      <File FileName="Assets\Scripts\Wormhole.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\CosmicRanch.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Quiz.cs" Line="308" Column="6" />
+      <File FileName="Assets\Scripts\Wormhole.cs" Line="101" Column="17" />
+      <File FileName="Assets\Scripts\CosmicRanch.cs" Line="106" Column="55" />
       <File FileName="Assets\Scripts\Test.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\Fusion.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Glossary.cs" Line="276" Column="1" />
-      <File FileName="Assets\Scripts\BuddyBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BuddyBehavior.cs" Line="107" Column="45" />
       <File FileName="Assets\Scripts\ButtonListButton.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\ButtonListControl.cs" Line="329" Column="56" />
+      <File FileName="Assets\Scripts\RightMenu1.cs" Line="45" Column="46" />
+      <File FileName="Assets\Scripts\ScrollList.cs" Line="31" Column="67" />
+      <File FileName="Assets\Scripts\StateHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Fusion.cs" Line="131" Column="25" />
+      <File FileName="Assets\Scripts\StartGame.cs" Line="90" Column="16" />
+      <File FileName="Assets\Scripts\Reaction.cs" Line="149" Column="7" />
+      <File FileName="Assets\Scripts\TriumSelect.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
