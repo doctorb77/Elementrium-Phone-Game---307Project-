@@ -37,6 +37,7 @@ namespace Assets.Scripts {
 			QuizAnim = QuizSystem.GetComponent<Animator>();
 			quizOn = false;
             RefreshQuiz();
+            SetButtonActivation(true);
 			//quizUser ();
 		}
 		//how will quizzes be chosen to pop up
@@ -325,6 +326,7 @@ namespace Assets.Scripts {
 					}
 				}
 			}
+            SetButtonActivation(false);
 			//okay.gameObject.SetActive (true);
 			//Debug.Log ("okay is: " +okay.IsActive());
 		}
@@ -333,6 +335,7 @@ namespace Assets.Scripts {
 			//Vinson makes it exit by summoning the Lord Gustavo
 			if (quizOn) {
 				QuizAnim.Play ("QuizExit");
+                SetButtonActivation(true);
 				quizOn = false;
                 RefreshQuiz();
 				Initialize.sh.setCurrentState ("MainGameScene", true, true);
@@ -345,6 +348,13 @@ namespace Assets.Scripts {
 			buttonB.GetComponent<Image>().color = Color.white;
 			buttonC.GetComponent<Image>().color = Color.white;
 			buttonD.GetComponent<Image>().color = Color.white;
+        }
+
+        public void SetButtonActivation(bool status) {
+            buttonA.interactable = status;
+            buttonB.interactable = status;
+            buttonC.interactable = status;
+            buttonD.interactable = status;
         }
 
 	}
