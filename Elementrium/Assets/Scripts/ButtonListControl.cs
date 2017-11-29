@@ -429,7 +429,7 @@ public class ButtonListControl : MonoBehaviour
 
 		button.GetComponent<ButtonListButton>().SetSprite(spr);
         button.GetComponent<ButtonListButton>().SetTab(2);
-		button.GetComponent<ButtonListButton>().SetText(buttonText);
+		button.GetComponent<ButtonListButton>().SetText(buttonText,commonname);
 		button.GetComponent<ButtonListButton>().SetCommon(commonname);
 		button.GetComponent<ButtonListButton>().SetMass(mass);
 		button.GetComponent<ButtonListButton>().SetFormula(formula);

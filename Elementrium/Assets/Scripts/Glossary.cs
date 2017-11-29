@@ -274,7 +274,7 @@ namespace GlossaryObject
 					if (GlossaryUIDispenser.sprites[id] != null) {
 						Sprite spr = GlossaryUIDispenser.sprites[id];
 						if (bp.getTrium(id) != null) {
-							buttonListControl.PopulateSecondList (formula, commonname, mass, formula, first, second, third, spr);
+							buttonListControl.PopulateSecondList (molecule, commonname, mass, formula, first, second, third, spr);
 						}
 					}
 				}

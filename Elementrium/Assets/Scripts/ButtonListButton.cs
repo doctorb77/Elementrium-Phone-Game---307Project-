@@ -16,7 +16,7 @@ public class ButtonListButton : MonoBehaviour
     [SerializeField]
     private Text myText;
     public Image myImage;
-
+	public string name;
 	private string myId;
 	private int tab;
 	private string myMass;
@@ -54,9 +54,17 @@ public class ButtonListButton : MonoBehaviour
 	{
 		tab = num;
 	}
-    public void SetText(string textString)
+	public void SetText(string textString) {
+		myText.text = textString;
+	}
+	public void SetText(string textString, string commonString)
     {
-        myText.text = textString;
+		if (commonString != null && commonString != "") {
+			myText.text = commonString;
+			name = textString;
+		} else {
+			myText.text = textString;
+		}
     }
 	public void SetId(int id)
 	{
@@ -100,7 +108,11 @@ public class ButtonListButton : MonoBehaviour
         {
             if (!Glossary.displayOpen)
             {
-				Camera.main.GetComponent<Glossary> ().setnames (myText.text);
+				if (name != "" && name != null) {
+					Camera.main.GetComponent<Glossary> ().setnames (name);
+				} else {
+					Camera.main.GetComponent<Glossary> ().setnames (myText.text);
+				}
 				if (tab == 1) {//atom
 					Camera.main.GetComponent<Glossary> ().setinfo (myId, myMass, myFormula);
 				} else if (tab == 2) {//molecule

@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -43,7 +43,7 @@ MonoBehaviour:
     y: 0
     width: 1350
     height: 669
-  m_MinSize: {x: 950, y: 392}
+  m_MinSize: {x: 950, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &3
 MonoBehaviour:
@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1350
     height: 619
-  m_MinSize: {x: 679, y: 342}
-  m_MaxSize: {x: 12004, y: 8042}
+  m_MinSize: {x: 677, y: 321}
+  m_MaxSize: {x: 12002, y: 8021}
   vertical: 0
-  controlID: 11585
+  controlID: 1160
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -130,10 +130,10 @@ MonoBehaviour:
     y: 0
     width: 1073
     height: 619
-  m_MinSize: {x: 402, y: 342}
-  m_MaxSize: {x: 8002, y: 8042}
+  m_MinSize: {x: 402, y: 321}
+  m_MaxSize: {x: 8002, y: 8021}
   vertical: 1
-  controlID: 11610
+  controlID: 1197
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 402, y: 221}
   m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 11611
+  controlID: 1232
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -499,9 +499,9 @@ MonoBehaviour:
     height: 327
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 5e2c0000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: e858fbff167ffbff90d8fbffcadafbffd20afcfff81cfcffec4afcffee6afcffe686fcffbef4fcffa029fdfff42ffdffde35fdff7458fdffca5afdffecf7fdff28fdfdff8815feff522cfeff1831feff5655feffd857fefffe74feffbc89feff148cfeff029bfeff2cc8feff82cafeffd6d4feff6ce6feff24e9feff5cf3feff3afcfeffc2fefeff689bffff18fcffff000000007e2d0000085900005a590000ce5a0000987000001c750000767e0000c87e00004c830000748800003e8a0000f88c0000a496000032a50000feb4000050b50000c0b800000ebb0000e8bf000032c8000042c9000094c9000004cd0000c0cd0000bcce000086d000004add000024e20000fee60000ecf500001cf6000062f600009af60000cef70000d6f70000fe170100a418010006190100101a0100e03d0100323e010064420100b642010016450100684b0100124c0100644c0100c64c0100c44e01003055010070550100c255010022580100
+    m_ExpandedIDs: 569dffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -562,19 +562,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 58
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/Scripts
   m_LastFoldersGridSize: 58
   m_LastProjectPath: C:\Users\katep\Documents\GitHub\307Project\Elementrium
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 75}
-    m_SelectedIDs: 9e2b0000
-    m_LastClickedID: 11166
-    m_ExpandedIDs: 0000000076260000f22600003c2a0000c02a00001a2e000000ca9a3bffffff7f
+    m_SelectedIDs: 56420000
+    m_LastClickedID: 16982
+    m_ExpandedIDs: 000000001c42000036420000684200007a4200005643000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -602,7 +602,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000076260000f22600003c2a0000c02a00001a2e000000ca9a3bffffff7f
+    m_ExpandedIDs: 000000001c42000036420000684200007a4200005643000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -627,9 +627,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 5e2c0000
-    m_LastClickedInstanceID: 11358
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: 1c050000
+    m_LastClickedInstanceID: 1308
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000062600006826000000000000e42800001c280000f2280000902600002e280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
