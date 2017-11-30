@@ -114,6 +114,19 @@ public class GlossaryUIDispenser : MonoBehaviour {
 	public Sprite sprC2;
 	public Sprite sprNO;
 	public Sprite sprH2;
+    public Sprite sprN2;
+    public Sprite sprBO3;
+    public Sprite sprCO;
+    public Sprite sprN3;
+    public Sprite sprNO3;
+    public Sprite sprCO3;
+    //public Sprite sprNO;
+    public Sprite sprF2;
+    public Sprite sprNaN3;
+    public Sprite sprNaH;
+    public Sprite sprNaOH;
+    public Sprite sprMgOHOH;
+
 
 	void Awake()
 	{
@@ -226,6 +239,17 @@ public class GlossaryUIDispenser : MonoBehaviour {
 		sprites.Add (sprC2);
 		sprites.Add (sprNO);
 		sprites.Add (sprH2);
+        sprites.Add(sprN2);
+        sprites.Add(sprBO3);
+        sprites.Add(sprCO);
+        sprites.Add(sprN3);
+        sprites.Add(sprNO3);
+        sprites.Add(sprCO3);
+        sprites.Add(sprF2);
+        sprites.Add(sprNaN3);
+        sprites.Add(sprNaH);
+        sprites.Add(sprNaOH);
+        sprites.Add(sprMgOHOH);
 	}
 	
 	// Update is called once per frame
