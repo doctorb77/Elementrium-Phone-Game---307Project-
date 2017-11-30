@@ -110,7 +110,9 @@ namespace WormholeObject {
          */
 		private void generateAtoms()
 		{
-			//Debug.Log ("buttonA:" + Initialize.quizzer.buttonA.name);
+            //SoundManager.Instance.PlaySoundEleven();
+            SoundManager.Instance.PlayCombined();
+            //Debug.Log ("buttonA:" + Initialize.quizzer.buttonA.name);
             if (!isActive())
                 return;
 

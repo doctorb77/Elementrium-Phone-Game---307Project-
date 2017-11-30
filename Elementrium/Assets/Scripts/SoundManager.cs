@@ -15,9 +15,13 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip soundFX6;
 	public AudioClip soundFX7;
 	public AudioClip soundFX8;
+    public AudioClip soundFX9;
+    public AudioClip soundFX10;
+    public AudioClip soundFX11;
 
     public AudioSource musicsrc;
     public AudioSource soundsrc;
+    public AudioSource soundsrc2;
 
     private bool musicIsPlaying;
 
@@ -121,4 +125,41 @@ public class SoundManager : MonoBehaviour {
             soundsrc.Play();
         }
 	}
+	public void PlaySoundNine()
+	{
+		if (TopMenu1.Instance.soundFxIsOn)
+		{
+			soundsrc.clip = soundFX9;
+			soundsrc.Play();
+		}
+	}
+	public void PlaySoundTen()
+	{
+		if (TopMenu1.Instance.soundFxIsOn)
+		{
+			soundsrc.clip = soundFX10;
+			soundsrc.Play();
+		}
+	}
+	public void PlaySoundEleven()
+	{
+		if (TopMenu1.Instance.soundFxIsOn)
+		{
+			soundsrc.clip = soundFX11;
+			soundsrc.Play();
+		}
+	}
+    public void PlayCombined()
+    {
+		if (TopMenu1.Instance.soundFxIsOn)
+		{
+            float pitch = Random.Range(1f, 1.1f);
+			soundsrc.clip = soundFX10;
+            soundsrc2.clip = soundFX9;
+            soundsrc.pitch = pitch;
+            soundsrc2.pitch = pitch;
+			soundsrc.Play();
+            soundsrc2.Play();
+		}
+    }
 }
