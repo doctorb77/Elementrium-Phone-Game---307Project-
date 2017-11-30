@@ -146,6 +146,7 @@
     <Compile Include="Assets\Scripts\TopMenu.cs" />
     <Compile Include="Assets\Scripts\TopMenu1.cs" />
     <Compile Include="Assets\Scripts\Trium.cs" />
+    <Compile Include="Assets\Scripts\TriumGODispenser.cs" />
     <Compile Include="Assets\Scripts\TriumInfoDisplay.cs" />
     <Compile Include="Assets\Scripts\TriumSelect.cs" />
     <Compile Include="Assets\Scripts\Wormhole.cs" />
