@@ -1,11 +1,13 @@
-﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|" StartupItem="Assembly-CSharp.csproj">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\LeftMenu1.cs">
+﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Wormhole.cs">
     <Files>
-      <File FileName="Assets\Scripts\Quiz.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\LeftMenu1.cs" Line="76" Column="4" />
+      <File FileName="Assets/Scripts/GlossaryUIDispenser.cs" Line="123" Column="20" />
+      <File FileName="Assets/Scripts/Glossary.cs" Line="278" Column="8" />
+      <File FileName="Assets/Scripts/ButtonListButton.cs" Line="124" Column="69" />
+      <File FileName="Assets/Scripts/Wormhole.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1444439211965562}
+  m_IsPrefabParent: 1
+--- !u!1 &1444439211965562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 224452080882755814}
+  - component: {fileID: 114968471060270998}
+  m_Layer: 5
+  m_Name: TriumDispenser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &114968471060270998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444439211965562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7240f925c47c24b9aaf344b2ce075104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabH: {fileID: 1339626919662516, guid: f1770e2f463ad57409954d729ae9430a, type: 2}
+  prefabHe: {fileID: 1876981756697284, guid: a2e7aedb0a1cc644d942860e2dcd3dbb, type: 2}
+  prefabLi: {fileID: 1175992460048886, guid: c320e7d3677ab214596a1843c763d1ab, type: 2}
+  prefabBe: {fileID: 1585809220026282, guid: 3518eb13971acf94fa99462c6a2783d4, type: 2}
+  prefabB: {fileID: 1063325706817404, guid: 3c073087edc62da45b54b8601b1ca890, type: 2}
+  prefabC: {fileID: 1788800416087826, guid: 51c3b32c5c67c8a49b3542bf69886161, type: 2}
+  prefabN: {fileID: 1383309525580544, guid: e39e54aabcfb1604989677b4f6c32b5a, type: 2}
+  prefabO: {fileID: 1046232623943856, guid: 509bad5c16c206f40bb045790e2b1ecb, type: 2}
+  prefabF: {fileID: 1046232623943856, guid: 9d4116130e1a7476bb09f2aedbd7126e, type: 2}
+  prefabNe: {fileID: 1046232623943856, guid: a7d26564f4b814b4f90f55de485e1844, type: 2}
+  prefabNa: {fileID: 1046232623943856, guid: dac3b0b77c4f34f95ba3ac782a83b1d7, type: 2}
+  prefabMg: {fileID: 1046232623943856, guid: c806e11e195a545bf96dcf03aa7fd1ee, type: 2}
+  prefabAl: {fileID: 1046232623943856, guid: 851d85187ec8f4204a5047212f530a45, type: 2}
+  prefabSi: {fileID: 1046232623943856, guid: 7a111b67e8c954f30bb42195968fd0bb, type: 2}
+  prefabP: {fileID: 1046232623943856, guid: bbc6cbff356364ce392db44f72478a87, type: 2}
+  prefabS: {fileID: 1046232623943856, guid: 75f1beadd5c644fa7a603cfe9a47d523, type: 2}
+  prefabCl: {fileID: 1046232623943856, guid: 969fe1e6bed514bb5b4b023d69c5891b, type: 2}
+  prefabAr: {fileID: 1046232623943856, guid: 7f5c5dbb68b5249c991319220f1b080e, type: 2}
+  prefabK: {fileID: 1046232623943856, guid: 5bea6c5b19e4143389e377a0ef5d8f24, type: 2}
+  prefabCa: {fileID: 1046232623943856, guid: afaee3a772be0442b962d58dd21adb8a, type: 2}
+  prefabSc: {fileID: 1046232623943856, guid: bbe99ff3cf1a9439795caf4d577ff0bc, type: 2}
+  prefabTi: {fileID: 1046232623943856, guid: 4e001e0fbf743441ba90cb11fe207ef0, type: 2}
+  prefabV: {fileID: 1046232623943856, guid: e7f9dd03f40f94f31be34f27c231089e, type: 2}
+  prefabCr: {fileID: 1046232623943856, guid: 683270a7c52a64ddc982173bf4b91119, type: 2}
+  prefabMn: {fileID: 1046232623943856, guid: be268a9c2174f431898b80bcbf5c4e66, type: 2}
+  prefabFe: {fileID: 1046232623943856, guid: 05e852c396e2f4891be0243cce670658, type: 2}
+  prefabCo: {fileID: 1046232623943856, guid: f3193cdb5bc304709bae141b32304d3e, type: 2}
+  prefabNi: {fileID: 1046232623943856, guid: 4e04a43e0810d4a8eb56c951660ee566, type: 2}
+  prefabCu: {fileID: 1046232623943856, guid: bb1da7ba0bcdb45219c7ab66f8a99e42, type: 2}
+  prefabZn: {fileID: 1046232623943856, guid: 08df198fce2254318890516d1b3dd159, type: 2}
+  prefabGa: {fileID: 1046232623943856, guid: ccb29f56c142c4e81adf9eca2956d0d4, type: 2}
+  prefabGe: {fileID: 1046232623943856, guid: a65361e54d4b54abeb46fe212f5c6a58, type: 2}
+  prefabAs: {fileID: 1046232623943856, guid: 9a1eb5e6756344222ab1aa2b9126ddaa, type: 2}
+  prefabSe: {fileID: 1046232623943856, guid: 53c7ac16e80bd4238a5f72b28dc8f298, type: 2}
+  prefabBr: {fileID: 1046232623943856, guid: df5b7d0bcbc564c4fad5b70eb23f24e6, type: 2}
+  prefabKr: {fileID: 1046232623943856, guid: a8bb9a928d2344424bb4e60a51032261, type: 2}
+  prefabRb: {fileID: 1046232623943856, guid: 52053d723212a447c8de8c6c5f33613c, type: 2}
+  prefabSr: {fileID: 1046232623943856, guid: 1c4fba8d844984b6b99e2c6e1f672fbf, type: 2}
+  prefabY: {fileID: 1046232623943856, guid: 295702104fe744238a727fbb9e53e0db, type: 2}
+  prefabZr: {fileID: 1046232623943856, guid: ce5d87a2171b343a1a33f83ab2aacf98, type: 2}
+  prefabNb: {fileID: 1046232623943856, guid: 9230ed37b736347a591ec759790cc76d, type: 2}
+  prefabMo: {fileID: 1046232623943856, guid: fd34fcc0b405244e189c945d81ee2728, type: 2}
+  prefabTc: {fileID: 1046232623943856, guid: 608d40397af0f444bb3b743733e0bd06, type: 2}
+  prefabRu: {fileID: 1046232623943856, guid: 5157fb169de354701a6dc4c34c4256bb, type: 2}
+  prefabRh: {fileID: 1046232623943856, guid: 4de71d5a7fcbf40f3a8c568898a7d57b, type: 2}
+  prefabPd: {fileID: 1046232623943856, guid: 159179588c36f4668b775a4bd2b9fe3a, type: 2}
+  prefabAg: {fileID: 1046232623943856, guid: c7318b8c343064fccb0c398344ec312c, type: 2}
+  prefabCd: {fileID: 1046232623943856, guid: a7f80508342c54d9a9bed99455777cff, type: 2}
+  prefabIn: {fileID: 1046232623943856, guid: 02475e8a5265a4d0ba1d8d64c4286eb2, type: 2}
+  prefabSn: {fileID: 1046232623943856, guid: eefb547d507a149ccb2e6fe5cbd6f509, type: 2}
+  prefabSb: {fileID: 1046232623943856, guid: dc86e6421bb204f2b97cb9a80c6c0e2a, type: 2}
+  prefabTe: {fileID: 1046232623943856, guid: 32b095ceb1d884c7b9954b2b03ec6a93, type: 2}
+  prefabI: {fileID: 1046232623943856, guid: 335fa645baad14944979fa090fbce823, type: 2}
+  prefabXe: {fileID: 1046232623943856, guid: 9d8a8d6da04644d4ab6e0a265f840b81, type: 2}
+  prefabCs: {fileID: 1046232623943856, guid: d1d6a61ae26f04e828e18aace19b438f, type: 2}
+  prefabBa: {fileID: 1046232623943856, guid: b39b7d1f6cfdc45d787f02578bf8ac5c, type: 2}
+  prefabLa: {fileID: 1046232623943856, guid: 5244d0c1ae1b844d5abfb7ef26622584, type: 2}
+  prefabCe: {fileID: 1046232623943856, guid: a6b001754cd3e4fb08edd59838334d2b, type: 2}
+  prefabPr: {fileID: 1046232623943856, guid: 36ba5551892d449f1a8ead44a43024a8, type: 2}
+  prefabNd: {fileID: 1046232623943856, guid: 153bde988b7804ec29c172f4373ed117, type: 2}
+  prefabPm: {fileID: 1046232623943856, guid: 3fbd37af86d044ef88ca1ad54ef21ffc, type: 2}
+  prefabSm: {fileID: 1046232623943856, guid: a2284453200f74c7fb73a42644effc56, type: 2}
+  prefabEu: {fileID: 1046232623943856, guid: 1d48d814e590941dc8774c0f4c2d8d71, type: 2}
+  prefabGd: {fileID: 1046232623943856, guid: f8a540c53bb204d988b974ffa431871c, type: 2}
+  prefabTb: {fileID: 1046232623943856, guid: 0540099c6ed7940538dc42e030691344, type: 2}
+  prefabDy: {fileID: 1046232623943856, guid: d49d2f75c93294e8f994c62403df67bd, type: 2}
+  prefabHo: {fileID: 1046232623943856, guid: c6f1eec19c673421a941d862dfc99adb, type: 2}
+  prefabEr: {fileID: 1046232623943856, guid: bd9a7e5522cd748b8bbf7ccfe55d8a4d, type: 2}
+  prefabTm: {fileID: 1046232623943856, guid: 67d3d878f17c048aab1be11611e7565b, type: 2}
+  prefabYb: {fileID: 1046232623943856, guid: ca92dd0c41fed4564b37c73eddf4dbee, type: 2}
+  prefabLu: {fileID: 1046232623943856, guid: 23f1eb677f7d544f885fe16b6227e47b, type: 2}
+  prefabHf: {fileID: 1046232623943856, guid: b69865cf6fde144968f304a31d0d9e9e, type: 2}
+  prefabTa: {fileID: 1046232623943856, guid: 9a16f62606c6c493a95de89914f01d80, type: 2}
+  prefabW: {fileID: 1046232623943856, guid: e2d73d31e27ef4f6590ffdbd5e57bebf, type: 2}
+  prefabRe: {fileID: 1046232623943856, guid: b70779e5204714f749ca0f9fcefddc2c, type: 2}
+  prefabOs: {fileID: 1046232623943856, guid: 8426eec67797742a0ab42afc5b072aa8, type: 2}
+  prefabIr: {fileID: 1046232623943856, guid: 096bb367020364c488755f40441aee98, type: 2}
+  prefabPt: {fileID: 1046232623943856, guid: f34b5b2b78a5a44cdbde40aa22c61172, type: 2}
+  prefabAu: {fileID: 1046232623943856, guid: d6538afc72767476b809da64c5f0cb5d, type: 2}
+  prefabHg: {fileID: 1046232623943856, guid: 67282bf159c494d8f96d2bb96afebb54, type: 2}
+  prefabTl: {fileID: 1046232623943856, guid: f1872c16518944009a8f91db3cc466cc, type: 2}
+  prefabPb: {fileID: 1046232623943856, guid: 9ab53f5ba8df14fcc82cedb405af56ff, type: 2}
+  prefabBi: {fileID: 1046232623943856, guid: 587c58935b0404afda380f3b930a8f50, type: 2}
+  prefabPo: {fileID: 1046232623943856, guid: 6b1b9bb9dd8294c50a15fdaf8fce1ffa, type: 2}
+  prefabAt: {fileID: 1046232623943856, guid: 0622eacd88dea46d8b16d28ee0a255f2, type: 2}
+  prefabRn: {fileID: 1046232623943856, guid: 74f10286012ae476e881c9d86b72bcb3, type: 2}
+  prefabFr: {fileID: 1046232623943856, guid: 8b51483aa12654c0891fadcc7c6bfd03, type: 2}
+  prefabRa: {fileID: 1046232623943856, guid: 8db7613afac37493a8717697520b5f3c, type: 2}
+  prefabAc: {fileID: 1046232623943856, guid: 136b7ee5b273747608e1664852c0cccb, type: 2}
+  prefabTh: {fileID: 1046232623943856, guid: 6e4afe18f5cf84f24b8c237c475915a1, type: 2}
+  prefabPa: {fileID: 1046232623943856, guid: 81bbf729c968942fbb3d00db5f0260fc, type: 2}
+  prefabU: {fileID: 1046232623943856, guid: c7088fd84a7894c7dacd5bdde202a6c6, type: 2}
+  prefabLiH: {fileID: 1216470192567350, guid: 466f3fd0529205a45a4c8e9a0ac6989f, type: 2}
+  prefabOH: {fileID: 1716946323777316, guid: ee892e585b6964f1db23cacdfb83a2dd, type: 2}
+  prefabBeO: {fileID: 1735140263060412, guid: 337a2e507176f4595b13c5f62a27dff9, type: 2}
+  prefabO2: {fileID: 1483149796809238, guid: 4fe27d147c01b453f994b04a0dbe211a, type: 2}
+  prefabH2O: {fileID: 1580978546913748, guid: 7dfd61afc67b39c4381e52ca3b17159e, type: 2}
+  prefabC2: {fileID: 1001467007950016, guid: 605588beb315440f987d82df1bce0805, type: 2}
+  prefabNO: {fileID: 1973511489130414, guid: 29f551a12caf4402e9ab5b983fa9095f, type: 2}
+  prefabH2: {fileID: 1311741891087136, guid: ceea30e4f7849ca4aa8f11d3899ec02d, type: 2}
+--- !u!224 &224452080882755814
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1444439211965562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
