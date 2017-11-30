@@ -60,6 +60,9 @@ public class LeftMenu1 : MonoBehaviour
     public void ToGlossary()
     {
         //SceneManager.LoadScene("Glossary");
+		if (ZoomInfo.Instance.infoOn) {
+			ZoomInfo.Instance.CloseZoomin();
+		}
         glossary.SetActive(true);
         glossary.GetComponent<Glossary>().PopulateGlossaryAtoms();
         glossary.GetComponent<Glossary>().onTab = 1;
@@ -68,6 +71,9 @@ public class LeftMenu1 : MonoBehaviour
     public void ToAchievements()
     {
         //SceneManager.LoadScene("Achievements");
+		if (ZoomInfo.Instance.infoOn) {
+			ZoomInfo.Instance.CloseZoomin();
+		}
         achievement.SetActive(true);
         Initialize.sh.setCurrentState("Glossary", true, true);
     }
