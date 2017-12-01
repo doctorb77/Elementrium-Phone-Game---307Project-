@@ -120,12 +120,12 @@ public class GlossaryUIDispenser : MonoBehaviour {
     public Sprite sprN3;
     public Sprite sprNO3;
     public Sprite sprCO3;
-    //public Sprite sprNO;
     public Sprite sprF2;
     public Sprite sprNaN3;
     public Sprite sprNaH;
     public Sprite sprNaOH;
     public Sprite sprMgOHOH;
+    public Sprite sprO3;
 
 
 	void Awake()
@@ -250,6 +250,7 @@ public class GlossaryUIDispenser : MonoBehaviour {
         sprites.Add(sprNaH);
         sprites.Add(sprNaOH);
         sprites.Add(sprMgOHOH);
+        sprites.Add(sprO3);
 	}
 	
 	// Update is called once per frame

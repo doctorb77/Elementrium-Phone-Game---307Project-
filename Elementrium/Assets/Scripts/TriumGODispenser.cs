@@ -114,8 +114,21 @@ public class TriumGODispenser : MonoBehaviour {
     public GameObject prefabC2;
     public GameObject prefabNO;
     public GameObject prefabH2;
+	public GameObject prefabN2;
+	public GameObject prefabBO3;
+	public GameObject prefabCO;
+	public GameObject prefabN3;
+	public GameObject prefabNO3;
+	public GameObject prefabCO3;
+	public GameObject prefabF2;
+	public GameObject prefabNaN3;
+	public GameObject prefabNaH;
+	public GameObject prefabNaOH;
+	public GameObject prefabMgOHOH;
+    public GameObject prefabO3;
 
-    void Awake()
+
+	void Awake()
     {
         if (Instance != null)
         {
@@ -229,6 +242,18 @@ public class TriumGODispenser : MonoBehaviour {
         dispenserList.Add(prefabC2);
         dispenserList.Add(prefabNO);
         dispenserList.Add(prefabH2);
+		dispenserList.Add(prefabN2);
+		dispenserList.Add(prefabBO3);
+		dispenserList.Add(prefabCO);
+		dispenserList.Add(prefabN3);
+		dispenserList.Add(prefabNO3);
+		dispenserList.Add(prefabCO3);
+		dispenserList.Add(prefabF2);
+		dispenserList.Add(prefabNaN3);
+		dispenserList.Add(prefabNaH);
+		dispenserList.Add(prefabNaOH);
+		dispenserList.Add(prefabMgOHOH);
+		dispenserList.Add(prefabO3);
     }
     
     // Update is called once per frame

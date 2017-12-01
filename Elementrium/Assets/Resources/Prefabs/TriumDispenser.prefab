@@ -138,6 +138,19 @@ MonoBehaviour:
   prefabC2: {fileID: 1001467007950016, guid: 605588beb315440f987d82df1bce0805, type: 2}
   prefabNO: {fileID: 1973511489130414, guid: 29f551a12caf4402e9ab5b983fa9095f, type: 2}
   prefabH2: {fileID: 1311741891087136, guid: ceea30e4f7849ca4aa8f11d3899ec02d, type: 2}
+  prefabN2: {fileID: 1097863769872996, guid: aa0ed3005c62d4ebcb4f63830039d594, type: 2}
+  prefabBO3: {fileID: 1707634330406874, guid: d54c9d2f0e9204cfaa10eeeff77038fc, type: 2}
+  prefabCO: {fileID: 1376397560654174, guid: 822f31319a16f4e2e8af170f56b5f94f, type: 2}
+  prefabN3: {fileID: 1654764577020854, guid: 30d81c1322dfc44799288a82db16f972, type: 2}
+  prefabNO3: {fileID: 1359472639959070, guid: 6ec6138700ce746879299fcfdcb24241, type: 2}
+  prefabCO3: {fileID: 1899272227959250, guid: 53e4a762470b54e0aac610b8477da622, type: 2}
+  prefabF2: {fileID: 1872787551153082, guid: d459fd85cef96452e8728110ec27519c, type: 2}
+  prefabNaN3: {fileID: 1269380282211680, guid: b630871978d15436894a9bd697a0daaf, type: 2}
+  prefabNaH: {fileID: 1014097368759884, guid: 4b14d73502b684c69bcf8edfd5321d51, type: 2}
+  prefabNaOH: {fileID: 1443006692654628, guid: 4e8aae1e713e64e46b9e499dcdacfc49, type: 2}
+  prefabMgOHOH: {fileID: 1368942611244056, guid: 91161ff44c8fe488dbe4c833c0f34e72,
+    type: 2}
+  prefabO3: {fileID: 1573764990729522, guid: a7531d676dc6a480b96a0d1209ebb235, type: 2}
 --- !u!224 &224452080882755814
 RectTransform:
   m_ObjectHideFlags: 1
