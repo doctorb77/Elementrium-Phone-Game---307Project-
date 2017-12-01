@@ -44,11 +44,11 @@ public class ZoomInfo : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+   
         int triumID = 1;
         if (targetBuddy != null)
         {
             triumID = targetBuddy.GetComponent<BuddyBehavior>().TriumID;
-            //Debug.Log("triumID: " + triumID);
             int tier = Initialize.player.getTrium(triumID).getTier();
 
             level1.SetActive(true);

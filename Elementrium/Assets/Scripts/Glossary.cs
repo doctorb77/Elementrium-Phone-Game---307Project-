@@ -201,19 +201,12 @@ namespace GlossaryObject
 					third = "";
 				}
 				int atomicnum = id;
-				//Sprite spr;
-			    //Debug.Log ("Image: "+myimg.sprite.name);
-				//if (GlossaryUIDispenser.Instance.sprH.name.Contains (formula)) {
-				//Debug.Log ("#" +(atomicnum - 1));
 
 				if ((atomicnum - 1) < GlossaryUIDispenser.sprites.Count) {
 					if (GlossaryUIDispenser.sprites[atomicnum - 1] != null) {
 						Sprite spr = GlossaryUIDispenser.sprites[atomicnum - 1];
 						if (bp.getTrium(id) != null) {
-                            Debug.Log("Element: " + element);
-                            Debug.Log("AtomicNum: " + atomicnum);
-                            Debug.Log("formula: " + formula);
-                            Debug.Log("spr: " + spr);
+
 							buttonListControl.PopulateList (element, atomicnum, mass, formula, first, second, third, spr);
 						}
 					}
@@ -277,11 +270,6 @@ namespace GlossaryObject
 				if (third == "X") {
 					third = "";
 				}
-
-                Debug.Log("molecule" + molecule);
-                Debug.Log("commonname" + commonname);
-                Debug.Log("mass" + mass);
-                Debug.Log("formula" + formula);
 
 				if ((id) < GlossaryUIDispenser.sprites.Count) {
 					if (GlossaryUIDispenser.sprites[id] != null) {

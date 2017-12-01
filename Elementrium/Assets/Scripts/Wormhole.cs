@@ -9,12 +9,13 @@ using Assets.Scripts;
 using System;
 using Ranch;
 using Initialization;
+using WormholeObject;
 
 namespace WormholeObject {
     
     public class Wormhole : MonoBehaviour
     {
-
+        public static bool tappedOnce;
         public float speed = 5f;
         public GameObject ws;
         public CosmicRanch cr = Initialize.ranch;
@@ -31,6 +32,7 @@ namespace WormholeObject {
 
 		public Wormhole()
 		{
+            tappedOnce = false;
 			this.bp = Initialize.player;
 			rangeStart = 1;
 			rangeEnd = 1;
@@ -282,9 +284,10 @@ namespace WormholeObject {
         {
             //GetComponent<SpriteRenderer>().color = Color.green;
 			//Debug.Log("#:" + CosmicRanch.Instance.numBuddies);
-            if (CosmicRanch.Instance.numBuddies < 20)
+            if (CosmicRanch.Instance.numBuddies < 50)
             {
-				//Debug.Log ("In the If for numbers < 20");
+                Wormhole.tappedOnce = true;
+				//Debug.Log ("In the If for numbers < 40");
                 accel = true;
                 generateAtoms();
             }

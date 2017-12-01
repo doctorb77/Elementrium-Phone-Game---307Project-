@@ -128,7 +128,6 @@ namespace Fusion
             Initialize.sh.setCurrentState("MainGameScene", true, true);
 
             bool quizThem = (bp.getTrium(comb) == null);
-            Debug.Log("QUIZTHEM : " + quizThem);
             System.Random rnd = new System.Random();
             int elementToQuiz = 1;
             int pick = 0;
@@ -138,9 +137,7 @@ namespace Fusion
                 elementToQuiz = Backpack.fusionIDs[pick];
             }
 
-			// This is a new Trium, let's do a quiz! :)
-			Debug.Log ("Element to quiz (fusion first time) : " + comb);
- 
+			// This is a new Trium, let's do a quiz! :) 
             if (quizThem) {
 				//Debug.Log ("buttonA:" + Initialize.quizzer.buttonA.name);
 				//Debug.Log ("I MADE IT MOM");
@@ -151,7 +148,8 @@ namespace Fusion
 
 
             int level = 1;
-           // printList("Fusion ID Pre", Backpack.fusionIDs);
+            // printList("Fusion ID Pre", Backpack.fusionIDs);
+            //Debug.Log("COMB: " + comb + "\tEXPLEVEL: " + experienceLevel);
             Backpack.handleExp(comb, experienceLevel, 0);
             List<int> twoFus = new List<int>();
             if (Trium1ID == Trium2ID)

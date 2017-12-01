@@ -6153,7 +6153,7 @@ GameObject:
   - component: {fileID: 1187212221}
   m_Layer: 5
   m_Name: FactsNotification
-  m_TagString: Untagged
+  m_TagString: FactsNote
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10816,6 +10816,7 @@ GameObject:
   - component: {fileID: 1446531890}
   - component: {fileID: 1446531893}
   - component: {fileID: 1446531892}
+  - component: {fileID: 1446531891}
   m_Layer: 0
   m_Name: DisplayLog
   m_TagString: Untagged
@@ -10839,9 +10840,20 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 203, y: -152}
-  m_SizeDelta: {x: 3, y: 1}
+  m_AnchoredPosition: {x: 207.8, y: -126}
+  m_SizeDelta: {x: 3, y: 1.26}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1446531891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1446531889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5f06172388e6b4bbb8f736b987138c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1446531892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13248,7 +13260,7 @@ GameObject:
   - component: {fileID: 1931279146}
   m_Layer: 0
   m_Name: Text
-  m_TagString: Untagged
+  m_TagString: Note
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13268,8 +13280,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.078, y: 0.016}
-  m_SizeDelta: {x: 1300, y: 400}
+  m_AnchoredPosition: {x: 0, y: 0.000000018626}
+  m_SizeDelta: {x: 1372.383, y: 585.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1931279146
 MonoBehaviour:
@@ -13297,13 +13309,14 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 200
-    m_Alignment: 0
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Text
+  m_Text: Well it seems you understand the basics. Check out the glossary by clicking
+    on your level and then the book to see all of the facts you've unlocked.
 --- !u!222 &1931279147
 CanvasRenderer:
   m_ObjectHideFlags: 0

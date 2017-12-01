@@ -75,7 +75,6 @@ public class CameraZooming : MonoBehaviour {
             {
                 zoomed = true;
                 if (selected != null) { 
-                    Debug.Log("ZOOMING IN");
                     ZoomAnim.SetTrigger("zoomedIn");
                     
                     //ZoomAnim.Play("MainCamera_ZoomIn");
@@ -84,7 +83,6 @@ public class CameraZooming : MonoBehaviour {
         } else if (!ZoomInfo.Instance.infoOn) {
             if (zoomed) {
                 zoomed = false; 
-                Debug.Log("ZOOMING OUT");
                 ZoomAnim.Play("MainCamera_ZoomOut");
             }
         }

@@ -82,10 +82,13 @@ namespace TriumObject
 
 
         // Method for increasing the Tier of this Trium, if possible
-        public void increaseTier() {
-            Debug.Log("INCREASING TIER FOR " + this.name);
-            this.tier = (this.tier == 3) ? 3 : this.tier + 1;
-            Debug.Log("TIER IS NOW " + this.tier);
+        public bool increaseTier() {
+            if (this.tier == 3)
+                return false;
+
+            this.tier = tier + 1;
+            return true;
+            //this.tier = (this.tier == 3) ? 3 : this.tier + 1;
         }
 
 

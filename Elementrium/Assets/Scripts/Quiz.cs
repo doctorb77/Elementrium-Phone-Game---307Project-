@@ -10,6 +10,7 @@ using Initialization;
 using UnityEngine.UI;
 using Mono.Data.Sqlite;
 using System.Data;
+using Notification_Bar;
 
 
 namespace Assets.Scripts {
@@ -82,8 +83,6 @@ namespace Assets.Scripts {
 		void Update()
 		{
 			if (Initialize.quizID != -1) {
-                Debug.Log("The ID is: " + Initialize.quizID);
-				Debug.Log ("WE MADE IT DAD");
 				quizUser();
 			}
 
@@ -98,20 +97,16 @@ namespace Assets.Scripts {
         public void quizUser() 
         {
 			
-			Debug.Log ("WE BE QUIZZIN!");
-			Debug.Log ("THE ID IS: " + Initialize.quizID);
 			okay.gameObject.SetActive(false);
 
-			if (Initialize.quizID == -1) {
+            // No quizzes if in tutorial or if not new
+			if (Initialize.quizID == -1) {// || Notification.Notification.popQuizes == false) {
                 Initialize.sh.setCurrentState("MainGameScene", true, true);
 				return;
 			}
 
 			int id = Initialize.quizID;
 			Initialize.quizID = -1;
-
-			Debug.Log ("THE ID IS VALID: " + Initialize.quizID);
-
 
 			if (!quizOn) {
 				QuizAnim.Play ("QuizEnter");
@@ -142,8 +137,6 @@ namespace Assets.Scripts {
 				if (columnName == null) {
 					return;
 				}
-
-                Debug.Log("Column Name: " + columnName);
 
 				/**
              * SQL Query to obtain:
@@ -251,10 +244,7 @@ namespace Assets.Scripts {
 
 		public void OnClick(string picked) {
             int exp = Backpack.level * 30;
-			Debug.Log ("IT WAS CLICKED");
-			Debug.Log ("Picked: " + picked);
 			okay.gameObject.SetActive (true);
-			Debug.Log ("okay is: " +okay.IsActive());
 			if (picked == "A") {
 				if (rightanswer == answer1.text) {
                     //got it right make green

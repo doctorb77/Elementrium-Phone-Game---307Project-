@@ -83,6 +83,7 @@ public class RightMenu1 : MonoBehaviour
             animSelector.Play("SelectorAppear");
             isOn = false;
             inFusion = true;
+            Initialize.ranch.inFusion = true;
             Initialize.sh.setCurrentState ("Fusion", true, true);
         }
     }
@@ -92,7 +93,8 @@ public class RightMenu1 : MonoBehaviour
 		{
 			//instructions.text = "Pick atoms to group into a molecule!";
 			inGroup = true;
-			buttonListControl.PopulateGroupList(true);
+            Initialize.ranch.inGrouping = true;
+            buttonListControl.PopulateGroupList(true);
             animScroll.Play("ScrollListEnter");
             Initialize.sh.setCurrentState("Group", true, false);//visible, not active
 		}
@@ -103,7 +105,8 @@ public class RightMenu1 : MonoBehaviour
 		{
 			//instructions.text = "Pick Triums to make a compound!";
 			inReaction = true;
-			buttonListControl.PopulateGroupList(false);
+            Initialize.ranch.inReaction = true;
+            buttonListControl.PopulateGroupList(false);
             animScroll.Play("ScrollListEnter");
             Initialize.sh.setCurrentState("Reaction", true, false);//visible not active
 		}

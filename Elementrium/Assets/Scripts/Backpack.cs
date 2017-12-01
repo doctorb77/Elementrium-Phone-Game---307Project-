@@ -3,6 +3,7 @@ using System.Collections;
 using TriumObject;
 using System.Collections.Generic;
 using Reaction;
+using Notification_Bar;
 
 namespace BackpackObject 
 {
@@ -13,10 +14,11 @@ namespace BackpackObject
         public static int exp;
         private Hashtable bp;
                                        //1,   2,  3,   4
-        public static int[] expLevels = {0,140,700,5500,10900,2000000000};
+        public static int[] expLevels = {0,140,400,4500,9900,2000000000};
         public static List<int> reactionIDs = new List<int>();
         public static List<int> fusionIDs = new List<int>();
         public static int[] elementCap = {0,2,3,8,13,92}; // Li, O, O
+        public static string[] elementCNames = { "None", "Helium", "Lithium", "Oxygen", "Uranium" };
         public static bool[] unlockedElement = new bool[93];
         public static int maxElement = 2; // Default to oxygen for testing.
         // private int[] levelSteps;
@@ -54,34 +56,61 @@ namespace BackpackObject
 
         public void updateTiers(List<string> IDS)
         {
+            List<string> updates = new List<string>();
             foreach (string triumID in IDS) {
                 string triumName = "";
                 int atomID = 1;
                 int tID = ReactionHandler.getInfo(triumID, out triumName, out atomID);
                 Trium t = (Trium)bp[tID];
-                t.increaseTier();
-                Debug.Log("Increased Tier for " + triumID + " to " + t.getTier());
+                bool inc = t.increaseTier();
+                if (inc)
+                {
+                    updates.Add(t.getName());
+                }
+            }
+
+            if (updates.Count == 1)
+            {
+                Notification.notify("You unlocked a new fact for " + updates[0] + ".", 4);
+            }
+            else if (updates.Count == 2)
+            {
+                Notification.notify("You unlocked new facts for " + updates[0] + " and " + updates[1] + ".", 5);
             }
         }
 
         public void updateTiers(List<int> IDS)
         {
+            List<string> updates = new List<string>();
             foreach (int triumID in IDS)
             {
                 Trium t = (Trium)bp[triumID];
-                t.increaseTier();
-                Debug.Log("Increased Tier for " + t.getName() + " to " + t.getTier());
+                bool inc = t.increaseTier();
+                if (inc)
+                {
+                    updates.Add(t.getName());
+                }
             }
+
+            if (updates.Count == 1)
+            {
+                Notification.notify("You unlocked a new fact for " + updates[0] + ".", 4);
+            } else if (updates.Count == 2)
+            {
+                Notification.notify("You unlocked new facts for " + updates[0] + " and " + updates[1] + ".", 5);
+            }
+
         }
 
         // reactionID = reaction table id, level = stage level, type : 0 = fusion, 1 = grouping, 2 = reaction
-        public static void handleExp(int reactionID, int level, int type)
+        public static void handleExp(int data, int level, int type)
         {
             int rBase = 200;
             int gBase = 50;
             int fBase = 100;
 
-            if ((reactionID == 0 && (type == 1 || type == 2)) || (fusionIDs.Contains(reactionID) && type == 0))
+            // Has been discovered before
+            if ((data == 0 && type != 0) || (type == 0 && fusionIDs.Contains(data)))
             {
                 rBase /= 10;
                 gBase /= 10;
@@ -93,7 +122,7 @@ namespace BackpackObject
                     gainExp(level * gBase);
                 else if (type == 2)
                     gainExp(level * rBase);
-            } else if (reactionID == 1)
+            } else 
             {
                 if (type == 0)
                     gainExp(level * fBase);
@@ -102,10 +131,9 @@ namespace BackpackObject
                 else if (type == 2)
                     gainExp(level * rBase);
 
-                if (type == 1 || type == 2)
-                    reactionIDs.Add(reactionID);
-                else
-                    fusionIDs.Add(reactionID);
+
+                if (type == 0)
+                    fusionIDs.Add(data);
             }
         }
 
@@ -117,6 +145,8 @@ namespace BackpackObject
             {
                 level++;
                 maxElement = elementCap[level];
+                Notification.notify("You leveled up to level " + level + ". You can now fuse up to " + elementCNames[level] + ", which has an atomic number of " + maxElement+".", 6);
+                //notify("You leveled up to level " + level + ". You can now fuse up to " + elementCNames[level] + ", which has an atomic number of " + maxElement, 6);
                 gainExp(0); // In some weird case where 2 levels are gained at once :/
             }
 

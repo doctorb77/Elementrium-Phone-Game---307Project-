@@ -279,7 +279,6 @@ public class ButtonListControl : MonoBehaviour
 
         for (int i = 0; i < total; i++)
         {
-            Debug.Log("i: " + i);
             if (rc[i] > 1)
                 nString += rc[i];
             nString += r[i];

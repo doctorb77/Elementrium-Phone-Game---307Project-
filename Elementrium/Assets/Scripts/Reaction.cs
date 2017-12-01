@@ -46,15 +46,12 @@ namespace Reaction
 			bool quizThem = false;
 			int quizTriumID = -1;
 
-            Debug.Log("Checkpoint A");
 
             if (selected.Count == 0)
             {
                 Initialize.sh.setCurrentState("MainGameScene", true, true);
                 return false;
             }
-
-            Debug.Log("Checkpoint B");
 
             List<string> reactant = new List<string>(reactant2.ToArray());          // Reactant Names
             List<int> reactantCount = new List<int>(reactantCount2.ToArray());      // Reactant Amounts
@@ -87,8 +84,6 @@ namespace Reaction
                 }
             }
 
-            Debug.Log("Checkpoint C");
-
             req = true;
 
             foreach (int total in reactantCount)
@@ -101,8 +96,6 @@ namespace Reaction
                 }
             }
 
-            Debug.Log("Checkpoint D");
-
             if (req)
             {
                 // TESTING FOR EXP BAR : REMOVE LATER
@@ -111,25 +104,21 @@ namespace Reaction
                 // 1 --> Grouping
                 // 2 --> Reaction
                 int isGrouping = (Initialize.ranch.inGrouping) ? 1 : 2;
-                Debug.Log("IsGrouping: " + isGrouping);
 
 				// Obtain the highest experience level from the products
 				List<int> productIDs = null;
 
 
 				int highestLevel = getHighestLevel(product, out productIDs);
-                Debug.Log("Highest Level: " + highestLevel);
-                Debug.Log("Product Array: " + product.ToString());
-                Debug.Log("ProductID Array: " + productIDs.ToString());
+
 				// Something went wrong
 				if (productIDs == null || highestLevel == -1)
 				{
-                    Debug.Log("Checkpoint E has failed!");
+
 					Initialize.sh.setCurrentState("MainGameScene", true, true);
 					return false;
 				}
 
-                Debug.Log("Checkpoint E");
 
 				// Check to see if a product has been unlocked before
 				int experienceLevel = -1;
@@ -160,13 +149,10 @@ namespace Reaction
                     int atomID = 1;
                     quizTriumID = getInfo(reactant2[pick], out triumName, out atomID);
                     quizThem = true;
-                    Debug.Log("Quiz for " + reactant2[pick] + " with ID :" + quizTriumID);
                 }
 
-                Debug.Log("LIST : " + Backpack.reactionIDs);
-
 				// isGrouping handles if we are in Grouping or Reaction
-                Backpack.handleExp(foundNew, level, isGrouping);
+                Backpack.handleExp(foundNew, highestLevel, isGrouping);
                 /*
                 Debug.Log("*******BEGIN PRINTING BACKPACK BEFORE*******");
                 foreach (Trium t in bp.getBP().Values) {
@@ -207,8 +193,6 @@ namespace Reaction
                             return false;
                         }
 
-                        Debug.Log("Checkpoint F");
-
 //						if (quizTriumID == -1 && bp.getTrium(key) == null) {
 //							quizTriumID = key;
 //							quizThem = true;
@@ -226,7 +210,7 @@ namespace Reaction
                         float x = (float)(UnityEngine.Random.value - 0.5) * 900;
                         float y = (float)(UnityEngine.Random.value - 0.5) * 900;
 
-                        actual.transform.localPosition = new Vector3(0, 0, -1);
+                        actual.transform.localPosition = new Vector3(0+(x/10), 0+(y/10), -1);
                         cr.AddBuddyToList();
                     }
                 }
@@ -244,10 +228,8 @@ namespace Reaction
                 CosmicRanch.Instance.AddBuddyToList();
                 Initialize.sh.setCurrentState("MainGameScene", true, true);
 
-				Debug.Log ("quizTriumID: " + quizTriumID);
 				if (quizThem && quizTriumID != -1) {
 					Initialize.quizID = quizTriumID;
-                    Debug.Log("QuizID: " + Initialize.quizID);
 				}
 
                 return true;

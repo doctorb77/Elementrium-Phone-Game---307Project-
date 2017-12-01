@@ -5,6 +5,7 @@ using Ranch;
 using BudBehavior;
 using UnityEngine.UI;
 using StateHandling;
+using Initialization;
 
 namespace Reaction_Text
 {
@@ -70,6 +71,7 @@ namespace Reaction_Text
                 return;
             }
 
+ 
             //List<GameObject> sel = cr.GetComponent<CosmicRanch>().getSelected();
             bool allGood = true;
             string nString = "";
