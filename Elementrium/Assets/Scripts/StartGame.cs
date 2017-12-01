@@ -9,6 +9,8 @@ using WormholeObject;
 using GlossaryObject;
 using Ranch;
 using Assets.Scripts;
+using System.Data;
+using Mono.Data.Sqlite;
 
 
 namespace Initialization
@@ -37,6 +39,8 @@ namespace Initialization
         public static Glossary glossary;
         public static CosmicRanch ranch;
         public static List<Buddy> buddyList;
+        public static List<string> eFormulas;  // List of element formulas
+        public static List<string> eNames;     // List of element names
 		//public static Quiz quizzer;
 		public static int quizID;
 
@@ -78,7 +82,7 @@ namespace Initialization
                 sh.setCurrentState("MainGameScene", true, true);
             }
 
-			/*
+            /*
 			if (quizzer == null) 
 			{
 				//Debug.Log ("buttonA:" + Initialize.quizzer.buttonA.name);
@@ -86,6 +90,29 @@ namespace Initialization
 				//Debug.Log ("buttonA:" + Initialize.quizzer.buttonA.name);
 			}
 			*/
+
+            //if (eFormulas == null || eNames == null) {
+
+                eFormulas = new List<string>();
+                eNames = new List<string>();
+
+                string sqlQuery = "SELECT Name, Formula " +
+                    "FROM Trium " +
+                    "WHERE ElementID not null";
+
+                IDataReader reader = SQLiteExample.makeQuery(sqlQuery);
+
+
+
+                while (reader.Read()) {
+                    eNames.Add(reader.GetString(0));
+                    eFormulas.Add(reader.GetString(1));
+                }
+
+                Debug.Log("eNamesLen: " + eNames.Count + ", eFormulasLen: " + eFormulas.Count);
+
+                
+           // }
 
 			quizID = -1;
 

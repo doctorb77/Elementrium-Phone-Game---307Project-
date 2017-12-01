@@ -13,7 +13,7 @@ namespace Assets.Scripts
         {
 
             // This is our path to the database
-            string connectionPath = "URI=file:" + Application.dataPath + "/Assets/Elementrium.db";
+            string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
 
             // Database Connection object we will use to interact with the database
             // We can do these on the same line, they are separated to show the process
@@ -67,7 +67,7 @@ namespace Assets.Scripts
 		public void exampleWithoutComments()
 		{
 
-			string connectionPath = "URI=file:" + Application.dataPath + "/Assets/Elementrium.db";
+			string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
 
 			IDbConnection dbconn;
 			dbconn = (IDbConnection)new SqliteConnection(connectionPath);
@@ -113,7 +113,7 @@ namespace Assets.Scripts
          *
          *
          */
-        public IDataReader makeQuery(string query)
+        public static IDataReader makeQuery(string query)
         {
 
             if (query == null) {
@@ -126,7 +126,7 @@ namespace Assets.Scripts
 
 
             /** Begin Generalization **/
-			string connectionPath = "URI=file:" + Application.dataPath + "/Assets/Elementrium.db";
+			string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
 
 			IDbConnection dbconn = (IDbConnection)new SqliteConnection(connectionPath);
 			dbconn.Open();

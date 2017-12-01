@@ -17,8 +17,10 @@ namespace Fusion
 	public class FusionHandler
 	{
         // Put this here because I am too lazy to figure out the database thing right now. Handles up to Fl
-        public List<string> eList = new List<string> { "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar" };
-        public List<string> eName = new List<string> { "Hydrogen", "Helium", "Lithium", "Berylium", "Boron", "Carbon", "Nitrogen", "Oxygen", "Flourine" };
+        //public List<string> eList = new List<string> { "H", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al", "Si", "P", "S", "Cl", "Ar" };
+        //public List<string> eName = new List<string> { "Hydrogen", "Helium", "Lithium", "Berylium", "Boron", "Carbon", "Nitrogen", "Oxygen", "Flourine" };
+        public List<string> eList = Initialize.eFormulas;
+        public List<string> eName = Initialize.eNames;
         public static GameObject ws = GameObject.Find("BuddyContainer");
 		public CosmicRanch cr = Initialize.ranch;
 		public Backpack bp = Initialize.player;
@@ -91,7 +93,15 @@ namespace Fusion
             // See if we've unlocked this Trium before.
 
             Backpack.unlockedElement[comb] = true;
-            /****** Update backpack and add new GameObject buddy ******/
+			/****** Update backpack and add new GameObject buddy ******/
+
+            // Get experience level
+			int experienceLevel = getExpLevel(comb);
+			if (experienceLevel == -1)
+			{
+				Initialize.sh.setCurrentState("MainGameScene", true, true);
+				return false;
+			}
 
             // Add new Trium to backpack
            // Get rid of any spaces in formula
@@ -137,10 +147,12 @@ namespace Fusion
 				Initialize.quizID = elementToQuiz;
 			}
 
-   //>>>>>...// Grab LEVEL
+            //>>>>>...// Grab LEVEL
+
+
             int level = 1;
            // printList("Fusion ID Pre", Backpack.fusionIDs);
-            Backpack.handleExp(comb, level, 0);
+            Backpack.handleExp(comb, experienceLevel, 0);
             List<int> twoFus = new List<int>();
             if (Trium1ID == Trium2ID)
                 twoFus.Add(Trium1ID);
@@ -307,6 +319,42 @@ namespace Fusion
             {
                 Debug.Log("[" + name + "] " + i + " : " + s[i]);
             }
+        }
+
+        /**
+         * 
+         * Gets the experience level of Trium with the given ID
+         * 
+         */
+        public static int getExpLevel(int id) {
+            int exp = -1;
+
+            Debug.Log("FUSION ID: " + id);
+
+            string sqlQuery = "SELECT ID, Experience " +
+                "FROM Trium " +
+                "WHERE ID = " + id;
+
+            IDataReader reader = SQLiteExample.makeQuery(sqlQuery);
+
+            int readerID = -1;
+
+
+            while (reader.Read()) {
+                readerID = reader.GetInt32(0);
+				Debug.Log("ID: " + id);
+                object readerType = reader.GetValue(1);
+                Debug.Log("type: " + (int) readerType);
+                break;
+            }
+
+            //Debug.Log("ID: " + id);
+            //Debug.Log("exp: " + exp);
+
+
+            return exp;
+            //return (readerValue == -1) ? 1 : readerValue;
+                
         }
     }
 }

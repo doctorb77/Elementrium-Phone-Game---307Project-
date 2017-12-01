@@ -52,19 +52,11 @@ namespace Reaction
                 return false;
             }
 
-            List<string> reactant = new List<string>(reactant2.ToArray());
-            List<int> reactantCount = new List<int>(reactantCount2.ToArray());
-            List<string> product = new List<string>(product2.ToArray());
-            List<int> productCount = new List<int>(productCount2.ToArray());
+            List<string> reactant = new List<string>(reactant2.ToArray());          // Reactant Names
+            List<int> reactantCount = new List<int>(reactantCount2.ToArray());      // Reactant Amounts
+			List<string> product = new List<string>(product2.ToArray());            // Product Names
+            List<int> productCount = new List<int>(productCount2.ToArray());        // Product Amounts
 
-            for (int i = 0; i < 2; i++)
-            {
-                if (selected.Count == 2)
-                { /*
-                    Debug.Log("Selected \"" + selected[i].GetComponent<BuddyBehavior>().triumformula + "\"   Reactant : \"" + reactant[i] + "\"");
-                    Debug.Log(reactant[i].Equals(selected[i].GetComponent<BuddyBehavior>().triumformula)); */
-                }
-            }
 
             foreach (GameObject buddy in selected)
             {
@@ -108,9 +100,39 @@ namespace Reaction
                 // TESTING FOR EXP BAR : REMOVE LATER
                 int reactionID = 1;
                 int level = 1;
-                int isGrouping = 1;
+                // 1 --> Grouping
+                // 2 --> Reaction
+                int isGrouping = (Initialize.ranch.inGrouping) ? 1 : 2;
 
-                System.Random rnd = new System.Random();
+				// Obtain the highest experience level from the products
+				List<int> productIDs = null;
+				int highestLevel = getHighestLevel(product, out productIDs);
+
+				// Something went wrong
+				if (productIDs == null || highestLevel == -1)
+				{
+					Initialize.sh.setCurrentState("MainGameScene", true, true);
+					return false;
+				}
+
+				// Check to see if a product has been unlocked before
+				int experienceLevel = -1;
+				int newProductID = getNewlyUnlockedProduct(productIDs, out experienceLevel);
+                int foundNew = 0;
+
+				if (newProductID == -1 || experienceLevel == -1)
+				{
+					// We didn't make something new
+				}
+				else
+				{
+                    // We found something new!
+                    foundNew = 1;
+				}
+
+				// >>>>>..    // GRAB REACTION_ID, LEVEL, and ISGROUPING
+
+				System.Random rnd = new System.Random();
 
                 int pick = rnd.Next(0, reactant2.Count);
 
@@ -126,10 +148,8 @@ namespace Reaction
 
                 Debug.Log("LIST : " + Backpack.reactionIDs);
 
-                if (isGrouping == 0)
-                    Backpack.handleExp(reactionID, level, 2);
-                else
-                    Backpack.handleExp(reactionID, level, 1);
+				// isGrouping handles if we are in Grouping or Reaction
+                Backpack.handleExp(foundNew, level, isGrouping);
                 /*
                 Debug.Log("*******BEGIN PRINTING BACKPACK BEFORE*******");
                 foreach (Trium t in bp.getBP().Values) {
@@ -199,7 +219,7 @@ namespace Reaction
 				}
                 */
 
-  // >>>>>..    // GRAB REACTION_ID, LEVEL, and ISGROUPING
+  
 
 
                 CosmicRanch.Instance.AddBuddyToList();
@@ -267,6 +287,102 @@ namespace Reaction
 
 			return key;
          }
+
+
+        private static int getHighestLevel(List<string> products, out List<int> productIDs) {
+
+            List<int> tempIDs = new List<int>();
+            int highestExpLevel = -1;
+
+            for (int i = 0; i < products.Count; i++) {
+
+                string productName = products[i];
+			    string sqlQuery = "SELECT ID, Experience " +
+				"FROM Trium " +
+				"WHERE Name = " + productName;
+
+                // test if this works :D
+                IDataReader reader = SQLiteExample.makeQuery(sqlQuery);
+
+                int queryExperience = -1;
+                int queryID = -1;
+
+                while (reader.Read()) {
+
+                    queryID = reader.GetInt32(0);
+                    queryExperience = reader.GetInt32(1);
+
+                }
+
+                // Make sure we got values back
+                if (queryID == -1 || queryExperience == -1) {
+                    Debug.Log("Y'ALL'S QUERIES ARE SCUFFED");
+                    productIDs = null;
+                    return -1;
+                }
+
+                // add the ID to the ProductID list
+                tempIDs.Add(queryID);
+
+                // Update the highest exp level as needed
+                if (queryExperience > highestExpLevel) {
+                    highestExpLevel = queryExperience;
+                }
+
+
+            }
+
+            // Update product IDs and return highest exp level found
+            productIDs = tempIDs;
+            return highestExpLevel;
+
+        }
+
+
+        private static int getNewlyUnlockedProduct(List<int> productIDs, out int experienceLevel) {
+
+            int unlockedID = -1;
+            int unlockedExperience = -1;
+
+            // Look through the productIDs list
+            foreach (int id in productIDs)
+            {
+                if (Initialize.player.getTrium(id) == null) {
+                    // We found something new!
+                    unlockedID = id;
+                    break;
+                }
+            }
+
+            // Make sure we have unlocked something new
+            if (unlockedID == -1) {
+				experienceLevel = unlockedExperience;
+				return -1;
+            }
+
+
+            string sqlQuery = "SELECT Experience " +
+                "FROM Trium " +
+                "WHERE ID = " + unlockedID;
+
+            IDataReader reader = SQLiteExample.makeQuery(sqlQuery);
+
+            while (reader.Read()) {
+                unlockedExperience = reader.GetInt32(0);
+
+            }
+
+            // Make sure we got something from the query
+            if (unlockedExperience == -1) {
+                experienceLevel = unlockedExperience;
+                return -1;
+            }
+
+            // Return
+            experienceLevel = unlockedID;
+            return unlockedID;
+
+        }
 
     }
 }

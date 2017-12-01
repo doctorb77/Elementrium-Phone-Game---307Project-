@@ -81,7 +81,7 @@ namespace BackpackObject
             int gBase = 50;
             int fBase = 100;
 
-            if ((reactionIDs.Contains(reactionID) && (type == 1 || type == 2)) || (fusionIDs.Contains(reactionID) && type == 0))
+            if ((reactionID == 0 && (type == 1 || type == 2)) || (fusionIDs.Contains(reactionID) && type == 0))
             {
                 rBase /= 10;
                 gBase /= 10;
@@ -93,7 +93,7 @@ namespace BackpackObject
                     gainExp(level * gBase);
                 else if (type == 2)
                     gainExp(level * rBase);
-            } else
+            } else if (reactionID == 1)
             {
                 if (type == 0)
                     gainExp(level * fBase);
