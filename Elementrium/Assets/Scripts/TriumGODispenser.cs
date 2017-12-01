@@ -221,7 +221,6 @@ public class TriumGODispenser : MonoBehaviour {
         dispenserList.Add(prefabPt);
         dispenserList.Add(prefabAu);
         dispenserList.Add(prefabHg);
-        dispenserList.Add(prefabHe);
         dispenserList.Add(prefabTl);
         dispenserList.Add(prefabPb);
         dispenserList.Add(prefabBi);

@@ -20,6 +20,7 @@ namespace WormholeObject {
         public GameObject ws;
         public CosmicRanch cr = Initialize.ranch;
         public ParticleSystem ps;
+        private int MAXNUMBUDDIES;
         public bool psOn;
 		private int rangeStart;         // The beginning of the range
 		private int rangeEnd;           // The end of the range
@@ -179,33 +180,31 @@ namespace WormholeObject {
 			// Add newly generated atom to Backpack
 			bp.addToBackpack(rowID, name, AtomicNumber);
 
-            /********** TODO: CREATE BUDDY OBJECT HERE **********/
+			/********** TODO: CREATE BUDDY OBJECT HERE **********/
 
-            // Create le buddy
+			// Create le buddy
 
-            // Call the "add buddy" thingy in Initialize.ranch.<dank_method_name_here>
+			// Call the "add buddy" thingy in Initialize.ranch.<dank_method_name_here>
 
-            // winrar
+			// winrar
 
-            //Debug.Log(formula);
+			//Debug.Log(formula);
 
-            //GameObject buddy = (GameObject)Instantiate(Resources.Load("Prefabs/Triums/"+formula));
-            formula = formula.Replace(" ", "");
-            GameObject buddy =  Resources.Load("Prefabs/Triums/"+formula) as GameObject;
-            GameObject actual = Instantiate(buddy);
-            //Debug.Log(actual);
-            actual.transform.SetParent(ws.transform, true);
-            //buddy.transform.SetParent(buttonTemplate.transform.parent, false);
+			if (AtomicNumber - 1 > -1)
+			{
+				GameObject buddy = TriumGODispenser.dispenserList[AtomicNumber - 1];
+				GameObject actual = Instantiate(buddy);
+				actual.transform.SetParent(ws.transform, true);
 
-            float x = (float)(UnityEngine.Random.value - 0.5) * 900;
-            float y = (float)(UnityEngine.Random.value - 0.5) * 900;
+				float x = (float)(UnityEngine.Random.value - 0.5) * 900;
+				float y = (float)(UnityEngine.Random.value - 0.5) * 900;
 
-			actual.transform.localPosition = new Vector3(0, -430, -1);
+				actual.transform.localPosition = new Vector3(0, -430, -1);
 
-			Buddy bud = new Buddy(0, x, y, AtomicNumber, name, actual, false, false);
-			//cr.GetComponent<CosmicRanch>().AddBuddyToList(actual);
+				Buddy bud = new Buddy(0, x, y, AtomicNumber, name, actual, false, false);
 
-			cr.AddBuddyToList();
+				cr.AddBuddyToList();
+			}
             /*
 			foreach (Buddy b in Initialize.buddyList)
 			{
@@ -284,7 +283,7 @@ namespace WormholeObject {
         {
             //GetComponent<SpriteRenderer>().color = Color.green;
 			//Debug.Log("#:" + CosmicRanch.Instance.numBuddies);
-            if (CosmicRanch.Instance.numBuddies < 50)
+            if (CosmicRanch.Instance.numBuddies < MAXNUMBUDDIES)
             {
                 Wormhole.tappedOnce = true;
 				//Debug.Log ("In the If for numbers < 40");
@@ -305,18 +304,19 @@ namespace WormholeObject {
         {
             psOn = true;
             ps.Play();
+            MAXNUMBUDDIES = 50;
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (CosmicRanch.Instance.numBuddies >= 20) {
+            if (CosmicRanch.Instance.numBuddies >= MAXNUMBUDDIES) {
                 if (psOn)
                 {
                     psOn = false;
                     ps.Stop();
                 }
-            } else if (CosmicRanch.Instance.numBuddies < 20) {
+            } else if (CosmicRanch.Instance.numBuddies < MAXNUMBUDDIES) {
                 if (!psOn)
                 {
                     psOn = true;

@@ -107,23 +107,27 @@ namespace Fusion
            // Get rid of any spaces in formula
             formula = formula.Replace(" ", "");
 
-            // Create a buddy game object from existing Prefabs
+			// Create a buddy game object from existing Prefabs
 
-            // USE DATABASE QUERY HERE IN PLACE OF ELIST IF YOU WANT
-            GameObject buddy = Resources.Load("Prefabs/Triums/" + eList[comb - 1]) as GameObject;
+			// USE DATABASE QUERY HERE IN PLACE OF ELIST IF YOU WANT
+			if (atomicNumber - 1 > -1)
+			{
+				Debug.Log("CREATED" + atomicNumber);
+				GameObject buddy = TriumGODispenser.dispenserList[atomicNumber - 1];
+				//GameObject buddy = Resources.Load("Prefabs/Triums/" + eList[comb-1]) as GameObject;
 
-            // Instantiate an actual game object and transform it on the screen
-            GameObject actual = GameObject.Instantiate(buddy);
-            actual.transform.SetParent(ws.transform, true);
-            //buddy.transform.SetParent(buttonTemplate.transform.parent, false);
-            float x = (float)(UnityEngine.Random.value - 0.5) * 900;
-            float y = (float)(UnityEngine.Random.value - 0.5) * 900;
-            actual.transform.localPosition = new Vector3(0, -430, -1);
+				// Instantiate an actual game object and transform it on the screen
+				GameObject actual = GameObject.Instantiate(buddy);
+				actual.transform.SetParent(ws.transform, true);
+				//buddy.transform.SetParent(buttonTemplate.transform.parent, false);
+				float x = (float)(UnityEngine.Random.value - 0.5) * 900;
+				float y = (float)(UnityEngine.Random.value - 0.5) * 900;
+				actual.transform.localPosition = new Vector3(0, -430, -1);
 
-            // Create a new buddy object and add it to the cosmic ranch
-            Buddy bud = new Buddy(0, x, y, atomicNumber, atomName, actual, false, false);
-            cr.GetComponent<CosmicRanch>().AddBuddyToList();
-
+				// Create a new buddy object and add it to the cosmic ranch
+				Buddy bud = new Buddy(0, x, y, atomicNumber, atomName, actual, false, false);
+				cr.GetComponent<CosmicRanch>().AddBuddyToList();
+			}
             //cr.GetComponent<CosmicRanch>().AddBuddyToList(actual); 
             Initialize.sh.setCurrentState("MainGameScene", true, true);
 

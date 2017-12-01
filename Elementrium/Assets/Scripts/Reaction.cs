@@ -42,9 +42,9 @@ namespace Reaction
             // Check if requirements are met
             bool req = false;
 
-			// Quizzing variables
-			bool quizThem = false;
-			int quizTriumID = -1;
+            // Quizzing variables
+            bool quizThem = false;
+            int quizTriumID = -1;
 
 
             if (selected.Count == 0)
@@ -55,7 +55,7 @@ namespace Reaction
 
             List<string> reactant = new List<string>(reactant2.ToArray());          // Reactant Names
             List<int> reactantCount = new List<int>(reactantCount2.ToArray());      // Reactant Amounts
-			List<string> product = new List<string>(product2.ToArray());            // Product Names
+            List<string> product = new List<string>(product2.ToArray());            // Product Names
             List<int> productCount = new List<int>(productCount2.ToArray());        // Product Amounts
 
 
@@ -105,39 +105,39 @@ namespace Reaction
                 // 2 --> Reaction
                 int isGrouping = (Initialize.ranch.inGrouping) ? 1 : 2;
 
-				// Obtain the highest experience level from the products
-				List<int> productIDs = null;
+                // Obtain the highest experience level from the products
+                List<int> productIDs = null;
 
 
-				int highestLevel = getHighestLevel(product, out productIDs);
+                int highestLevel = getHighestLevel(product, out productIDs);
 
-				// Something went wrong
-				if (productIDs == null || highestLevel == -1)
-				{
+                // Something went wrong
+                if (productIDs == null || highestLevel == -1)
+                {
 
-					Initialize.sh.setCurrentState("MainGameScene", true, true);
-					return false;
-				}
+                    Initialize.sh.setCurrentState("MainGameScene", true, true);
+                    return false;
+                }
 
 
-				// Check to see if a product has been unlocked before
-				int experienceLevel = -1;
-				int newProductID = getNewlyUnlockedProduct(productIDs, out experienceLevel);
+                // Check to see if a product has been unlocked before
+                int experienceLevel = -1;
+                int newProductID = getNewlyUnlockedProduct(productIDs, out experienceLevel);
                 int foundNew = 0;
 
-				if (newProductID == -1 || experienceLevel == -1)
-				{
-					// We didn't make something new
-				}
-				else
-				{
+                if (newProductID == -1 || experienceLevel == -1)
+                {
+                    // We didn't make something new
+                }
+                else
+                {
                     // We found something new!
                     foundNew = 1;
-				}
+                }
 
-				// >>>>>..    // GRAB REACTION_ID, LEVEL, and ISGROUPING
+                // >>>>>..    // GRAB REACTION_ID, LEVEL, and ISGROUPING
 
-				System.Random rnd = new System.Random();
+                System.Random rnd = new System.Random();
 
                 int pick = rnd.Next(0, reactant2.Count);
 
@@ -151,7 +151,7 @@ namespace Reaction
                     quizThem = true;
                 }
 
-				// isGrouping handles if we are in Grouping or Reaction
+                // isGrouping handles if we are in Grouping or Reaction
                 Backpack.handleExp(foundNew, highestLevel, isGrouping);
                 /*
                 Debug.Log("*******BEGIN PRINTING BACKPACK BEFORE*******");
@@ -187,21 +187,22 @@ namespace Reaction
                         int atomID = -2;
                         int key = getInfo(nTrium, out triumName, out atomID);
 
-                        if (triumName == "none" || atomID == -2 || key == -1) {
+                        if (triumName == "none" || atomID == -2 || key == -1)
+                        {
                             //Debug.Log("ReactCurrent: PRODUCT TRIUM NOT IN DATABASE!");
                             Initialize.sh.setCurrentState("MainGameScene", true, true);
                             return false;
                         }
 
-//						if (quizTriumID == -1 && bp.getTrium(key) == null) {
-//							quizTriumID = key;
-//							quizThem = true;
-//						}
+                        //						if (quizTriumID == -1 && bp.getTrium(key) == null) {
+                        //							quizTriumID = key;
+                        //							quizThem = true;
+                        //						}
 
                         bp.addToBackpack(key, triumName, atomID);
 
                         //Debug.Log("nTrium : " + nTrium + " Path : \'\"Prefabs/Triums/" + nTrium+"\"\'");
-                        GameObject buddy = Resources.Load("Prefabs/Triums/"+nTrium) as GameObject;
+                        GameObject buddy = TriumGODispenser.dispenserList[key - 1];
                         GameObject actual = GameObject.Instantiate(buddy);
 
                         actual.transform.SetParent(ws.transform, true);
@@ -210,7 +211,7 @@ namespace Reaction
                         float x = (float)(UnityEngine.Random.value - 0.5) * 900;
                         float y = (float)(UnityEngine.Random.value - 0.5) * 900;
 
-                        actual.transform.localPosition = new Vector3(0+(x/10), 0+(y/10), -1);
+                        actual.transform.localPosition = new Vector3(0 + (x / 10), 0 + (y / 10), -1);
                         cr.AddBuddyToList();
                     }
                 }
@@ -222,15 +223,16 @@ namespace Reaction
 				}
                 */
 
-  
+
 
 
                 CosmicRanch.Instance.AddBuddyToList();
                 Initialize.sh.setCurrentState("MainGameScene", true, true);
 
-				if (quizThem && quizTriumID != -1) {
-					Initialize.quizID = quizTriumID;
-				}
+                if (quizThem && quizTriumID != -1)
+                {
+                    Initialize.quizID = quizTriumID;
+                }
 
                 return true;
             }
@@ -246,92 +248,96 @@ namespace Reaction
          * Utility function to obtain the database ID of the Trium
          * 
          */
-         public static int getInfo(string formula, out string name, out int atomID)
-         {
+        public static int getInfo(string formula, out string name, out int atomID)
+        {
             name = "none";
             atomID = -1;
 
-			string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
+            string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
 
-			IDbConnection dbconn;
-			dbconn = (IDbConnection)new SqliteConnection(connectionPath);
+            IDbConnection dbconn;
+            dbconn = (IDbConnection)new SqliteConnection(connectionPath);
 
-			dbconn.Open();
+            dbconn.Open();
 
-			IDbCommand dbcmd = dbconn.CreateCommand();
+            IDbCommand dbcmd = dbconn.CreateCommand();
 
             string sqlQuery = "SELECT ID, Name, IFNULL(ElementID, -1) " +
                               "FROM Trium " +
                               "WHERE Formula = '" + formula + "'";
-            
-			dbcmd.CommandText = sqlQuery;
 
-			IDataReader reader = dbcmd.ExecuteReader();
+            dbcmd.CommandText = sqlQuery;
+
+            IDataReader reader = dbcmd.ExecuteReader();
 
             int key = -1;
 
-			// reader.Read() will return True or False. If true, we will execute what is in the while() loop
-			while (reader.Read())
-			{
+            // reader.Read() will return True or False. If true, we will execute what is in the while() loop
+            while (reader.Read())
+            {
 
                 key = reader.GetInt32(0);
                 name = reader.GetString(1);
                 atomID = reader.GetInt32(2);
-			}
+            }
 
 
-			reader.Close();
-			reader = null;
-			dbcmd.Dispose();
-			dbcmd = null;
-			dbconn.Close();
-			dbconn = null;
+            reader.Close();
+            reader = null;
+            dbcmd.Dispose();
+            dbcmd = null;
+            dbconn.Close();
+            dbconn = null;
 
-			return key;
-         }
+            return key;
+        }
 
 
-        private static int getHighestLevel(List<string> products, out List<int> productIDs) {
+        private static int getHighestLevel(List<string> products, out List<int> productIDs)
+        {
 
             List<int> tempIDs = new List<int>();
             int highestExpLevel = -1;
 
-            for (int i = 0; i < products.Count; i++) {
+            for (int i = 0; i < products.Count; i++)
+            {
 
                 string productName = products[i];
-			    string sqlQuery = "SELECT ID, Experience " +
-				"FROM Trium " +
-				"WHERE Formula = '" + productName + "'";
+                string sqlQuery = "SELECT ID, Experience " +
+                "FROM Trium " +
+                "WHERE Formula = '" + productName + "'";
 
-				string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
+                string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
 
-				IDbConnection dbconn;
-				dbconn = (IDbConnection)new SqliteConnection(connectionPath);
-				dbconn.Open();
-				IDbCommand dbcmd = dbconn.CreateCommand();
-				dbcmd.CommandText = sqlQuery;
+                IDbConnection dbconn;
+                dbconn = (IDbConnection)new SqliteConnection(connectionPath);
+                dbconn.Open();
+                IDbCommand dbcmd = dbconn.CreateCommand();
+                dbcmd.CommandText = sqlQuery;
 
-				IDataReader reader = dbcmd.ExecuteReader();
+                IDataReader reader = dbcmd.ExecuteReader();
 
                 int queryExperience = -1;
                 int queryID = -1;
 
-                while (reader.Read()) {
+                while (reader.Read())
+                {
 
                     queryID = reader.GetInt32(0);
                     queryExperience = reader.GetInt32(1);
 
                 }
 
-				reader.Close();
-				reader = null;
-				dbcmd.Dispose();
-				dbcmd = null;
-				dbconn.Close();
-				dbconn = null;
+                reader.Close();
+                reader = null;
+                dbcmd.Dispose();
+                dbcmd = null;
+                dbconn.Close();
+                dbconn = null;
 
                 // Make sure we got values back
-                if (queryID == -1 || queryExperience == -1) {
+                if (queryID == -1 || queryExperience == -1)
+                {
                     Debug.Log("getHighestLevel: SCUFFED QUERY IS SCUFFED");
                     productIDs = null;
                     return -1;
@@ -341,7 +347,8 @@ namespace Reaction
                 tempIDs.Add(queryID);
 
                 // Update the highest exp level as needed
-                if (queryExperience > highestExpLevel) {
+                if (queryExperience > highestExpLevel)
+                {
                     highestExpLevel = queryExperience;
                 }
 
@@ -354,7 +361,8 @@ namespace Reaction
         }
 
 
-        private static int getNewlyUnlockedProduct(List<int> productIDs, out int experienceLevel) {
+        private static int getNewlyUnlockedProduct(List<int> productIDs, out int experienceLevel)
+        {
 
             int unlockedID = -1;
             int unlockedExperience = -1;
@@ -362,7 +370,8 @@ namespace Reaction
             // Look through the productIDs list
             foreach (int id in productIDs)
             {
-                if (Initialize.player.getTrium(id) == null) {
+                if (Initialize.player.getTrium(id) == null)
+                {
                     // We found something new!
                     unlockedID = id;
                     break;
@@ -370,9 +379,10 @@ namespace Reaction
             }
 
             // Make sure we have unlocked something new
-            if (unlockedID == -1) {
-				experienceLevel = unlockedExperience;
-				return -1;
+            if (unlockedID == -1)
+            {
+                experienceLevel = unlockedExperience;
+                return -1;
             }
 
 
@@ -380,30 +390,32 @@ namespace Reaction
                 "FROM Trium " +
                 "WHERE ID = " + unlockedID;
 
-			string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
+            string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
 
-			IDbConnection dbconn;
-			dbconn = (IDbConnection)new SqliteConnection(connectionPath);
-			dbconn.Open();
-			IDbCommand dbcmd = dbconn.CreateCommand();
-			dbcmd.CommandText = sqlQuery;
+            IDbConnection dbconn;
+            dbconn = (IDbConnection)new SqliteConnection(connectionPath);
+            dbconn.Open();
+            IDbCommand dbcmd = dbconn.CreateCommand();
+            dbcmd.CommandText = sqlQuery;
 
-			IDataReader reader = dbcmd.ExecuteReader();
+            IDataReader reader = dbcmd.ExecuteReader();
 
-            while (reader.Read()) {
+            while (reader.Read())
+            {
                 unlockedExperience = reader.GetInt32(0);
 
             }
 
-			reader.Close();
-			reader = null;
-			dbcmd.Dispose();
-			dbcmd = null;
-			dbconn.Close();
-			dbconn = null;
+            reader.Close();
+            reader = null;
+            dbcmd.Dispose();
+            dbcmd = null;
+            dbconn.Close();
+            dbconn = null;
 
             // Make sure we got something from the query
-            if (unlockedExperience == -1) {
+            if (unlockedExperience == -1)
+            {
                 experienceLevel = unlockedExperience;
                 return -1;
             }
