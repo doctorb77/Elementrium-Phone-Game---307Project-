@@ -342,7 +342,7 @@ namespace Assets.Scripts {
                     buttonD.GetComponent<Image>().color = Color.green;
 				} else {
 					//make red then
-                    buttonD.GetComponent<Image>().color = Color.green;
+                    buttonD.GetComponent<Image>().color = Color.red;
 					if (rightanswer == answer1.text) {
 						//make green
                         buttonA.GetComponent<Image>().color = Color.green;
