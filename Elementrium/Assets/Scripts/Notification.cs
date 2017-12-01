@@ -132,5 +132,10 @@ namespace Notification_Bar
         {
             sText = s;
         }
+
+        public void onClick()
+        {
+            GameObject.FindGameObjectWithTag("FactsNote").GetComponent<Animator>().Play("NotificationExit");
+        }
     }
 }
