@@ -36,15 +36,30 @@ public class ZoomInfo : MonoBehaviour {
 	void Start () {
         infoOn = false;
         deleteOn = false;
+
         level1.SetActive(true);
         level2.SetActive(false);
         level3.SetActive(false);
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        int triumID = 1;
+        if (targetBuddy != null)
+        {
+            triumID = targetBuddy.GetComponent<BuddyBehavior>().TriumID;
+            int tier = Initialize.player.getTrium(triumID).getTier();
+
+            level1.SetActive(true);
+            level2.SetActive(false);
+            level3.SetActive(false);
+
+            if (tier >= 2)
+                level2.SetActive(true);
+            if (tier >= 3)
+                level3.SetActive(true);
+        }
+    }
     public void OpenZoomin() {
         if (Initialize.sh.getCurrentState().name == "MainGameScene")
         {

@@ -8,6 +8,7 @@ using Ranch;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using Initialization;
+using BackpackObject;
 
 //editted to add Statehandler on 10/28/2017
 public class ButtonListButton : MonoBehaviour
@@ -18,6 +19,7 @@ public class ButtonListButton : MonoBehaviour
     public Image myImage;
 	public string name;
 	private string myId;
+    private int myId2;
 	private int tab;
 	private string myMass;
 	private string myCommonName;
@@ -69,6 +71,7 @@ public class ButtonListButton : MonoBehaviour
 	public void SetId(int id)
 	{
 		myId = ""+id;
+        myId2 = id;
 	}
 	public void SetMass(decimal mass)
 	{
@@ -118,9 +121,22 @@ public class ButtonListButton : MonoBehaviour
 				} else if (tab == 2) {//molecule
 					Camera.main.GetComponent<Glossary> ().setinfo2 (myCommonName, myMass, myFormula);
 				}
-				Camera.main.GetComponent<Glossary> ().setfact1 (myFact1);
-				Camera.main.GetComponent<Glossary> ().setfact2 (myFact2);
-				Camera.main.GetComponent<Glossary> ().setfact3 (myFact3);
+
+                int tier = Initialize.player.getTrium(myId2).getTier();
+
+                if (tier >= 1)
+				    Camera.main.GetComponent<Glossary> ().setfact1 (myFact1);
+                else
+                    Camera.main.GetComponent<Glossary>().setfact1("FACT LOCKED");
+                if (tier >=2 )
+				    Camera.main.GetComponent<Glossary> ().setfact2 (myFact2);
+                else
+                    Camera.main.GetComponent<Glossary>().setfact2("FACT LOCKED");
+                if (tier >= 3)
+				    Camera.main.GetComponent<Glossary> ().setfact3 (myFact3);
+                else
+                    Camera.main.GetComponent<Glossary>().setfact3("FACT LOCKED");
+
                 Camera.main.GetComponent<Glossary>().myimg.sprite = mysprite;
                 GlossaryAnim.Play("GlossaryInfoDisplayPopUp");
 				//Debug.Log ("Played popup");

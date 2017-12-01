@@ -23,14 +23,14 @@ namespace Fusion
 		public CosmicRanch cr = Initialize.ranch;
 		public Backpack bp = Initialize.player;
 
-		/**
+        /**
          * fuse()
          * 
          * Algorithm used to "fuse" atoms within a User's backpack. 
          * 
          */
-		public bool fuse(List<GameObject> selected)
-		{
+        public bool fuse(List<GameObject> selected)
+        {
 
             /* TODO: Support selecting multiple atoms at a time
             if (keyOne != keyTwo) {
@@ -40,10 +40,10 @@ namespace Fusion
 
             int maxFuse = Backpack.maxElement;
 
-			// Make sure the list isn't empty
-			if (selected.Count != 2)
-			{
-				Initialize.sh.setCurrentState("MainGameScene", true, true);
+            // Make sure the list isn't empty
+            if (selected.Count != 2)
+            {
+                Initialize.sh.setCurrentState("MainGameScene", true, true);
                 return false;
             }
             int Trium1ID = selected[0].GetComponent<BuddyBehavior>().TriumID;
@@ -57,7 +57,7 @@ namespace Fusion
                 Initialize.sh.setCurrentState("MainGameScene", true, true);
                 return false;
             }
-			int comb = Trium1ID + Trium2ID;
+            int comb = Trium1ID + Trium2ID;
 
             // LEVEL NOT HIGH ENOUGH FOR THIS FUSION
             if (comb > maxFuse)
@@ -66,68 +66,94 @@ namespace Fusion
                 return false;
             }
 
-			//Debug.Log("ATOM ID FOR FUSION : " + comb);
+            //Debug.Log("ATOM ID FOR FUSION : " + comb);
 
-			int fusionID = comb;  // The database ID of the trium
-			string atomName = eName[comb-1];  // The name of the trium
-			string formula = eList[comb-1];  // The Formula of the trium
-			int atomicNumber = -1;  // The Atomic Number of the trium
+            int fusionID = comb;  // The database ID of the trium
+            string atomName = eName[comb - 1];  // The name of the trium
+            string formula = eList[comb - 1];  // The Formula of the trium
+            int atomicNumber = -1;  // The Atomic Number of the trium
 
-			/****** Update backpack and remove the selected buddies ******/
-			// Destroy old Triums
-			Trium old = (Trium)bp.getBP()[Trium1ID];
-			old.setCount(old.getCount() - 1);
+            /****** Update backpack and remove the selected buddies ******/
+            // Destroy old Triums
+            Trium old = (Trium)bp.getBP()[Trium1ID];
+            old.setCount(old.getCount() - 1);
             Trium old2 = (Trium)bp.getBP()[Trium2ID];
             old.setCount(old2.getCount() - 1);
 
             GameObject cr = GameObject.FindGameObjectWithTag("CosmicRanch");//.GetComponent<CosmicRanch>().AddBuddyToList()
 
             foreach (GameObject b in selected)
-			{
-				//Debug.Log("Removing " + b.GetComponent<BuddyBehavior>().triumformula);
-				cr.GetComponent<CosmicRanch>().RemoveBuddyFromList(b);
-			}
+            {
+                //Debug.Log("Removing " + b.GetComponent<BuddyBehavior>().triumformula);
+                cr.GetComponent<CosmicRanch>().RemoveBuddyFromList(b);
+            }
 
-			// See if we've unlocked this Trium before.
-			bool quizThem = (bp.getTrium (comb) == null);
+            // See if we've unlocked this Trium before.
 
             Backpack.unlockedElement[comb] = true;
-			/****** Update backpack and add new GameObject buddy ******/
+            /****** Update backpack and add new GameObject buddy ******/
 
-			// Add new Trium to backpack
-			bp.addToBackpack(comb, atomName, atomicNumber);
+            // Add new Trium to backpack
+           // Get rid of any spaces in formula
+            formula = formula.Replace(" ", "");
 
-			// Get rid of any spaces in formula
-			formula = formula.Replace(" ", "");
-
-			// Create a buddy game object from existing Prefabs
+            // Create a buddy game object from existing Prefabs
 
             // USE DATABASE QUERY HERE IN PLACE OF ELIST IF YOU WANT
-			GameObject buddy = Resources.Load("Prefabs/Triums/" + eList[comb-1]) as GameObject;
+            GameObject buddy = Resources.Load("Prefabs/Triums/" + eList[comb - 1]) as GameObject;
 
-			// Instantiate an actual game object and transform it on the screen
-			GameObject actual = GameObject.Instantiate(buddy);
-			actual.transform.SetParent(ws.transform, true);
-			//buddy.transform.SetParent(buttonTemplate.transform.parent, false);
-			float x = (float)(UnityEngine.Random.value - 0.5) * 900;
-			float y = (float)(UnityEngine.Random.value - 0.5) * 900;
-			actual.transform.localPosition = new Vector3(0, -430, -1);
+            // Instantiate an actual game object and transform it on the screen
+            GameObject actual = GameObject.Instantiate(buddy);
+            actual.transform.SetParent(ws.transform, true);
+            //buddy.transform.SetParent(buttonTemplate.transform.parent, false);
+            float x = (float)(UnityEngine.Random.value - 0.5) * 900;
+            float y = (float)(UnityEngine.Random.value - 0.5) * 900;
+            actual.transform.localPosition = new Vector3(0, -430, -1);
 
-			// Create a new buddy object and add it to the cosmic ranch
-			Buddy bud = new Buddy(0, x, y, atomicNumber, atomName, actual, false, false);
-			cr.GetComponent<CosmicRanch>().AddBuddyToList();
+            // Create a new buddy object and add it to the cosmic ranch
+            Buddy bud = new Buddy(0, x, y, atomicNumber, atomName, actual, false, false);
+            cr.GetComponent<CosmicRanch>().AddBuddyToList();
 
             //cr.GetComponent<CosmicRanch>().AddBuddyToList(actual); 
             Initialize.sh.setCurrentState("MainGameScene", true, true);
 
+            bool quizThem = (bp.getTrium(comb) == null);
+            Debug.Log("QUIZTHEM : " + quizThem);
+            System.Random rnd = new System.Random();
+            int elementToQuiz = 1;
+            int pick = 0;
+            if (Backpack.fusionIDs.Count != 0)
+            {
+                pick = rnd.Next(Backpack.fusionIDs.Count);
+                elementToQuiz = Backpack.fusionIDs[pick];
+            }
+
 			// This is a new Trium, let's do a quiz! :)
-			Debug.Log ("comb: " + comb);
-			if (quizThem) {
+			Debug.Log ("Element to quiz (fusion first time) : " + comb);
+ 
+            if (quizThem) {
 				//Debug.Log ("buttonA:" + Initialize.quizzer.buttonA.name);
-				Debug.Log ("I MADE IT MOM");
-				Initialize.quizID = comb;
+				//Debug.Log ("I MADE IT MOM");
+				Initialize.quizID = elementToQuiz;
 			}
 
+   //>>>>>...// Grab LEVEL
+            int level = 1;
+           // printList("Fusion ID Pre", Backpack.fusionIDs);
+            Backpack.handleExp(comb, level, 0);
+            List<int> twoFus = new List<int>();
+            if (Trium1ID == Trium2ID)
+                twoFus.Add(Trium1ID);
+            else
+            {
+                twoFus.Add(Trium1ID);
+                twoFus.Add(Trium2ID);
+            }
+
+            bp.updateTiers(twoFus);
+            // printList("Fusion ID Post", Backpack.fusionIDs);
+            bp.addToBackpack(comb, atomName, atomicNumber);
+            
             return true;
 
 		}
@@ -275,6 +301,12 @@ namespace Fusion
 
 		}
 
-	}
-
+        public void printList(string name, List<int> s)
+        {
+            for (int i = 0; i < s.Count; i++)
+            {
+                Debug.Log("[" + name + "] " + i + " : " + s[i]);
+            }
+        }
+    }
 }

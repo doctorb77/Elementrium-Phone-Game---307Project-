@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using TriumObject;
+using System.Collections.Generic;
+using Reaction;
 
 namespace BackpackObject 
 {
@@ -11,8 +13,10 @@ namespace BackpackObject
         public static int exp;
         private Hashtable bp;
                                        //1,   2,  3,   4
-        public static int[] expLevels = {0,200,500,1000000};
-        public static int[] elementCap = {0,2,3, 8, 8 }; // Li, O, O
+        public static int[] expLevels = {0,140,700,5500,10900,2000000000};
+        public static List<int> reactionIDs = new List<int>();
+        public static List<int> fusionIDs = new List<int>();
+        public static int[] elementCap = {0,2,3,8,13,92}; // Li, O, O
         public static bool[] unlockedElement = new bool[93];
         public static int maxElement = 2; // Default to oxygen for testing.
         // private int[] levelSteps;
@@ -48,6 +52,63 @@ namespace BackpackObject
             return percentage;
         }
 
+        public void updateTiers(List<string> IDS)
+        {
+            foreach (string triumID in IDS) {
+                string triumName = "";
+                int atomID = 1;
+                int tID = ReactionHandler.getInfo(triumID, out triumName, out atomID);
+                Trium t = (Trium)bp[tID];
+                t.increaseTier();
+                Debug.Log("Increased Tier for " + triumID + " to " + t.getTier());
+            }
+        }
+
+        public void updateTiers(List<int> IDS)
+        {
+            foreach (int triumID in IDS)
+            {
+                Trium t = (Trium)bp[triumID];
+                t.increaseTier();
+                Debug.Log("Increased Tier for " + t.getName() + " to " + t.getTier());
+            }
+        }
+
+        // reactionID = reaction table id, level = stage level, type : 0 = fusion, 1 = grouping, 2 = reaction
+        public static void handleExp(int reactionID, int level, int type)
+        {
+            int rBase = 200;
+            int gBase = 50;
+            int fBase = 100;
+
+            if ((reactionIDs.Contains(reactionID) && (type == 1 || type == 2)) || (fusionIDs.Contains(reactionID) && type == 0))
+            {
+                rBase /= 10;
+                gBase /= 10;
+                fBase /= 10;
+
+                if (type == 0)
+                    gainExp(level * fBase);
+                else if (type == 1)
+                    gainExp(level * gBase);
+                else if (type == 2)
+                    gainExp(level * rBase);
+            } else
+            {
+                if (type == 0)
+                    gainExp(level * fBase);
+                else if (type == 1)
+                    gainExp(level * gBase);
+                else if (type == 2)
+                    gainExp(level * rBase);
+
+                if (type == 1 || type == 2)
+                    reactionIDs.Add(reactionID);
+                else
+                    fusionIDs.Add(reactionID);
+            }
+        }
+
         public static void gainExp(int add)
         {
             exp += add;
@@ -58,6 +119,8 @@ namespace BackpackObject
                 maxElement = elementCap[level];
                 gainExp(0); // In some weird case where 2 levels are gained at once :/
             }
+
+            //Debug.Log("LEVEL UPDATE : " + add + " exp added, " + level + " is level, " + " Max element = " + maxElement);
 
         }
 

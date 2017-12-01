@@ -246,6 +246,7 @@ namespace Assets.Scripts {
         }
 
 		public void OnClick(string picked) {
+            int exp = Backpack.level * 30;
 			Debug.Log ("IT WAS CLICKED");
 			Debug.Log ("Picked: " + picked);
 			okay.gameObject.SetActive (true);
@@ -253,6 +254,7 @@ namespace Assets.Scripts {
 			if (picked == "A") {
 				if (rightanswer == answer1.text) {
                     //got it right make green
+                    Backpack.gainExp(exp);
                     buttonA.GetComponent<Image>().color = Color.green;
 				} else {
 					//make red then
@@ -271,7 +273,8 @@ namespace Assets.Scripts {
 			}
 			else if (picked == "B") {
 				if (rightanswer == answer2.text) {//got it right
-					//make green
+                                                  //make green
+                    Backpack.gainExp(exp);
                     buttonB.GetComponent<Image>().color = Color.green;
 				} else {
 					//make red then
@@ -290,7 +293,8 @@ namespace Assets.Scripts {
 			}
 			else if (picked == "C") {
 				if (rightanswer == answer3.text) {//got it right
-					//make green
+                                                  //make green
+                    Backpack.gainExp(exp);
                     buttonC.GetComponent<Image>().color = Color.green;
 				} else {
 					//make red then
@@ -309,7 +313,8 @@ namespace Assets.Scripts {
 			}
 			else if (picked == "D") {
 				if (rightanswer == answer4.text) {//got it right
-					//make green
+                                                  //make green
+                    Backpack.gainExp(exp);
                     buttonD.GetComponent<Image>().color = Color.green;
 				} else {
 					//make red then

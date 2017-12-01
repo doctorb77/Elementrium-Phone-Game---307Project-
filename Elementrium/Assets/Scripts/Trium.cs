@@ -23,7 +23,7 @@ namespace TriumObject
             }
 
             this.count = 0;
-            this.tier = 0;
+            this.tier = 1;
             this.name = name;
             this.atomicNumber = atomicNumber;
 
@@ -83,7 +83,9 @@ namespace TriumObject
 
         // Method for increasing the Tier of this Trium, if possible
         public void increaseTier() {
-            this.tier = (tier == 3) ? 3 : tier++;
+            Debug.Log("INCREASING TIER FOR " + this.name);
+            this.tier = (this.tier == 3) ? 3 : this.tier + 1;
+            Debug.Log("TIER IS NOW " + this.tier);
         }
 
 

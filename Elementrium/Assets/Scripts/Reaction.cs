@@ -106,7 +106,30 @@ namespace Reaction
             if (req)
             {
                 // TESTING FOR EXP BAR : REMOVE LATER
-                Backpack.gainExp(170);
+                int reactionID = 1;
+                int level = 1;
+                int isGrouping = 1;
+
+                System.Random rnd = new System.Random();
+
+                int pick = rnd.Next(0, reactant2.Count);
+
+                if (!Backpack.reactionIDs.Contains(reactionID))
+                {
+                    bp.updateTiers(reactant);
+                    string triumName = "";
+                    int atomID = 1;
+                    quizTriumID = getInfo(reactant2[pick], out triumName, out atomID);
+                    quizThem = true;
+                    Debug.Log("Quiz for " + reactant2[pick] + " with ID :" + quizTriumID);
+                }
+
+                Debug.Log("LIST : " + Backpack.reactionIDs);
+
+                if (isGrouping == 0)
+                    Backpack.handleExp(reactionID, level, 2);
+                else
+                    Backpack.handleExp(reactionID, level, 1);
                 /*
                 Debug.Log("*******BEGIN PRINTING BACKPACK BEFORE*******");
                 foreach (Trium t in bp.getBP().Values) {
@@ -147,11 +170,10 @@ namespace Reaction
                             return false;
                         }
 
-						if (quizTriumID == -1 && bp.getTrium(key) == null) {
-							quizTriumID = key;
-							quizThem = true;
-						}
-
+//						if (quizTriumID == -1 && bp.getTrium(key) == null) {
+//							quizTriumID = key;
+//							quizThem = true;
+//						}
 
                         bp.addToBackpack(key, triumName, atomID);
 
@@ -176,6 +198,10 @@ namespace Reaction
 					Debug.Log("Name: " + t.getName() + ", Count: " + t.getCount());
 				}
                 */
+
+  // >>>>>..    // GRAB REACTION_ID, LEVEL, and ISGROUPING
+
+
                 CosmicRanch.Instance.AddBuddyToList();
                 Initialize.sh.setCurrentState("MainGameScene", true, true);
 

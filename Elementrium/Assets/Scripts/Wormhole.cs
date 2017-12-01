@@ -281,10 +281,10 @@ namespace WormholeObject {
         public void OnMouseDown()
         {
             //GetComponent<SpriteRenderer>().color = Color.green;
-			Debug.Log("#:" + CosmicRanch.Instance.numBuddies);
+			//Debug.Log("#:" + CosmicRanch.Instance.numBuddies);
             if (CosmicRanch.Instance.numBuddies < 20)
             {
-				Debug.Log ("In the If for numbers < 20");
+				//Debug.Log ("In the If for numbers < 20");
                 accel = true;
                 generateAtoms();
             }
