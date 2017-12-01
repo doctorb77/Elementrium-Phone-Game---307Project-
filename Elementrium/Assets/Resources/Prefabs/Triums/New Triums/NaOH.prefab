@@ -247,7 +247,7 @@ MonoBehaviour:
   triumName: Sodium Hydroxide
   buddy: {fileID: 1443006692654628}
   face: {fileID: 1069191510538814}
-  TriumID: 0
+  TriumID: 110
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

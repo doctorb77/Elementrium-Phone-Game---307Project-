@@ -82,8 +82,9 @@ namespace Assets.Scripts {
 		void Update()
 		{
 			if (Initialize.quizID != -1) {
+                Debug.Log("The ID is: " + Initialize.quizID);
 				Debug.Log ("WE MADE IT DAD");
-				quizUser ();
+				quizUser();
 			}
 
 		}
@@ -102,6 +103,7 @@ namespace Assets.Scripts {
 			okay.gameObject.SetActive(false);
 
 			if (Initialize.quizID == -1) {
+                Initialize.sh.setCurrentState("MainGameScene", true, true);
 				return;
 			}
 
@@ -140,6 +142,8 @@ namespace Assets.Scripts {
 				if (columnName == null) {
 					return;
 				}
+
+                Debug.Log("Column Name: " + columnName);
 
 				/**
              * SQL Query to obtain:

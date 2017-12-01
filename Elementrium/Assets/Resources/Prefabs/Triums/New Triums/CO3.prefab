@@ -265,7 +265,7 @@ MonoBehaviour:
   triumName: Carbonate
   buddy: {fileID: 1899272227959250}
   face: {fileID: 1399206921759420}
-  TriumID: 0
+  TriumID: 106
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

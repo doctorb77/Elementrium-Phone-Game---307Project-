@@ -277,7 +277,7 @@ MonoBehaviour:
   triumName: Sodium Azide
   buddy: {fileID: 1269380282211680}
   face: {fileID: 1021733794406922}
-  TriumID: 0
+  TriumID: 108
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

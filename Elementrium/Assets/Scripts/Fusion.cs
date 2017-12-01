@@ -73,7 +73,15 @@ namespace Fusion
             int fusionID = comb;  // The database ID of the trium
             string atomName = eName[comb - 1];  // The name of the trium
             string formula = eList[comb - 1];  // The Formula of the trium
-            int atomicNumber = -1;  // The Atomic Number of the trium
+            int atomicNumber = comb;  // The Atomic Number of the trium
+
+			// Get experience level
+			int experienceLevel = getExpLevel(comb);
+			if (experienceLevel == -1)
+			{
+				Initialize.sh.setCurrentState("MainGameScene", true, true);
+				return false;
+			}
 
             /****** Update backpack and remove the selected buddies ******/
             // Destroy old Triums
@@ -94,14 +102,6 @@ namespace Fusion
 
             Backpack.unlockedElement[comb] = true;
 			/****** Update backpack and add new GameObject buddy ******/
-
-            // Get experience level
-			int experienceLevel = getExpLevel(comb);
-			if (experienceLevel == -1)
-			{
-				Initialize.sh.setCurrentState("MainGameScene", true, true);
-				return false;
-			}
 
             // Add new Trium to backpack
            // Get rid of any spaces in formula
@@ -329,31 +329,33 @@ namespace Fusion
         public static int getExpLevel(int id) {
             int exp = -1;
 
-            Debug.Log("FUSION ID: " + id);
-
-            string sqlQuery = "SELECT ID, Experience " +
+            string sqlQuery = "SELECT IFNULL(Experience, -1) " +
                 "FROM Trium " +
                 "WHERE ID = " + id;
 
-            IDataReader reader = SQLiteExample.makeQuery(sqlQuery);
+			string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
 
-            int readerID = -1;
+			IDbConnection dbconn;
+			dbconn = (IDbConnection)new SqliteConnection(connectionPath);
+			dbconn.Open();
+			IDbCommand dbcmd = dbconn.CreateCommand();
+			dbcmd.CommandText = sqlQuery;
 
+			IDataReader reader = dbcmd.ExecuteReader();
 
             while (reader.Read()) {
-                readerID = reader.GetInt32(0);
-				Debug.Log("ID: " + id);
-                object readerType = reader.GetValue(1);
-                Debug.Log("type: " + (int) readerType);
+                exp = reader.GetInt32(0);
                 break;
             }
 
-            //Debug.Log("ID: " + id);
-            //Debug.Log("exp: " + exp);
-
+			reader.Close();
+			reader = null;
+			dbcmd.Dispose();
+			dbcmd = null;
+			dbconn.Close();
+			dbconn = null;
 
             return exp;
-            //return (readerValue == -1) ? 1 : readerValue;
                 
         }
     }

@@ -235,7 +235,7 @@ MonoBehaviour:
   triumName: Trinitrogen
   buddy: {fileID: 1654764577020854}
   face: {fileID: 1953303868141826}
-  TriumID: 0
+  TriumID: 104
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

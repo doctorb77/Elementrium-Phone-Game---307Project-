@@ -205,7 +205,7 @@ MonoBehaviour:
   triumName: Diatomic Hydrogen
   buddy: {fileID: 1311741891087136}
   face: {fileID: 1141722072288054}
-  TriumID: 0
+  TriumID: 100
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

@@ -265,7 +265,7 @@ MonoBehaviour:
   triumName: Nitrate
   buddy: {fileID: 1359472639959070}
   face: {fileID: 1762896891405788}
-  TriumID: 0
+  TriumID: 105
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

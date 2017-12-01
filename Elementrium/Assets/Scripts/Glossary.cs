@@ -129,6 +129,7 @@ namespace GlossaryObject
             //buttonListControl.PopulateGlossaryList("Atom");
             //print(Initialize.buddyList.Count);
 			PopulateGlossaryAtoms();
+            PopulateGlossaryMolecules();
         }
 
         public void GlossaryTabs()
@@ -172,7 +173,9 @@ namespace GlossaryObject
 				//"Trium.Mass, Trium.FactOne, Trium.FactTwo, Trium.FactThree FROM Trium"
 				//+ "INNER JOIN Element ON Trium.ElementID=Element.ID";                 
 			string sqlQuery = "SELECT Trium.ID, Trium.Name, Trium.Formula, Trium.Mass, IFNULL(Trium.FactOne, 'X'), IFNULL(Trium.FactTwo, 'X'), IFNULL(Trium.FactThree, 'X'), Element.AtomicNumber " + 
-				"FROM Trium INNER JOIN Element ON Element.ID = IFNULL(Trium.ElementID, -1) WHERE IFNULL(Element.AtomicNumber, -1) <= 92";
+				"FROM Trium " +
+                "INNER JOIN Element ON Element.ID = IFNULL(Trium.ElementID, -1) " +
+                "WHERE IFNULL(Element.AtomicNumber, -1) <= 92";
 			dbcmd.CommandText = sqlQuery;
 
 			IDataReader reader = dbcmd.ExecuteReader();
@@ -197,7 +200,7 @@ namespace GlossaryObject
 				if (third == "X") {
 					third = "";
 				}
-				int atomicnum = reader.GetInt32(7);
+				int atomicnum = id;
 				//Sprite spr;
 			    //Debug.Log ("Image: "+myimg.sprite.name);
 				//if (GlossaryUIDispenser.Instance.sprH.name.Contains (formula)) {
@@ -207,6 +210,10 @@ namespace GlossaryObject
 					if (GlossaryUIDispenser.sprites[atomicnum - 1] != null) {
 						Sprite spr = GlossaryUIDispenser.sprites[atomicnum - 1];
 						if (bp.getTrium(id) != null) {
+                            Debug.Log("Element: " + element);
+                            Debug.Log("AtomicNum: " + atomicnum);
+                            Debug.Log("formula: " + formula);
+                            Debug.Log("spr: " + spr);
 							buttonListControl.PopulateList (element, atomicnum, mass, formula, first, second, third, spr);
 						}
 					}
@@ -270,11 +277,17 @@ namespace GlossaryObject
 				if (third == "X") {
 					third = "";
 				}
+
+                Debug.Log("molecule" + molecule);
+                Debug.Log("commonname" + commonname);
+                Debug.Log("mass" + mass);
+                Debug.Log("formula" + formula);
+
 				if ((id) < GlossaryUIDispenser.sprites.Count) {
 					if (GlossaryUIDispenser.sprites[id] != null) {
 						Sprite spr = GlossaryUIDispenser.sprites[id];
 						if (bp.getTrium(id) != null) {
-							buttonListControl.PopulateSecondList (molecule, commonname, mass, formula, first, second, third, spr);
+							buttonListControl.PopulateSecondList (molecule, commonname, mass, formula, first, second, third, spr, id);
 						}
 					}
 				}

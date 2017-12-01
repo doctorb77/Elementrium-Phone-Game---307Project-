@@ -91,8 +91,8 @@ namespace Initialization
 			}
 			*/
 
-            //if (eFormulas == null || eNames == null) {
-
+            if (eFormulas == null || eNames == null)
+            {
                 eFormulas = new List<string>();
                 eNames = new List<string>();
 
@@ -100,19 +100,32 @@ namespace Initialization
                     "FROM Trium " +
                     "WHERE ElementID not null";
 
-                IDataReader reader = SQLiteExample.makeQuery(sqlQuery);
+				string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
 
+				IDbConnection dbconn;
+				dbconn = (IDbConnection)new SqliteConnection(connectionPath);
+				dbconn.Open();
+				IDbCommand dbcmd = dbconn.CreateCommand();
+				dbcmd.CommandText = sqlQuery;
 
+                IDataReader reader = dbcmd.ExecuteReader();
 
-                while (reader.Read()) {
+                int counter = 0;
+
+                while (reader.Read())
+                {
                     eNames.Add(reader.GetString(0));
                     eFormulas.Add(reader.GetString(1));
+                    counter++;
                 }
 
-                Debug.Log("eNamesLen: " + eNames.Count + ", eFormulasLen: " + eFormulas.Count);
-
-                
-           // }
+				reader.Close();
+				reader = null;
+				dbcmd.Dispose();
+				dbcmd = null;
+				dbconn.Close();
+				dbconn = null;
+            }
 
 			quizID = -1;
 

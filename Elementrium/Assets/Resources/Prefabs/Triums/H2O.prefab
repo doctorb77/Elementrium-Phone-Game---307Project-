@@ -247,7 +247,7 @@ MonoBehaviour:
   triumName: Water
   buddy: {fileID: 1580978546913748}
   face: {fileID: 1157884328268714}
-  TriumID: 0
+  TriumID: 97
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

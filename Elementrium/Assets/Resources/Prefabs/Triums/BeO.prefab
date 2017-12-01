@@ -205,7 +205,7 @@ MonoBehaviour:
   triumName: Beryllium Oxide
   buddy: {fileID: 1735140263060412}
   face: {fileID: 1081848088987960}
-  TriumID: 0
+  TriumID: 95
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

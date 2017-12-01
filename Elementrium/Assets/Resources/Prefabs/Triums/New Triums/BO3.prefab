@@ -265,7 +265,7 @@ MonoBehaviour:
   triumName: Borate
   buddy: {fileID: 1707634330406874}
   face: {fileID: 1720132647223282}
-  TriumID: 0
+  TriumID: 102
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

@@ -217,7 +217,7 @@ MonoBehaviour:
   triumName: Nitric Oxide
   buddy: {fileID: 1973511489130414}
   face: {fileID: 1387281657524296}
-  TriumID: 0
+  TriumID: 99
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

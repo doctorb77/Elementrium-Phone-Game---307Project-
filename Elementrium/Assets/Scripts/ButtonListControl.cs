@@ -142,7 +142,7 @@ public class ButtonListControl : MonoBehaviour
 
                 for (int i = 0; i < r.Length; i++)
                 {
-                    Debug.Log("String: " + r[i]);
+//                    Debug.Log("String: " + r[i]);
                     reactions.Add(int.Parse(r[i]));
                 }
 
@@ -422,7 +422,7 @@ public class ButtonListControl : MonoBehaviour
 		button.transform.SetParent(buttonTemplate.transform.parent, false);
 		buttons.Add(button);
 	}
-	public void PopulateSecondList(string buttonText, string commonname, decimal mass, string formula, string factOne, string factTwo, string factThree, Sprite spr)
+	public void PopulateSecondList(string buttonText, string commonname, decimal mass, string formula, string factOne, string factTwo, string factThree, Sprite spr, int gridersID)
 	{
 		GameObject button = Instantiate(buttonTemplate) as GameObject;
 		button.SetActive(true);
@@ -430,6 +430,7 @@ public class ButtonListControl : MonoBehaviour
 		button.GetComponent<ButtonListButton>().SetSprite(spr);
         button.GetComponent<ButtonListButton>().SetTab(2);
 		button.GetComponent<ButtonListButton>().SetText(buttonText,commonname);
+        button.GetComponent<ButtonListButton>().SetId(gridersID);
 		button.GetComponent<ButtonListButton>().SetCommon(commonname);
 		button.GetComponent<ButtonListButton>().SetMass(mass);
 		button.GetComponent<ButtonListButton>().SetFormula(formula);

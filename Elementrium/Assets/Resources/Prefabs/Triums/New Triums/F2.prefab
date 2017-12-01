@@ -217,7 +217,7 @@ MonoBehaviour:
   triumName: Difluorine
   buddy: {fileID: 1872787551153082}
   face: {fileID: 1462604609147098}
-  TriumID: 0
+  TriumID: 107
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0

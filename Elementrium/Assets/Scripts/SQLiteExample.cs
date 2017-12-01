@@ -135,7 +135,6 @@ namespace Assets.Scripts
 
 			// Set the next command's text to the query that was passed in
 			dbcmd.CommandText = query;
-
 			
 			return dbcmd.ExecuteReader();
 

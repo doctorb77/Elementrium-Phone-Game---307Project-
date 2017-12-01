@@ -307,7 +307,7 @@ MonoBehaviour:
   triumName: Magnesium Hydroxide
   buddy: {fileID: 1368942611244056}
   face: {fileID: 1578782631115806}
-  TriumID: 0
+  TriumID: 111
   faceXYoff: 0
   cr: {fileID: 0}
   selected: 0
