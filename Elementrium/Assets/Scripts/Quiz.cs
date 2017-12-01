@@ -84,10 +84,12 @@ namespace Assets.Scripts {
 		// Update is called once per frame
 		void Update()
 		{
-			if (Initialize.quizID != -1) {
+            if (!Notification.tutDone)
+                Initialize.quizID = -1;
+
+            if (Initialize.quizID != -1) {
 				quizUser();
 			}
-
 		}
 
         /**
@@ -102,8 +104,11 @@ namespace Assets.Scripts {
 			okay.gameObject.SetActive(false);
 
             // No quizzes if in tutorial or if not new
-			if (Initialize.quizID == -1) {// || Notification.Notification.popQuizes == false) {
-                Initialize.sh.setCurrentState("MainGameScene", true, true);
+			if (Initialize.quizID == -1 || Notification.tutDone == false) {
+                if (Notification.tutDone)
+                {
+                    Initialize.sh.setCurrentState("MainGameScene", true, true);
+                } 
 				return;
 			}
 

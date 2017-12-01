@@ -112,7 +112,7 @@ namespace Fusion
 			// USE DATABASE QUERY HERE IN PLACE OF ELIST IF YOU WANT
 			if (atomicNumber - 1 > -1)
 			{
-				Debug.Log("CREATED" + atomicNumber);
+				//Debug.Log("CREATED" + atomicNumber);
 				GameObject buddy = TriumGODispenser.dispenserList[atomicNumber - 1];
 				//GameObject buddy = Resources.Load("Prefabs/Triums/" + eList[comb-1]) as GameObject;
 

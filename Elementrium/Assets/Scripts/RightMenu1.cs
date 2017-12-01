@@ -96,6 +96,7 @@ public class RightMenu1 : MonoBehaviour
             Initialize.ranch.inGrouping = true;
             buttonListControl.PopulateGroupList(true);
             animScroll.Play("ScrollListEnter");
+            Debug.Log("GOT TO CHANGE PLACE");
             Initialize.sh.setCurrentState("Group", true, false);//visible, not active
 		}
 	}

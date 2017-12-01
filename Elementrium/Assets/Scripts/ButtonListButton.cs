@@ -104,6 +104,7 @@ public class ButtonListButton : MonoBehaviour
 		if (Initialize.sh.getCurrentState().name == "MainGameScene")
         {
             //Debug.Log("BUTTON CLICKED");
+            Initialize.sh.setCurrentState("Group",true, true);
             GameObject rightMenu = GameObject.Find("RightActivation");
             rightMenu.GetComponent<RightMenu1>().Play();
         }
