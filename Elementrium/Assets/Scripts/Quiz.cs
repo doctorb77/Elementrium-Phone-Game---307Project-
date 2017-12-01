@@ -18,6 +18,7 @@ namespace Assets.Scripts {
 	{
 		public Animator QuizAnim;
 		public GameObject QuizSystem;
+        public List<int> doneQuizzes;
 		public bool quizOn;
 		public Text question;
 		public Text answer1;
@@ -39,6 +40,7 @@ namespace Assets.Scripts {
 			quizOn = false;
             RefreshQuiz();
             SetButtonActivation(true);
+            doneQuizzes = new List<int>();
 			//quizUser ();
 		}
 		//how will quizzes be chosen to pop up
@@ -107,7 +109,7 @@ namespace Assets.Scripts {
 
 			int id = Initialize.quizID;
 			Initialize.quizID = -1;
-
+            int qBoi = -1;
 			if (!quizOn) {
 				QuizAnim.Play ("QuizEnter");
 				quizOn = true;
@@ -117,99 +119,122 @@ namespace Assets.Scripts {
 					return;
 				}
 
-				int quizNum = Random.Range (1, 3);
-				string columnName = null;
+          
+                // Set up local variables & set default values
+                // "defaultValue"
+                int triumID = -1;
+                string defaultValue = "defaultValue";
+                string triumName = defaultValue;
+                int quizID = -1;
+                string questionString = defaultValue;
+                string choiceA = defaultValue;
+                string choiceB = defaultValue;
+                string choiceC = defaultValue;
+                string choiceD = defaultValue;
+                rightanswer = defaultValue;
 
-				// Update the column name we want to use
-				switch (quizNum) {
-				case 1:
-					columnName = "QuizOneID";
-					break;
-				case 2:
-					columnName = "QuizTwoID";
-					break;
-				case 3:
-					columnName = "QuizThreeID";
-					break;
-				}
 
-				// Make sure the column name was updated
-				if (columnName == null) {
-					return;
-				}
+                int i = 0;
+                // Do until we get a NEW quiz
+                do
+                {
+                    i++;
+                    if (i >= 2)
+                        Debug.Log("RESEARCHING >>>>");
+                   
+                    int quizNum = Random.Range(1, 3);
+                    string columnName = null;
 
-				/**
-             * SQL Query to obtain:
-             * 
-             * Trium ID
-             * Trium Name
-             * Quiz ID
-             * Quiz Question
-             * Quiz ChoiceA
-             * Quiz ChoiceB
-             * Quiz ChoiceC
-             * Quiz ChoiceD
-             * Quiz Answer
-             * 
-             * 9 columns total
-             */
-				string sqlQuery = "SELECT t.ID AS TriumID, t.Name, q.ID, q.Question, q.ChoiceA, q.ChoiceB, IFNULL(q.ChoiceC, 'defaultValue'), IFNULL(q.ChoiceD, 'defaultValue'), q.Answer " +
-				                 "FROM Trium t " +
-				                 "INNER JOIN Quiz q ON q.ID = t." + columnName + " " +
-				                 "WHERE t.ID = " + id;
+                    // Update the column name we want to use
+                    switch (quizNum)
+                    {
+                        case 1:
+                            columnName = "QuizOneID";
+                            break;
+                        case 2:
+                            columnName = "QuizTwoID";
+                            break;
+                        case 3:
+                            columnName = "QuizThreeID";
+                            break;
+                    }
 
-				string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
-				IDbConnection dbconn;
-				dbconn = (IDbConnection)new SqliteConnection (connectionPath);
-				dbconn.Open ();
-				IDbCommand dbcmd = dbconn.CreateCommand ();
-				dbcmd.CommandText = sqlQuery;
+                    // Make sure the column name was updated
+                    if (columnName == null)
+                    {
+                        return;
+                    }
 
-				// Set up local variables & set default values
-				// "defaultValue"
-				int triumID = -1;
-				string defaultValue = "defaultValue";
-				string triumName = defaultValue;
-				int quizID = -1;
-				string questionString = defaultValue;
-				string choiceA = defaultValue;
-				string choiceB = defaultValue;
-				string choiceC = defaultValue;
-				string choiceD = defaultValue;
-				rightanswer = defaultValue;
+                    /**
+                 * SQL Query to obtain:
+                 * 
+                 * Trium ID
+                 * Trium Name
+                 * Quiz ID
+                 * Quiz Question
+                 * Quiz ChoiceA
+                 * Quiz ChoiceB
+                 * Quiz ChoiceC
+                 * Quiz ChoiceD
+                 * Quiz Answer
+                 * 
+                 * 9 columns total
+                 */
+                    string sqlQuery = "SELECT t.ID AS TriumID, t.Name, q.ID, q.Question, q.ChoiceA, q.ChoiceB, IFNULL(q.ChoiceC, 'defaultValue'), IFNULL(q.ChoiceD, 'defaultValue'), q.Answer " +
+                                     "FROM Trium t " +
+                                     "INNER JOIN Quiz q ON q.ID = t." + columnName + " " +
+                                     "WHERE t.ID = " + id;
 
-				IDataReader reader = dbcmd.ExecuteReader ();
-				while (reader.Read ()) {
-					triumID = reader.GetInt32 (0);
-					triumName = reader.GetString (1);
-					quizID = reader.GetInt32 (2);
-					questionString = reader.GetString (3);
-					choiceA = reader.GetString (4);
-					choiceB = reader.GetString (5);
-					choiceC = reader.GetString (6);
-					choiceD = reader.GetString (7);
-					rightanswer = reader.GetString (8);
+                    string connectionPath = "URI=file:" + Application.dataPath + "/Elementrium.db";
+                    IDbConnection dbconn;
+                    dbconn = (IDbConnection)new SqliteConnection(connectionPath);
+                    dbconn.Open();
+                    IDbCommand dbcmd = dbconn.CreateCommand();
+                    dbcmd.CommandText = sqlQuery;
 
-				}
 
-				// Verify we got values back from the query
-				if (triumID == -1 || quizID == -1) {
-					return;
-				}
-				if (triumName == defaultValue || questionString == defaultValue ||
-				            choiceA == defaultValue || choiceB == defaultValue ||
-				            rightanswer == defaultValue) {
-					return;
-				}
+                    IDataReader reader = dbcmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        triumID = reader.GetInt32(0);
+                        triumName = reader.GetString(1);
+                        quizID = reader.GetInt32(2);
+                        qBoi = quizID;
+                        questionString = reader.GetString(3);
+                        choiceA = reader.GetString(4);
+                        choiceB = reader.GetString(5);
+                        choiceC = reader.GetString(6);
+                        choiceD = reader.GetString(7);
+                        rightanswer = reader.GetString(8);
 
-				// Close database objects for memory purposes
-				reader.Close ();
-				reader = null;
-				dbcmd.Dispose ();
-				dbcmd = null;
-				dbconn.Close ();
-				dbconn = null;
+                        Debug.Log("QuizID : " + quizID + "\nTriumID" + triumID);
+                    }
 
+                    // Verify we got values back from the query
+                    if (triumID == -1 || quizID == -1)
+                    {
+                        return;
+                    }
+                    if (triumName == defaultValue || questionString == defaultValue ||
+                                choiceA == defaultValue || choiceB == defaultValue ||
+                                rightanswer == defaultValue)
+                    {
+                        return;
+                    }
+
+                    // Close database objects for memory purposes
+                    reader.Close();
+                    reader = null;
+                    dbcmd.Dispose();
+                    dbcmd = null;
+                    dbconn.Close();
+                    dbconn = null;
+
+                    Debug.Log("Found Quiz #" + qBoi);
+                } while (doneQuizzes.Contains(qBoi) && i < 10);
+
+                if (!doneQuizzes.Contains(qBoi))
+                    doneQuizzes.Add(qBoi);
 
 				/* kate do  your magic here pls <3 */
 				question.text = questionString;

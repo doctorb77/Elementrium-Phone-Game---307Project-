@@ -14,7 +14,7 @@ namespace BackpackObject
         public static int exp;
         private Hashtable bp;
                                        //1,   2,  3,   4
-        public static int[] expLevels = {0,140,400,4500,9900,2000000000};
+        public static int[] expLevels = {0,140,500,4500,9900,2000000000};
         public static List<int> reactionIDs = new List<int>();
         public static List<int> fusionIDs = new List<int>();
         public static int[] elementCap = {0,2,3,8,13,92}; // Li, O, O

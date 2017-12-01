@@ -34,7 +34,7 @@ namespace Notification_Bar
             gateOpen = true;
             currShow = false;
             tutDone = true;
-            noteImp = (new GameObject("SomeObjName")).AddComponent<Notification>();
+            //noteImp = (new GameObject("SomeObjName")).AddComponent<Notification>();
             //StartCoroutine(welcomeTutorial());
         }
 
@@ -46,35 +46,36 @@ namespace Notification_Bar
         // Update is called once per frame
         void Update()
         {
-            if (!currShow && Notes.Count > 0 && Times.Count > 0)
+            if (Notes.Count > 0 && Times.Count > 0)
             {
-                Debug.Log("Starting Coroutine Cycle with " + Notes.Count + " in queue");
-                IEnumerator[] seq = new IEnumerator[Notes.Count];
-                
+                //Debug.Log("Starting Coroutine Cycle with " + Notes.Count + " in queue");
+                //IEnumerator[] seq = new IEnumerator[Notes.Count];
+                StartCoroutine(processTask("", 0.0f));
+                /*
                 if (Notes.Count == 1)
                 {
-                    StartCoroutine(noteImp.Sequence(processTask(Notes.Dequeue(), Times.Dequeue())));
+                    StartCoroutine(Sequence(processTask(Notes.Dequeue(), Times.Dequeue())));
                 }
                 else if (Notes.Count == 2)
                 {
-                    StartCoroutine(noteImp.Sequence(processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue())));
+                    StartCoroutine(Sequence(processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue())));
                 }
                 else if (Notes.Count == 3)
                 {
-                    StartCoroutine(noteImp.Sequence(processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue())));
+                    StartCoroutine(Sequence(processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue())));
                 }
                 else if (Notes.Count == 4)
                 {
-                    StartCoroutine(noteImp.Sequence(processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue())));
+                    StartCoroutine(Sequence(processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue())));
                 }
                 else if (Notes.Count == 5)
                 {
-                    StartCoroutine(noteImp.Sequence(processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue())));
+                    StartCoroutine(Sequence(processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue()), processTask(Notes.Dequeue(), Times.Dequeue())));
                 }
-
-            }     
+                */
+            }  
         }
-
+/*
         public IEnumerator Sequence(params IEnumerator[] sequence)
         {
             for (int i = 0; i < sequence.Length; ++i)
@@ -83,24 +84,48 @@ namespace Notification_Bar
                     yield return sequence[i].Current;
             }
         }
-
+*/
         public IEnumerator processTask(string s, float waitTime)
         {
-            currShow = true;
-            GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text = s;
-            Debug.Log("Check A : " + GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text);
-            yield return new WaitForSeconds(0.5f);
-            GameObject.FindGameObjectWithTag("FactsNote").GetComponent<Animator>().Play("NotificationEnter");
-            yield return new WaitForSeconds(waitTime);
-            Debug.Log("Check B : " + GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text);
-            GameObject.FindGameObjectWithTag("FactsNote").GetComponent<Animator>().Play("NotificationExit");
-            yield return new WaitForSeconds(0.5f);
-            Debug.Log("Size of Queue : " + Notes.Count);
+            if (Notes.Count == 1)
+            {
+                GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text = Notes.Dequeue();
+                waitTime = Times.Dequeue();
+                //.Log("Check A : " + GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text);
+                yield return new WaitForSeconds(0.5f);
+                GameObject.FindGameObjectWithTag("FactsNote").GetComponent<Animator>().Play("NotificationEnter");
+                yield return new WaitForSeconds(waitTime);
+                //.Log("Check B : " + GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text);
+                GameObject.FindGameObjectWithTag("FactsNote").GetComponent<Animator>().Play("NotificationExit");
+                yield return new WaitForSeconds(0.5f);
+                //.Log("Size of Queue : " + Notes.Count);
+            } else if (Notes.Count == 2)
+            {
+                GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text = Notes.Dequeue();
+                waitTime = Times.Dequeue();
+                //.Log("Check A : " + GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text);
+                yield return new WaitForSeconds(0.5f);
+                GameObject.FindGameObjectWithTag("FactsNote").GetComponent<Animator>().Play("NotificationEnter");
+                yield return new WaitForSeconds(waitTime);
+                //.Log("Check B : " + GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text);
+                GameObject.FindGameObjectWithTag("FactsNote").GetComponent<Animator>().Play("NotificationExit");
+                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(6.0f);
+                GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text = Notes.Dequeue();
+                waitTime = Times.Dequeue();
+                //.Log("Check A : " + GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text);
+                yield return new WaitForSeconds(0.5f);
+                GameObject.FindGameObjectWithTag("FactsNote").GetComponent<Animator>().Play("NotificationEnter");
+                yield return new WaitForSeconds(waitTime);
+                //.Log("Check B : " + GameObject.FindGameObjectWithTag("Note").GetComponent<Text>().text);
+                GameObject.FindGameObjectWithTag("FactsNote").GetComponent<Animator>().Play("NotificationExit");
+                yield return new WaitForSeconds(0.5f);
+            }
         }
 
         IEnumerator welcomeTutorial()
         {
-            Debug.Log("HERE");
+            //Debug.Log("HERE");
             yield return new WaitForSeconds(0.5f);
             notifyT("Welcome to Elementrium! This cosmic workspace is where you will be able to make over a hundered different elements and molecules!", 5);
             yield return new WaitForSeconds(5.5f);
