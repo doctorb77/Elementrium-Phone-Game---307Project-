@@ -1,7 +1,10 @@
 ﻿<Properties StartupConfiguration="{B89ADB91-F57F-37A6-86B4-794FD559B8C2}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Quiz.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Backpack.cs">
     <Files>
-      <File FileName="Assets/Scripts/Quiz.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Level_UI.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Notification.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ExpBar.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Backpack.cs" Line="153" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
