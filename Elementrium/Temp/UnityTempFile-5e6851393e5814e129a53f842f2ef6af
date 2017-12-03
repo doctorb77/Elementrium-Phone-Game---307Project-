@@ -88,7 +88,7 @@
 -define:ENABLE_UNITYADS_RUNTIME
 -define:UNITY_UNITYADS_API
 -define:ENABLE_MONO
--define:NET_2_0_SUBSET
+-define:NET_2_0
 -define:ENABLE_PROFILER
 -define:DEBUG
 -define:TRACE
@@ -142,9 +142,9 @@
 'Assets/Scripts/TriumSelect.cs'
 'Assets/Scripts/Wormhole.cs'
 'Assets/Scripts/ZoomInfo.cs'
--r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
--r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/System.Xml.Linq.dll'
--r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/UnityScript.dll'
--r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/UnityScript.Lang.dll'
--r:'/Applications/Unity/Unity.app/Contents/Mono/lib/mono/unity/Boo.Lang.dll'
--sdk:unity
+-r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.Runtime.Serialization.dll'
+-r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/System.Xml.Linq.dll'
+-r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/UnityScript.dll'
+-r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/UnityScript.Lang.dll'
+-r:'/Applications/Unity/Unity.app/Contents/MonoBleedingEdge/lib/mono/2.0-api/Boo.Lang.dll'
+-sdk:2.0
